@@ -1,0 +1,138 @@
+body {
+	-webkit-font-smoothing: antialiased;
+}
+#ie7, #ie8 {
+	body {
+
+	}
+}
+h1, h2, h3, h4 {
+    font-weight: 400; 
+    letter-spacing: -.05em;
+    color: @purple;
+}
+h1 {
+	margin: 10px 0 25px;
+	font-size: 2.3em;
+	font-weight: 400; 
+	line-height: 1.1em;
+	i, em {
+		font-weight: 400;
+		font-family: @serifFontFamily;
+		text-transform: lowercase;
+		font-size: 1.1em;
+	}
+}
+h2, h3, h4 { 
+	margin-bottom: 10px;
+	font-weight: 300;
+	letter-spacing: 0;
+	font-size: 1.7em;
+}
+h2 {
+    font-size: 1.25em;
+    line-height: 23px;
+    margin-bottom: 10px;
+    letter-spacing: 0;
+    font-weight: 600;
+}
+h3 {
+	color: @purple;
+	font-size: 1.2em;
+	line-height: 23px;
+	font-weight: 400;
+}
+a:focus {
+	color: #005580;
+	text-decoration: underline;
+}
+p {
+    margin-bottom: 1.4em;
+}
+ul, ol {
+	margin-left: 5px;
+	margin-bottom: 1.4em;
+}
+ul li {
+	.gold-bullets();
+}
+#branding ul li {
+	.no-bullets();
+}
+img {
+	height: auto !important;
+}
+object, embed, iframe {
+	margin: 10px 0 15px;
+	display: block;
+	max-width: 100% !important;
+}
+hr {
+	clear: both;
+}
+summary {
+	font-family: @serifFontFamily;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 1.6em;
+	color: rgb(57, 39, 91);
+	padding: 17px 0;
+	margin: 10px 0 20px 0;
+	border-top: 1px solid rgb(243, 243, 243);
+	line-height: 30px;
+	border-bottom: 1px solid rgb(243, 243, 243);
+}
+.intro-block {
+	color: #6B6B6B;
+    font-family: @serifFontFamily;
+    font-weight: 300;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    font-style: italic;
+}
+small {
+	font-family: @serifFontFamily;
+	font-style: italic;
+}
+blockquote {
+	line-height: 25.5px;
+	font-family: @serifFontFamily;
+	font-size: 16px;
+	font-style: italic;
+	padding: 10px 10px;
+	color: #777;
+	font-weight: 300;
+	position: relative;
+	padding-left: 20px;
+	&.align-left, &.align-right {
+		margin: 30px 0 30px 0;
+		padding: 20px 0 0 15px;
+		border: none;
+		width: 40%;
+		&:after {
+	 	   content: "";
+	 	   position: absolute;
+	 	   top:-10px;
+	 	   left: 15px;
+	 	   width: 65px;
+	 	   height: 5px;
+	 	   background-color:rgb(235, 235, 235);
+	    }
+	}
+	&.align-left {
+		float: left;
+		margin-right: 50px;
+	}
+	&.align-right {
+		float: right;
+		margin-left: 50px;
+	}
+
+}
+
+// Custom Buttons
+
+input[type="submit"] {
+	.uw-button();
+}
+

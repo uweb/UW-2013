@@ -1,0 +1,268 @@
+div.gallery {
+  width: 100%; 
+  position: relative;
+  display: inline-block;
+  margin: 15px 0;
+}
+.gallery span {
+	display: block;
+	color: white;
+	line-height: 15px;
+	font-size: .8em;
+	font-weight: normal;
+	width: 134px;
+	height: 134px;
+	overflow: hidden;
+	background: url('img/gallery/plus-small.gif') no-repeat 110px 8px rgba(57, 39, 91, 0.85);
+	padding: 35px 10px 10px 10px;
+	.box-sizing(border-box);
+	text-align: left;
+	box-shadow: inset 0 0 30px rgba(0, 0, 0, .6);
+	-moz-box-shadow: inset 0 0 30px rgba(0, 0, 0, .6);
+	position: absolute;
+	top: -134px;
+	left: 0;
+	.transition(all 0.3s ease-in-out);
+}
+.gallery .large span {
+	width: 300px;
+	height: 300px;
+	top: -300px;
+	background: url('img/gallery/plus-big.gif') no-repeat 245px 15px rgba(57, 39, 91, 0.85);
+	padding: 60px 20px 20px 20px;
+	line-height: 18px;
+	font-size: .9em;
+}
+.gallery-viewport-wrapper {
+  overflow:hidden;
+  position: relative;
+}
+.gallery-viewport {
+  width:20000px;
+  margin-left: 5px;
+}
+/* --- IE Fixes --- */
+
+#ie7 .gallery span {
+	top: -184px;
+	background: url('img/gallery/plus-small.gif') no-repeat 110px 8px #39275b;
+	width: 125px
+}
+#ie8 .gallery span {
+	background: url('img/gallery/plus-small.gif') no-repeat 110px 8px #39275b;
+}
+#ie7 .gallery .large span {
+	top: -380px;
+	background: url('img/gallery/plus-big.gif') no-repeat 245px 15px #39275b;
+	width: 257px
+}	
+#ie8 .gallery .large span {
+	background: url('img/gallery/plus-big.gif') no-repeat 245px 15px #39275b;
+}
+#ie7 .group div:hover span, #ie7 .large div:hover span {
+	top:0;
+}
+#ie7 .group div {
+	margin-bottom: 0;
+}
+.group div:hover span, .large div:hover span {
+	top: 0;
+}
+.group, .large {
+  width:310px;
+  height:310px;
+  float:left;
+  margin:0;
+}
+.large div {
+  width:298px;
+  height:298px;	
+}
+#add-row {
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+.group div, .large div, 
+#gallery-overlay-image img {
+	position: relative;
+	.box-shadow(0 1px 3px rgba(34, 25, 25, 0.4));
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#999999')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#999999');
+	border: 5px solid #fff;
+	margin: 0;
+	padding: 0;
+	float: left; 
+	overflow: hidden;
+	cursor: pointer;
+	text-align: center; 
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	.box-sizing(border-box);
+	.transition(all 0.4s ease-in-out);
+}
+.image-title  {
+	margin: 0 0 7px 0;
+	padding: 0 0 3px;
+	border-bottom: 1px solid rgba(255, 255, 255, .3);
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 16px;
+	text-transform: uppercase;
+}
+.text-shadow {
+	background: url('img/gallery/text-shadow.png') repeat-x center bottom transparent;
+	display: block;
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+	width: 134px;
+	height: 21px;
+	-ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+.group div:hover, .large div:hover {
+	background-size: 125% 125%;
+}
+.group div {
+	width: 144px;
+	height: 144px;
+	margin: 0 10px 10px 0;
+}
+#ie7 .group div { margin: 0; }
+.slideshow-left, .slideshow-right {
+	width: 36px;
+	height: 112px;
+	display: block;
+	background-image: url('img/gallery/arrows.png');
+	position: absolute;
+	top: 28%;
+	z-index: 2;
+	-webkit-transition-property: left, right;
+    -webkit-transition-duration: 0.05s;
+    cursor: pointer;
+}
+.slideshow-left { 
+	left: -15px; 
+	background-position: -54px 0;
+	&:hover { 
+		background-position: 0 0;
+		left: -17px;
+	}
+}
+.slideshow-right { 
+	right: -15px; 
+	background-position: -104px 0;
+&	:hover { 
+ 		right: -17px; 
+ 		background-position: -154px 0;
+}	
+}
+
+.image-showing .slideshow-left { left: -39px; 
+	&:hover { left: -41px; }
+}
+.image-showing .slideshow-right { right: -24px; 
+	&:hover { right: -26px; }
+}
+
+/* Overlay */
+
+#gallery-overlay-image {
+	padding: 2px 5px 5px 2px;
+	.description {
+		position: absolute;
+		right: 10px;
+		left: 7px;
+		bottom: 10px;
+		background-color: #39275b;
+		background-color: rgba(57, 39, 91, 0.85);
+		padding: 20px;
+		visibility: hidden;
+		opacity: 0;
+		color: #fff;
+		.transition(opacity 0.3s ease-in-out);
+		a {
+			color: #fff;
+			font-size: 11px;
+			text-transform: uppercase;
+			font-weight: bold;
+			background: url('img/gallery/larger.png') no-repeat 0 3px transparent;
+			padding-left: 15px;
+			white-space: nowrap;
+			margin-bottom: 5px;
+			display: inline-block;
+		}
+	}
+	p {
+		margin: 0 0 10px;
+		font-size: 12px;
+	}
+	&:hover .description {
+		visibility: visible;
+		opacity: 1;
+	}
+	.text-shadow {display: none;}
+}
+
+
+#ie7 .opaque { display: none !important }
+.opaque {
+	position: fixed;
+	top:0px;
+	/*top: 211px;*/
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	background-color: white;
+	opacity: 0.7;
+}
+
+
+/*** Dot Navigator *****/
+
+.gallery-table {
+	display: table;
+	margin: 0 auto;
+}
+.gallery-menu {
+	list-style: none;
+	text-align: center;
+	margin-bottom: 0;
+}
+ul.gallery-menu li {
+	display: inline-block;
+	background: url('img/gallery/dots.png') no-repeat 0 -13px transparent;
+	padding: 2px 5px;
+	width: 15px;
+	height: 15px;
+	cursor: pointer;
+	list-style: none;
+	color: transparent;
+	&.active {
+		background-position: 0 4px;
+	}
+}
+.description a.gallery-facebook, 
+.description a.gallery-twitter {
+	padding: 5px 10px 5px 25px;
+	background: url('img/gallery/dots.png') no-repeat 0 -82px transparent;
+}
+.description a.gallery-twitter {
+	background-position: 0 -109px;
+}
+.gallery-close {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url('img/gallery/dots.png') no-repeat 2px -44px transparent;
+	position: absolute;
+	top: 2px;
+	right: 5px;
+	overflow: hidden;
+	text-indent: -999px;
+	cursor: pointer;
+}

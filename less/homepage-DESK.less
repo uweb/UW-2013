@@ -1,0 +1,58 @@
+// Block Structure 
+
+.block-full {
+	width: 100%;
+	.block();
+}
+.block-half {
+	margin-right: 4%;
+	width: 47.9%;
+	.block();
+}
+.block-third {
+	margin-right: 3.63%;
+	width: 30.91%;
+	.block();
+}
+#main .widget {
+	.drop-shadow();
+}
+.last-block { 
+	margin-right: 0%;
+
+}
+.first-block {
+	clear: both;
+}
+
+// Background 
+
+.home #primary {
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;
+    background: url('img/misc/home-bg.png') no-repeat 0 0 transparent;
+}
+
+
+// ie7 & 8 stop-loss
+
+#ie7 .block-third {
+	width: 29%;
+}
+
+#ie7, #ie8 {	
+	#main {
+		.widget {
+			background-color: transparent;
+		}
+		.pic-text-widget,
+		.uw-rss-widget,
+		.recent-posts-widget,
+		.calendar-widget-wrapper,
+		.twitter-feed-widget,
+		.community-photos-widget {
+			border: 2px solid #e9e9e9;
+		}
+	}
+}

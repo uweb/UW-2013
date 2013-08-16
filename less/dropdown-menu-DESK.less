@@ -1,0 +1,186 @@
+#dawgdrops {
+	height: 50px;
+	background-color: #4B4B4B;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	.box-shadow( 0 0 8px #9C9C9C);
+	a {
+		.transition(all);
+		.transition-duration(0.2s);
+	}
+}
+.dawgdrops-inner {
+    position: relative;
+    padding: 0;
+    width: 995px;
+    margin: 0 auto;
+    background-color: transparent;
+    background-image: none;
+    .box-shadow(none);
+    ul {
+	    margin: 0;
+    }
+}
+
+// Hides the first left border
+
+.dawgdrops-item:first-child a {
+	background: none;
+}
+
+.dropdown-toggle {
+	float: left;
+	color: #FFF;
+	padding: 9px 9px 17px;
+	font-size: @fontSizeMedium;
+	background: url('img/header/header-sprite.png') no-repeat 0 -265px transparent;
+	text-shadow: 0px 0px 3px rgb(39, 39, 39);
+	&:focus {
+		color: @gold;
+	}
+	&:hover {
+		text-decoration: none;
+		color: @gold;
+	}
+}
+.caret {
+    border-bottom-color: @gold;
+    border-top: 6px solid @gold;
+    border-right: 6px solid rgba(0, 0, 0, 0);
+    border-left: 6px solid rgba(0, 0, 0, 0);
+    content: "";
+    opacity: 1;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.dawgdrops-menu {
+	top: 42px;
+	left: 0;
+	position: absolute;
+	visibility: hidden;
+	border: none;
+	border-top: 4px solid #D7A900;
+	padding: 0;
+	margin: -1px 0 0;
+	background: rgba(255, 255, 255, 1);
+	overflow: hidden;
+	.transition(all);
+	.transition-duration(.3s);
+    background: rgba(255, 255, 255, 0.98);
+    opacity: 0;
+    .box-shadow(1px 1px 5px #808080);
+    &.open {
+	    display: block;
+	    visibility: visible;
+	    opacity: 1;
+    }
+}
+.menu-block {
+    padding: 20px 0 20px 20px;    
+    background: -moz-linear-gradient(left,  rgba(255,255,255,0.01) 96%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(96%,rgba(255,255,255,0.01)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  rgba(255,255,255,0.01) 96%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  rgba(255,255,255,0.01) 96%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  rgba(255,255,255,0.01) 96%,rgba(237,237,237,1) 100%); /* IE10+ */
+    background: linear-gradient(to right,  rgba(255,255,255,0.01) 96%,rgba(237,237,237,1) 100%); /* W3C */
+    float: left;
+    a {
+		border-bottom: 1px solid #F1F1F1;
+		margin: 0 30px 3px 0;
+		padding: 0px 10px 3px 7px;
+		font-size: 105%;
+		color: #717171;
+		min-width: 200px;
+		display: block;
+		&:hover {
+			color: #FFF;
+			text-decoration: none;
+			background-color: #08C;
+		}
+	}
+	li {
+		&:last-child a {
+			border: none;
+		}		
+	}
+    &:last-child {
+	    background: none !important;
+    }
+}
+
+// Special menu classes
+
+#branding ul li.uw-medicine {
+    text-indent: -99999px;
+    overflow: hidden;
+    width: 135px;
+    background: url('img/header/header-sprite.png') no-repeat 10px -108px transparent;
+    &:hover {
+        background-position: 10px -142px;
+    }
+}
+#branding ul li.gift {
+    position: absolute;
+    background: url('img/header/donate.png') 0 0 no-repeat rgba(0, 0, 0, 0);
+    width: 160px;
+    height: 55px;
+    right: 0;
+    top: -10px;
+    text-indent: -999px;
+    overflow: hidden;
+    a {
+	    width: 150px;
+	    height: 50px;
+	    display: block;
+	    background: none;
+    }
+}
+#branding ul li.home-link a {
+    background: url('img/misc/home.png') no-repeat 0 11px transparent;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 10px;
+}
+#secondary .home-link a { 
+	display: none; 
+}
+
+// The arrow pointing up at the top of the menu
+
+.navbar-caret {
+    background: url('img/header/menu-arrow.gif') no-repeat 0 0 transparent;
+    text-indent: -9999px;
+    overflow: hidden;
+    position: absolute;
+    top: 31px;
+    width: 24px;
+    height: 12px;
+    display: none;
+}
+
+
+// IE7 & 8 Fixes
+
+#ie7, #ie8 {
+	.menu-block {
+		background: url('img/header/ie-menu-bg.gif') repeat-y top right transparent;
+	}
+	.dawgdrops-item { 
+		float: left; 
+		margin-top: 5px;
+		background: url('img/header/ie-caret.png') no-repeat right 17px transparent;
+		padding-right: 15px;
+	}
+	.dawgdrops-menu {
+		border-left: 2px solid #e9e9e9;
+		border-right: 2px solid #e9e9e9;
+		border-bottom: 2px solid #e9e9e9;
+	}
+}
+#ie7 {
+	.dropdown-toggle {
+		padding: 3px 9px 17px;
+	}
+}
+

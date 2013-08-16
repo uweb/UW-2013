@@ -1,0 +1,52 @@
+#thin-strip {
+    height: 30px;
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    background-color: #39275B;
+    z-index: 3;
+    .box-shadow(0 0px 6px #333);
+    overflow: hidden
+}
+#thin-strip.thin-fixed {
+    position: fixed;
+    top: 0px;		
+}
+.logged-in #thin-strip.thin-fixed {
+  top:28px;
+}
+.thin-fixed div {
+    background: url("img/mobile-header/logo1x.png") no-repeat -35px -5px;
+}
+
+#thin-strip {
+	div {
+		height: 30px;
+		width: 960px;
+		margin: 0 auto;
+    }	
+	ul {
+    	float: right;
+    }
+    li {
+	    float: left;
+	    list-style: none;
+	    padding: 5px 10px 0 0;
+	    .no-bullets();
+    }
+    li a {
+	    color: #fff;
+	    font-size: 80%;
+	    text-transform: uppercase;
+	    font-weight: bold;
+    }
+    img {
+   		margin-top: -8px;
+    }
+}
+
+
+// Overrides jPanel 
+
+.jPanelMenu-panel { background: transparent !important}

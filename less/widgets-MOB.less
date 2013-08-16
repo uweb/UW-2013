@@ -1,0 +1,156 @@
+// General
+
+	// Gold Border
+	
+.widgettitle,
+.widget-title {
+	.widgetTitle();
+	.widgetTitleBorder();
+}
+
+
+	// Space out widgets
+	
+.widget {
+	margin-bottom: 40px;
+}
+
+
+// Widgets to pad on an individual basis (and also make the headline flush left)
+
+.widget_recent_entries,
+.widget_recent_comments,
+.widget_archive,
+.widget_categories,
+.widget_search,
+#sidebar .uw-rss-widget,
+#sidebar .widget_text {
+	padding: 0 25px 10px;	
+	.widgettitle {
+		margin-left: -25px;
+	}
+}
+	// Twitter Widget (for the sidebar)
+
+#sidebar {
+	.twitter-feed {
+		.widget-margin();
+	}
+}
+
+
+// Menu Widget
+
+	// Hide Sidebar Menu (it's been turned into a select menu)
+
+.widget_nav_menu {
+	ul, h2 {
+		display: none;
+	}
+}
+	// Positions the select box
+	
+.tinynav {
+	width: 93%;
+	margin: 0 auto;
+	display: block;
+}
+.mobile-select {
+	padding: 15px 0 15px 0;
+	box-shadow: 0 2px 4px rgb(221, 221, 221);
+}
+// Featured Pic/Text Widget
+
+.headline-separator-widget {
+	h2 {
+		&:before {
+			width: 90%;
+	    	left: 50%;
+	    	margin-left: -45%;
+		}
+		span {
+			margin-left: -15px;
+		}
+	}
+}
+
+// Calendar widget
+
+.calendar-widget {
+	h2 {
+		.widgetTitle();
+		.widgetTitleBorder();
+		&:after {
+			display: none;
+		}		
+	}
+}
+
+// RSS widget
+
+#sidebar .uw-rss-widget {	
+	.rss-more {	
+		margin-left: 0;
+	}	
+}
+// Pic widget 
+
+.pic-text-widget {
+	h3 {
+		padding: 0 25px;
+	}
+	p {
+		padding: 0 25px;
+	}
+}
+
+// Slideshow Widget
+
+.slideshow-widget {
+
+	.slide {
+		display: none;
+		&.active-slide {
+			display: block;
+		}
+	}
+	img {
+	
+	}
+	ul {
+
+	}
+}
+
+	// Colors 
+.purple {
+	.slide-info {
+		background: @purple;
+	}
+}
+.blue {
+	.slide-info {
+		background: desaturate(@blue, 30%);
+	}
+}
+
+.orange {
+	.slide-info {
+		background: desaturate(@orange, 20%);
+	}}
+
+.green {
+	.slide-info {
+		background: desaturate(@green, 20%);
+	}
+}
+
+.gold {
+	.slide-info {
+		background: desaturate(@gold, 20%);
+	}
+}
+
+
+
+

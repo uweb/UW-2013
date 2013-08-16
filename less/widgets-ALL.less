@@ -1,0 +1,569 @@
+// General
+
+.widgettitle {
+	.widgetTitle();
+}
+
+.widget {
+	position: relative;
+}
+
+
+// Slideshow Widget
+
+.slideshow-widget {	
+	position: relative;	
+	.slide-info	{
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 20px 25px 30px;
+	}
+	h3 {
+		font-weight: @heavyWeight;
+	}
+	p {
+		opacity: .95;
+		line-height: @lineSm;
+	}
+	h3, p {
+		margin: 0 0 5px;
+		color: @white;
+	}
+	ul {
+		position: absolute;
+		margin: 0;
+		bottom: 5px;
+		left: 44%;
+		z-index: 2;
+	}
+	li {
+		float: left;
+		.no-bullets();
+		a {
+			background: url('img/widgets/slideshow-dots.png') 0 0 no-repeat transparent;
+			height: 15px;
+			display: block;
+			width: 15px;
+			&.active-slide {
+				background-position: 0 -18px;
+			}			
+		}		
+	}	
+}
+
+	// IE & 8 opacity non-support
+	
+#ie7, #ie8 {
+	.slide {
+		display: none;
+		&.active-slide {
+			display: block;
+		}
+	}
+}
+
+// Map Widget 
+
+#sidebar { 
+	.widget.uw-widget-campus-map {
+		margin: 40px 0;
+	}
+}
+.uw-campus-map-widget {
+    a {
+    	position: absolute;
+    	top: 10px;
+    	width: 34px;
+    	height: 34px;
+    	right: 14px;
+    	background: url('img/widgets/map.png') 8px 8px no-repeat @white;
+    	.box-shadow(0 1px 5px rgba(0, 0, 0, 0.2));
+    	.border-radius(4px);
+    	.buttonize();
+    	opacity: .95;
+    	&:hover {
+	    	opacity: .8;
+    	}
+    }
+}
+
+// Categories Widget 
+
+.categories-widget {
+	ul {
+		.widget-margin();
+	}	
+}
+
+// Archive Widget
+
+#main .archives-widget ul {
+	.widget-margin();
+}
+
+// Recent Posts/Entries Widget
+
+.widget_recent_entries,
+.recent-posts-widget {
+	li {
+		.no-bullets();
+		.grayBorder();
+		clear: both;
+		padding-top: 5px;
+		overflow: hidden;
+	}
+	p {
+		margin: 0;
+	}
+	img {
+		float: left;
+		margin: 5px 20px 15px 0px;
+		width: 50px;
+	}
+	.more {
+		.widget-more(@purple);
+		margin: 10px 0 0 0;
+	}
+	span {
+		display: block;
+		overflow: hidden;
+	}
+}
+	//** Removes margin for main widget area
+#main .recent-posts-widget ul {
+	.widget-margin();
+	padding-bottom: 0;
+}	
+
+// Text Widget
+
+.text-widget {
+	.textwidget {
+		padding: 0 25px 10px 22px;
+	}
+}
+// Pages Widget
+
+.pages-widget {
+	ul {
+		.widget-margin();
+	}
+}
+
+// RSS Widget
+
+
+.uw-rss-widget {	
+	ul {
+		margin: 0;
+	}
+	li {
+		.no-bullets();
+		.grayBorder();
+	}
+	.rss-more {
+		.widget-more(@purple)
+	}	
+	.featured {
+		padding: 0 25px 10px;
+	}
+}
+#main .uw-rss-widget {	
+	ul {
+		.widget-margin();
+		padding-bottom: 10px;
+	}
+}
+
+
+// Twitter Widget 
+
+.twitter-feed-widget {
+	h3 {
+		background: url('img/widgets/twitter.gif') 150px 1px no-repeat;
+	}
+	h3 a {
+		color: @purple;
+	}
+	.twitter-feed {
+		margin: 0;
+	}
+	p {
+		margin: 0;
+		//font-size: @fontSizeSmall;
+	}
+	.tweet {
+		.grayBorder();	
+		overflow: hidden;
+	}
+	img {
+		width: 30px;
+		float: left;
+		margin: 5px 10px 0 0;
+	}
+	.more 	{ 
+		.widget-more(@purple);
+		margin: 10px 0 0px 0;
+		display: inline-block;
+	}
+
+}
+#main {
+	.twitter-feed {
+		.widget-margin(); // Local Mixin
+		}
+}
+
+//  Sidebar Menu Widget
+
+
+
+
+// Google Calendar
+
+.calendar-widget-wrapper {
+	position: relative;
+}
+
+.calendar-widget h2 {
+	.widgetTitle();
+	.widgetTitleChevron();
+}
+
+a.fc-event,
+.fc-day-content {
+	display: none;
+}
+.fc-header-right {
+	text-align: right;
+	padding: 10px 15px 0 0;
+}
+.fc-day-header {
+	padding-top: 10px;
+}
+.fc-content {
+	color: #5d5d5d;
+	font-weight: 600;
+	padding: 0 15px 15px;
+}
+.fc-content * {
+	min-height: auto !important;
+}
+.fc-content td {
+	text-align: center;
+}
+.fc-day-number {
+	background-color: #ebebeb;
+	margin: 2px;
+	padding: 5px;
+	text-shadow: 1px 1px 1px #FFF;
+}
+.fc-other-month .fc-day-number {
+	background-color: #f8f8f8;
+	color: #c5c5c5;
+	color: #E2E2E2;
+	text-shadow: 1px 1px 1px #FFF;
+}
+.fc-button-prev, .fc-button-next {
+	padding: 0 5px;
+	background: url('img/misc/calendar-left-right.gif') 0 3px no-repeat transparent;
+	margin-right: 4px;
+	cursor: pointer;
+}
+.fc-button-next {
+	background: url('img/misc/calendar-left-right.gif') 0 -20px no-repeat transparent;
+}
+.fc-text-arrow {
+	display: none;
+}
+.fc-button-today {
+	text-transform: uppercase;
+	font-size: 12px;
+	margin-right: 8px;
+	color: #8F8F8F;
+}
+.event-today .fc-day-number {
+  color: #fff;
+  background-color: @purple;
+  text-shadow: none;
+  cursor: pointer;
+}
+.calendar-widget-event-pane {
+	display: none;
+	margin: 10px auto 0 auto;
+    position: absolute;
+    background-color: #FFF;
+    top: 82px;
+    left: 25px;
+    right: 25px;
+    bottom: 25px;
+    overflow: auto;
+    .box-shadow(0 1px 5px rgba(0, 0, 0, 0.2));
+    font-size: 13px;
+    text-align: left;
+	.calendar-event {
+		.grayBorder();
+		display: block;
+		.title {
+			font-weight: bold;
+		}
+		span {
+			display: block;
+		}
+	}
+	.calendar-events {
+		position: absolute;
+		top: 30px;
+		left: 20px;
+		right: 15px;
+		bottom: 20px;
+		overflow: auto;
+	}
+}
+
+.calendar-widget-close {
+	position: absolute;
+	width: 18px;
+	height: 18px;
+	right: 5px;
+    top: 5px;
+	background: url('bootstrap/img/glyphicons-halflings-white.png') -310px 2px @purple;
+	text-indent: -999px;
+	overflow: hidden;
+	z-index: 1;	
+}
+.fc-day-header { width: auto !important }
+
+// Wordpress Calendar Widget
+
+#wp-calendar {
+	width: 100%;
+	tr {
+		text-align: center;
+	}
+	tbody td {
+		background-color: #f8f8f8;
+    	color: @grayLight;
+    	text-shadow: 1px 1px 1px #FFF;
+    	border: 4px solid @white;
+    	padding: 3px 0;
+    	font-weight: @heavyWeight;
+	}
+	.pad {
+		background-color: @white;
+	}
+	caption {
+		padding: 10px 0 15px;
+		font-size: @fontSizeMedium;
+		font-weight: @heavyWeight;
+		
+	}
+	#prev {
+		display: none;
+	}
+}
+
+// Featured Pic/Text Widget
+
+#main .pic-text-widget {
+	h3 {
+		padding: 0 25px;
+	}
+	p {
+		padding: 0 25px;
+	}
+}
+
+.pic-text-more 	{ 
+	.widget-more(@purple) 
+}
+
+// Map Widget
+
+.map-widget {
+	padding: 5px 15px 0px 15px;
+}
+
+// Community Photos Widget
+
+.communityphotos {
+	padding:0 25px;
+	
+	h3 {
+		margin-left: -25px;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+
+	a {
+		position: relative;
+		display: block;
+		float: left;
+		width: 21%;
+		margin: 0 4% 4% 0;
+		&:hover div {
+			display: block;
+		}
+		
+	}
+	& > a:nth-child(4n+5) {
+		margin-right: 0;
+	}
+	& > a:nth-child(1n+1) {
+		width: 21.8%;
+	}
+	& > a:last-child {
+		width: auto;
+	}
+	
+	// The submit and more link:
+	span a {
+		width: auto;
+		clear: both;
+	}
+	.more {
+		.widget-more(@purple);
+		margin: 0;
+		width: auto;
+		display: inline-block;
+		clear: both;
+		float: none;
+	}
+	p {
+		text-transform: uppercase;
+		font-size: @fontSizeMini;
+		text-align: center;
+		margin: 7px 5px 8px;
+	}	
+	div {
+		display: none;
+		position: absolute;
+		top: -140px;
+		left: -80px;
+		padding: 5px;
+		.box-shadow(1px 1px 3px @grayLight);
+		background-color: #fff;
+	}
+
+}
+#sidebar .communityphotos {
+	padding:0;
+}
+
+// Search Widget
+
+#searchform {
+	position: relative;
+	clear: both;
+	label {
+		position: absolute;
+		top: 10px;
+		left: 18px;
+	}
+	.assistive-text {
+		  z-index: -1;
+	}
+}
+#s {
+    .box-shadow(inset 1px 1px 1px rgb(190, 189, 189));
+    .border-radius(20px);
+    border: 1px solid rgb(245, 245, 245);
+    padding: 8px 0 8px 5%;
+    width: 95%;
+}
+#searchsubmit {
+	position: absolute;
+	right: 3px;
+	top: 4px;
+	background: url('img/header/header-sprite.png') no-repeat -103px 2px transparent;
+	box-shadow: none;
+	border: none;
+	display: block;
+	text-indent: -999px;
+	overflow: hidden;
+	padding: 5px 16px;
+	height: 28px;
+	width: 32px;
+}
+
+	// IE search background (no drop shadow support)
+
+#ie7, #ie8 {
+	#s {
+		background: url('img/widgets/ie-search.gif') no-repeat 0 0;
+	}
+}
+
+
+// Recent Comments Widget
+
+.widget_recent_comments {
+	li {
+		font-family: @serifFontFamily;
+		font-style: italic;
+		a {
+			font-style: normal;
+			font-family: @sansFontFamily;
+		}
+	}
+}
+
+
+// Featured Pic/Text Widget
+
+.headline-separator-widget {
+	h2 {
+		clear: both;
+		position: relative;
+		text-align: center;
+		font-family: @serifFontFamily;
+		font-style: italic;
+		font-size: 1.3em;
+		&:before {
+			content: "";
+	    	display: block;
+	    	border-top: solid 1px rgb(231, 231, 231);
+	    	width: 100%;
+	    	height: 1px;
+	    	position: absolute;
+	    	top: 50%;
+		}
+		span {
+			background: #fff;
+			padding: 0 20px;
+			position: relative;
+		}
+	}
+}
+
+
+// Colors 
+
+
+.colored(@color) {
+
+	// Converts Hex to RGBA 
+	
+	.colorize_bg(@color: @purple, @alpha: .8) {
+		background: @color;
+		background: hsla(hue(@color), saturation(@color), lightness(@color), @alpha);
+	}
+	
+
+	.slide-info {
+		.colorize_bg(@color,.8);
+	}
+	.slide {
+		background-color: @color;
+	}
+}
+
+.purple {	.colored(@purple);					}
+.blue 	{	.colored(desaturate(@blue, 20%));	}
+.orange {	.colored(desaturate(@orange, 10%));	}
+.green 	{	.colored(desaturate(@green, 10%));	}
+.gold 	{	.colored(desaturate(@gold, 10%));	}
+
+
+

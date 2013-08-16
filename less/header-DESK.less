@@ -1,0 +1,306 @@
+body {
+	    background: url(img/header/bg-stripe.gif) repeat-x 197px 0 #FFF;
+	}
+
+//  Switch thin strip colors based on class
+
+.tan-band #thin-strip {
+    background-color: #F3F2E9;
+    a {
+    	color: #555;
+    	text-shadow: 1px 1px 1px #fff;
+    }
+}
+.tan-band .thin-fixed div {
+    background: url(img/header/header-sprite.png) no-repeat 10px -225px transparent;
+}
+.purple-patch .patch {
+    background-color: #39275B
+}
+.hide-patch .patch {
+    display: none;
+}
+.hide-patch .wordmark {
+    left: 0;
+}
+.wordmark-white .wordmark {
+    background-position: 0 -197px;
+}	
+	
+	
+// CSS Patch
+	
+.patch {
+	position: absolute;
+	display: block;
+	width: 95px;
+	top: -35px;
+	height: 95px;
+	background-color: @gold;
+	z-index: 999;
+	div {
+		position: absolute;
+		background-color: @white;
+	}
+}	
+.w1 {
+	width: 23.5%;
+	height: 8%;
+	left: 18%;
+	top: 29.5%;
+}
+.w2 {
+	top: 29.5%;
+	height: 44%;
+	width: 7%;
+	left: 43.7%;
+	.skew(-15deg,0deg);
+}
+.w3 {
+	top: 29.5%;
+	height: 8%;
+	width: 17.5%;
+	left: 65.8%;
+}
+.w4 {
+	left: 52%;
+	top: 39.5%;
+	width: 12.5%;
+	height: 34.5%;
+	.skew(14deg,0deg);
+}
+.w5 {
+	width: 12.2%;
+	height: 37.5%;
+	.skew(14deg,0deg);
+	left: 27.7%;
+	top: 36.8%;
+}
+.w6 {
+	top: 34%;
+	left: 66.7%;
+	.skew(-14.5deg,0deg);
+	height: 39.5%;
+	width: 7.3%;
+}
+.w7 {
+	width: 6.5%;
+	height: 43.5%;
+	top: 29.5%;
+	left: 56.6%;
+	.skew(14deg, 0deg);
+}
+	
+	
+//  Header Logos Area
+
+#branding {
+	position:relative;
+    height: 165px;
+    margin-bottom: 20px;
+    background-position: center top;
+    padding-top: 30px;
+    z-index: 1;
+}
+#header {
+    z-index: 4;
+    /* z-index: 2; */
+        position: relative;
+        width: 960px;
+        left: 50%;
+        margin-left: -480px;
+        height: 115px;
+    /* added with super-search */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.wordmark, 
+#ie7 .patch,
+#ie8 .patch {
+    top: -30px;
+    display: block;
+    position: absolute;
+    background: url(img/header/header-sprite.png) no-repeat 5px 15px #D7A900;
+    width: 95px;
+    height: 90px;
+    text-indent: -9999px;
+    div {
+	    display: none;
+    }
+}
+.wordmark {
+    background: url(img/header/header-sprite.png) no-repeat 0 -87px transparent;
+    width: 325px;
+    height: 25px;
+    left: 125px;
+    top: 25px;
+}
+	
+	
+	
+//  Top Search 
+
+#search {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+}
+input[type="submit"].formbutton {
+    position: absolute;
+    left: 9px;
+    top: 4px;
+    background: url('img/header/header-sprite.png') no-repeat -103px 2px transparent;
+    box-shadow: none;
+    border: none;
+    display: block;
+    text-indent: -999px;
+    overflow: hidden;
+    padding: 5px 16px;
+    height: 28px;
+    width: 32px;
+}
+input[type="text"].wTextInput {
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    padding: 9px 0 9px 38px;
+    width: 175px;
+    color: #999;
+    box-shadow: 0 0 8px #8F8F8F;
+    -webkit-box-shadow: 0 0 8px #8F8F8F;
+    -moz-box-shadow: 0 0 8px #8F8F8F;
+    border: none;
+    -webkit-transition-duration: 400ms;
+    -webkit-transition-property: width, background;
+    -webkit-transition-timing-function: ease;
+    -moz-transition-duration: 400ms;
+    -moz-transition-property: width, background;
+    -moz-transition-timing-function: ease;
+    -o-transition-duration: 400ms;
+    -o-transition-property: width, background;
+    -o-transition-timing-function: ease;
+}
+.wTextInput:focus, input[type="text"].wTextInput:focus {
+    width: 225px;
+}
+
+    // Super Search 
+  
+	#search .search-toggle {
+	  display:none;
+	  position: absolute;
+	  top: 6px;
+	  right: 7px;
+	  width:25px;
+	  height:25px;
+	  background: url('img/misc/super-search-handle.png') no-repeat center center #e4e4e4;
+	  .border-radius(25px);
+	  .box-shadow(inset 1px 1px 1px #BEBEBE);
+	  &:hover {
+		  	  cursor:pointer;
+		  	  .box-shadow(inset 1px 1px 2px #aaaaaa);
+	  }
+	}
+	#ie7, #ie8 {
+		 #search .search-toggle {
+			 background: url('img/misc/ie7-ie8-super-search-handle.png') no-repeat center center #e4e4e4;
+	  	}
+	}
+	#ie7, #ie8 {
+		#search .search-toggle.close-toggle {
+			background: url('img/misc/ie7-ie8-super-search-handle-close.png') no-repeat center center #e4e4e4;
+	  	}
+	}
+	#search .search-toggle.close-toggle {
+	  background: url('img/misc/super-search-handle-close.png') no-repeat center center #e4e4e4;
+	}
+	#search .search-options {
+	  display:none;
+	  position: absolute;
+	  top: 44px;
+	  left: 57px;
+	  width: 100px;
+	  z-index: 999;
+	  background-color: white;
+	  .box-shadow(0 0 8px #B5B5B5);
+	  padding: 10px 15px 5px 30px;
+	  .border-radius(5px);
+	  	span {
+	  		background: url('img/misc/super-search-notch.png') no-repeat -3px -5px transparent;
+	  		color: #F4F4F4;
+	  		display: block;
+	  		width: 25px;
+	  		height: 12px;
+	  		position: absolute;
+	  		font-size: 17px;
+	  		top: -10px;
+	  		left: 59px;
+	  	}
+	  }
+
+	#search .search-options label {
+	  padding:5px;
+	}
+	.search-options label {
+	  border-bottom: 1px solid #F1F1F1;
+	}
+	.search-options label:nth-last-child(2) {
+  	border-bottom: none;
+  	}
+	#search .search-flash {
+	  display:none;
+	  position: absolute;
+	  top: 60px;
+	  right: 30px;
+	  z-index: 999;
+	  background-color: white;
+	  .box-shadow(0 0 8px #B5B5B5);
+	  padding: 8px;
+	  .border-radius(5px);
+	}
+
+  
+  .header-image {
+      margin-top: -200px;
+      display: block;
+      height: 145px;
+      overflow: hidden;
+      text-align: center;
+      background-color: #d6e8fa;
+  }
+  
+  //  Accessibility
+  
+  .assistive-text {
+  	position: absolute;
+  	clip: rect(1px 1px 1px 1px);
+  	clip: rect(1px, 1px, 1px, 1px);
+  	z-index: -1;
+  }
+  #header {
+  	a.assistive-text:active, a.assistive-text:focus {
+  		padding: 6px 21px;
+  		z-index: 3;
+  		background: #EEE;
+  		border-bottom: 1px solid #DDD;
+  		color: #1982D1;
+  		clip: auto !important;
+  		font-size: 12px;
+  		position: absolute;
+  		text-decoration: underline;
+  		top: -30px;
+  		left: 9.9%;
+  	}
+  }
+
+// IE 7 & 8 Searchbar background
+
+#ie7, #ie8 {
+	input[type="text"].wTextInput {
+		background: url('img/search-bar.png') no-repeat 0 0 transparent;
+	}
+}

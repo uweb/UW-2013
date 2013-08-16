@@ -1,0 +1,137 @@
+// Bootstrap reset
+
+body {
+	padding: 0;
+}
+
+// Pads the content of subpages
+
+.entry-content,
+#respond {
+	padding: 0 25px;
+}
+
+// Pads the top of the body area
+
+#primary {
+	padding-top: 25px;
+}
+
+
+// Info Box
+
+.info-box {
+	width: 245px;
+	float: none;
+	padding: 10px 0 10px 20px;
+	margin: 15px 0 15px 30px;
+}
+.info-box-large {
+	padding: 30px 10px 5px;
+	margin: 25px 0;
+	width: auto;
+	border-top: 1px solid rgb(228, 228, 228);
+	border-bottom: 1px solid rgb(228, 228, 228);
+	&:after {
+		display: block;
+		width: 23px;
+		height: 21px;
+		background: url('img/misc/flap.png') no-repeat 0 0 transparent;
+		position: absolute;
+		left: 20px;
+		top: -5px;
+		content: " ";
+	}
+}
+
+// Generic Page & Post items
+
+.date {
+	margin-left: 22px;
+}
+.author-info {
+	margin-left: 22px;
+}
+
+// Archive/Blogroll Page 
+
+.archive {
+	.entry-title {
+		margin-left: 22px;
+	}
+	article {
+		margin-bottom: 20px;
+	}
+	.post-info p {
+		margin-left: 22px;
+	}
+}
+
+// Comments (native)
+
+.comments-link {
+	a { 
+		right: 15px;
+	}
+}
+
+// Image Handling 
+
+.image-magnifier { 
+    display: none; 
+}
+.alignleft, .alignright, .alignnone {
+    min-width: 225px !important;
+    max-width: 100% !important;
+    margin: 0 auto;
+}
+.alignleft img, .alignright img, .alignnone img {
+    height: auto !important;
+    width: 100% !important;
+    min-width: 225px !important;
+    margin: 1.6em 0 0;
+}
+.wp-caption-text, .wp-media-credit {
+    padding: 5px 10px 10px;
+    font-size: 13px;
+    line-height: 16px;
+    background-color: #F4F4F4;
+}
+.wp-media-credit {
+    padding: 5px 15px 2px;
+    text-align: right;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+
+// Alert 
+
+.alert-steel div, 
+.alert-orange div, 
+.alert-red div, 
+.alert-blue divs {
+    background-position: center -40px;
+}
+#uwalert-alert-message {
+	position: relative;
+	z-index: 1;
+	div {
+	    width: 100%;
+	    padding-top: 65px;
+	}
+	h1, p {
+		color: white;
+		padding: 5px 15px 5px 30px;
+		margin: 0;
+		border: none;
+	}
+	h1 {
+		line-height: 18px;	
+	}
+}
+
+// 404 Page
+
+#parallax { display: none }
+.error404 #primary {padding: 0 20px }

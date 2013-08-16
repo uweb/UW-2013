@@ -1,0 +1,133 @@
+// Alert Banner 
+
+#uwalert-alert-message {
+	div {
+		width: 1100px;
+		margin: 0 auto;
+		padding: 5px 0 15px;
+	}
+	h1, p {
+		color: white;
+		padding: 5px 100px 0 200px;
+		margin: 0;
+	}
+	h1 {
+		font-size: 18px;
+	}
+	p {
+		font-size: 13px;
+		line-height: 15px;
+	}
+	a { color: #FDE048; }
+}
+
+// Info Box
+
+.info-box {
+	border-left: 4px solid rgb(221, 221, 221);
+	width: 245px;
+	float: right;
+	padding: 10px 0 10px 20px;
+	margin: 15px 0 15px 30px;
+}
+.info-box-large {
+	padding: 30px 10px 15px;
+	margin: 15px 0 30px 50px;
+	width: 200px;
+	border-left: none;
+	position: relative;
+}
+
+// Generic Page & Post items
+
+.date {
+	font-family: @serifFontFamily;
+	font-style: italic;
+	margin:10px 0 0;
+}
+.author-info {
+	font-family: @serifFontFamily;
+	font-style: italic;
+ 	margin-bottom: 30px;
+ 	position: relative;
+	&:before {
+		content: " ";
+		position: absolute;
+		bottom: -15px;
+		left: 1px;
+		width: 50px;
+		height: 2px;
+		background-color: rgb(226, 226, 226);
+	}
+}
+.entry-title {
+	padding-right: 90px;
+}
+
+// Comment link
+
+.entry-header {
+	position: relative;
+}
+.comments-link a {
+    background: url('img/comment-bubble.png') no-repeat 0 4px transparent;
+    color: @grayLight;
+    line-height: 35px;
+    overflow: hidden;
+    padding: 0 0 0 24px;
+    position: absolute;
+    top: 0;
+    right: -19px;
+    text-align: center;
+    text-decoration: none;
+    width: 43px;
+    height: 36px;
+    &:hover {
+    	background-position: 0 -37px;
+    }
+}
+
+// UW Alert
+
+.uwalert-red 				{ background-color: #C61029;}
+.uwalert-red div			{ background: url('https://www.washington.edu/static/alert_logo_red.jpg') no-repeat 0 -38px; }
+#alert-mini.uwalert-red	{ background: url('https://www.washington.edu/static/alert_logo_red.jpg') no-repeat 16% 14% #C61029; background-size: 18%; }
+
+.uwalert-steel 			{ background-color: #597286; }
+.uwalert-steel div 		{ background: url('https://www.washington.edu/static/alert_logo_steel.jpg') no-repeat 0 -38px; }
+#alert-mini.uwalert-steel { background: url('https://www.washington.edu/static/alert_logo_steel.jpg') no-repeat 16% 14% #597286; background-size: 18%; }
+
+.uwalert-blue 			{ background-color: #0193c9; }
+.uwalert-blue div 		{ background: url('https://www.washington.edu/static/alert_logo_steel.jpg') no-repeat 0 -38px; }
+#alert-mini.uwalert-blue  { background: url('https://www.washington.edu/static/alert_logo_steel.jpg') no-repeat 16% 14% #597286; background-size: 18%; }
+
+.uwalert-orange 			{ background-color: #ec7330;}
+.uwalert-orange div 		{ background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 0 -38px; }
+#alert-mini.uwalert-orange { background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 16% 14% #ec7330; background-size: 18%; }
+
+
+// Wordpress edit link
+
+.post-edit-link {
+	.uw-button();
+	background-color: rgb(118, 194, 4);
+	clear: both;
+	width: 20%;
+	margin: 0 auto;
+	&:hover, &:focus {
+		color: #fff;
+		background-color:darken(rgb(118, 194, 4), 10%);
+	}
+}
+
+// Wordpress comments-off notification
+
+.nocomments { display: none }
+
+// Blogroll Pagination
+
+.pagination {
+	li {
+		.no-bullets()
+	}
+}

@@ -1,0 +1,102 @@
+/*!
+Theme Name: UW Widgets
+Theme URI: washington.edu
+Description: A 2013 theme
+Author: UW Web Team
+Author URI: http://uw.edu/
+Version: 0.1
+*/
+
+
+// Bootstrap
+@import "../bootstrap/less/custom-bootstrap.less"; 
+@import "../bootstrap/less/custom-responsive.less"; 
+
+
+// Typography
+@import "typography-ALL.less"; 
+
+// Common to all devices
+@import "common-ALL.less"; 
+@import "widgets-ALL.less"; 
+@import "header-ALL.less";
+@import "gallery-ALL.less";
+
+//
+// Responsive: Desktop on up
+// --------------------------------------------------
+
+@media (min-width: 768px) {
+
+	// Thin strip
+	@import "thinstrip-DESK.less"; 
+	// Header
+	@import "header-DESK.less";
+	// Dropdown menu
+	@import "dropdown-menu-DESK.less";
+	// Common to mobile
+	@import "common-DESK.less";
+	// Homepage
+	@import "homepage-DESK.less";
+	// Widgets - all of them
+	@import "widgets-DESK.less";
+	// Footer
+	@import "footer-DESK.less";
+}
+
+
+
+//
+// Responsive: Tablet to Desktop
+// --------------------------------------------------
+@media (min-width: 768px) and (max-width: 979px) {
+	// Header
+	@import "header-TAB.less";	
+	// Dropdown menu
+	@import "dropdown-menu-TAB.less";	
+	// Common to mobile
+	@import "common-TAB.less";
+	// Homepage
+	@import "homepage-TAB.less";
+	// Gallery
+	@import "gallery-TAB.less";
+
+}
+
+
+//
+// Responsive: Landscape phone to desktop/tablet
+// --------------------------------------------------
+
+
+@media (max-width: 767px) {
+	// Common to mobile
+	@import "typography-MOB.less";
+	// Thin strip
+	@import "thinstrip-MOB.less"; 
+	// Header
+	@import "header-MOB.less";
+	// Dropdown menu
+	@import "dropdown-menu-MOB.less";
+	// Common to desktop 
+	@import "common-MOB.less";
+	// Homepage
+	@import "homepage-MOB.less";
+	// Widgets - all of them
+	@import "widgets-MOB.less";
+	// Gallery
+	@import "gallery-MOB.less";
+	// Footer
+	@import "footer-MOB.less";
+}
+
+
+//
+// Retina displays
+// --------------------------------------------------
+
+
+// Retina 
+@import "retina-MOB.less";
+
+

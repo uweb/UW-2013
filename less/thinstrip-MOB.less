@@ -1,0 +1,147 @@
+#header  {
+    background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top white;
+    position: relative;
+}
+.patch { display: none }
+.wordmark {
+    background: url("img/mobile-header/logo1x.png") no-repeat 0 0 transparent !important;
+    width: 263px;
+    height: 44px;
+    text-indent: -9999px;
+    overflow: hidden;
+    display: block;
+}
+
+#listicon-wrapper {
+    background: url("img/mobile-header/dropdowns1x.png") no-repeat -29px 0px transparent;	
+    position: absolute;
+    top: 4px;
+    right: 10px;
+    width: 35px;
+    height: 30px;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+// Panel slideout - Left
+
+#slide {
+	.box-shadow(0 0 11px rgb(14, 14, 14));
+	z-index: 1;
+}
+
+// Panel slideout - Right
+
+#uw-mobile-panel {
+	position: fixed;
+	top: 0;
+	left: 15%;
+	width: 85%;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+	height: 100%;
+	 h3 {
+		 .widgetTitle();
+		 .widgetTitleBorder();
+	 }
+}
+.logged-in #uw-mobile-panel {
+	top: 28px;
+}
+
+// Panel Accordion
+
+#dawgdrops-mobile {
+	padding: 20px 20px 5px;
+
+	ul {
+		margin: 0;
+	}
+	li {
+		padding: 2px 0;
+	}
+	& > li {
+		background: none;
+		padding: 2px 0;
+		border-bottom: 1px solid @grayLighter;
+	}
+	& > li > a {
+		color: @purple;
+		font-weight: 600;
+		padding: 0 0 5px 0;
+		display: block;
+		&:after {
+			content: "+";
+			position: absolute;
+			right: 23px;
+			font-size: 27px;
+			color: rgb(215, 169, 0);
+		}
+	}
+	a {
+		color: @gray;
+		display: block;
+		padding: 5px 5px 5px 10px;
+	}
+	.sub-menu {
+		margin: 5px 0 0 -8px;
+	}
+	.sub-menu li {
+		margin-bottom: 3px;
+		background: none no-repeat left 7px rgb(250, 250, 250);
+	}	
+	.dawg-inactive ul {
+		display: none;
+		height: 0;
+	}
+	.dawg-active ul {
+		display: block;
+		height: auto;
+		.transition(all .3s);
+	}
+}
+
+//  Mobile Header Queries
+
+#thin-strip {
+    height: 0;
+    visibility: hidden;
+}
+.search-options {
+  	 display:none;
+ }
+.main-search {
+   display: none;
+}
+#mobile-thin-strip {
+	padding: 10px 20px;
+}
+
+.mobile-search {
+	padding: 7px 15px;
+	background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top #ffffff;
+	
+	form {
+		.box-shadow(inset 2px 2px 4px #888);
+		.border-radius(20px);
+		overflow: hidden;
+		width: 100%;
+		height: 30px;
+		border: none;
+		background: url("http://www.washington.edu/static/mobile/image/mag.gif") no-repeat right center #fff;
+		display: block;
+		margin: 0;
+    }
+}
+.mobile-search input {
+    -webkit-appearance: none;
+    height: 25px;
+    padding: 3px 0 5px 15px;
+    border: none;
+    width: 100%;
+    background: none;
+    font-size: 15px;
+    color: #484848
+}
+
