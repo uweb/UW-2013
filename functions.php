@@ -38,7 +38,8 @@ require( get_template_directory() . '/inc/custom-settings.php' ); // [TODO] rena
 // All of the UW Shortcodes
 require( get_template_directory() . '/inc/custom-shortcodes.php' );
 
-//require( get_template_directory() . '/inc/custom-embeds.php' ); // [TODO] check to see if this is still necessary
+// [TODO] check to see if this is still necessary
+//require( get_template_directory() . '/inc/custom-embeds.php' ); 
 
 // Main dropdown menu walker
 require( get_template_directory() . '/inc/dropdown-walker.php' );
