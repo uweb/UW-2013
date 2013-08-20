@@ -30,7 +30,7 @@
 
 <body <?php body_class(); ?>>
 
-<div id="branding" role="banner" class="<?php echo get_theme_mod('patch_color'); ?> <?php echo get_theme_mod('band_color'); ?> <?php if ( get_theme_mod('wordmark') ) echo 'wordmark-custom' ?> <?php echo get_theme_mod( 'wordmark_color' ); ?>" style="background-image:url(<?php echo get_theme_mod('header_image') ?>);" >
+<div id="branding" role="banner" class="<?php echo get_theme_mod('patch_color'); ?> <?php echo get_theme_mod('band_color'); ?> <?php if ( get_theme_mod('wordmark') ) echo 'wordmark-custom' ?> <?php echo get_theme_mod( 'wordmark_color' ); ?>" style="background-image:url(<?php echo get_header_image(); ?>);" >
 
 
 <?php // Thin strip ?>

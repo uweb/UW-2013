@@ -67,9 +67,11 @@ class UW_Install_Theme
 
   function uw_setup()
   {
+    $defaultImage = reset($this->DEFAULT_HEADERS);
 	  add_theme_support( 'automatic-feed-links' );
 	  add_theme_support( 'post-thumbnails' );
     add_theme_support( 'custom-header', array( 
+      'default-image'  => $defaultImage['url'],
       'random-default' => false,
       'header-text' => false,
       'width'       => 1280,
