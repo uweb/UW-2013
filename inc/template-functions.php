@@ -123,10 +123,12 @@ if ( ! function_exists( 'uw_dropdowns' ) ):
   function uw_dropdowns() 
   {
     $nav = has_nav_menu('primary');
+
     if ( ( !$nav ) && ( is_multisite() ) )
     {
       switch_to_blog(1);
     }
+
     wp_nav_menu( array( 
       'theme_location'  => 'primary',
       'container_class' => 'dawgdrops-inner',
@@ -134,6 +136,7 @@ if ( ! function_exists( 'uw_dropdowns' ) ):
       'fallback_cb'     => '',
       'walker'          => new UW_Dropdowns_Walker_Menu()
     ) );
+
     if ( ( !$nav ) && ( is_multisite() ) )
     {
       restore_current_blog();

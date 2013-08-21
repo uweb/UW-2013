@@ -5,11 +5,17 @@
    *  This removes the classnames and adds accessibility tags
    */
 
-class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu {
+class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu 
+{
 
-  private $current = '';
+  private $CURRENT = '';
 
-	function UW_Dropdowns_Walker_Menu() {
+  function UW_Dropdowns_Walker_Menu() 
+  {
+
+    if ( ! wp_get_nav_menu_object('primary'))
+      $this->initial_dropdowns();
+      
     add_filter('wp_nav_menu', array($this, 'add_role_menubar'));
 	}
 
@@ -21,7 +27,7 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu {
   function start_lvl( &$output, $depth, $args ) 
   {
     if ( $depth > 0 ) return;
-		$output .= "<ul role=\"menu\" id=\"menu-{$this->current}\" aria-expanded=\"false\" class=\"dawgdrops-menu\">\n";
+		$output .= "<ul role=\"menu\" id=\"menu-{$this->CURRENT}\" aria-expanded=\"false\" class=\"dawgdrops-menu\">\n";
 	}
 
   function display_element ($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
@@ -32,9 +38,9 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu {
 
   function start_el(&$output, $item, $depth, $args) 
   {
-		global $wp_query;
 
-    $this->current = $item->post_name;
+    $this->CURRENT = $item->post_name;
+    $title = ! empty( $item->title ) ? $item->title : $item->post_title;
     
     $caret  = $depth == 0 && $item->has_children ? '<b class="caret"></b>' : '';
 
@@ -54,11 +60,11 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu {
 		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 		$attributes .=   $depth == 0                ? ' class="dropdown-toggle"' : '';
 		$attributes .=   $depth == 1                ? ' tabindex="-1" '                                : '';
-		$attributes .=  ' title="'.$item->title.'" ';
+		$attributes .=  ' title="'. $title .'" ';
 
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .'>';
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output .= $args->link_before . apply_filters( 'the_title', $title, $item->ID ) . $args->link_after;
 		$item_output .= $caret;
 		$item_output .= '</a>';
 		$item_output .= $args->after;
@@ -66,4 +72,20 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu {
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
 
+
+  function initial_dropdowns()
+  {
+
+    $pages = get_pages('number=1');
+    $page = $pages[0];
+  
+    echo '<div class="dawgdrops-inner">
+      <ul id="menu-dropdowns" class="dawgdrops-nav" role="menubar">
+        <li role="presentation" class="dawgdrops-item">
+        <a href="'. get_permalink( $page->ID ) .'" class="dropdown-toggle" title="'. $page->post_title .'">' . $page->post_title . '</a>
+        </li>
+      </ul>
+    </div>';
+
+  }
 }
