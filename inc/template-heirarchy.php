@@ -6,7 +6,8 @@ class UW_Template_Redirect
   function UW_Template_Redirect()
   {
 
-    add_filter( 'page_template', array( $this, 'page_site_template' ) );
+    if ( is_multisite() )
+      add_filter( 'page_template', array( $this, 'page_site_template' ) );
   
   }
 
