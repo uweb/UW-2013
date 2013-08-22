@@ -30,6 +30,15 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
 		$output .= "<ul role=\"menu\" id=\"menu-{$this->CURRENT}\" aria-expanded=\"false\" class=\"dawgdrops-menu\">\n";
 	}
 
+  function end_lvl( &$output, $depth = 0, $args = array() ) 
+  {
+    if ( $depth > 0 )
+      return;
+
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul>\n";
+	}
+
   function display_element ($element, &$children_elements, $max_depth, $depth = 0, $args, &$output)
   {
       $element->has_children = isset($children_elements[$element->ID]) && !empty($children_elements[$element->ID]);
@@ -38,6 +47,8 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
 
   function start_el(&$output, $item, $depth, $args) 
   {
+    if ( $depth > 1 )
+      return;
 
     $this->CURRENT = $item->post_name;
     $title = ! empty( $item->title ) ? $item->title : $item->post_title;
