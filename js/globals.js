@@ -16,4 +16,6 @@ $(document).ready(function() {
 
   }).trigger('resize')
 
+  $('table').addClass('table')
+
 })
