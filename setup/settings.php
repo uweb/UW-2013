@@ -1,11 +1,5 @@
 <?php
 
-//// Header image width and height
-//define( 'HEADER_IMAGE_WIDTH', apply_filters( 'uw_header_image_width', 1280 ) );
-//define( 'HEADER_IMAGE_HEIGHT', apply_filters( 'uw_header_image_height', 193 ) );
-
-// No header text in the Appearance->Header page
-//define( 'NO_HEADER_TEXT', true );
 
 // Wordpress 3.5 oEmbed max-width
 if ( ! isset( $content_width ) ) 
