@@ -12,8 +12,9 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
 
   function UW_Dropdowns_Walker_Menu() 
   {
+    $menuLocations = get_nav_menu_locations();
 
-    if ( ! wp_get_nav_menu_object('primary'))
+    if ( ! wp_get_nav_menu_object( $menuLocations['primary']))
       $this->initial_dropdowns();
       
     add_filter('wp_nav_menu', array($this, 'add_role_menubar'));
