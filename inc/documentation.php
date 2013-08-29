@@ -41,15 +41,11 @@ function uw_documentation_html()
     </p>
 
     <p>
-      <?php  //echo do_shortcode('[rss url="http://www.washington.edu/marketing/web/" number=3 title="Latest Tutorials" heading="h2"]'); ?>
+      <?php  echo do_shortcode('[rss url="http://www.washington.edu/marketing/web/" number=3 title="Latest Tutorials" heading="h2"]'); ?>
     </p>
 
     <p>
-      <?php  echo do_shortcode('[rss url="http://www.washington.edu/uaa/tag/spring-2013/feed/" number=3 title="hello" heading="h2"]'); ?>
-    </p>
-     
-    <p>
-      <?php  //echo do_shortcode('[rss url="http://www.washington.edu/marketing/topic/wordpress/feed" number=3 title="Web Team Updates" heading="h2"]'); ?>
+      <?php  echo do_shortcode('[rss url="http://www.washington.edu/marketing/topic/wordpress/feed" number=3 title="Web Team Updates" heading="h2"]'); ?>
     </p>
 
     <p>
