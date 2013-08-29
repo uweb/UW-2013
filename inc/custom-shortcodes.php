@@ -61,9 +61,6 @@ if ( ! function_exists('uw_feed_shortcode') ):
 
     $feed = fetch_feed($url);
 
-
-    var_dump( is_wp_error($feed) );
-
     if (!is_wp_error( $feed ) ) 
     { 
       $url = $feed->get_permalink();
