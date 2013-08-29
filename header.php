@@ -52,7 +52,7 @@
     </div>	
   </div>
 
-<div id="header"<?php echo ! get_theme_mod('patch_visible') ? ' class="hide-patch"' : ''; ?>>
+<div id="header"<?php echo get_theme_mod( 'patch_visible' ) === 0 ? ' class="hide-patch"' : ''; ?>>
 		<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
 		<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to sidebar content">Skip to sidebar content</a></div>
 
