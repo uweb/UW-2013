@@ -21,6 +21,8 @@ class UW_Calendar extends WP_Widget
     extract( $args );
 
 		$title  = apply_filters( 'widget_title', $instance['title'] );
+
+    echo $before_widget;
     ?>
           <div class="widget calendar-widget-wrapper">
             <div class="calendar-widget" data-events="<?php echo $this->calendarUrl($instance['calendar']); ?>"> </div>
@@ -31,7 +33,7 @@ class UW_Calendar extends WP_Widget
           </div>
 
     <?php
-    echo $before_widget . $content . $after_widget;
+    echo $after_widget;
 	}
 
   function update($new_instance, $old_instance) 
