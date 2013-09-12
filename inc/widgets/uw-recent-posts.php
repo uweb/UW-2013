@@ -1,11 +1,9 @@
 <?php
 /**
  *
- *
  * Updated Recent Posts widget that includes the featured image
  *
- *
- **************************************************************/
+ */
 
 class UW_Widget_Recent_Posts extends WP_Widget 
 {
@@ -110,7 +108,7 @@ class UW_Widget_Recent_Posts extends WP_Widget
         </span>
       </li>
 		<?php endwhile; ?>
-      <?php if ( $instance['show-more-link'] ): ?>
+      <?php if ( array_key_exists('show-more-link', $instance ) && $instance['show-more-link'] ): ?>
         <li>
         <a class="more" href="<?php echo get_permalink(get_option('page_for_posts')) ?>" title="Go to blog page">More</a>
         </li>
