@@ -78,7 +78,8 @@ class UW_Install_Styles
       {
         $style = (object) $style;
 
-        if ( $style->child && ! $this->is_child_theme() )
+        if ( array_key_exists( 'child', $style ) 
+              && $style->child && ! $this->is_child_theme() )
           continue;
 
         wp_enqueue_style( $style->id );
@@ -97,7 +98,8 @@ class UW_Install_Styles
 
       $style = (object) $style;
 
-      if ( $style->admin )
+      if ( array_key_exists( 'admin', $style) 
+            && $style->admin )
       {
         wp_register_style( 
           $style->id,

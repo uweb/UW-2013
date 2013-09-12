@@ -84,7 +84,8 @@ class UW_Install_Scripts
       {
         $script = (object) $script;
 
-        if ( $script->admin ) 
+        if ( array_key_exists( 'admin', $script ) 
+              && $script->admin ) 
         {
 
           wp_register_script( 
