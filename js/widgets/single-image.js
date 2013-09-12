@@ -35,7 +35,7 @@ jQuery(document).ready(function( $ ) {
               'width' : '100%'
             })
 
-          $preview.html( $img )
+          $preview.width('33%').html( $img )
 
           $inputs.first().val( media.id ).end()
             .last().val( media.url )
