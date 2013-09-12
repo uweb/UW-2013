@@ -40,7 +40,7 @@ class UW_Install_Styles
 
       'uw-style' => array ( 
           'id'      => 'uw-style',
-          'url'     => get_bloginfo('stylesheet_url') . '/style.css',
+          'url'     => get_bloginfo('stylesheet_url'),
           'deps'    => array(),
           'version' => '3.6',
           'child'   => true
