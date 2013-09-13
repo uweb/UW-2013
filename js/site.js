@@ -1488,7 +1488,7 @@ $(document).ready(function() {
      Begin slideshow.js
 ********************************************** */
 
-$(document).ready(function() {
+$(document).ready( function() {
 
   var $slideshows  = $('.slideshow-widget')
     , ACTIVE_SLIDE = 'active-slide'
@@ -1510,18 +1510,28 @@ $(document).ready(function() {
     // animation is done with css
     $slides
       .filter( '.' + ACTIVE_SLIDE )
-      //.css('opacity', 0)
       .removeClass( ACTIVE_SLIDE )
         .end()
       .eq( $this.parent().index() )
-        //.css('opacity', 1)
         .addClass( ACTIVE_SLIDE )
 
       $slideshow.data('currentSlide', $this.parent().index() )
   
     return false;
 
-  } ).bind('touchstart touchmove touchend', function(e) {
+  } )
+
+  $(window).bind( 'scroll', function() {
+
+    var $this = $(this)
+      , diff  = Math.max( -40 * $this.scrollTop() / $this.height() , -15 )
+
+    $slideshows
+      .find('img').css('margin-top', diff + '%' )
+
+  } )
+
+/*.bind('touchstart touchmove touchend', function(e) {
 
     var $this = $(this)
       , $img  = $(e.target)
@@ -1542,7 +1552,7 @@ $(document).ready(function() {
           , next    = ( del < 0 && current < $navs.length ) ? current + 1 : 
                       ( del > 0 && current > 0 )            ? current - 1 : 0;
         
-        console.log( 10 * del/width, del, width )
+        //console.log( 10 * del/width, del, width )
 
         $img.css( {
           'left' : del,
@@ -1572,6 +1582,7 @@ $(document).ready(function() {
     }
     
   })
+  */
 
 });
 
