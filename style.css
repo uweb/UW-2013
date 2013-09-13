@@ -4475,11 +4475,11 @@ h4 {
   font-size: 1.7em;
 }
 h2 {
-  font-size: 1.25em;
-  line-height: 23px;
-  margin-bottom: 10px;
+  font-size: 1.6em;
+  line-height: 26px;
+  margin: 15px 0 15px;
   letter-spacing: 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 h3 {
   color: #39275b;
@@ -4911,11 +4911,14 @@ input[type="submit"]:hover {
   font-size: 15px;
   position: absolute;
   left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .widget_recent_entries .more:hover,
 .recent-posts-widget .more:hover {
   color: #39275b;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .widget_recent_entries span,
 .recent-posts-widget span {
@@ -4964,10 +4967,13 @@ input[type="submit"]:hover {
   font-size: 15px;
   position: absolute;
   left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .uw-rss-widget .rss-more:hover {
   color: #39275b;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .uw-rss-widget .featured {
   padding: 0 25px 10px;
@@ -5022,10 +5028,13 @@ input[type="submit"]:hover {
   font-size: 15px;
   position: absolute;
   left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .twitter-feed-widget .more:hover {
   color: #39275b;
-  text-decoration: none;
+  text-decoration: underline;
 }
 #main .twitter-feed {
   padding: 0 25px 20px 22px;
@@ -5212,10 +5221,13 @@ a.fc-event,
   font-size: 15px;
   position: absolute;
   left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .pic-text-more:hover {
   color: #39275b;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .map-widget {
   padding: 5px 15px 0px 15px;
@@ -5274,10 +5286,13 @@ a.fc-event,
   font-size: 15px;
   position: absolute;
   left: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
 }
 .communityphotos .more:hover {
   color: #39275b;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .communityphotos p {
   text-transform: uppercase;
@@ -5355,6 +5370,7 @@ a.fc-event,
   font-family: 'Droid Serif', serif;
   font-style: italic;
   font-size: 1.3em;
+  margin: 15px 0 0;
 }
 .headline-separator-widget h2:before {
   content: "";
@@ -6350,7 +6366,6 @@ ul.gallery-menu li.active {
     background-color: #FFF;
     background: #FFF;
     padding: 0 0 0 0;
-    cursor: pointer;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
@@ -6397,7 +6412,6 @@ ul.gallery-menu li.active {
   .drop-shadow {
     background: #FFF;
     padding: 0 0 0 0;
-    cursor: pointer;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
@@ -6453,7 +6467,7 @@ ul.gallery-menu li.active {
     margin: 0 10px 0 0;
     font-size: 12px;
     line-height: 16px;
-    padding: 10px 0 0 5px;
+    padding: 15px 0 0 5px;
   }
   .image-magnifier {
     width: 49px;
@@ -6546,7 +6560,6 @@ ul.gallery-menu li.active {
   #main .widget {
     background: #FFF;
     padding: 0 0 0 0;
-    cursor: pointer;
     -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
@@ -6656,6 +6669,9 @@ ul.gallery-menu li.active {
     width: 60px;
     height: 2px;
     background-color: #d7a900;
+  }
+  #main .block-third .text-widget {
+    margin-bottom: 30px;
   }
   #main .block-full .text-widget {
     padding: 35px 0 0;
