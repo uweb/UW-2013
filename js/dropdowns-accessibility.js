@@ -1,10 +1,10 @@
 $(document).ready(function() {
 
-  var $submenus         = $('ul.dawgdrops-menu')
+  var $submenus         = $('ul.dawgdrops-menu, #sidebar ul.sub-menu')
     , $caret            = $('span.navbar-caret')
     , KEYDOWN_EVENT     = 'keydown.dawgdrops'
-    , DROPDOWN_AS       = 'ul.dawgdrops-menu a'
-    , DROPDOWN_TOGGLE   = 'a.dropdown-toggle'
+    , DROPDOWN_AS       = 'ul.dawgdrops-menu a, #sidebar ul.sub-menu a'
+    , DROPDOWN_TOGGLE   = 'a.dropdown-toggle, #sidebar ul.menu > li > a'
     , CARET_ADJUST      = 20
     , ANIMATION_DELAY   = 300
     , keys  = {
@@ -29,7 +29,7 @@ $(document).ready(function() {
           return true;
 
         var $this    = $(this)
-          , $anchors = $this.closest('ul').find('a')
+          , $anchors = $this.closest('ul.open').find('a')
 
         switch(e.keyCode) {
 
@@ -42,7 +42,7 @@ $(document).ready(function() {
             return true;
 
           case keys.esc:
-            $this.blur().closest('ul').siblings('a').focus();
+            $this.blur().closest('ul.open').siblings('a').focus();
             clearMenus();
             return true;
 
@@ -59,12 +59,12 @@ $(document).ready(function() {
             return false;
 
           case keys.left:
-            $this.blur().closest('ul').siblings('a').focus();
+            $this.blur().closest('ul.open').siblings('a').focus();
             clearMenus();
             return false;
 
           case keys.right:
-            $this.blur().closest('ul').parent().next('li').children('a').focus();
+            $this.blur().closest('ul.open').parent().next('li').children('a').focus();
             clearMenus();
             return false;
 
@@ -86,10 +86,13 @@ $(document).ready(function() {
 
         var $this = $(this)
           , $ul   = $this.siblings('ul')
-          , $anchors = $('a.dropdown-toggle')
+          , $anchors = $( DROPDOWN_TOGGLE )
 
         switch(e.keyCode) {
           case keys.enter:
+
+            if ( ! $ul.length )
+              return true;
 
             $caret
               .css('left', $this.position().left + CARET_ADJUST )

@@ -163,6 +163,8 @@
     }
 }
 
+.menu .menu-item .sub-menu.open, 
+.menu .page_item .children.open,
 .menu .menu-item:hover .sub-menu, 
 .menu .page_item:hover .children {
     display: block;
@@ -174,7 +176,7 @@
     position: relative;
     .transition(border 0.1s linear);
     background-position: 0 10px;
-    &:hover {
+    &:hover, &.open {
 	    border-left: 4px solid @gold;
 	    background-position: -5px 10px;
     }
