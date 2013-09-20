@@ -12,6 +12,7 @@ $(document).ready(function() {
     , WIDTH_DIVISION  = 10
     , WIDTH_MULTIPLY  = 240
     , LI_WRAP_ELEMENT = '<ul class="pull-left" style="width:200px"/>'
+    , SIDEBAR_HEADER  = 'Browse '
 
 
     
@@ -37,7 +38,7 @@ $(document).ready(function() {
   
     $sidebar.find('.menu').tinyNav({
       //active: 'current-menu-item',
-      header: $sidebar.find('.widgettitle a').prop('title')
+      header: SIDEBAR_HEADER + $sidebar.find('.widgettitle a').prop('title')
     });   	  
 
 });
