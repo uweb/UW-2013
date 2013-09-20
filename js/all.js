@@ -8,7 +8,6 @@
 //@codekit-prepend "dropdowns.js"
 //@codekit-prepend "dropdowns-accessibility.js"
 //@codekit-prepend "sidebar-menu.js"
-//@codekit-prepend "jquery.jpanelmenu.js"
 //@codekit-prepend "mobile-menu.js"
 //@codekit-prepend "search-expanded.js"
 //@codekit-prepend "gallery.js"
