@@ -27,7 +27,7 @@ class UW_Install_Scripts
         'id'      => 'site',
         'url'     => get_bloginfo('template_directory') . '/js/site.js',
         'deps'    => array( 'jquery' ),
-        'version' => '1.0'
+        'version' => '1.0.1'
       ),
 
 //      'jquery.searchposts' => array ( 
