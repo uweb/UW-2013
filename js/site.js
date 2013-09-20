@@ -1146,11 +1146,14 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 
-  var ANCHORS         = '#dawgdrops-mobile .menu-item a'
-    , MOBILE_MENU_ULS = '#uw-mobile-panel ul.sub-menu'
-    , SUB_MENUS       = 'ul.sub-menu'
+  var ANCHORS         = '#dawgdrops-mobile .menu-item a, #dawgdrops-mobile .page_item a'
+    , MOBILE_MENU_ULS = '#uw-mobile-panel ul.sub-menu, #uw-mobile-panel ul.children'
+    , SUB_MENUS       = 'ul.sub-menu, ul.children'
+    , MENU_ID         = 'dawgdrops-mobile'
     , OPEN_CLASS      = 'open'
     
+  $('div.uw-mobile-menu').children('ul').attr( 'id', MENU_ID )
+
   $( MOBILE_MENU_ULS ).hide()
 
   $('#listicon-wrapper').bind('click touchstart', function() {

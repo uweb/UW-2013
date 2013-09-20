@@ -7283,10 +7283,12 @@ ul.gallery-menu li.active {
     display: block;
     padding: 5px 5px 5px 10px;
   }
-  #dawgdrops-mobile .sub-menu {
+  #dawgdrops-mobile .sub-menu,
+  #dawgdrops-mobile .children {
     margin: 5px 0 0 -8px;
   }
-  #dawgdrops-mobile .sub-menu li {
+  #dawgdrops-mobile .sub-menu li,
+  #dawgdrops-mobile .children li {
     margin-bottom: 3px;
     background: none no-repeat left 7px #fafafa;
   }
