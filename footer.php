@@ -38,7 +38,7 @@
 	   </form>	
 	</div>
 
-<?php wp_nav_menu(array('theme_location' => 'primary', 'container_class' => 'uw-mobile-menu', 'menu_id' => 'dawgdrops-mobile' ) ); ?>
+<?php wp_nav_menu(array('theme_location' => 'primary', 'container_class' => 'uw-mobile-menu', 'menu_class' => 'uw-mobile-menu', 'menu_id' => 'dawgdrops-mobile' ) ); ?>
       
 <h3>Resources</h3>
 
