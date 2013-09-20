@@ -78,19 +78,21 @@
 #content {
     padding: 30px 0 30px 0;
 }
+#primary {
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;	
+}
 .single #primary,
 .page #primary,
 .archive #primary {
-    position: relative;
-    width: 1024px;
-    margin: 0 auto;
     background-color: #FFF;
     .drop-shadow();
     .border-radius(5px);
 }
 h1.entry-title {	
 	position: relative;	
-	margin-bottom: 35px;
+	margin-bottom: 25px;
 	&:before {
 		position: absolute;
 		left: -49px;
@@ -151,6 +153,9 @@ h1.entry-title {
 	background: 
 		url('img/misc/flap-shadow.jpg') 0 top no-repeat,
 		url('img/misc/flap-shadow-bottom.jpg') 0 bottom no-repeat;
+	ul {
+		margin-left: -10px;
+	}
 }
 
 	//Since low IEs don't support multiple backgrounds
