@@ -4462,9 +4462,9 @@ h1 {
 h1 i,
 h1 em {
   font-weight: 400;
-  font-family: 'Droid Serif', serif;
+  font-family: Baskerville, 'Times New Roman', Times, serif;
   text-transform: lowercase;
-  font-size: .85em;
+  font-size: 1.15em;
 }
 h2,
 h3,
@@ -7167,7 +7167,7 @@ ul.gallery-menu li.active {
 }
 @media (max-width: 767px) {
   body h1 {
-    margin: 16px 0 16px 0;
+    margin: 0 0 16px 0;
     border-left: 5px solid #d7a900;
     padding-left: 15px;
     display: block;
@@ -7277,6 +7277,9 @@ ul.gallery-menu li.active {
     right: 23px;
     font-size: 27px;
     color: #d7a900;
+  }
+  #dawgdrops-mobile li > a:only-child:after {
+    content: '';
   }
   #dawgdrops-mobile a {
     color: #555555;
