@@ -793,7 +793,7 @@ pre {
   padding: 0 3px 2px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
   font-size: 12px;
-  color: #484848;
+  color: #3c3c3c;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -852,7 +852,7 @@ legend {
   margin-bottom: 21px;
   font-size: 21px;
   line-height: 42px;
-  color: #484848;
+  color: #3c3c3c;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -3308,11 +3308,11 @@ a.badge:focus {
 }
 .label-inverse,
 .badge-inverse {
-  background-color: #484848;
+  background-color: #3c3c3c;
 }
 .label-inverse[href],
 .badge-inverse[href] {
-  background-color: #2f2f2f;
+  background-color: #232323;
 }
 .btn .label,
 .btn .badge {
@@ -3649,7 +3649,7 @@ a.badge:focus {
   right: 0;
   bottom: 0;
   padding: 15px;
-  background: #484848;
+  background: #3c3c3c;
   background: rgba(0, 0, 0, 0.75);
 }
 .carousel-caption h4,
@@ -4540,7 +4540,8 @@ summary {
   line-height: 30px;
   border-bottom: 1px solid #f3f3f3;
 }
-.intro-block {
+.intro,
+.lead {
   color: #6B6B6B;
   font-family: 'Droid Serif', serif;
   font-weight: 300;
@@ -6174,6 +6175,7 @@ ul.gallery-menu li.active {
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
     transition-duration: 0.3s;
+    background-color: #fff;
     background: rgba(255, 255, 255, 0.98);
     opacity: 0;
     -webkit-box-shadow: 1px 1px 5px #808080;
@@ -6747,6 +6749,9 @@ ul.gallery-menu li.active {
   .communityphotos {
     padding: 0 25px;
   }
+  #sidebar .widget_nav_menu .widgettitle a:hover {
+    font-weight: normal;
+  }
   .menu .sub-menu,
   .menu .children {
     z-index: 999;
@@ -6823,7 +6828,7 @@ ul.gallery-menu li.active {
     text-decoration: none;
     border-bottom: 1px solid #f4f4f4;
     display: block;
-    color: #484848;
+    color: #3c3c3c;
     padding: 2px 10px 4px 0;
     margin-bottom: 4px;
   }
@@ -6936,7 +6941,7 @@ ul.gallery-menu li.active {
   #footer ul {
     margin: 0;
   }
-  #footer li {
+  #footer ul li {
     line-height: 14px;
     list-style: none;
     margin-bottom: 5px;
@@ -7482,6 +7487,7 @@ ul.gallery-menu li.active {
   .widget_archive,
   .widget_categories,
   .widget_search,
+  .widget-uw-showcase,
   #sidebar .uw-rss-widget,
   #sidebar .widget_text {
     padding: 0 25px 10px;
@@ -7491,6 +7497,7 @@ ul.gallery-menu li.active {
   .widget_archive .widgettitle,
   .widget_categories .widgettitle,
   .widget_search .widgettitle,
+  .widget-uw-showcase .widgettitle,
   #sidebar .uw-rss-widget .widgettitle,
   #sidebar .widget_text .widgettitle {
     margin-left: -25px;
