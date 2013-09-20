@@ -4548,6 +4548,9 @@ summary {
   font-size: 1.2em;
   line-height: 1.5em;
   font-style: italic;
+  border-top: 1px solid #F4F4F4;
+  border-bottom: 1px solid #FFF;
+  padding: 25px 0;
 }
 small {
   font-family: 'Droid Serif', serif;
