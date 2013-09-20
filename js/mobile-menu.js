@@ -56,4 +56,10 @@ $(document).ready(function() {
 
   })
 
+  // Responsive bug fix
+  $(window).resize( function() {
+    if ( $('#slide').length == 1 )
+      $('#listicon-wrapper').trigger('click') 
+  })
+
 });
