@@ -35,8 +35,11 @@ class UW_Pride_Points extends WP_Widget
               if ( json.status == "ok" && json.count === 1) 
                 $widget.fadeIn().html(json.posts.content)
 
-              if ( $widget.find("p").length > 1 )
-                $widget.find("p:last").addClass("pride-src")
+              $widget.find("p").filter(function(i,el) {
+                if ( /source/i.test(el.innerHTML ) )
+                  $(el).addClass("pride-src")
+              })
+
             },
             cache:false
           })
