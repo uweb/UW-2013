@@ -4491,6 +4491,9 @@ b,
 strong {
   font-weight: 600;
 }
+.container a {
+  font-weight: 600;
+}
 a:focus {
   color: #005580;
   text-decoration: underline;
@@ -4639,13 +4642,6 @@ input[type="submit"]:hover {
 }
 #uwalert-alert-message a {
   color: #FDE048;
-}
-.info-box {
-  border-left: 2px solid #E9E9E9;
-  width: 220px;
-  float: right;
-  padding: 0px 0 0px 30px;
-  margin: 15px 0 15px 40px;
 }
 .info-box-large {
   padding: 30px 10px 15px;
@@ -5052,6 +5048,9 @@ input[type="submit"]:hover {
 }
 #main .twitter-feed {
   padding: 0 25px 20px 22px;
+}
+.widget_nav_menu a {
+  font-weight: normal;
 }
 .calendar-widget-wrapper {
   position: relative;
@@ -6217,7 +6216,7 @@ ul.gallery-menu li.active {
     margin: 0 30px 3px 0;
     padding: 0px 10px 3px 7px;
     font-size: 105%;
-    color: #717171;
+    color: #3C3C3C;
     min-width: 200px;
     display: block;
   }
@@ -6379,7 +6378,8 @@ ul.gallery-menu li.active {
   }
   .single #primary,
   .page #primary,
-  .archive #primary {
+  .archive #primary,
+  .search #primary {
     background-color: #FFF;
     background: #FFF;
     padding: 0 0 0 0;
@@ -6442,11 +6442,11 @@ ul.gallery-menu li.active {
     box-shadow: 0 2px 7px rgba(0, 0, 0, 0.4);
   }
   .info-box {
-    border-left: 5px solid #f4f4f4;
-    width: 245px;
+    border-left: 2px solid #E9E9E9;
+    width: 200px;
     float: right;
-    padding: 10px 0 10px 20px;
-    margin: 15px 0 15px 30px;
+    padding: 0px 0 0px 30px;
+    margin: 15px 0 15px 40px;
   }
   .info-box-large {
     padding: 30px 10px 15px;
@@ -6753,7 +6753,7 @@ ul.gallery-menu li.active {
     padding: 0 25px;
   }
   #sidebar .widget_nav_menu .widgettitle a:hover {
-    font-weight: normal;
+    font-weight: 600;
   }
   .menu .sub-menu,
   .menu .children {
@@ -6825,6 +6825,7 @@ ul.gallery-menu li.active {
     border: none;
     padding-left: 13px;
     margin-left: -14px;
+    font-weight: 600;
   }
   .widget_nav_menu a,
   .subpage_menu a {
