@@ -4501,8 +4501,7 @@ a:focus {
 p {
   margin-bottom: 1.4em;
 }
-ul,
-ol {
+ul {
   margin-left: 5px;
   margin-bottom: 1.4em;
 }
@@ -4527,6 +4526,7 @@ iframe {
   margin: 10px 0 15px;
   display: block;
   max-width: 100% !important;
+  border: none;
 }
 hr {
   clear: both;
