@@ -146,6 +146,36 @@ if ( ! function_exists( 'uw_dropdowns' ) ):
 endif;
 
 /**
+ * Mobile Dropdowns 
+ */
+
+if ( ! function_exists( 'uw_mobile_dropdowns' ) ): 
+
+  function uw_mobile_dropdowns() 
+  {
+    $nav = has_nav_menu('primary');
+
+    if ( ( !$nav ) && ( is_multisite() ) )
+    {
+      switch_to_blog(1);
+    }
+    wp_nav_menu( array( 
+      'theme_location'  => 'primary',
+      'container_class' => 'uw-mobile-menu',
+      'menu_class'      => 'uw-mobile-menu',
+      'menu_id'			    => 'dawgdrops-mobile',
+      'fallback_cb'     => '',
+    ) );
+    if ( ( !$nav ) && ( is_multisite() ) )
+    {
+      restore_current_blog();
+    }
+  }
+
+endif;
+
+
+/**
  * Footer Menu
  */
 
