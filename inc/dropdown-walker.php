@@ -55,7 +55,7 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
     $title = ! empty( $item->title ) ? $item->title : $item->post_title;
     
     $caret  = $depth == 0 && $item->has_children ? '<b class="caret"></b>' : '';
-    $controls = $depth == 0 && $item->has_children ? 'aria-control="menu-'.$this->post_name.'"' : '';
+    $controls = $depth == 0 && $item->has_children ? 'aria-controls="menu-'.$this->post_name.'"' : '';
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
