@@ -189,7 +189,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
   line-height: 21px;
-  color: #3c3c3c;
+  color: #333333;
   background-color: #ffffff;
 }
 a {
@@ -1382,7 +1382,7 @@ select:focus:invalid:focus {
 }
 .help-block,
 .help-inline {
-  color: #626262;
+  color: #595959;
 }
 .help-block {
   display: block;
@@ -6543,6 +6543,14 @@ ul.gallery-menu li.active {
   }
   .four-oh-four {
     padding: 0 0 50px;
+  }
+  .columns-2 {
+    float: left;
+    width: 50%;
+  }
+  .columns-3 {
+    float: left;
+    width: 33%;
   }
   .archive .entry-title {
     font-size: 1.4em;
