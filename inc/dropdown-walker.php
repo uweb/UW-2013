@@ -55,7 +55,7 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
     $title = ! empty( $item->title ) ? $item->title : $item->post_title;
     
     $caret  = $depth == 0 && $item->has_children ? '<b class="caret"></b>' : '';
-    $controls = $depth == 0 && $item->has_children ? 'aria-controls="menu-'.$this->post_name.'"' : '';
+    $controls = $depth == 0 && $item->has_children ? 'aria-controls="menu-'.$item->post_name.'"' : '';
 
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 
@@ -74,6 +74,7 @@ class UW_Dropdowns_Walker_Menu extends Walker_Nav_Menu
 		$attributes .=   $depth == 0                ? ' class="dropdown-toggle"' : '';
 		$attributes .=   $depth == 1                ? ' tabindex="-1" '                                : '';
 		$attributes .=  ' title="'. $title .'" ';
+    $attributes .= $controls;
 
 		$item_output = $args->before;
 		$item_output .= '<a'. $attributes .'>';
