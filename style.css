@@ -4629,6 +4629,33 @@ input[type="submit"]:hover {
   background-color: #025577;
   text-decoration: none;
 }
+.button {
+  text-align: center;
+  background-color: #048ac2;
+  color: #ffffff;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  padding: 10px 18px;
+  margin-bottom: 50px;
+  font-weight: bold;
+  border: none;
+  font-size: 13px;
+  text-indent: 0;
+  overflow: hidden;
+  display: block;
+}
+.button:hover {
+  -webkit-transition: background-color 0.2s linear;
+  -moz-transition: background-color 0.2s linear;
+  -o-transition: background-color 0.2s linear;
+  transition: background-color 0.2s linear;
+  background-color: #025577;
+  text-decoration: none;
+}
 #uwalert-alert-message div {
   width: 1100px;
   margin: 0 auto;
@@ -4740,8 +4767,7 @@ input[type="submit"]:hover {
   background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 16% 14% #ec7330;
   background-size: 18%;
 }
-.post-edit-link,
-.button {
+.post-edit-link {
   text-align: center;
   background-color: #048ac2;
   color: #ffffff;
@@ -4764,8 +4790,7 @@ input[type="submit"]:hover {
   width: 20%;
   margin: 0 auto;
 }
-.post-edit-link:hover,
-.button:hover {
+.post-edit-link:hover {
   -webkit-transition: background-color 0.2s linear;
   -moz-transition: background-color 0.2s linear;
   -o-transition: background-color 0.2s linear;
@@ -4774,9 +4799,7 @@ input[type="submit"]:hover {
   text-decoration: none;
 }
 .post-edit-link:hover,
-.button:hover,
-.post-edit-link:focus,
-.button:focus {
+.post-edit-link:focus {
   color: #fff;
   background-color: #589003;
 }
