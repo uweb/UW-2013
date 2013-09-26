@@ -4628,6 +4628,7 @@ input[type="submit"]:hover {
   transition: background-color 0.2s linear;
   background-color: #025577;
   text-decoration: none;
+  color: #f4f4f4;
 }
 .button {
   text-align: center;
@@ -4656,6 +4657,7 @@ input[type="submit"]:hover {
   transition: background-color 0.2s linear;
   background-color: #025577;
   text-decoration: none;
+  color: #f4f4f4;
 }
 #uwalert-alert-message div {
   width: 1100px;
@@ -4798,6 +4800,7 @@ input[type="submit"]:hover {
   transition: background-color 0.2s linear;
   background-color: #025577;
   text-decoration: none;
+  color: #f4f4f4;
 }
 .post-edit-link:hover,
 .post-edit-link:focus {
@@ -6369,7 +6372,7 @@ ul.gallery-menu li.active {
     position: absolute;
   }
   .stripe-bottom {
-    bottom: 0;
+    bottom: -85px;
     background-position: -3px bottom;
   }
   .breadcrumbs-container {
@@ -6669,7 +6672,7 @@ ul.gallery-menu li.active {
     background: url('img/misc/home-bg.png') no-repeat 0 0 transparent;
   }
   .home.siteorigin-panels h1.entry-title {
-    margin: 5px 0;
+    margin: 0;
     padding-right: 0;
   }
   .home.siteorigin-panels h1.entry-title:before {
@@ -7288,6 +7291,10 @@ ul.gallery-menu li.active {
     height: 5px;
     background-color: #ebebeb;
   }
+  .intro,
+  .lead {
+    margin: 0 20px 20px;
+  }
   #header {
     background: url("http://www.washington.edu/static/mobile/image/top_bg_z.jpg") repeat-x scroll center top #ffffff;
     position: relative;
@@ -7626,6 +7633,9 @@ ul.gallery-menu li.active {
   #sidebar .uw-rss-widget .rss-more {
     margin-left: 0;
   }
+  .pic-text-widget {
+    text-align: center;
+  }
   .pic-text-widget h3 {
     padding: 0 25px;
   }
@@ -7634,6 +7644,7 @@ ul.gallery-menu li.active {
   }
   .pic-text-more {
     padding-bottom: 0;
+    display: inline-block;
   }
   .slideshow-widget {
     width: 2520px;
