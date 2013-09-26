@@ -1,11 +1,14 @@
 body {
 	-webkit-font-smoothing: antialiased;
 }
-#ie7, #ie8 {
-	body {
 
-	}
+// Things that anti-aliasing makes too light
+
+.dropdown-toggle {
+	-webkit-font-smoothing:subpixel-antialiased;
 }
+
+
 h1, h2, h3, h4 {
     font-weight: 400; 
     letter-spacing: -.05em;
@@ -45,6 +48,9 @@ h4 {
 b, strong {
 	font-weight: 600;
 }
+.container a {
+	font-weight: 600;
+}
 a:focus {
 	color: #005580;
 	text-decoration: underline;
@@ -52,7 +58,7 @@ a:focus {
 p {
     margin-bottom: 1.4em;
 }
-ul, ol {
+ul {
 	margin-left: 5px;
 	margin-bottom: 1.4em;
 }
@@ -69,6 +75,7 @@ object, embed, iframe {
 	margin: 10px 0 15px;
 	display: block;
 	max-width: 100% !important;
+	border: none;
 }
 hr {
 	clear: both;
@@ -85,13 +92,17 @@ summary {
 	line-height: 30px;
 	border-bottom: 1px solid rgb(243, 243, 243);
 }
-.intro-block {
+.intro,
+.lead {
 	color: #6B6B6B;
     font-family: @serifFontFamily;
     font-weight: 300;
     font-size: 1.2em;
     line-height: 1.5em;
     font-style: italic;
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    padding: 20px 0;
 }
 small {
 	font-family: @serifFontFamily;
@@ -133,9 +144,23 @@ blockquote {
 
 }
 
+// Fixes LIs from not wrapping properly 
+
+.type-page, 
+.type-post {
+	ul {
+	    overflow: hidden;
+	}
+}
+
 // Custom Buttons
 
 input[type="submit"] {
 	.uw-button();
+}
+
+.button {
+	.uw-button();
+	display: inline;
 }
 

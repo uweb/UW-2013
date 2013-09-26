@@ -69,7 +69,7 @@
 
 #main .block-full {
 	.text-widget {
-		padding: 15px 0 0;
+		padding: 5px 0 0;
 		background-color: transparent;
 	}	
 }
@@ -136,6 +136,21 @@
 
 // Sidebar Menu 
 
+    // Override common widdettitle
+    
+//#sidebar .widget_nav_menu .widgettitle {
+//	background: url(img/side-menu-bg.gif) no-repeat bottom center transparent;
+//	padding: 0 0 20px 0;
+//	margin: 0 0 5px 0;
+//	a:hover {
+//		font-weight: normal;
+//	}
+//}
+
+#sidebar .widget_nav_menu .widgettitle a:hover {
+	font-weight: 600;
+}
+
 .menu .sub-menu, 
 .menu .children {
     z-index: 999;
@@ -194,6 +209,7 @@
        border: none; 
        padding-left: 13px;
        margin-left: -14px;
+       font-weight: 600;
     }
 }
 
@@ -258,7 +274,6 @@
 	img {
 		.border-radius(4px 4px 0 0);
 		width: 100%;
-		margin-bottom: 8px;
 	}
 	&:hover img {
 		opacity: .8;
