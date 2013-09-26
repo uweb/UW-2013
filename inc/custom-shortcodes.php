@@ -170,8 +170,6 @@ add_shortcode( 'blogroll', 'uw_blogroll_shortcode' );
 if ( ! function_exists( 'uw_youtube_playlist_shortcode' ) ) :
   function uw_youtube_playlist_shortcode( $atts ) 
   {
-    wp_enqueue_script('widget-youtube-playlist');
-
     $content = '
       <div id="youtube-playlist-player" class="row">
 

@@ -1,5 +1,7 @@
 //plugins
 //@codekit-prepend "jquery.tinynav.js"
+//@codekit-prepend "jquery.tinyscrollbar.js"
+//@codekit-prepend "imagesloaded.pkgd.js"
 
 //@codekit-prepend "globals.js"
 //@codekit-prepend "alert.js"
@@ -18,3 +20,4 @@
 //@codekit-prepend "widgets/jquery.fullcalendar.js"
 //@codekit-prepend "widgets/jquery.fullcalendar.gcal.js"
 //@codekit-prepend "widgets/uw-calendar.js"
+//@codekit-prepend "widgets/youtube-playlist.js"
