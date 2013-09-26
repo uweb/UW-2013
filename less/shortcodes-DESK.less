@@ -1,0 +1,120 @@
+
+.youtube-large {
+	float: left;
+	width: 74.5%;
+	margin: 1% 0 1% 1%;
+}
+
+.youtube-small {
+	width: 20.5%;
+	padding: 1.5% 1% 1.2% 2%;
+	float: right;
+	overflow: hidden;
+	position: relative;
+	background: #f4f4f4; /* Old browsers */
+	background: -moz-linear-gradient(left,  #dddddd 0%, #ffffff 3%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#dddddd), color-stop(3%,#ffffff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #dddddd 0%,#ffffff 3%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #dddddd 0%,#ffffff 3%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #f4f4f4 0%,#ffffff 3%); /* IE10+ */
+	background: linear-gradient(to right,  #dddddd 0%,#ffffff 3%); /* W3C */
+}
+
+#youtube-playlist-player {
+	margin: 0 0 20px;
+	.box-shadow(1px 1px 7px #E0E0E0);
+	clear: both;
+}
+#youtube-playlist-player object {
+	width:100%;
+	margin: 0;
+}
+
+#youtube-playlist-player ul li:first-child {
+	display: none;
+}
+
+#youtube-playlist-player ul {
+	margin: 0;
+}
+
+#youtube-playlist-player ul li {
+	margin-bottom: 5px;
+	background: none;
+	padding:0;
+	position: relative;
+}
+
+#youtube-player-controls {
+	height: 351px;
+	overflow: hidden;
+	padding: 0;
+}
+
+#youtube-player-controls span {
+	display: block;
+	font-size: 85%;
+	line-height: 1.3em; 
+}
+
+#youtube-player-controls .title { margin: 5px 0 0 0 }
+
+#youtube-player-controls a {
+    display: block;
+    margin: 0 0 10px;
+    overflow: hidden;
+    position: relative; }
+
+#youtube-player-controls .duration { color: #484848 }
+
+#youtube-player-controls .playBtn {
+    left: 43px;
+    position: absolute;
+    top: 31px;
+    z-index: 0;
+    border: none; }
+
+#youtube-player-controls .viewport {
+    height: 354px;
+    overflow: hidden;
+    position: relative;
+    width: 115px; }
+
+#youtube-player-controls .overview {
+    list-style: none;
+    position: absolute;
+    left: 0;
+    top: 0; 
+    width:100%;
+}
+
+#youtube-player-controls .thumb .end,
+#youtube-player-controls .thumb { background-color: #888888 }
+
+#youtube-player-controls .scrollbar {
+    display: none;
+    float: right;
+    width: 10px; }
+
+#youtube-player-controls .track {
+    background-color: #f4f4f4;
+    height: 100%;
+    width: 8px;
+    position: relative;
+    padding: 0 1px; }
+
+#youtube-player-controls .thumb {
+    height: 20px;
+    width: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute;
+    top: 0; }
+
+#youtube-player-controls .thumb .end {
+    overflow: hidden;
+    height: 5px;
+    width: 8px; }
+
+#youtube-player-controls .disable { display: none }
+
