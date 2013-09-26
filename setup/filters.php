@@ -33,7 +33,7 @@ class UW_Filters
     $new_content = preg_replace($regex, "<em>$1</em>", $content); 
 
     if ( in_array('&', $words) )
-      $new_content = str_replace( array( '&', '&amp;', '&#038;' ) , '<em>&#038;</em>', $new_content);
+      $new_content = str_replace( array( '&#038;', '&', '&amp;' ) , '<em>&#038;</em>', $new_content);
 
     echo $new_content;
 
