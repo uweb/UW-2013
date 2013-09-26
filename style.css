@@ -4647,6 +4647,7 @@ input[type="submit"]:hover {
   text-indent: 0;
   overflow: hidden;
   display: block;
+  display: inline;
 }
 .button:hover {
   -webkit-transition: background-color 0.2s linear;
