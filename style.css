@@ -4740,7 +4740,8 @@ input[type="submit"]:hover {
   background: url('https://www.washington.edu/static/alert_logo_orange.jpg') no-repeat 16% 14% #ec7330;
   background-size: 18%;
 }
-.post-edit-link {
+.post-edit-link,
+.button {
   text-align: center;
   background-color: #048ac2;
   color: #ffffff;
@@ -4763,7 +4764,8 @@ input[type="submit"]:hover {
   width: 20%;
   margin: 0 auto;
 }
-.post-edit-link:hover {
+.post-edit-link:hover,
+.button:hover {
   -webkit-transition: background-color 0.2s linear;
   -moz-transition: background-color 0.2s linear;
   -o-transition: background-color 0.2s linear;
@@ -4772,7 +4774,9 @@ input[type="submit"]:hover {
   text-decoration: none;
 }
 .post-edit-link:hover,
-.post-edit-link:focus {
+.button:hover,
+.post-edit-link:focus,
+.button:focus {
   color: #fff;
   background-color: #589003;
 }
