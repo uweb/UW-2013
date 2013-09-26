@@ -233,7 +233,20 @@ if ( ! function_exists( 'uw_blockquote_shortcode' ) ) :
 endif;
 add_shortcode('block', 'uw_blockquote_shortcode');
 
-
+/**
+ * Columns shortcode
+ */
+if ( ! function_exists( 'uw_columns_shortcode' ) ) :
+  function uw_columns_shortcode( $atts, $content ) 
+  {	  
+ 	$params = shortcode_atts( array(
+      'number'   => '',
+    ), $atts );
+    
+    return '<div class="columns-' . $params[number] .'">' . $content . '</div>';
+  }
+endif;
+add_shortcode('columns', 'uw_columns_shortcode');
 
 /**
  * Google calendar shortcode

@@ -58,7 +58,10 @@ function uw_register_widgets() {
   register_widget('UW_Calendar');
   register_widget('UW_Campus_Map');
   register_widget('UW_Slideshow');
+  // Specific to Page Builder only
   register_widget('UW_Headline_Separator_Widget');
+  register_widget('UW_Headline_Widget');
+  register_widget('UW_Intro_Widget');
 
   if ( is_multisite() && get_blog_details('marketing') )
     register_widget('UW_Pride_Points');
@@ -78,6 +81,8 @@ require( get_template_directory() . '/inc/widgets/showcase.php' );
 require( get_template_directory() . '/inc/widgets/calendar.php' );
 require( get_template_directory() . '/inc/widgets/campus-map.php' );
 require( get_template_directory() . '/inc/widgets/headline-separator.php' );
+require( get_template_directory() . '/inc/widgets/headline.php' );
+require( get_template_directory() . '/inc/widgets/intro.php' );
 
 // The following widgets just override parts of the core Wordpress Widgets
 require( get_template_directory() . '/inc/widgets/uw-link.php' );

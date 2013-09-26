@@ -188,7 +188,7 @@ body {
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 20px;
   color: #333333;
   background-color: #ffffff;
 }
@@ -332,7 +332,7 @@ a:focus {
 .row-fluid [class*="span"] {
   display: block;
   width: 100%;
-  min-height: 31px;
+  min-height: 30px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -527,13 +527,13 @@ a:focus {
   clear: both;
 }
 p {
-  margin: 0 0 10.5px;
+  margin: 0 0 10px;
 }
 .lead {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   font-size: 21px;
   font-weight: 200;
-  line-height: 31.5px;
+  line-height: 30px;
 }
 small {
   font-size: 85%;
@@ -597,10 +597,10 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10.5px 0;
+  margin: 10px 0;
   font-family: inherit;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 20px;
   color: #39275b;
   text-rendering: optimizelegibility;
 }
@@ -617,7 +617,7 @@ h6 small {
 h1,
 h2,
 h3 {
-  line-height: 42px;
+  line-height: 40px;
 }
 h1 {
   font-size: 38.5px;
@@ -650,14 +650,14 @@ h4 small {
   font-size: 14px;
 }
 .page-header {
-  padding-bottom: 9.5px;
-  margin: 21px 0 31.5px;
+  padding-bottom: 9px;
+  margin: 20px 0 30px;
   border-bottom: 1px solid #f4f4f4;
 }
 ul,
 ol {
   padding: 0;
-  margin: 0 0 10.5px 25px;
+  margin: 0 0 10px 25px;
 }
 ul ul,
 ul ol,
@@ -666,7 +666,7 @@ ol ul {
   margin-bottom: 0;
 }
 li {
-  line-height: 21px;
+  line-height: 20px;
 }
 ul.unstyled,
 ol.unstyled {
@@ -689,17 +689,17 @@ ol.inline > li {
   padding-right: 5px;
 }
 dl {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 }
 dt,
 dd {
-  line-height: 21px;
+  line-height: 20px;
 }
 dt {
   font-weight: bold;
 }
 dd {
-  margin-left: 10.5px;
+  margin-left: 10px;
 }
 .dl-horizontal {
   *zoom: 1;
@@ -726,7 +726,7 @@ dd {
   margin-left: 180px;
 }
 hr {
-  margin: 21px 0;
+  margin: 20px 0;
   border: 0;
   border-top: 1px solid #f4f4f4;
   border-bottom: 1px solid #ffffff;
@@ -742,7 +742,7 @@ abbr.initialism {
 }
 blockquote {
   padding: 0 0 0 15px;
-  margin: 0 0 21px;
+  margin: 0 0 20px;
   border-left: 5px solid #f4f4f4;
 }
 blockquote p {
@@ -753,7 +753,7 @@ blockquote p {
 }
 blockquote small {
   display: block;
-  line-height: 21px;
+  line-height: 20px;
   color: #999999;
 }
 blockquote small:before {
@@ -784,9 +784,9 @@ blockquote:after {
 }
 address {
   display: block;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   font-style: normal;
-  line-height: 21px;
+  line-height: 20px;
 }
 code,
 pre {
@@ -807,10 +807,10 @@ code {
 }
 pre {
   display: block;
-  padding: 10px;
-  margin: 0 0 10.5px;
+  padding: 9.5px;
+  margin: 0 0 10px;
   font-size: 13px;
-  line-height: 21px;
+  line-height: 20px;
   word-break: break-all;
   word-wrap: break-word;
   white-space: pre;
@@ -823,7 +823,7 @@ pre {
   border-radius: 4px;
 }
 pre.prettyprint {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 }
 pre code {
   padding: 0;
@@ -838,7 +838,7 @@ pre code {
   overflow-y: scroll;
 }
 form {
-  margin: 0 0 21px;
+  margin: 0 0 20px;
 }
 fieldset {
   padding: 0;
@@ -849,15 +849,15 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   font-size: 21px;
-  line-height: 42px;
+  line-height: 40px;
   color: #3c3c3c;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
 legend small {
-  font-size: 15.75px;
+  font-size: 15px;
   color: #999999;
 }
 label,
@@ -867,7 +867,7 @@ select,
 textarea {
   font-size: 14px;
   font-weight: normal;
-  line-height: 21px;
+  line-height: 20px;
 }
 input,
 button,
@@ -897,11 +897,11 @@ input[type="tel"],
 input[type="color"],
 .uneditable-input {
   display: inline-block;
-  height: 21px;
+  height: 20px;
   padding: 4px 6px;
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 20px;
   color: #555555;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -989,13 +989,13 @@ input[type="checkbox"] {
 }
 select,
 input[type="file"] {
-  height: 31px;
+  height: 30px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
 
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
 
-  line-height: 31px;
+  line-height: 30px;
 }
 select {
   width: 220px;
@@ -1046,7 +1046,7 @@ textarea::-webkit-input-placeholder {
 }
 .radio,
 .checkbox {
-  min-height: 21px;
+  min-height: 20px;
   padding-left: 20px;
 }
 .radio input[type="radio"],
@@ -1364,9 +1364,9 @@ select:focus:invalid:focus {
   box-shadow: 0 0 6px #f8b9b7;
 }
 .form-actions {
-  padding: 20px 20px 21px;
-  margin-top: 21px;
-  margin-bottom: 21px;
+  padding: 19px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #f5f5f5;
   border-top: 1px solid #e5e5e5;
   *zoom: 1;
@@ -1386,7 +1386,7 @@ select:focus:invalid:focus {
 }
 .help-block {
   display: block;
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
 }
 .help-inline {
   display: inline-block;
@@ -1400,7 +1400,7 @@ select:focus:invalid:focus {
 .input-append,
 .input-prepend {
   display: inline-block;
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
   vertical-align: middle;
   font-size: 0;
   white-space: nowrap;
@@ -1443,12 +1443,12 @@ select:focus:invalid:focus {
 .input-prepend .add-on {
   display: inline-block;
   width: auto;
-  height: 21px;
+  height: 20px;
   min-width: 16px;
   padding: 4px 5px;
   font-size: 14px;
   font-weight: normal;
-  line-height: 21px;
+  line-height: 20px;
   text-align: center;
   text-shadow: 0 1px 0 #ffffff;
   background-color: #f4f4f4;
@@ -1639,14 +1639,14 @@ input.search-query {
   margin-left: 0;
 }
 .control-group {
-  margin-bottom: 10.5px;
+  margin-bottom: 10px;
 }
 legend + .control-group {
-  margin-top: 21px;
+  margin-top: 20px;
   -webkit-margin-top-collapse: separate;
 }
 .form-horizontal .control-group {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   *zoom: 1;
 }
 .form-horizontal .control-group:before,
@@ -1682,7 +1682,7 @@ legend + .control-group {
 .form-horizontal .uneditable-input + .help-block,
 .form-horizontal .input-prepend + .help-block,
 .form-horizontal .input-append + .help-block {
-  margin-top: 10.5px;
+  margin-top: 10px;
 }
 .form-horizontal .form-actions {
   padding-left: 180px;
@@ -1695,12 +1695,12 @@ table {
 }
 .table {
   width: 100%;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 }
 .table th,
 .table td {
   padding: 8px;
-  line-height: 21px;
+  line-height: 20px;
   text-align: left;
   vertical-align: top;
   border-top: 1px solid #dddddd;
@@ -2434,7 +2434,7 @@ table th[class*="span"],
   float: right;
   font-size: 20px;
   font-weight: bold;
-  line-height: 21px;
+  line-height: 20px;
   color: #000000;
   text-shadow: 0 1px 0 #ffffff;
   opacity: 0.2;
@@ -2475,8 +2475,8 @@ button.close {
 }
 .btn-toolbar {
   font-size: 0;
-  margin-top: 10.5px;
-  margin-bottom: 10.5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .btn-toolbar > .btn + .btn,
 .btn-toolbar > .btn-group + .btn,
@@ -2673,7 +2673,7 @@ button.close {
 }
 .alert {
   padding: 8px 35px 8px 14px;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
   background-color: #fcf8e3;
   border: 1px solid #fbeed5;
@@ -2692,7 +2692,7 @@ button.close {
   position: relative;
   top: -2px;
   right: -21px;
-  line-height: 21px;
+  line-height: 20px;
 }
 .alert-success {
   background-color: #dff0d8;
@@ -2732,7 +2732,7 @@ button.close {
   margin-top: 5px;
 }
 .pagination {
-  margin: 21px 0;
+  margin: 20px 0;
   font-weight: bold;
 }
 .pagination ul {
@@ -2754,7 +2754,7 @@ button.close {
 .pagination ul > li > span {
   float: left;
   padding: 4px 12px;
-  line-height: 21px;
+  line-height: 20px;
   text-decoration: none;
   background-color: #ffffff;
   -webkit-border-radius: 4px;
@@ -3172,13 +3172,13 @@ button.close {
 }
 .thumbnails > li {
   float: left;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   margin-left: 20px;
 }
 .thumbnail {
   display: block;
   padding: 4px;
-  line-height: 21px;
+  line-height: 20px;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -3365,8 +3365,8 @@ a.badge:focus {
 }
 .progress {
   overflow: hidden;
-  height: 21px;
-  margin-bottom: 21px;
+  height: 20px;
+  margin-bottom: 20px;
   background-color: #f7f7f7;
   background-image: -moz-linear-gradient(top, #f5f5f5, #f9f9f9);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f9f9f9));
@@ -3514,7 +3514,7 @@ a.badge:focus {
   background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
 }
 .accordion {
-  margin-bottom: 21px;
+  margin-bottom: 20px;
 }
 .accordion-group {
   margin-bottom: 2px;
@@ -3539,7 +3539,7 @@ a.badge:focus {
 }
 .carousel {
   position: relative;
-  margin-bottom: 21px;
+  margin-bottom: 20px;
   line-height: 1;
 }
 .carousel-inner {
@@ -3655,7 +3655,7 @@ a.badge:focus {
 .carousel-caption h4,
 .carousel-caption p {
   color: #ffffff;
-  line-height: 21px;
+  line-height: 20px;
 }
 .carousel-caption h4 {
   margin: 0 0 5px;
@@ -3668,7 +3668,7 @@ a.badge:focus {
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
-  line-height: 31.5px;
+  line-height: 30px;
   color: inherit;
   background-color: #f4f4f4;
   -webkit-border-radius: 6px;
@@ -3683,7 +3683,7 @@ a.badge:focus {
   letter-spacing: -1px;
 }
 .hero-unit li {
-  line-height: 31.5px;
+  line-height: 30px;
 }
 .pull-right {
   float: right;
@@ -3734,7 +3734,7 @@ a.badge:focus {
 .input-block-level {
   display: block;
   width: 100%;
-  min-height: 31px;
+  min-height: 30px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3910,7 +3910,7 @@ a.badge:focus {
   .row-fluid [class*="span"] {
     display: block;
     width: 100%;
-    min-height: 31px;
+    min-height: 30px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -4204,7 +4204,7 @@ a.badge:focus {
   .uneditable-input {
     display: block;
     width: 100%;
-    min-height: 31px;
+    min-height: 30px;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -4240,7 +4240,7 @@ a.badge:focus {
   }
   .page-header h1 small {
     display: block;
-    line-height: 21px;
+    line-height: 20px;
   }
   input[type="checkbox"],
   input[type="radio"] {
@@ -4294,10 +4294,10 @@ a.badge:focus {
     position: static;
   }
   .navbar-fixed-top {
-    margin-bottom: 21px;
+    margin-bottom: 20px;
   }
   .navbar-fixed-bottom {
-    margin-top: 21px;
+    margin-top: 20px;
   }
   .navbar-fixed-top .navbar-inner,
   .navbar-fixed-bottom .navbar-inner {
@@ -4317,7 +4317,7 @@ a.badge:focus {
   }
   .nav-collapse .nav {
     float: none;
-    margin: 0 0 10.5px;
+    margin: 0 0 10px;
   }
   .nav-collapse .nav > li {
     float: none;
@@ -4406,8 +4406,8 @@ a.badge:focus {
   .nav-collapse .navbar-form,
   .nav-collapse .navbar-search {
     float: none;
-    padding: 10.5px 15px;
-    margin: 10.5px 0;
+    padding: 10px 15px;
+    margin: 10px 0;
     border-top: 1px solid #f2f2f2;
     border-bottom: 1px solid #f2f2f2;
     -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 0 rgba(255,255,255,.1);
@@ -4444,6 +4444,9 @@ a.badge:focus {
 }
 body {
   -webkit-font-smoothing: antialiased;
+}
+.dropdown-toggle {
+  -webkit-font-smoothing: subpixel-antialiased;
 }
 h1,
 h2,
@@ -4551,8 +4554,8 @@ summary {
   font-size: 1.2em;
   line-height: 1.5em;
   font-style: italic;
-  border-top: 1px solid #F4F4F4;
-  border-bottom: 1px solid #F4F4F4;
+  border-top: 1px solid #EBEBEB;
+  border-bottom: 1px solid #EBEBEB;
   padding: 20px 0;
 }
 small {
@@ -4594,6 +4597,10 @@ blockquote.align-left {
 blockquote.align-right {
   float: right;
   margin-left: 50px;
+}
+.type-page ul,
+.type-post ul {
+  overflow: hidden;
 }
 input[type="submit"] {
   text-align: center;
@@ -5053,7 +5060,8 @@ input[type="submit"]:hover {
 #main .twitter-feed {
   padding: 0 25px 20px 22px;
 }
-.widget_nav_menu a {
+.widget_nav_menu a,
+.subpage_menu a {
   font-weight: normal;
 }
 .calendar-widget-wrapper {
@@ -5214,11 +5222,16 @@ a.fc-event,
 #wp-calendar #prev {
   display: none;
 }
+#main .pic-text-widget img {
+  margin-bottom: 15px;
+}
 #main .pic-text-widget h3 {
   padding: 0 25px;
+  margin: 0 0 5px;
 }
 #main .pic-text-widget p {
   padding: 0 25px;
+  margin-bottom: 15px;
 }
 .pic-text-more {
   padding: 0 8px 20px 25px;
@@ -5229,6 +5242,7 @@ a.fc-event,
   margin-left: 25px;
   position: relative;
   display: block;
+  margin-top: 10px;
 }
 .pic-text-more:before {
   content: " +";
@@ -6112,9 +6126,9 @@ ul.gallery-menu li.active {
     background-color: #4B4B4B;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #FFF;
-    -webkit-box-shadow: 0 0 8px #9c9c9c;
-    -moz-box-shadow: 0 0 8px #9c9c9c;
-    box-shadow: 0 0 8px #9c9c9c;
+    -webkit-box-shadow: 0 1px 4px #9c9c9c;
+    -moz-box-shadow: 0 1px 4px #9c9c9c;
+    box-shadow: 0 1px 4px #9c9c9c;
   }
   #dawgdrops a {
     -webkit-transition: all;
@@ -6386,10 +6400,7 @@ ul.gallery-menu li.active {
     width: 1024px;
     margin: 0 auto;
   }
-  .single #primary,
-  .page #primary,
-  .archive #primary,
-  .search #primary {
+  #primary {
     background-color: #FFF;
     background: #FFF;
     padding: 0 0 0 0;
@@ -6402,6 +6413,15 @@ ul.gallery-menu li.active {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+  }
+  .home.siteorigin-panels #primary {
+    background-color: transparent;
+    -webkit-box-shadow: 0 0 0 transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    box-shadow: 0 0 0 transparent;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
   }
   h1.entry-title {
     position: relative;
@@ -6485,6 +6505,12 @@ ul.gallery-menu li.active {
     float: right;
     margin: 10px 0 25px 40px;
     position: relative;
+  }
+  #sidebar .alignleft {
+    margin: 0px 15px 25px 0;
+  }
+  #sidebar .alignright {
+    margin: 0px 0 25px 15px;
   }
   .wp-media-credit {
     text-align: right;
@@ -6611,11 +6637,18 @@ ul.gallery-menu li.active {
   .first-block {
     clear: both;
   }
-  .siteorigin-panels #primary {
+  .home.siteorigin-panels #primary {
     background: url('img/misc/home-bg.png') no-repeat 0 0 transparent;
   }
-  .siteorigin-panels h1.entry-title:before {
+  .home.siteorigin-panels h1.entry-title {
+    margin: 5px 0;
+    padding-right: 0;
+  }
+  .home.siteorigin-panels h1.entry-title:before {
     left: -45px;
+  }
+  .home.siteorigin-panels .intro {
+    margin: 0 5px 0;
   }
   #ie7 .block-third {
     width: 29%;
@@ -6709,7 +6742,7 @@ ul.gallery-menu li.active {
     margin-bottom: 30px;
   }
   #main .block-full .text-widget {
-    padding: 15px 0 0;
+    padding: 5px 0 0;
     background-color: transparent;
   }
   #main .text-widget {
@@ -6911,7 +6944,6 @@ ul.gallery-menu li.active {
     -moz-border-radius: 4px 4px 0 0;
     border-radius: 4px 4px 0 0;
     width: 100%;
-    margin-bottom: 8px;
   }
   .pic-text-widget:hover img {
     opacity: .8;
@@ -7571,6 +7603,9 @@ ul.gallery-menu li.active {
   }
   .pic-text-widget p {
     padding: 0 25px;
+  }
+  .pic-text-more {
+    padding-bottom: 0;
   }
   .slideshow-widget {
     width: 2520px;
