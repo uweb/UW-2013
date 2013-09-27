@@ -449,7 +449,7 @@ hr{clear:both}
 summary{font-family:'Droid Serif',serif;font-weight:300;font-style:italic;font-size:1.6em;color:#39275b;padding:17px 0;margin:10px 0 20px 0;border-top:1px solid #f3f3f3;line-height:30px;border-bottom:1px solid #f3f3f3}
 .intro,.lead{color:#6b6b6b;font-family:'Droid Serif',serif;font-weight:300;font-size:1.2em;line-height:1.5em;font-style:italic;border-top:1px solid #ebebeb;border-bottom:1px solid #ebebeb;padding:20px 0}
 small{font-family:'Droid Serif',serif;font-style:italic}
-blockquote{line-height:25.5px;font-family:'Droid Serif',serif;font-size:16px;font-style:italic;padding:10px 10px;color:#777;font-weight:300;position:relative;padding-left:20px;border-left:2px solid #f4f4f4}blockquote p{line-height:1.45;font-size:15.5px}
+blockquote{line-height:25.5px;font-family:'Droid Serif',serif;font-size:16px;font-style:italic;padding:10px 10px;color:#646464;font-weight:300;position:relative;padding-left:20px;border-left:2px solid #f4f4f4}blockquote p{line-height:1.55;font-size:15.5px}
 blockquote.align-left,blockquote.align-right{margin:30px 0 30px 0;padding:20px 0 0 15px;border:none;width:40%}blockquote.align-left:after,blockquote.align-right:after{content:"";position:absolute;top:-10px;left:15px;width:65px;height:5px;background-color:#ebebeb}
 blockquote.align-left{float:left;margin-right:50px}
 blockquote.align-right{float:right;margin-left:50px}
