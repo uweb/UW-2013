@@ -64,7 +64,7 @@
 			<a class="patch" href="http://www.uw.edu" title="University of Washington">University of Washington</a>
 		<![endif]-->	
 		
-		<a class="wordmark" <?php if ( get_theme_mod('wordmark')) : ?> style="background:url(<?php echo get_theme_mod('wordmark') ?>)" <?php endif; ?> href="<?php home_url(); ?>">University of Washington</a>
+		<a class="wordmark" <?php if ( get_theme_mod('wordmark')) : ?> style="background:url(<?php echo get_theme_mod('wordmark') ?>)" <?php endif; ?> href="<?php echo home_url('/'); ?>">University of Washington</a>
 
     <div id="search">
 
