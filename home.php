@@ -22,7 +22,7 @@
               </span>
             <?php endif; ?>
 
-					<span class="post-info"><p><?php the_time('F j, Y'); ?></p><p class="author-info">By <?php the_author(); ?></p></span>
+					<span class="post-info"><p class="author-info">By <?php the_author(); ?></p></span>
 				</header><!-- .entry-header -->
 			
 				<div class="entry-content">
