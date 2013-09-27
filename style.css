@@ -460,6 +460,7 @@ input[type="submit"]{text-align:center;background-color:#048ac2;color:#fff;-webk
 .date{font-family:'Droid Serif',serif;font-style:italic;margin:10px 0 0}
 .author-info{font-family:'Droid Serif',serif;font-style:italic;margin-bottom:30px;position:relative}.author-info:before{content:" ";position:absolute;bottom:-15px;left:1px;width:50px;height:2px;background-color:#e2e2e2}
 .blog .entry-title{padding-right:90px;margin:10px 0}
+.blog.featured-image #arrow-mark{left:auto;top:auto;position:static;margin:-17px 0 0 -55px;width:675px;height:102px}
 .entry-header{position:relative}
 .comments-link a{background:url('img/comment-bubble.png') no-repeat 0 4px transparent;color:#999;line-height:35px;overflow:hidden;padding:0 0 0 24px;position:absolute;top:0;right:-19px;text-align:center;text-decoration:none;width:43px;height:36px}.comments-link a:hover{background-position:0 -37px}
 #uwalert-alert-message div{width:1100px;margin:0 auto;padding:5px 0 15px}
