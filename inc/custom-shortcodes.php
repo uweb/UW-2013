@@ -204,7 +204,7 @@ add_shortcode('youtube', 'uw_youtube_playlist_shortcode');
 if ( ! function_exists( 'uw_intro_block_shortcode' ) ) :
   function uw_intro_block_shortcode( $atts, $content ) 
   {	  
-    return '<p class="intro-block">' . $content . '</p>';
+    return '<p class="intro">' . $content . '</p>';
   }
 endif;
 add_shortcode('intro', 'uw_intro_block_shortcode');
