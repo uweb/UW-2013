@@ -155,7 +155,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
           $class = 'class="pull-left"';
         }
       }
-      $html .= "<li $class><a href=\"$link\">{$post->post_title}</a>$image{$excerpt}</li>";
+      $html .= "<li $class>$image<a href=\"$link\">{$post->post_title}</a>{$excerpt}</li>";
     }
 
     return "<ul class=\"shortcode-blogroll\">$html</ul>";
