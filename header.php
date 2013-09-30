@@ -14,7 +14,7 @@
 <head>
 
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <title> <?php uw_title() ?> </title>
   <?php wp_head(); ?>
 
