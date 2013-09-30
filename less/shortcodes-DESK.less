@@ -21,100 +21,156 @@
 }
 
 #youtube-playlist-player {
-	margin: 0 0 20px;
+	margin: 20px 0 40px;
 	.box-shadow(1px 1px 7px #E0E0E0);
 	clear: both;
-}
-#youtube-playlist-player object {
-	width:100%;
-	margin: 0;
-}
+	object {
+		width:100%;
+		margin: 0;
+	}
+	ul {
+		margin: 0;
+	}
+	ul li {
+		margin-bottom: 5px;
+		background: none;
+		padding:0;
+		position: relative;
+		&:first-child {
+		    display: none;
+		}
+	}
 
-#youtube-playlist-player ul li:first-child {
-	display: none;
-}
-
-#youtube-playlist-player ul {
-	margin: 0;
-}
-
-#youtube-playlist-player ul li {
-	margin-bottom: 5px;
-	background: none;
-	padding:0;
-	position: relative;
 }
 
 #youtube-player-controls {
 	height: 351px;
 	overflow: hidden;
 	padding: 0;
+	span {
+		display: block;
+		font-size: 85%;
+		line-height: 1.3em; 
+	}
+	.title { 
+		margin: 5px 0 0 0 
+	}	
+	a {
+	    display: block;
+	    margin: 0 0 10px;
+	    overflow: hidden;
+	    position: relative; 
+	}
+	.duration { color: #484848 }
+	.playBtn {
+	    left: 43px;
+	    position: absolute;
+	    top: 31px;
+	    z-index: 0;
+	    border: none; 
+	}
+	
+	.viewport {
+	    height: 354px;
+	    overflow: hidden;
+	    position: relative;
+	    width: 115px; 
+	}
+	.overview {
+	    list-style: none;
+	    position: absolute;
+	    left: 0;
+	    top: 0; 
+	    width:100%;
+	}
+	
+	.thumb .end,
+	.thumb { background-color: #888888 }
+	.scrollbar {
+        display: none;
+        float: right;
+        width: 10px; }
+    
+    .track {
+        background-color: #f4f4f4;
+        height: 100%;
+        width: 8px;
+        position: relative;
+        padding: 0 1px; }
+    
+    .thumb {
+        height: 20px;
+        width: 8px;
+        cursor: pointer;
+        overflow: hidden;
+        position: absolute;
+        top: 0; 
+        .thumb .end {
+            overflow: hidden;
+            height: 5px;
+            width: 8px; 
+        }
+    }
+	.disable { display: none }
 }
 
-#youtube-player-controls span {
-	display: block;
-	font-size: 85%;
-	line-height: 1.3em; 
+
+// Columns (has to be converted to shortcode)
+
+.three-col {
+	width: 26%;
+	margin-right: 7%;
+	float: left;
+}
+.four-col {
+	width: 16%;
+	margin-right: 9%;
+	float: left;
 }
 
-#youtube-player-controls .title { margin: 5px 0 0 0 }
-
-#youtube-player-controls a {
-    display: block;
-    margin: 0 0 10px;
-    overflow: hidden;
-    position: relative; }
-
-#youtube-player-controls .duration { color: #484848 }
-
-#youtube-player-controls .playBtn {
-    left: 43px;
-    position: absolute;
-    top: 31px;
-    z-index: 0;
-    border: none; }
-
-#youtube-player-controls .viewport {
-    height: 354px;
-    overflow: hidden;
-    position: relative;
-    width: 115px; }
-
-#youtube-player-controls .overview {
-    list-style: none;
-    position: absolute;
-    left: 0;
-    top: 0; 
-    width:100%;
+// Blogroll shortcode
+.info-box {
+	ul.shortcode-blogroll {
+		margin-left: 0;
+		li {
+			margin-bottom: 10px;
+			border-bottom: 1px dotted #E6E6E6;
+			padding-bottom: 10px;
+			&:last-child {
+				border-bottom: 1px dotted transparent;
+			}
+		}
+		a {
+			font-size: 1em;
+		}	
+		p {
+			border-bottom: 1px dotted transparent;
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+	}	
 }
+.shortcode-blogroll  {
+	margin: 30px 0 0;
 
-#youtube-player-controls .thumb .end,
-#youtube-player-controls .thumb { background-color: #888888 }
-
-#youtube-player-controls .scrollbar {
-    display: none;
-    float: right;
-    width: 10px; }
-
-#youtube-player-controls .track {
-    background-color: #f4f4f4;
-    height: 100%;
-    width: 8px;
-    position: relative;
-    padding: 0 1px; }
-
-#youtube-player-controls .thumb {
-    height: 20px;
-    width: 8px;
-    cursor: pointer;
-    overflow: hidden;
-    position: absolute;
-    top: 0; }
-
-#youtube-player-controls .thumb .end {
-    overflow: hidden;
-    height: 5px;
-    width: 8px; }
-
-#youtube-player-controls .disable { display: none }
-
+	p {
+		overflow: hidden;
+		margin-top: 5px;
+		padding-bottom: 25px;
+		border-bottom: 1px dotted #E6E6E6;
+	}
+	img {
+		width: 100px;
+		margin: 5px 20px 0 0;
+	}
+	li {
+		.no-bullets();
+		&:last-child p {
+			border-bottom: 1px dotted transparent;
+			padding-bottom: 5px;
+		}
+		& > a {
+			font-size: 1.15em;
+		}
+	}
+}

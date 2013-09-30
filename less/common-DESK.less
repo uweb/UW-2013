@@ -10,6 +10,7 @@
     background-position: -92px 0;
     position: relative;
     min-height: 375px;
+    margin-bottom: 50px;
 }
 .stripe-top, .stripe-bottom  {
     margin-top: -20px;
@@ -148,13 +149,14 @@ h1.entry-title {
 	float: right;
 	padding: 0px 0 0px 30px;
 	margin: 15px 0 15px 40px;
+	z-index: 1;
+	position: relative;
 }
 .info-box-large {
 	padding: 30px 10px 15px;
 	margin: 15px 0 30px 50px;
 	width: 200px;
 	border-left: none;
-	position: relative;
 	background: 
 		url('img/misc/flap-shadow.jpg') 0 top no-repeat,
 		url('img/misc/flap-shadow-bottom.jpg') 0 bottom no-repeat;
@@ -288,3 +290,8 @@ body.error404 {background: none }
 	}	
 }
 
+// Bootstrap override - for some bizarre reason this was in an update from Bootstrap. Will probably be removed from the next one
+
+.visible-desktop {
+	display: inline !important;
+}
