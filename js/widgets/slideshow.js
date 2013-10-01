@@ -1,6 +1,10 @@
 $(document).ready( function() {
 
+/**
+ * Regular
+ */
   var $slideshows  = $('.slideshow-widget')
+    , $window      = $(window)
     , ACTIVE_SLIDE = 'active-slide'
     , DURATION     = 100
 
@@ -31,58 +35,93 @@ $(document).ready( function() {
 
   } )
 
-  $(window).bind( 'scroll', function() {
+/**
+ * Mobile
+ */
 
-    var $this = $(this)
-      , diff  = Math.max( -40 * $this.scrollTop() / $this.height() , -15 )
+  $slideshows
+    .data('currentSlide', 0 )
+    .on('touchstart touchmove touchend', '.slide', function(e) {
 
-    $slideshows
-      .find('img').css('margin-top', diff + '%' )
+    if ( $.uw.screensize === 'desktop' ) return false;
 
-  } )
-
-/*.bind('touchstart touchmove touchend', function(e) {
-
-    var $this = $(this)
-      , $img  = $(e.target)
-      , $navs = $this.find('li a')
-      , width = $this.width()
+    var $this   = $(this)
+      , $canvas = $this.closest('.widget')
+      , $slides = $this.siblings('.slide').andSelf()
+      , $navs   = $canvas.find('li a')
+      , width   = $this.width()
+      , target  = 'IMG' //e.target.nodeName 
 
     switch(e.type) 
     {
 
       case 'touchstart':
 
-        $this.data('touchStartPosition', e.originalEvent.touches[0].pageX )
+        $window.trigger('resize')
+        $slides.data({ 
+          'touchStartPosition': e.originalEvent.touches[0].pageX,
+          'originalLeft'  : $this.position().left
+        })
 
         break;
 
       case 'touchmove':
-        var del = e.originalEvent.changedTouches[0].pageX - $this.data('touchStartPosition')
-          , next    = ( del < 0 && current < $navs.length ) ? current + 1 : 
-                      ( del > 0 && current > 0 )            ? current - 1 : 0;
-        
-        //console.log( 10 * del/width, del, width )
+        var del = e.originalEvent.changedTouches[0].pageX - $slides.data('touchStartPosition') + $slides.data('originalLeft')
+          , left = $this.position().left
 
-        $img.css( {
-          'left' : del,
-          //'opacity': 1 - del/width,
-          '-webkit-transform' : 'rotate( ' + (10 * del/width ) + 'deg)'
-        })
+        $slides
+          .data({
+            'currentPosition' : left,
+            'currentDiff'     : width - left
+          })
+          .transition({
+            'x' : del + width * $canvas.data('currentSlide')
+            },{ 
+              queue: false 
+          })
+
+//        $slides
+//          .find( target )
+//          .transition({
+//            'x' : del / 5
+//            },{ 
+//              queue: false 
+//          })
 
         break;
       
       case 'touchend':
 
         var del     = e.originalEvent.changedTouches[0].pageX - $this.data('touchStartPosition')
-          , current = $this.data('currentSlide') || 0
-          , next    = ( del < 0 && current < $navs.length ) ? current + 1 : 
-                      ( del > 0 && current > 0 )            ? current - 1 : 0;
+          , current = $canvas.data('currentSlide') 
+          , move    = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width;
 
-        $this.data( 'touchStartPosition', null )
+        if ( move === 0 ||
+             move > 0 && ! $this.prev('.slide').length || 
+             move < 0 && ! $this.next('.slide').length ) 
+        {
 
-        $navs.eq( next ).trigger('click')
-        
+          $slides.transition({'x':  $canvas.data('currentSlide') * width })
+
+        } 
+        else if ( move > 0.3 )
+        {
+
+          current += 1
+          $canvas.data( 'currentSlide', current )
+          $slides.transition({ 'x': width * current }) 
+
+        } else {
+
+          current -= 1
+          $canvas.data( 'currentSlide', current )
+          $slides.transition({ 'x' : width * current }) 
+        }
+
+        $navs.removeClass( ACTIVE_SLIDE )
+          .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
+
+
         break;
 
       case 'default':
@@ -90,8 +129,33 @@ $(document).ready( function() {
         return false;
 
     }
+
+    return false;
     
   })
-  */
+
+
+  $window.bind( 'scroll', function() {
+
+    if ( $.uw.screensize != 'desktop' )
+      return;
+
+    var $this = $(this)
+      , diff  = Math.max( -40 * $this.scrollTop() / $this.height() , -15 )
+
+    $slideshows
+      .find('img').css('margin-top', diff + '%' )
+
+  }).resize( function() {
+
+    if ( $.uw.screensize != 'desktop' ) 
+    {
+      $('.slide').width( $window.width() ) 
+    } else {
+      $slideshows.removeAttr('style')
+        .find('.slide').removeAttr('style')
+    }
+
+  }).trigger('resize')
 
 });

@@ -116,6 +116,8 @@ class UW_Slideshow extends WP_Widget
 
     <?php  echo $before_widget; ?>
 
+    <div class="canvas">
+
       <?php foreach ( $ids as $index=>$id ) : $attachment = get_post( $id ); $link = get_post_meta( $attachment->ID, '_external_link', true ); ?>
 
         <div class="slide<?php echo ( $index == 0 ) ? ' active-slide' : ''; ?>">
@@ -140,6 +142,7 @@ class UW_Slideshow extends WP_Widget
 
     <?php endif; ?>
 
+    </div>
 
     <?php echo $after_widget; 
 
