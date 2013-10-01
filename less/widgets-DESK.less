@@ -181,8 +181,13 @@
     position: relative;
     .transition(border 0.1s linear);
     background-position: 0 10px;
-    &.current-menu-item:hover {
-	    border-left: none;
+    &.current-menu-item {
+	    &:hover {
+	   		 border-left: 0px solid transparent;
+	   	}
+	   	a {
+		   	font-weight: bold;
+	   	}
     }
     &:hover, &.open {
 	    border-left: 4px solid @gold;
