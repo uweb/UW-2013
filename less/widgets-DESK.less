@@ -181,6 +181,9 @@
     position: relative;
     .transition(border 0.1s linear);
     background-position: 0 10px;
+    &.current-menu-item:hover {
+	    border-left: none;
+    }
     &:hover, &.open {
 	    border-left: 4px solid @gold;
 	    background-position: -5px 10px;
@@ -250,7 +253,7 @@
 	position: absolute;
 	height: 100px;
 	background: url("img/widgets/menu-active.png") 0 0 no-repeat transparent;
-	top: -13px;
+	top: -12px;
 	left: -51px;
 }
 
