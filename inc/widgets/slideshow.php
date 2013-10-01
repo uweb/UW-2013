@@ -122,7 +122,9 @@ class UW_Slideshow extends WP_Widget
 
         <div class="slide<?php echo ( $index == 0 ) ? ' active-slide' : ''; ?>">
 
-        <?php echo wp_get_attachment_image( $id, 'original' ); ?>
+          <div class="image-wrapper">
+            <?php echo wp_get_attachment_image( $id, 'original' ); ?>
+          </div>
 
           <div class="slide-info">
             <h3><a href="<?php echo $link ?>"><?php echo $attachment->post_title; ?></a></h3>

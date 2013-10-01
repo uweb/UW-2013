@@ -75,15 +75,22 @@ $(document).ready( function() {
             'currentDiff'     : width - left
           })
           .transition({
-            'x' : del + width * $canvas.data('currentSlide')
+            x : del + width * $canvas.data('currentSlide'),
             },{ 
               queue: false 
           })
 
-//        $slides
+//          $this.find(target).transition({
+//            scale : 1 + Math.abs(del/width)/2,
+//          }, {
+//            queue: false
+//          })
+
+//        $slides.not(this)
 //          .find( target )
 //          .transition({
-//            'x' : del / 5
+//            opacity :  Math.abs(del/width),
+//            //scale   : 1 + Math.abs(del/width)/2,
 //            },{ 
 //              queue: false 
 //          })
@@ -96,27 +103,24 @@ $(document).ready( function() {
           , current = $canvas.data('currentSlide') 
           , move    = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width;
 
-        if ( move === 0 ||
-             move > 0 && ! $this.prev('.slide').length || 
-             move < 0 && ! $this.next('.slide').length ) 
-        {
+        var current = ( move === 0 ||
+                          move > 0 && ! $this.prev('.slide').length || 
+                          move < 0 && ! $this.next('.slide').length ) ? $canvas.data('currentSlide') :
+                       move > 0.3 ? current += 1 : current -= 1 ;
 
-          $slides.transition({'x':  $canvas.data('currentSlide') * width })
 
-        } 
-        else if ( move > 0.3 )
-        {
+        $canvas.data( 'currentSlide', current )
 
-          current += 1
-          $canvas.data( 'currentSlide', current )
-          $slides.transition({ 'x': width * current }) 
+        $slides.transition( { 
+          x : width * current ,
+          opacity : 1,
+        })
+//        .find( target )
+//          .transition({
+//            opacity : 1,
+//           // scale : 1
+//          })
 
-        } else {
-
-          current -= 1
-          $canvas.data( 'currentSlide', current )
-          $slides.transition({ 'x' : width * current }) 
-        }
 
         $navs.removeClass( ACTIVE_SLIDE )
           .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
