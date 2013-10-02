@@ -16,7 +16,10 @@
             <p class="date"><?php the_date(); ?></p>
 
 						<header class="entry-header">
-							<h1 class="entry-title"><?php the_title(); ?></h1>
+							<?php $title = the_title();
+							if (!empty($title)): ?>
+							<h1 class="entry-title"><?= $title ?></h1>
+							<?php endif; ?>
               <p class="author-info">By <?php the_author(); ?></p>
 						</header><!-- .entry-header -->
 					

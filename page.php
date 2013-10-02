@@ -16,7 +16,10 @@
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-					<h1 class="entry-title"><?php echo apply_filters('italics', get_the_title()); ?></h1>
+					<?php $title = get_the_title();
+					if (!empty($title)): ?>
+					<h1 class="entry-title"><?php echo apply_filters('italics', $title); ?></h1>
+					<?php endif; ?>
 				</header><!-- .entry-header -->
 				<div class="entry-content">
 					<?php the_content(); ?>
