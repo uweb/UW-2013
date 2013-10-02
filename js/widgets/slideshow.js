@@ -121,11 +121,11 @@ $(document).ready( function() {
 
       case 'default':
 
-        return false;
+        return true;
 
     }
 
-    return false;
+    return e.target.className === 'slideshow-more';
     
   })
 
