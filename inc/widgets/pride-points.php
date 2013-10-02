@@ -12,43 +12,41 @@ class UW_Pride_Points extends WP_Widget
   function widget($args, $instance) 
   {
     extract( $args );
-		// outputs the content of the widget
-		$title = apply_filters( 'widget_title', $instance['title'] );
+	// outputs the content of the widget
+	$content .= '<span>Pride Points</span>
+	  <div style="min-height:100px;">
+	  <div class="pride-point" style="display:none;z-index:0;" data-category="'.$instance['category'].'"></div>
+	  </div>
+	  <script type="text/javascript">
+		jQuery(document).ready(function($){
+		  
+		  var $widget = $("#'.$widget_id.'").find(".pride-point");
+		  var data = {
+			json : "pride_points.get_pride_point",
+			cat  : $widget.data("category")
+		  }
+		  $.ajax({
+			type: "GET",
+			url : "/cms/marketing/",
+			data: data, 
+			success : function(json) {
+			  if ( json.status == "ok" && json.count === 1) 
+				$widget.fadeIn().html(json.posts.content)
 
-    $content .= '<span>Pride Points</span>
-      <div style="min-height:100px;">
-      <div class="pride-point" style="display:none;z-index:0;" data-category="'.$instance['category'].'"></div>
-      </div>
-      <script type="text/javascript">
-        jQuery(document).ready(function($){
-          
-          var $widget = $("#'.$widget_id.'").find(".pride-point");
-          var data = {
-            json : "pride_points.get_pride_point",
-            cat  : $widget.data("category")
-          }
-          $.ajax({
-            type: "GET",
-            url : "/cms/marketing/",
-            data: data, 
-            success : function(json) {
-              if ( json.status == "ok" && json.count === 1) 
-                $widget.fadeIn().html(json.posts.content)
+			  $widget.find("p").filter(function(i,el) {
+				if ( /source/i.test(el.innerHTML ) )
+				  $(el).addClass("pride-src")
+			  })
 
-              $widget.find("p").filter(function(i,el) {
-                if ( /source/i.test(el.innerHTML ) )
-                  $(el).addClass("pride-src")
-              })
+			},
+			cache:false
+		  })
+		});
+	  </script> 
+	';
 
-            },
-            cache:false
-          })
-        });
-      </script> 
-      ';
-
-    echo $before_widget . $content . $after_widget;
-	}
+	echo $before_widget . $content . $after_widget;
+  }
 
   function update($new_instance, $old_instance) 
   {
