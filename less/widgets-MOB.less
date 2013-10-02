@@ -115,7 +115,31 @@
 
 .slideshow-widget {
 
+  float: left;
+  background: @purple;
+  overflow:hidden;
+  width:100%;
+
+  .canvas {
+    float:left; 
+    width:10000px;
+  }
+
+  .slide {
+    float:left;
+    position:relative;
+
+    .image-wrapper {
+      overflow: hidden; 
+    }
+    
+    img {
+      width:100%; 
+    }
+
+  }
 }
+
 
 	// Colors 
 .purple {
