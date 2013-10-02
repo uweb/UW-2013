@@ -16,7 +16,7 @@
             <p class="date"><?php the_date(); ?></p>
 
 						<header class="entry-header">
-							<?php $title = the_title();
+							<?php $title = get_the_title();
 							if (!empty($title)): ?>
 							<h1 class="entry-title"><?= $title ?></h1>
 							<?php endif; ?>

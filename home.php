@@ -14,8 +14,11 @@
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 
-					 <p class="date"><?php the_date(); ?></p>
-					<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+					<p class="date"><?php the_date(); ?></p>
+					<?php $title = get_the_title();
+					if (!empty($title)): ?>
+					<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?= $title ?></a></h2>
+					<?php endif; ?>
             <?php if ( comments_open() && ! post_password_required() && get_comments_number() > 0 ): ?>
               <span class="comments-link">
                 <?php comments_popup_link( '<span class="leave-reply">' . __( 'Reply', 'uw' ) . '</span>', _x( '1', 'comments number', 'uw' ), _x( '%', 'comments number', 'uw' ) ); ?>

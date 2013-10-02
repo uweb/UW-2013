@@ -13,7 +13,7 @@
 				
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
-					<?php $title = the_title();
+					<?php $title = get_the_title();
 					if (!empty($title)): ?>
 					<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?= $title ?></a></h2>
 					<?php endif; ?>
