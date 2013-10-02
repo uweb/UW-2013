@@ -2845,7 +2845,7 @@ $(document).ready( function() {
         .find('.slide').removeAttr('style')
     }
 
-  }).trigger('resize')
+  }).trigger('resize.slideshow')
 
 });
 
