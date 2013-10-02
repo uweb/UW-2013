@@ -1840,8 +1840,11 @@ $(document).ready(function() {
   $.uw = {}
 
   $(window).resize(function() {
+
+    var width = $(window).width()
     
-    $.uw.screensize = $(window).width() > 768 ? 'desktop' : 'mobile';
+    $.uw.screensize = width > 979 ? 'desktop' :
+                      width > 768 ? 'tablet'  : 'mobile';
 
   }).trigger('resize')
 
@@ -2737,7 +2740,7 @@ $(document).ready( function() {
     .data('currentSlide', 0 )
     .on('touchstart touchmove touchend', '.slide', function(e) {
 
-    if ( $.uw.screensize === 'desktop' ) return false;
+    if ( $.uw.screensize !== 'mobile' ) return false;
 
     var $this   = $(this)
       , $canvas = $this.closest('.widget')
@@ -2837,10 +2840,11 @@ $(document).ready( function() {
 
   }).bind( 'resize.slideshow', function() {
 
-    if ( $.uw.screensize != 'desktop' ) 
+    if ( $.uw.screensize === 'mobile' ) 
     {
       $('.slide').width( $window.width() ) 
     } else {
+
       $slideshows.removeAttr('style')
         .find('.slide').removeAttr('style')
     }

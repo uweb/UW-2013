@@ -43,7 +43,7 @@ $(document).ready( function() {
     .data('currentSlide', 0 )
     .on('touchstart touchmove touchend', '.slide', function(e) {
 
-    if ( $.uw.screensize === 'desktop' ) return false;
+    if ( $.uw.screensize !== 'mobile' ) return false;
 
     var $this   = $(this)
       , $canvas = $this.closest('.widget')
@@ -143,10 +143,11 @@ $(document).ready( function() {
 
   }).bind( 'resize.slideshow', function() {
 
-    if ( $.uw.screensize != 'desktop' ) 
+    if ( $.uw.screensize === 'mobile' ) 
     {
       $('.slide').width( $window.width() ) 
     } else {
+
       $slideshows.removeAttr('style')
         .find('.slide').removeAttr('style')
     }

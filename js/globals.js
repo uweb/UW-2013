@@ -11,8 +11,11 @@ $(document).ready(function() {
   $.uw = {}
 
   $(window).resize(function() {
+
+    var width = $(window).width()
     
-    $.uw.screensize = $(window).width() > 768 ? 'desktop' : 'mobile';
+    $.uw.screensize = width > 979 ? 'desktop' :
+                      width > 768 ? 'tablet'  : 'mobile';
 
   }).trigger('resize')
 
