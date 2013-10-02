@@ -5,7 +5,7 @@ Description: A 2013 theme
 Author: UW Web Team
 Author URI: http://uw.edu/
 Version: 0.1
-*/
+ */
 
 
 // Bootstrap
@@ -21,6 +21,7 @@ Version: 0.1
 @import "widgets-ALL.less"; 
 @import "header-ALL.less";
 @import "gallery-ALL.less";
+@import "site-specific-ALL.less";
 
 //
 // Responsive: Desktop on up
@@ -40,6 +41,8 @@ Version: 0.1
 	@import "homepage-DESK.less";
 	// Widgets - all of them
 	@import "widgets-DESK.less";
+	// Shortcodes
+	@import "shortcodes-DESK.less";
 	// Footer
 	@import "footer-DESK.less";
 }
@@ -50,6 +53,9 @@ Version: 0.1
 // Responsive: Tablet to Desktop
 // --------------------------------------------------
 @media (min-width: 768px) and (max-width: 979px) {
+
+	// Thin strip
+	@import "thinstrip-TAB.less"; 
 	// Header
 	@import "header-TAB.less";	
 	// Dropdown menu
@@ -60,6 +66,8 @@ Version: 0.1
 	@import "homepage-TAB.less";
 	// Gallery
 	@import "gallery-TAB.less";
+	// Shortcodes
+	@import "shortcodes-TAB.less";
 
 }
 
@@ -86,6 +94,8 @@ Version: 0.1
 	@import "widgets-MOB.less";
 	// Gallery
 	@import "gallery-MOB.less";
+	// Shortcodes
+	@import "shortcodes-MOB.less";
 	// Footer
 	@import "footer-MOB.less";
 }

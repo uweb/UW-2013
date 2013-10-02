@@ -69,7 +69,7 @@
 
 #main .block-full {
 	.text-widget {
-		padding: 15px 0 0;
+		padding: 5px 0 0;
 		background-color: transparent;
 	}	
 }
@@ -136,6 +136,10 @@
 
 // Sidebar Menu 
 
+#sidebar .widget_nav_menu .widgettitle a:hover {
+	font-weight: 600;
+}
+
 .menu .sub-menu, 
 .menu .children {
     z-index: 999;
@@ -177,6 +181,15 @@
     position: relative;
     .transition(border 0.1s linear);
     background-position: 0 10px;
+    &.current-menu-item {
+	    &:hover {
+	   		 border-left: 0px solid transparent;
+	   		 background-position: 0 10px;
+	   	}
+	   	& > a {
+		   	font-weight: bold;
+	   	}
+    }
     &:hover, &.open {
 	    border-left: 4px solid @gold;
 	    background-position: -5px 10px;
@@ -194,6 +207,7 @@
        border: none; 
        padding-left: 13px;
        margin-left: -14px;
+       font-weight: 600;
     }
 }
 
@@ -203,7 +217,7 @@
 	border-bottom: 1px solid @grayLighter;
 	display: block;
 	color: @grayDark;
-	padding: 2px 10px 4px 0;
+	padding: 1px 10px 5px 0;
 	margin-bottom: 4px;
 	&:hover {
 		font-weight: bold;
@@ -239,13 +253,23 @@
 	font-weight: bold;
 	margin-left: 5px;
 }
+.current-menu-item:after {
+	content: " ";
+	width: 310px;
+	position: absolute;
+	height: 54px;
+	background: url("img/widgets/menu-active.png") 0 0 no-repeat transparent;
+	top: -17px;
+	left: -51px;
+}
+
 #ie8 .menu > li > a:after { content: '';}
 
 .menu li > a:only-child:after {content: ''; }
 
 // Hides select menu for mobile
 
-#tinynav1 { display: none }
+.tinynav { display: none }
 
 // Featured Pic/Text Widget
 
@@ -258,7 +282,6 @@
 	img {
 		.border-radius(4px 4px 0 0);
 		width: 100%;
-		margin-bottom: 8px;
 	}
 	&:hover img {
 		opacity: .8;
@@ -276,6 +299,62 @@
 #main .headline-separator-widget {
 	background: transparent;
 	.box-shadow(0 0 0 transparent);
+}
+
+// Pride Points Widget
+
+	// Removes default margin
+#sidebar .widget.widget_uw-pride-points img {
+	margin-bottom: 0;
+}
+
+.widget_uw-pride-points {
+	.box-shadow(1px 1px 5px #ddd);
+	padding: 5px;
+	margin: 20px 0px 25px 3px;
+	position: relative;
+	text-align: center;
+	span {
+		z-index:1;
+		background: url("img/widgets/pride-points.png") 0 0 no-repeat transparent;
+		display: block;
+		width: 123px;
+		height: 65px;
+		position: absolute;
+		top: 30px;
+		left: -15px;
+		overflow: hidden;
+		text-indent: -99999px;
+	}
+	p {
+		padding: 5px;
+		margin: 0;
+	}
+}
+
+.pride-point p {
+	color: #39275B;
+	font-family: @serifFontFamily;
+	font-weight: normal;
+	font-size: 1.15em;
+	text-align: center;
+	font-style: italic;
+	padding: 6px 10px 14px 10px;
+	line-height: 24px;
+	&:nth-child(2) {
+		margin: 0 10px;
+	}
+	&.pride-src {
+		border-top: 1px solid rgb(221, 221, 221);
+		display: inline-block;
+		font-style: normal;
+		font-family: @sansFontFamily;
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 17px;
+		padding: 10px;
+		color: rgb(163, 163, 163);
+	}
 }
 
 // ie fixes
@@ -303,3 +382,5 @@
 		}
 	}
 }
+
+

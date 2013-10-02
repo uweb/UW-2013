@@ -155,7 +155,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
           $class = 'class="pull-left"';
         }
       }
-      $html .= "<li $class><a href=\"$link\">{$post->post_title}</a>$image{$excerpt}</li>";
+      $html .= "<li $class>$image<a href=\"$link\">{$post->post_title}</a>{$excerpt}</li>";
     }
 
     return "<ul class=\"shortcode-blogroll\">$html</ul>";
@@ -170,8 +170,6 @@ add_shortcode( 'blogroll', 'uw_blogroll_shortcode' );
 if ( ! function_exists( 'uw_youtube_playlist_shortcode' ) ) :
   function uw_youtube_playlist_shortcode( $atts ) 
   {
-    wp_enqueue_script('widget-youtube-playlist');
-
     $content = '
       <div id="youtube-playlist-player" class="row">
 
@@ -206,7 +204,7 @@ add_shortcode('youtube', 'uw_youtube_playlist_shortcode');
 if ( ! function_exists( 'uw_intro_block_shortcode' ) ) :
   function uw_intro_block_shortcode( $atts, $content ) 
   {	  
-    return '<p class="intro-block">' . $content . '</p>';
+    return '<p class="intro">' . $content . '</p>';
   }
 endif;
 add_shortcode('intro', 'uw_intro_block_shortcode');
@@ -233,7 +231,20 @@ if ( ! function_exists( 'uw_blockquote_shortcode' ) ) :
 endif;
 add_shortcode('block', 'uw_blockquote_shortcode');
 
-
+/**
+ * Columns shortcode
+ */
+if ( ! function_exists( 'uw_columns_shortcode' ) ) :
+  function uw_columns_shortcode( $atts, $content ) 
+  {	  
+ 	$params = shortcode_atts( array(
+      'number'   => '',
+    ), $atts );
+    
+    return '<div class="columns-' . $params[number] .'">' . $content . '</div>';
+  }
+endif;
+add_shortcode('columns', 'uw_columns_shortcode');
 
 /**
  * Google calendar shortcode

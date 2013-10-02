@@ -36,9 +36,11 @@ $(document).ready(function() {
     })
   
   
-    $sidebar.find('.menu').tinyNav({
-      //active: 'current-menu-item',
-      header: SIDEBAR_HEADER + $sidebar.find('.widgettitle a').prop('title')
+    $sidebar.find('.menu').each( function() {
+      var $menu = $(this)
+      $menu.tinyNav({
+        header: SIDEBAR_HEADER + $menu.closest('.widget').find('h2.widgettitle a').prop('title')
+      });
     });   	  
 
 });

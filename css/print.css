@@ -1,0 +1,19 @@
+// Print stylesheet
+
+#branding, 
+#branding *, 
+#secondary,
+#navbar-menu,
+#thin-strip,
+#footer,
+#footer-main,
+#footer-right,
+#footer-left,
+#footer-main ul,
+#header,
+.tinynav {
+	display: none;
+}
+body #primary,
+body .container,
+.span8 { width: 100% !important}

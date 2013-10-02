@@ -10,11 +10,13 @@ $(document).ready(function() {
 
   $( MOBILE_MENU_ULS ).hide()
 
-  $('#listicon-wrapper').bind('click touchstart', function() {
+  $('body').on('click touchstart', 'a#listicon-wrapper', function(e) {
+
     var open = $('#slide').length == 1
       , pos  = open ? '0%' : '85%'
 
-    if ( ! open ) {
+    if ( ! open ) 
+    {
       $('body')
         .contents()
           .not('#wpadminbar, #uw-mobile-panel')
@@ -28,7 +30,7 @@ $(document).ready(function() {
     if ( open )
       $('#slide').contents().unwrap()
 
-      return false;
+    return false;
   })
   
   $('body').on('click', ANCHORS , function() {
@@ -58,7 +60,8 @@ $(document).ready(function() {
 
   // Responsive bug fix
   $(window).resize( function() {
-    if ( $('#slide').length == 1 )
+    if ( $('#slide').length == 1 
+            && $.uw.screensize != 'mobile' )
       $('#listicon-wrapper').trigger('click') 
   })
 

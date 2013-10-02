@@ -21,6 +21,10 @@
 		left: 0;
 		right: 0;
 		padding: 20px 25px 30px;
+		background-color: @purple;
+	}
+	.slide {
+		background-color: @purple;
 	}
 	h3 {
 		font-weight: @heavyWeight;
@@ -221,10 +225,14 @@
 		}
 }
 
-//  Sidebar Menu Widget
+//  Menu Widgets
 
-
-
+.widget_nav_menu,
+.subpage_menu {
+	 a {
+		 font-weight: normal;
+	}
+}
 
 // Google Calendar
 
@@ -373,16 +381,22 @@ a.fc-event,
 // Featured Pic/Text Widget
 
 #main .pic-text-widget {
+	img {
+		margin-bottom: 15px;
+	}
 	h3 {
 		padding: 0 25px;
+		margin: 0 0 5px;
 	}
 	p {
 		padding: 0 25px;
+		margin-bottom: 15px;
 	}
 }
 
 .pic-text-more 	{ 
-	.widget-more(@purple) 
+	.widget-more(@purple);
+	margin-top: 10px;
 }
 
 // Map Widget
@@ -527,6 +541,7 @@ a.fc-event,
 		font-style: italic;
 		font-size: 1.3em;
 		margin: 15px 0 0;
+		font-weight: normal;
 		&:before {
 			content: "";
 	    	display: block;

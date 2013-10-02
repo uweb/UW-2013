@@ -10,6 +10,7 @@
     background-position: -92px 0;
     position: relative;
     min-height: 375px;
+    margin-bottom: 50px;
 }
 .stripe-top, .stripe-bottom  {
     margin-top: -20px;
@@ -19,7 +20,7 @@
     position: absolute;
 }
 .stripe-bottom {
-    bottom: 0;
+    bottom: -85px;
     background-position: -3px bottom;
 }
 
@@ -83,13 +84,18 @@
     width: 1024px;
     margin: 0 auto;	
 }
-.single #primary,
-.page #primary,
-.archive #primary {
+
+#primary {
     background-color: #FFF;
     .drop-shadow();
     .border-radius(5px);
 }
+.home.siteorigin-panels #primary {
+	background-color: transparent;
+    .box-shadow(0 0 0 transparent);
+    .border-radius(0);
+}
+
 h1.entry-title {	
 	position: relative;	
 	margin-bottom: 25px;
@@ -138,18 +144,19 @@ h1.entry-title {
 // Info Box
 
 .info-box {
-	border-left: 5px solid #f4f4f4;
-	width: 245px;
+	border-left: 2px solid #E9E9E9;
+	width: 200px;
 	float: right;
-	padding: 10px 0 10px 20px;
-	margin: 15px 0 15px 30px;
+	padding: 0px 0 0px 30px;
+	margin: 15px 0 15px 40px;
+	z-index: 1;
+	position: relative;
 }
 .info-box-large {
 	padding: 30px 10px 15px;
-	margin: 15px 0 30px 50px;
+	margin: 5px 0 30px 50px;
 	width: 200px;
 	border-left: none;
-	position: relative;
 	background: 
 		url('img/misc/flap-shadow.jpg') 0 top no-repeat,
 		url('img/misc/flap-shadow-bottom.jpg') 0 bottom no-repeat;
@@ -181,6 +188,15 @@ h1.entry-title {
     margin: 10px 0 25px 40px;	
     position: relative;
 }
+#sidebar {
+	.alignleft {
+	   margin: 0px 15px 25px 0;
+	}
+	.alignright {
+	    margin: 0px 0 25px 15px;	
+	}
+}
+
 .wp-media-credit {
     text-align: right;
     font-size: 11px;
@@ -245,6 +261,16 @@ body.error404 {background: none }
     padding: 0 0 50px;
 }
 
+// Columns Shortcode
+
+.columns-2 {
+	float: left;
+	width: 50%;
+}
+.columns-3 {
+	float: left;
+	width: 33%;
+}
 
 // Archive/Blogroll Page 
 
@@ -264,3 +290,8 @@ body.error404 {background: none }
 	}	
 }
 
+// Bootstrap override - for some bizarre reason this was in an update from Bootstrap. Will probably be removed from the next one
+
+.visible-desktop {
+	display: inline !important;
+}

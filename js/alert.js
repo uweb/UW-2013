@@ -16,7 +16,7 @@ $(document).ready(function() {
       status:'publish'
     }
 
-    var alert_url =  window.location.hash.indexOf('alert') === -1 ? 
+    var alert_url =  window.location.hash.indexOf('uwalert') === -1 ? 
           'https://www.washington.edu/static/UW-Alert-Banner/alert/?c=?' :
           'https://www.washington.edu/static/UW-Alert-Banner/alert/?test=true&c=?';
 
@@ -44,14 +44,15 @@ $(document).ready(function() {
           if ( window.location.hash.indexOf('alert') != -1 )
             css = window.location.hash.replace('#','')
 
-          if( css.length === 0 ){
+          if( css.length === 0 )
+          {
             return false;
           }
 
-          var anchor  = $('<a/>').attr({'href': 'http://emergency.uw.edu', 'title':post.title}).html('More info')
-            , excerpt = $(post.excerpt.replace(' [...]','')).append( ' ' ).append( anchor.prop('outerHTML') ).prop('outerHTML')
-            , html    = $('<div id="uwalert-alert-message" class="'+css+'" />')
-                          .html('<div><h1>'+post.title+'</h1>'+excerpt+'</div>')
+          var anchor  = $( '<a/>' ).attr({ 'href' : 'http://emergency.uw.edu', 'title' : post.title }).html( 'More info' )
+            , excerpt = $(post.excerpt).find('a').remove().end().append( anchor ).prop( 'outerHTML' )
+            , html    = $('<div id="uwalert-alert-message" class="' + css + '" />')
+                          .html( '<div><h1>' + post.title + '</h1>' + excerpt + '</div>' )
             , adjust  = $('body').hasClass('admin-bar') ? $('#wpadminbar').height() : 0;
 
           $('body')

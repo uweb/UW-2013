@@ -26,8 +26,8 @@ class UW_Install_Scripts
       'site'   => array ( 
         'id'      => 'site',
         'url'     => get_bloginfo('template_directory') . '/js/site.js',
-        'deps'    => array( 'jquery' ),
-        'version' => '1.0.1'
+        'deps'    => array( 'jquery', 'swfobject' ),
+        'version' => '1.0.2'
       ),
 
 //      'jquery.searchposts' => array ( 
