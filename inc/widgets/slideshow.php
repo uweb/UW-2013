@@ -127,8 +127,13 @@ class UW_Slideshow extends WP_Widget
           </div>
 
           <div class="slide-info">
-            <h3><a href="<?php echo $link ?>"><?php echo $attachment->post_title; ?></a></h3>
+            <h3><?php echo $attachment->post_title; ?></h3>
             <?php echo wpautop( $attachment->post_excerpt ); ?>
+
+            <?php if ( $link ) : ?>
+              <a class="slideshow-more" href="<?php echo $link ?>" title="<?php echo esc_attr($attachment->post_title) ?>">More</a>
+            <?php endif; ?>
+          
           </div>
 
         </div>
@@ -170,6 +175,11 @@ class UW_Slideshow extends WP_Widget
 			update_post_meta( $post['ID'], '_external_link', $link );
 
     return $post;
+  }
+
+  function external_link()
+  {
+  
   }
 
 }
