@@ -2,6 +2,7 @@
 //@codekit-prepend "jquery.tinynav.js"
 //@codekit-prepend "jquery.tinyscrollbar.js"
 //@codekit-prepend "imagesloaded.pkgd.js"
+//@codekit-prepend "jquery.transit.js"
 
 //@codekit-prepend "globals.js"
 //@codekit-prepend "alert.js"

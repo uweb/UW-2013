@@ -35,10 +35,10 @@ $(document).ready( function() {
 
   } )
 
+
 /**
  * Mobile
  */
-
   $slideshows
     .data('currentSlide', 0 )
     .on('touchstart touchmove touchend', '.slide', function(e) {
@@ -68,8 +68,11 @@ $(document).ready( function() {
       case 'touchmove':
         var del = e.originalEvent.changedTouches[0].pageX - $slides.data('touchStartPosition') + $slides.data('originalLeft')
           , left = $this.position().left
+          , anim = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index());
 
-        $slides
+
+
+        anim
           .data({
             'currentPosition' : left,
             'currentDiff'     : width - left
@@ -80,20 +83,24 @@ $(document).ready( function() {
               queue: false 
           })
 
-//          $this.find(target).transition({
-//            scale : 1 + Math.abs(del/width)/2,
-//          }, {
-//            queue: false
-//          })
+          if ( del < 0 )
+          {
+            $this.transition({
+              //scale : 1 + Math.abs(del/width)/2,
+              opacity : 1- Math.abs(del/width)
+            }, {
+              queue: false
+            })
+          } else {
+            //$slides.slice(0, $this.index() ).transition({
+            $this.prev().transition({
+              //scale : 1 + Math.abs(del/width)/2,
+              opacity : Math.abs(del/width)
+            }, {
+              queue: false
+            })
 
-//        $slides.not(this)
-//          .find( target )
-//          .transition({
-//            opacity :  Math.abs(del/width),
-//            //scale   : 1 + Math.abs(del/width)/2,
-//            },{ 
-//              queue: false 
-//          })
+          }
 
         break;
       
@@ -101,7 +108,10 @@ $(document).ready( function() {
 
         var del     = e.originalEvent.changedTouches[0].pageX - $this.data('touchStartPosition')
           , current = $canvas.data('currentSlide') 
-          , move    = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width;
+          , move    = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width
+          , anim = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index())
+
+        anim = ! anim.length ? $slides.last() : anim;
 
         var current = ( move === 0 ||
                           move > 0 && ! $this.prev('.slide').length || 
@@ -111,16 +121,31 @@ $(document).ready( function() {
 
         $canvas.data( 'currentSlide', current )
 
-        $slides.transition( { 
+        //$slides.slice($this.index()+1)
+        anim.transition( { 
           x : width * current ,
-          opacity : 1,
+          //opacity : 1,
         })
-//        .find( target )
-//          .transition({
-//            opacity : 1,
-//           // scale : 1
-//          })
 
+        if ( del < 0 && move != 0) {
+        
+          $slides.not(anim).transition( { 
+            opacity : 0, 
+          })
+
+        } else {
+
+          $this.prev().transition({
+            opacity : 1,
+            queue   : false
+          }) 
+        }
+
+        if ( Math.abs(current) == $slides.length-1 || !move )
+          $this.transition({
+            opacity : 1,
+            queue   : false
+          }) 
 
         $navs.removeClass( ACTIVE_SLIDE )
           .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
