@@ -10,10 +10,10 @@ class UW_Customizer
   const PRIORITY = 130;
 
   static $COLOR_SCHEMES = array(
+            'purple'  => 'Purple',
             'blue'    => 'Blue',
             'green'   => 'Green',
             'gold'    => 'Gold',
-            'purple'  => 'Purple',
   );
 
   static $PATCH_COLORS = array(
@@ -110,7 +110,6 @@ class UW_Customizer
       /**
        * Wordmark Color
        */
-      //if ( ! get_theme_mod( 'wordmark' ) ) :
         $wp_customize->add_setting('wordmark_color', array(
             'default'    => key( self::$WORDMARK_COLORS )
         ));
@@ -122,7 +121,6 @@ class UW_Customizer
             'type'       => 'radio',
             'choices'    => self::$WORDMARK_COLORS
         ));
-      //endif;
 
 
       // allows live javascript updates

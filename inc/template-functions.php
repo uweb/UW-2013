@@ -302,11 +302,16 @@ add_filter('body_class','uw_custom_body_classes');
 if ( ! function_exists( 'uw_custom_body_classes' ) ):
   function uw_custom_body_classes($classes) 
   {
+
     if ( is_multisite() )
         $classes[] = 'site-'. sanitize_html_class( str_replace( 'cms', '', get_blog_details( get_current_blog_id() )->path ) );
+
+    $classes[] = get_theme_mod( 'color_scheme', 'purple' );
     $classes[] = is_home() && get_option('blogroll-banner') ? 'featured-image' : '';
     $classes[] = uw_breadcrumbs_on() ? 'breadcrumbs' : '';
+
     return $classes;
+
   }
 endif;
 

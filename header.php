@@ -9,7 +9,7 @@
 <html id="ie8" <?php language_attributes(); ?>>
 <![endif]-->
 <!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
-<html <?php language_attributes(); ?> class="<?php echo get_theme_mod( 'color_scheme' ); ?>">
+<html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
 
