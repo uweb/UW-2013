@@ -177,9 +177,4 @@ class UW_Slideshow extends WP_Widget
     return $post;
   }
 
-  function external_link()
-  {
-  
-  }
-
 }
