@@ -12,7 +12,7 @@
 #footer-main ul,
 #header,
 .tinynav {
-	display: none;
+	display: none !important;
 }
 body #primary,
 body .container,
