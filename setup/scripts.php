@@ -25,7 +25,7 @@ class UW_Install_Scripts
 
       'site'   => array ( 
         'id'      => 'site',
-        'url'     => get_bloginfo('template_directory') . '/js/site.js',
+        'url'     => get_bloginfo('template_directory') . '/js/site' . $this->dev_script() . '.js',
         'deps'    => array( 'jquery', 'swfobject' ),
         'version' => '1.0.2'
       ),
@@ -100,6 +100,11 @@ class UW_Install_Scripts
         }
       }
   
+  }
+
+  private function dev_script()
+  {
+    return is_user_logged_in() ? '.dev' : '';
   }
 
 }

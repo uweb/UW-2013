@@ -223,14 +223,17 @@ if ( ! function_exists( 'uw_footer_menu') ) :
     }
 
     $locations = get_nav_menu_locations();
-    $menu = wp_get_nav_menu_object($locations['footer']);
+    $menu = wp_get_nav_menu_object( $locations['footer'] );
 
-    echo "<h2>{$menu->name}</h2>";
-    wp_nav_menu( array( 
-      'theme_location'  => 'footer',
-      'menu_class'      => 'footer-navigation',
-      'fallback_cb'     => '',
-    ) );
+    if ( $menu ) {
+      echo "<h2>{$menu->name}</h2>";
+      wp_nav_menu( array( 
+        'theme_location'  => 'footer',
+        'menu_class'      => 'footer-navigation',
+        'fallback_cb'     => '',
+      ) );
+    }
+
     if ( ( !$nav ) && ( is_multisite() ) )
     {
       restore_current_blog();
