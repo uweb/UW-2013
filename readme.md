@@ -13,7 +13,7 @@ Using a package manager like Homebrew, install npm and node.js
 
 Then install Grunt through npm globally
 
-    npm install -g grunt
+    npm install -g grunt-cli
     
 Clone/download the UW 2013 theme and change into its root directory
 
@@ -29,3 +29,6 @@ Now every file defined by Gruntfile.js will trigger concatenating and minifying 
 
     grunt watch
 
+Two will be created, a minified site.js and an unminified site.dev.js. 
+If you are logged into Wordpress then site.dev.js will load.
+If you're visiting anonymously then site.js will load.
