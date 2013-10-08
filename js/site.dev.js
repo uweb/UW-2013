@@ -1803,965 +1803,6 @@ if ( typeof define === 'function' && define.amd ) {
   // Export some functions for testable-ness.
   $.transit.getTransitionValue = getTransition;
 })(jQuery);
-;
-/*
- * Sets global varibles to the jQuery object 
- *
- *   $.fn.screen for screen size
- * 
- */
-
-$(document).ready(function() {
-
-  $.uw = {}
-
-  $(window).resize(function() {
-
-    var width = $(window).width()
-    
-    $.uw.screensize = width > 979 ? 'desktop' :
-                      width > 768 ? 'tablet'  : 'mobile';
-
-  }).trigger('resize')
-
-  $('table').addClass('table')
-
-})
-;/*
-* UW Alert Banner
-*
-* This file checks for a current emergenty from our emergency blog json feed. 
-* You can also check different alerts by appending a hash #alert-{color}, where
-* color is either red, orange, blue or steel to display a fake alert.
-*
-* Eg: uw.edu/discover/#alert-red
-*/
-
-$(document).ready(function() {
-
-    var data = {
-      number:1,
-      type:'post',
-      status:'publish'
-    }
-
-    var alert_url =  window.location.hash.indexOf('uwalert') === -1 ? 
-          'https://www.washington.edu/static/UW-Alert-Banner/alert/?c=?' :
-          'https://www.washington.edu/static/UW-Alert-Banner/alert/?test=true&c=?';
-
-    $.getJSON( alert_url, data, function( res ) {
-
-          if ( !res || res.found < 1)
-            return;
-          
-          var post  = res.posts[0]
-            , cats  = post.categories
-            , slugs = []
-            , css   = ''
-            , colors = ['red', 'orange', 'blue', 'steel'];
-
-          $.each(cats, function(i,val) {
-            slugs += '|'+val.slug
-          })
-
-          for (var i = 0; i < colors.length; i += 1) {
-            if(slugs.indexOf(colors[i]) != -1 ) {
-              css = 'uwalert-'+colors[i].toLowerCase();
-            }
-          };
-
-          if ( window.location.hash.indexOf('alert') != -1 )
-            css = window.location.hash.replace('#','')
-
-          if( css.length === 0 )
-          {
-            return false;
-          }
-
-          var anchor  = $( '<a/>' ).attr({ 'href' : 'http://emergency.uw.edu', 'title' : post.title }).html( 'More info' )
-            , excerpt = $(post.excerpt).find('a').remove().end().append( anchor ).prop( 'outerHTML' )
-            , html    = $('<div id="uwalert-alert-message" class="' + css + '" />')
-                          .html( '<div><h1>' + post.title + '</h1>' + excerpt + '</div>' )
-            , adjust  = $('body').hasClass('admin-bar') ? $('#wpadminbar').height() : 0;
-
-          $('body')
-            .prepend(html)
-            .data('alert-height', $('#uwalert-alert-message').outerHeight() + adjust )
-
-          var mini = $('<a id="alert-mini" class="hidden-phone"/>')
-                        .attr({href:'#',title:post.title})
-                        .click(function() {
-                          $('body').data('scrolling',true).animate({scrollTop:0}, {duration:500, easing:'swing', complete:function() {$('body').data('scrolling',false)}})
-                          $(this).slideUp()
-                          return false;
-                        }).html('Campus Alert: '+post.title).addClass(css)
-
-          $('body').append(mini)
-            .addClass('uw-alert')
-
-    });
-
-})
-;/**
-* Header weather widget
-*/
-
-$(document).ready(function() {
-
-  var data = {
-    q:'http://www.atmos.washington.edu/rss/home.rss',
-    v:'2.0'
-  }
-
-  $.ajax({
-    url: 'https://ajax.googleapis.com/ajax/services/feed/load?callback=?',
-    dataType: 'jsonp',
-    data: data,
-    success: function(json) { 
-      var icon = $.trim(json.responseData.feed.entries[2].title.split('|')[1])
-        , weat = $.trim(json.responseData.feed.entries[1].title.split('|')[1])
-        , temp = $.trim(json.responseData.feed.entries[0].title.split('|')[1])
-        , html = '<li class="header-weather"><a href="http://www.atmos.washington.edu/weather/forecast/" title="Forecast is '+weat+'">';
-      html += '<img src="//uw.edu/news/wp-content/themes/uw/img/weather/top-nav/'+icon+'.png" alt="Forecast is '+weat+'"/>';
-      html += '</a></li>';
-      html += '<li class="header-forcast"><a href="http://www.atmos.washington.edu/weather/forecast/">';
-      html += 'Seattle '+temp;
-      html += '</a></li>';
-      $('#thin-strip').find('ul').append(html)
-    }
-  });
-
-})
-; /**
-   * Header Strip
-   */
-$(document).ready(function() {
-
-  var $thin    = $('#thin-strip')
-      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed')
-      , search = $('#search form')
-      , win    = $(window)
-      , bod    = $('body')
-      
-
-    bod.append(strip.hide())
-    strip.data('otop',bod.hasClass('top'))
-    win.bind('scroll', function() {
-
-      var top    = $(this).scrollTop()
-        , pos = bod.hasClass('admin-bar') ? 28 : 0
-        , adjust = bod.data('alert-height') || pos
-        , $mini = $('#alert-mini')
-
-      if ( $(this).width() < 768 )
-        return false
-
-      if ( top < 180 + adjust){
-        strip.css('top',-28).hide().data('showing',false)
-        $mini.hide()
-      }
-
-      if ( top > 220 + adjust && !strip.data('showing') ) {
-        strip.show().animate({top:strip.data('otop')+pos},{duration:300, easing:'swing'}).data('showing',true)
-      }
-
-      if ( $mini.length != 0 && !bod.data('scrolling') )
-      {
-        if ( top < 300 + adjust)
-          $mini.slideUp()
-
-        if ( top > 330 + adjust)
-          $mini.slideDown()
-      }
-    });
-
-})
-;/**
- * Dropdown menu
- *
- */
-
-$(document).ready(function() {
-
-  var $nav           = $('#dawgdrops')
-    , $submenus      = $('ul.dawgdrops-menu')
-    , $caret         = $('<span/>').addClass('navbar-caret')
-    , HOVER_ELEMENTS = 'li.dawgdrops-item'
-    , MENU_ANCHOR    = 'a.dropdown-toggle'
-    , SUB_MENU       = 'ul.dawgdrops-menu'
-    , MENU_WRAP_DIVS = '<div class="menu-wrap"><div class="inner-wrap"></div></div>'
-    , MENU_BLOCK_DIV = '<div class="menu-block"/>' 
-    , MENU_DIVISIONS = 7
-    , FULL_WIDTH     = 980
-    , CARET_ADJUST   = 20
-    , CARET_FADE     = 100 
-
-  $nav
-    .find('ul')
-      .first()
-      .before($caret)
-  
-  $submenus
-    .each(function() {
-
-      var $this     = $(this)
-        , $children = $this.find('li')
-        , init_pos  = $this.siblings('a').position().left
-        , shift     = 0
-
-      $children.wrapAll( MENU_WRAP_DIVS )
-
-      for (var i=0; i<$children.length; i+=MENU_DIVISIONS) 
-      {
-        $children.slice( i , i+MENU_DIVISIONS ).wrapAll( MENU_BLOCK_DIV )
-      }
-
-      $this.find( '.menu-block' ).filter(function() {
-        shift += $(this).outerWidth()
-      })
-
-      shift += init_pos 
-
-      $this.css('left', shift > FULL_WIDTH ? init_pos - ( shift - FULL_WIDTH ) : init_pos )
-
-    }) 
-
-    $( HOVER_ELEMENTS ).on({
-
-      mouseenter: function( e ) 
-      {
-
-        if ( $.uw.screensize != 'desktop' ) 
-          return false;
-
-        var $this = $(this)
-          , $a    = $this.children( MENU_ANCHOR )
-          , $ul   = $this.children( SUB_MENU )
-
-        $ul
-          .addClass('open')
-          .attr('aria-expanded','true')
-
-        if ( $ul.length != 0 )
-          $caret
-            .css('left', $a.position().left + CARET_ADJUST )
-            .fadeIn( CARET_FADE );
-      },
-
-      mouseleave: function( e ) 
-      {
-
-        if ( $.uw.screensize != 'desktop' ) 
-          return false;
-
-        var $this = $(this)
-          , $ul   = $this.children( SUB_MENU )
-
-        $ul
-          .removeClass('open')
-          .attr('aria-expanded','false')
-
-        $caret.stop().hide()
-                  
-      },
-
-      click: function( e ) 
-      {
-         return ( $.uw.screensize == 'desktop' )
-      }
-    })
-
-})
-;$(document).ready(function() {
-
-  var $submenus         = $('ul.dawgdrops-menu, #sidebar ul.sub-menu')
-    , $caret            = $('span.navbar-caret')
-    , KEYDOWN_EVENT     = 'keydown.dawgdrops'
-    , DROPDOWN_AS       = 'ul.dawgdrops-menu a, #sidebar ul.sub-menu a'
-    , DROPDOWN_TOGGLE   = 'a.dropdown-toggle, #sidebar ul.menu > li > a'
-    , CARET_ADJUST      = 20
-    , ANIMATION_DELAY   = 300
-    , keys  = {
-          enter :   13,
-          esc   :   27,
-          tab   :   9,
-          left  :   37,
-          up    :   38,
-          right :   39,
-          down  :   40,
-          spacebar : 32
-      } 
-    , clearMenus = function() {
-      $submenus.removeClass('open').attr('aria-expanded','false')
-      $caret.hide();
-    }
-
-  $(document).on( KEYDOWN_EVENT , DROPDOWN_AS , function(e)  
-  {
-      
-        if (e.altKey || e.ctrlKey)
-          return true;
-
-        var $this    = $(this)
-          , $anchors = $this.closest('ul.open').find('a')
-
-        switch(e.keyCode) {
-
-          case keys.spacebar:
-            document.location.href = $this.attr('href');
-            return false;
-
-          case keys.tab:
-            clearMenus();
-            return true;
-
-          case keys.esc:
-            $this.blur().closest('ul.open').siblings('a').focus();
-            clearMenus();
-            return true;
-
-          case keys.down:
-            var index = $anchors.index($this)
-            //fix last anchor to circle focus back to first anchor
-            index = index === $anchors.length-1 ? -1 : index; 
-            $anchors.eq(index+1).focus();
-            return false;
-
-          case keys.up:
-            var index = $anchors.index($this)
-            $anchors.eq(index-1).focus();
-            return false;
-
-          case keys.left:
-            $this.blur().closest('ul.open').siblings('a').focus();
-            clearMenus();
-            return false;
-
-          case keys.right:
-            $this.blur().closest('ul.open').parent().next('li').children('a').focus();
-            clearMenus();
-            return false;
-
-          default:
-            var chr = String.fromCharCode(e.which)
-              , exists = false;
-            $anchors.filter(function() {
-              exists = this.innerHTML.charAt(0) === chr
-              return exists;
-            }).first().focus();
-            return !exists;
-      
-        }
-      
-      }).on( KEYDOWN_EVENT , DROPDOWN_TOGGLE , function(e) {
-
-        if (e.altKey || e.ctrlKey)
-          return true;
-
-        var $this = $(this)
-          , $ul   = $this.siblings('ul')
-          , $anchors = $( DROPDOWN_TOGGLE )
-
-        switch(e.keyCode) {
-          case keys.enter:
-
-            if ( ! $ul.length )
-              return true;
-
-            $caret
-              .css('left', $this.position().left + CARET_ADJUST )
-              .show();
-
-      
-            $ul
-              .addClass('open')
-              .attr('aria-expanded','true')
-
-            // [TODO] settimeout wasn't necessary last time. 
-            setTimeout(function() {
-            
-              $ul
-                .find('a')
-                .first()
-                .focus()
-            
-            }, ANIMATION_DELAY / 2 );
-
-            return false;
-
-          case keys.spacebar:
-          case keys.up:
-          case keys.down:
-            var fake_event = jQuery.Event( 'keydown', { keyCode: keys.enter } );
-            $this.trigger(fake_event);
-            return false;
-
-          case keys.esc:
-            clearMenus();
-            return false;
-
-          case keys.tab:
-            clearMenus();
-            return true;
-          
-          case keys.left:
-            var index = $anchors.index($this)
-            $anchors.eq(index-1).focus()
-            return false;
-
-          case keys.right:
-            var index = $anchors.index($this)
-            //fix last anchor to circle focus back to first anchor
-            index = index === $anchors.length-1 ? -1 : index; 
-            $anchors.eq(index+1).focus()
-            return false;
-
-          default:
-            return true;
-        }
-    
-      });
-
-})
-;/**
- * Sidebar menu
- *
- */
-
-$(document).ready(function() {
-
-  var $sidebar        = $('#sidebar')
-    , $menu           = $sidebar.find('.menu')
-    , $li_elements    = $menu.children('li')
-    , LI_INTERVAL     = 10
-    , WIDTH_DIVISION  = 10
-    , WIDTH_MULTIPLY  = 240
-    , LI_WRAP_ELEMENT = '<ul class="pull-left" style="width:200px"/>'
-    , SIDEBAR_HEADER  = 'Browse '
-
-
-    
-    $li_elements.each(function() {
-    
-      var $this = $(this)
-        , $lis  = $this.find('li')
-        , width = Math.ceil( $lis.length / WIDTH_DIVISION )
-
-      if (  width > 0 ) 
-      {
-        $this.children('ul').first().width( width * WIDTH_MULTIPLY ) 
-
-        for ( var i = 0; i < $lis.length; i += LI_INTERVAL ) 
-        {
-          $lis.slice( i, i+LI_INTERVAL ).wrapAll( LI_WRAP_ELEMENT )
-        };
-
-      }
-
-    })
-  
-  
-    $sidebar.find('.menu').each( function() {
-      var $menu = $(this)
-      $menu.tinyNav({
-        header: SIDEBAR_HEADER + $menu.closest('.widget').find('h2.widgettitle a').prop('title')
-      });
-    });   	  
-
-});
-;$(document).ready(function() {
-
-  var ANCHORS         = '#dawgdrops-mobile .menu-item a, #dawgdrops-mobile .page_item a'
-    , MOBILE_MENU_ULS = '#uw-mobile-panel ul.sub-menu, #uw-mobile-panel ul.children'
-    , SUB_MENUS       = 'ul.sub-menu, ul.children'
-    , MENU_ID         = 'dawgdrops-mobile'
-    , OPEN_CLASS      = 'open'
-    
-  $('div.uw-mobile-menu').children('ul').attr( 'id', MENU_ID )
-
-  $( MOBILE_MENU_ULS ).hide()
-
-  $('body').on('click touchstart', 'a#listicon-wrapper', function(e) {
-
-    var open = $('#slide').length == 1
-      , pos  = open ? '0%' : '85%'
-
-    if ( ! open ) 
-    {
-      $('body')
-        .contents()
-          .not('#wpadminbar, #uw-mobile-panel')
-          .wrapAll('<div id="slide" style="position:relative;"/>')
-    }
-        
-    $('#slide').css({ right:pos })
-
-    $('#uw-mobile-panel').toggle()
-
-    if ( open )
-      $('#slide').contents().unwrap()
-
-    return false;
-  })
-  
-  $('body').on('click', ANCHORS , function() {
-
-    var $this    = $(this)
-      , $sibling = $this.siblings( SUB_MENUS )
-      , $parent  = $this.parent()
-      , $parents = $parent.siblings('li')
-
-    if ( $parent.hasClass( OPEN_CLASS ) || ! $sibling.length )
-      return true;
-
-    $parents
-      .filter( '.' + OPEN_CLASS )
-        .children( SUB_MENUS )
-        .slideUp()
-          .end()
-      .removeClass( OPEN_CLASS )
-
-    $parent.addClass( OPEN_CLASS )
-
-    $sibling.slideDown();
-    
-    return false;
-
-  })
-
-  // Responsive bug fix
-  $(window).resize( function() {
-    if ( $('#slide').length == 1 
-            && $.uw.screensize != 'mobile' )
-      $('#listicon-wrapper').trigger('click') 
-  })
-
-});
-;$(document).ready( function() {
-
-  var WIDTH         = 225
-    , DIRECTORY_URL = 'http://www.washington.edu/home/peopledir/?method=name&whichdir=both&term='
-    , $body         = $('body')
-    , $search       = $('#search')
-    , $form         = $search.find('form')
-    , $inputs       = $search.find('input[type=radio]')
-    , $soptions     = $search.find('.search-options')
-    , $q = $('#q')
-
-  $inputs.first().prop('checked', true)
-
-  $inputs.change(function() {
-
-    var str = 'Search ' + $(this).data('placeholder')
-
-    $q.prop('placeholder', str).attr('placeholder', str);
-
-  })
-
-  $form.submit(function() {
-
-    var $this  = $(this)
-      , $input = $inputs.filter(':checked')
-      , method = $input.val()
-
-    if ( method === 'main' )
-      return true;
-
-    if ( method === 'directory') 
-    {
-      window.location.href = DIRECTORY_URL + $q.val()
-      return false;
-    }
-
-    if ( method === 'site') 
-    {
-      window.location.href = $input.data('site') + '?s=' + $q.val()
-      return false;
-    }
-    return true;
-
-  })
-
-  $q.bind('focus blur', function( e ) {
-
-    $soptions.fadeIn();
-    $q.css('width', '225px' );
-
-    $body.bind( 'click', function( e ) {
-
-      if ( ! $(e.target).closest('#search').length ) 
-      {
-        $body.unbind('click');
-        $soptions.fadeOut();
-        $q.css('width', '' );
-      } 
-
-      return true;
-
-    })
-
-  })
-
-  // Accessibility to close the search options 
-  $soptions
-    .find('input')
-    .bind('focus blur', function( e ) {
-  
-        switch( e.type ) 
-        {
-          case 'focus':
-            $soptions.stop().fadeIn()
-            $q.css('width', '225px' );
-            break;
-          
-          case 'blur':
-            $soptions.stop().fadeOut()
-            $q.css('width', '' );
-            break;
-        }
-
-    })
-
-  // Accssibility to close the search options
-  $('a.wordmark').bind('focus', function() {
-    $body.trigger('click') 
-  })
-
-})
-;$(document).ready(function() {
-
-  if ( $('.gallery').length == 0 )
-    return;
-
-  var $body    = $('body')
-    , $opaque  = $('<div class="opaque"/>')
-    , $overlay = $('#gallery-overlay-image')
-    , $images  = $('div.gallery-image')
-    , $arrows  = $('.slideshow-right, .slideshow-left')
-    , $canvas  = $('.gallery-viewport') 
-    , $groups  = $('.group')
-
-  $('.gallery-menu li:first').addClass('active')
-
-  $opaque.hide()
-  //$arrows.hide()
-  $canvas.data('showing', 1)
-
-  $('div.large').each(function() {
-    var $this = $(this)
-    if ( ! $this.children().length ) $this.remove()
-  })
-
-  $body.first().append($opaque)
-    
-  $body.on('click', 'div.gallery-image', function() {
-    var $this = $(this)
-      , $gallery = $this.closest('.gallery')
-      , wp_url = $this.data('wp-url')
-      , perm_url = $this.data('permalink-url')
-      , pos   = $gallery.position()
-      , mobile = $(window).width() < 767
-
-      $overlay.find('.share a')
-        .each(function() {
-          var $this = $(this)
-            , href  = $this.data('href')
-
-          switch($this.attr('class')) {
-            case 'gallery-facebook':
-              $this.attr('href', href + perm_url + '&t='+ (new Date().getTime()) )
-              break;
-
-            case 'gallery-twitter':
-              $this.attr('href', href + perm_url )
-              break;
-            
-            case 'gallery-original':
-              $this.attr('href', wp_url)
-              break;
-          }
-          
-        })
-
-      $canvas.closest('.gallery').addClass('image-showing')
-
-      $overlay
-        .hide()
-        .css({
-                position:'absolute',
-                zIndex:1
-              })
-        .find('.image-description').html($this.children('span').html())
-          .end()
-        .find('img')
-          .attr({
-            src: $this.data('url')
-          })
-        
-        
-        $overlay
-          .imagesLoaded(function(  $images, $proper, $broken ) {
-
-            // ie fix
-            var img = new Image()
-            img.src = $images.get(0).src
-
-            var height = img.height // $images.get(0).height
-              , width  = img.width  // $images.get(0).width
-              , buffer = !mobile ? 27 : 0
-
-//            if ($.support.opacity)
-              $opaque.show()
-
-            $overlay
-              .hide().fadeIn()
-              .css({
-                'top'  : (height === 0 || mobile ) ? $gallery.position().top : $gallery.position().top + ( $gallery.height() - height )/ 2 ,
-                'left' : (width === 0 || mobile ) ? buffer : (($gallery.width() - width) / 2) + buffer
-              })
-
-          })
-          
-        var index = $images.index(this)
-        $overlay.data({
-          'prev' : index-1,
-          'selected': index,
-          'next': index+1 === $images.length ? 0 : index+1
-        })
-
-  }).on('click', '.opaque, .gallery-close', function() {
-    $canvas.closest('.gallery').removeClass('image-showing')
-    $opaque.fadeOut() 
-    $overlay.hide()
-  }).on('click', '.slideshow-right, .slideshow-left', function(e) {
-    if ( $overlay.is(':visible') ) {
-      var dir  = $(e.target).hasClass('slideshow-right') ? 'next' : 'prev'
-          , next = $overlay.data(dir)
-
-      $images.eq(next).trigger('click')
-    } else {
-      var dir  = $(e.target).hasClass('slideshow-right') ? '-=' : '+='
-          , dis = $canvas.children().first().outerWidth()
-
-      if ( $canvas.data('showing') == 1 && dir == '+=' ||
-            $canvas.data('showing') == $canvas.data('slides') && dir == '-=')
-        return false;
-
-      if ( $canvas.parent().width() >= 2 * dis ) dis *= 2
-
-      $canvas.animate({'marginLeft': dir+dis }, 400 )
-        .data('showing', dir === '-=' ? $canvas.data('showing') + 1 : $canvas.data('showing') - 1)
-    }
-
-    $(this).siblings('.gallery-table').find('li').removeClass('active')
-      .eq($canvas.data('showing')-1).addClass('active');
-    
-    return false;
-  }).on('click', '.gallery-menu li', function(){
-
-    var $this = $(this)
-      , dis =  $canvas.children().first().outerWidth()
-
-    if ( $canvas.parent().width() >= 2 * dis ) dis *= 2
-
-    $this.addClass('active').siblings().removeClass('active')
-    $canvas.animate({'marginLeft': -1*$this.index() * dis}, 400 )
-      .data('showing', $this.index() + 1)
-  
-  } )
-
-  // menu
-
-  $(window).resize(function() {
-  
-  var num = Math.ceil(( $canvas.children().length * $canvas.children().first().width() ) / $canvas.closest('.gallery').width())
-    , $menu = $('.gallery-menu').first()
-
-    $canvas.data('slides', num)
-
-    if (num == $menu.children().length)
-      return false;
-
-    $menu.html('')
-    while (num--) {
-      $menu.append($('<li/>').text(num))
-    }
-    $menu.children('li').first().trigger('click')
-
-
-  }).trigger('resize')
-  
-
-})
-;$(document).ready(function() {
-
-  $('.communityphotos').each(function() {
-    $(this)
-      .find('img')
-      .each(function() {
-        var $this = $(this);
-        $this.attr('src', $this.data('src'));
-      })
-  })
-
-});
-;$(document).ready( function() {
-
-/**
- * Regular
- */
-  var $slideshows  = $('.slideshow-widget')
-    , $window      = $(window)
-    , ACTIVE_SLIDE = 'active-slide'
-    , DURATION     = 100
-
-  $slideshows.on('click', 'li > a', function() {
-
-    var $this       = $(this)
-      , $slideshow  = $this.closest('.widget')
-      , $slides     = $slideshow.find('.slide')
-      , $navs       = $slideshow.find('li a')
-
-    if ( $this.hasClass( ACTIVE_SLIDE ) )
-      return false;
-
-    $navs.removeClass( ACTIVE_SLIDE )
-    $this.addClass( ACTIVE_SLIDE )
-
-    // animation is done with css
-    $slides
-      .filter( '.' + ACTIVE_SLIDE )
-      .removeClass( ACTIVE_SLIDE )
-        .end()
-      .eq( $this.parent().index() )
-        .addClass( ACTIVE_SLIDE )
-
-      $slideshow.data('currentSlide', $this.parent().index() )
-  
-    return false;
-
-  } )
-
-
-/**
- * Mobile
- */
-  $slideshows
-    .data('currentSlide', 0 )
-    .on('touchstart touchmove touchend', '.slide', function(e) {
-
-    if ( $.uw.screensize !== 'mobile' ) return false;
-
-    var $this   = $(this)
-      , $canvas = $this.closest('.widget')
-      , $slides = $this.siblings('.slide').andSelf()
-      , $navs   = $canvas.find('li a')
-      , width   = $this.width()
-      , target  = 'IMG' //e.target.nodeName 
-
-    switch(e.type) 
-    {
-
-      case 'touchstart':
-
-        // resize/reset the slideshow
-        $window.trigger('resize.slideshow')
-
-        $canvas.data({ 
-          'touchStartPosition': e.originalEvent.touches[0].pageX,
-          'originalLeft'  : $this.position().left
-        })
-
-        break;
-
-      case 'touchmove':
-
-        var del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition') + $canvas.data('originalLeft')
-          , anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index())
-          , $nextSlide  = del < 0 ? $this : $this.prev()
-          
-
-        anim.transition({
-          x : del + width * $canvas.data('currentSlide'),
-        } , { 
-            queue: false 
-        })
-
-        $nextSlide.transition({
-          opacity : del < 0 ? 1 -  Math.abs(del/width) : Math.abs(del/width)
-        }, {
-          queue: false
-        })
-
-        break;
-      
-      case 'touchend':
-
-        var del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition')
-          , current     = $canvas.data('currentSlide') 
-          , move        = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width
-          , anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index())
-          , $nextSlide  = del < 0 ? $this : $this.prev()
-          , opacity     = del > 0                  ? 1 : 
-                          ! move                   ? 1 : 
-                          $this.is($slides.last()) ? 1 : 0
-          , current     = ( move === 0 ||
-                              move > 0 && ! $this.prev('.slide').length || 
-                              move < 0 && ! $this.next('.slide').length ) ? $canvas.data('currentSlide') :
-                           move > 0.3 ? current += 1 : current -= 1;
-
-        $canvas.data( 'currentSlide', current )
-
-        anim.transition( { 
-          x : width * current
-        })
-
-        $nextSlide.transition({
-          opacity : opacity
-        })
-
-        $navs.removeClass( ACTIVE_SLIDE )
-          .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
-
-
-        break;
-
-      case 'default':
-
-        return true;
-
-    }
-
-    return e.target.className === 'slideshow-more';
-    
-  })
-
-
-  $window.bind( 'scroll', function() {
-
-    if ( $.uw.screensize != 'desktop' )
-      return;
-
-    var $this = $(this)
-      , diff  = Math.max( -40 * $this.scrollTop() / $this.height() , -15 )
-
-    $slideshows
-      .find('img').css('margin-top', diff + '%' )
-
-  }).bind( 'resize.slideshow', function() {
-
-    if ( $.uw.screensize === 'mobile' ) 
-    {
-      $('.slide').width( $window.width() ) 
-    } else {
-
-      $slideshows.removeAttr('style')
-        .find('.slide').removeAttr('style')
-    }
-
-  }).trigger('resize.slideshow')
-
-});
 ;/*!
  * FullCalendar v1.6.1
  * Docs & License: http://arshaw.com/fullcalendar/
@@ -8247,6 +7288,970 @@ fc.gcalFeed = function(url, sourceOptions) {
 
 
 })(jQuery);
+;
+/*
+ * Sets global varibles to the jQuery object 
+ *
+ *   $.fn.screen for screen size
+ * 
+ */
+
+$(document).ready(function() {
+
+  $.uw = {}
+
+  $(window).resize(function() {
+
+    var width = $(window).width()
+    
+    $.uw.screensize = width > 979 ? 'desktop' :
+                      width > 768 ? 'tablet'  : 'mobile';
+
+  }).trigger('resize')
+
+  $('table').addClass('table')
+
+})
+;/*
+* UW Alert Banner
+*
+* This file checks for a current emergenty from our emergency blog json feed. 
+* You can also check different alerts by appending a hash #alert-{color}, where
+* color is either red, orange, blue or steel to display a fake alert.
+*
+* Eg: uw.edu/discover/#alert-red
+*/
+
+$(document).ready(function() {
+
+    var data = {
+      number:1,
+      type:'post',
+      status:'publish'
+    }
+
+    var alert_url =  window.location.hash.indexOf('uwalert') === -1 ? 
+          'https://www.washington.edu/static/UW-Alert-Banner/alert/?c=?' :
+          'https://www.washington.edu/static/UW-Alert-Banner/alert/?test=true&c=?';
+
+    $.getJSON( alert_url, data, function( res ) {
+
+          if ( !res || res.found < 1)
+            return;
+          
+          var post  = res.posts[0]
+            , cats  = post.categories
+            , slugs = []
+            , css   = ''
+            , colors = ['red', 'orange', 'blue', 'steel'];
+
+          $.each(cats, function(i,val) {
+            slugs += '|'+val.slug
+          })
+
+          for ( var i = 0; i < colors.length; i += 1 ) 
+          {
+            if ( slugs.indexOf(colors[i]) != -1 ) 
+            {
+              css = 'uwalert-'+colors[i].toLowerCase();
+            }
+          }
+
+          if ( window.location.hash.indexOf('alert') != -1 )
+            css = window.location.hash.replace('#','')
+
+          if( css.length === 0 )
+          {
+            return false;
+          }
+
+          var anchor  = $( '<a/>' ).attr({ 'href' : 'http://emergency.uw.edu', 'title' : post.title }).html( 'More info' )
+            , excerpt = $(post.excerpt).find('a').remove().end().append( anchor ).prop( 'outerHTML' )
+            , html    = $('<div id="uwalert-alert-message" class="' + css + '" />')
+                          .html( '<div><h1>' + post.title + '</h1>' + excerpt + '</div>' )
+            , adjust  = $('body').hasClass('admin-bar') ? $('#wpadminbar').height() : 0;
+
+          $('body')
+            .prepend(html)
+            .data('alert-height', $('#uwalert-alert-message').outerHeight() + adjust )
+
+          var mini = $('<a id="alert-mini" class="hidden-phone"/>')
+                        .attr({href:'#',title:post.title})
+                        .click(function() {
+                          $('body').data('scrolling',true).animate({scrollTop:0}, {duration:500, easing:'swing', complete:function() {$('body').data('scrolling',false)}})
+                          $(this).slideUp()
+                          return false;
+                        }).html('Campus Alert: '+post.title).addClass(css)
+
+          $('body').append(mini)
+            .addClass('uw-alert')
+
+    });
+
+})
+;/**
+* Header weather widget
+*/
+
+$(document).ready(function() {
+
+  var data = {
+    q:'http://www.atmos.washington.edu/rss/home.rss',
+    v:'2.0'
+  }
+
+  $.ajax({
+    url: 'https://ajax.googleapis.com/ajax/services/feed/load?callback=?',
+    dataType: 'jsonp',
+    data: data,
+    success: function(json) { 
+      var icon = $.trim(json.responseData.feed.entries[2].title.split('|')[1])
+        , weat = $.trim(json.responseData.feed.entries[1].title.split('|')[1])
+        , temp = $.trim(json.responseData.feed.entries[0].title.split('|')[1])
+        , html = '<li class="header-weather"><a href="http://www.atmos.washington.edu/weather/forecast/" title="Forecast is '+weat+'">';
+      html += '<img src="//uw.edu/news/wp-content/themes/uw/img/weather/top-nav/'+icon+'.png" alt="Forecast is '+weat+'"/>';
+      html += '</a></li>';
+      html += '<li class="header-forcast"><a href="http://www.atmos.washington.edu/weather/forecast/">';
+      html += 'Seattle '+temp;
+      html += '</a></li>';
+      $('#thin-strip').find('ul').append(html)
+    }
+  });
+
+})
+; /**
+   * Header Strip
+   */
+$(document).ready(function() {
+
+  var $thin    = $('#thin-strip')
+      , strip  = $thin.clone().removeAttr('style').addClass('thin-fixed')
+      , search = $('#search form')
+      , win    = $(window)
+      , bod    = $('body')
+      
+
+    bod.append(strip.hide())
+    strip.data('otop',bod.hasClass('top'))
+    win.bind('scroll', function() {
+
+      var top    = $(this).scrollTop()
+        , pos = bod.hasClass('admin-bar') ? 28 : 0
+        , adjust = bod.data('alert-height') || pos
+        , $mini = $('#alert-mini')
+
+      if ( $(this).width() < 768 )
+        return false
+
+      if ( top < 180 + adjust){
+        strip.css('top',-28).hide().data('showing',false)
+        $mini.hide()
+      }
+
+      if ( top > 220 + adjust && !strip.data('showing') ) {
+        strip.show().animate({top:strip.data('otop')+pos},{duration:300, easing:'swing'}).data('showing',true)
+      }
+
+      if ( $mini.length !== 0 && !bod.data('scrolling') )
+      {
+        if ( top < 300 + adjust)
+          $mini.slideUp()
+
+        if ( top > 330 + adjust)
+          $mini.slideDown()
+      }
+    });
+
+})
+;/**
+ * Dropdown menu
+ *
+ */
+
+$(document).ready(function() {
+
+  var $nav           = $('#dawgdrops')
+    , $submenus      = $('ul.dawgdrops-menu')
+    , $caret         = $('<span/>').addClass('navbar-caret')
+    , HOVER_ELEMENTS = 'li.dawgdrops-item'
+    , MENU_ANCHOR    = 'a.dropdown-toggle'
+    , SUB_MENU       = 'ul.dawgdrops-menu'
+    , MENU_WRAP_DIVS = '<div class="menu-wrap"><div class="inner-wrap"></div></div>'
+    , MENU_BLOCK_DIV = '<div class="menu-block"/>' 
+    , MENU_DIVISIONS = 7
+    , FULL_WIDTH     = 980
+    , CARET_ADJUST   = 20
+    , CARET_FADE     = 100 
+
+  $nav
+    .find('ul')
+      .first()
+      .before($caret)
+  
+  $submenus
+    .each(function() {
+
+      var $this     = $(this)
+        , $children = $this.find('li')
+        , init_pos  = $this.siblings('a').position().left
+        , shift     = 0
+
+      $children.wrapAll( MENU_WRAP_DIVS )
+
+      for (var i=0; i<$children.length; i+=MENU_DIVISIONS) 
+      {
+        $children.slice( i , i+MENU_DIVISIONS ).wrapAll( MENU_BLOCK_DIV )
+      }
+
+      $this.find( '.menu-block' ).filter(function() {
+        shift += $(this).outerWidth()
+      })
+
+      shift += init_pos 
+
+      $this.css('left', shift > FULL_WIDTH ? init_pos - ( shift - FULL_WIDTH ) : init_pos )
+
+    }) 
+
+    $( HOVER_ELEMENTS ).on({
+
+      mouseenter: function( e ) 
+      {
+
+        if ( $.uw.screensize != 'desktop' ) 
+          return false;
+
+        var $this = $(this)
+          , $a    = $this.children( MENU_ANCHOR )
+          , $ul   = $this.children( SUB_MENU )
+
+        $ul
+          .addClass('open')
+          .attr('aria-expanded','true')
+
+        if ( $ul.length !== 0 )
+          $caret
+            .css('left', $a.position().left + CARET_ADJUST )
+            .fadeIn( CARET_FADE );
+      },
+
+      mouseleave: function( e ) 
+      {
+
+        if ( $.uw.screensize != 'desktop' ) 
+          return false;
+
+        var $this = $(this)
+          , $ul   = $this.children( SUB_MENU )
+
+        $ul
+          .removeClass('open')
+          .attr('aria-expanded','false')
+
+        $caret.stop().hide()
+                  
+      },
+
+      click: function( e ) 
+      {
+         return ( $.uw.screensize == 'desktop' )
+      }
+    })
+
+})
+;$(document).ready(function() {
+
+  var $submenus         = $('ul.dawgdrops-menu, #sidebar ul.sub-menu')
+    , $caret            = $('span.navbar-caret')
+    , KEYDOWN_EVENT     = 'keydown.dawgdrops'
+    , DROPDOWN_AS       = 'ul.dawgdrops-menu a, #sidebar ul.sub-menu a'
+    , DROPDOWN_TOGGLE   = 'a.dropdown-toggle, #sidebar ul.menu > li > a'
+    , CARET_ADJUST      = 20
+    , ANIMATION_DELAY   = 300
+    , keys  = {
+          enter :   13,
+          esc   :   27,
+          tab   :   9,
+          left  :   37,
+          up    :   38,
+          right :   39,
+          down  :   40,
+          spacebar : 32
+      } 
+    , clearMenus = function() {
+      $submenus.removeClass('open').attr('aria-expanded','false')
+      $caret.hide();
+    }, index;
+
+  $(document).on( KEYDOWN_EVENT , DROPDOWN_AS , function(e)  
+  {
+      
+        if (e.altKey || e.ctrlKey)
+          return true;
+
+        var $this    = $(this)
+          , $anchors = $this.closest('ul.open').find('a')
+
+        switch( e.keyCode ) 
+        {
+
+          case keys.spacebar:
+            document.location.href = $this.attr('href');
+            return false;
+
+          case keys.tab:
+            clearMenus();
+            return true;
+
+          case keys.esc:
+            $this.blur().closest('ul.open').siblings('a').focus();
+            clearMenus();
+            return true;
+
+          case keys.down:
+            index = $anchors.index($this)
+            //fix last anchor to circle focus back to first anchor
+            index = index === $anchors.length-1 ? -1 : index; 
+            $anchors.eq(index+1).focus();
+            return false;
+
+          case keys.up:
+            index = $anchors.index($this)
+            $anchors.eq(index-1).focus();
+            return false;
+
+          case keys.left:
+            $this.blur().closest('ul.open').siblings('a').focus();
+            clearMenus();
+            return false;
+
+          case keys.right:
+            $this.blur().closest('ul.open').parent().next('li').children('a').focus();
+            clearMenus();
+            return false;
+
+          default:
+            var chr = String.fromCharCode(e.which)
+              , exists = false;
+            $anchors.filter(function() {
+              exists = this.innerHTML.charAt(0) === chr
+              return exists;
+            }).first().focus();
+            return !exists;
+      
+        }
+      
+      }).on( KEYDOWN_EVENT , DROPDOWN_TOGGLE , function(e) {
+
+        if (e.altKey || e.ctrlKey)
+          return true;
+
+        var $this = $(this)
+          , $ul   = $this.siblings('ul')
+          , $anchors = $( DROPDOWN_TOGGLE )
+
+        switch(e.keyCode) {
+          case keys.enter:
+
+            if ( ! $ul.length )
+              return true;
+
+            $caret
+              .css('left', $this.position().left + CARET_ADJUST )
+              .show();
+
+      
+            $ul
+              .addClass('open')
+              .attr('aria-expanded','true')
+
+            // [TODO] settimeout wasn't necessary last time. 
+            setTimeout(function() {
+            
+              $ul
+                .find('a')
+                .first()
+                .focus()
+            
+            }, ANIMATION_DELAY / 2 );
+
+            return false;
+
+          case keys.spacebar:
+          case keys.up:
+          case keys.down:
+            var fake_event = jQuery.Event( 'keydown', { keyCode: keys.enter } );
+            $this.trigger(fake_event);
+            return false;
+
+          case keys.esc:
+            clearMenus();
+            return false;
+
+          case keys.tab:
+            clearMenus();
+            return true;
+          
+          case keys.left:
+            index = $anchors.index($this)
+            $anchors.eq(index-1).focus()
+            return false;
+
+          case keys.right:
+            index = $anchors.index($this)
+            //fix last anchor to circle focus back to first anchor
+            index = index === $anchors.length-1 ? -1 : index; 
+            $anchors.eq(index+1).focus()
+            return false;
+
+          default:
+            return true;
+        }
+    
+      });
+
+})
+;/**
+ * Sidebar menu
+ *
+ */
+
+$(document).ready(function() {
+
+  var $sidebar        = $('#sidebar')
+    , $menu           = $sidebar.find('.menu')
+    , $li_elements    = $menu.children('li')
+    , LI_INTERVAL     = 10
+    , WIDTH_DIVISION  = 10
+    , WIDTH_MULTIPLY  = 240
+    , LI_WRAP_ELEMENT = '<ul class="pull-left" style="width:200px"/>'
+    , SIDEBAR_HEADER  = 'Browse '
+
+
+    
+    $li_elements.each(function() {
+    
+      var $this = $(this)
+        , $lis  = $this.find('li')
+        , width = Math.ceil( $lis.length / WIDTH_DIVISION )
+
+      if (  width > 0 ) 
+      {
+        $this.children('ul').first().width( width * WIDTH_MULTIPLY ) 
+
+        for ( var i = 0; i < $lis.length; i += LI_INTERVAL ) 
+        {
+          $lis.slice( i, i+LI_INTERVAL ).wrapAll( LI_WRAP_ELEMENT )
+        }
+
+      }
+
+    })
+  
+    $sidebar.find('.menu').each( function() {
+      var $menu = $(this)
+      $menu.tinyNav({
+        header: SIDEBAR_HEADER + $menu.closest('.widget').find('h2.widgettitle a').prop('title')
+      });
+    })
+
+});
+;$(document).ready(function() {
+
+  var ANCHORS         = '#dawgdrops-mobile .menu-item a, #dawgdrops-mobile .page_item a'
+    , MOBILE_MENU_ULS = '#uw-mobile-panel ul.sub-menu, #uw-mobile-panel ul.children'
+    , SUB_MENUS       = 'ul.sub-menu, ul.children'
+    , MENU_ID         = 'dawgdrops-mobile'
+    , OPEN_CLASS      = 'open'
+    
+  $('div.uw-mobile-menu').children('ul').attr( 'id', MENU_ID )
+
+  $( MOBILE_MENU_ULS ).hide()
+
+  $('body').on('click touchstart', 'a#listicon-wrapper', function(e) {
+
+    var open = $('#slide').length == 1
+      , pos  = open ? '0%' : '85%'
+
+    if ( ! open ) 
+    {
+      $('body')
+        .contents()
+          .not('#wpadminbar, #uw-mobile-panel')
+          .wrapAll('<div id="slide" style="position:relative;"/>')
+    }
+        
+    $('#slide').css({ right:pos })
+
+    $('#uw-mobile-panel').toggle()
+
+    if ( open )
+      $('#slide').contents().unwrap()
+
+    return false;
+  })
+  
+  $('body').on('click', ANCHORS , function() {
+
+    var $this    = $(this)
+      , $sibling = $this.siblings( SUB_MENUS )
+      , $parent  = $this.parent()
+      , $parents = $parent.siblings('li')
+
+    if ( $parent.hasClass( OPEN_CLASS ) || ! $sibling.length )
+      return true;
+
+    $parents
+      .filter( '.' + OPEN_CLASS )
+        .children( SUB_MENUS )
+        .slideUp()
+          .end()
+      .removeClass( OPEN_CLASS )
+
+    $parent.addClass( OPEN_CLASS )
+
+    $sibling.slideDown();
+    
+    return false;
+
+  })
+
+  // Responsive bug fix
+  $(window).resize( function() {
+    if ( $('#slide').length == 1 &&
+            $.uw.screensize != 'mobile' )
+      $('#listicon-wrapper').trigger('click') 
+  })
+
+});
+;$(document).ready( function() {
+
+  var WIDTH         = 225
+    , DIRECTORY_URL = 'http://www.washington.edu/home/peopledir/?method=name&whichdir=both&term='
+    , $body         = $('body')
+    , $search       = $('#search')
+    , $form         = $search.find('form')
+    , $inputs       = $search.find('input[type=radio]')
+    , $soptions     = $search.find('.search-options')
+    , $q = $('#q')
+
+  $inputs.first().prop('checked', true)
+
+  $inputs.change(function() {
+
+    var str = 'Search ' + $(this).data('placeholder')
+
+    $q.prop('placeholder', str).attr('placeholder', str);
+
+  })
+
+  $form.submit(function() {
+
+    var $this  = $(this)
+      , $input = $inputs.filter(':checked')
+      , method = $input.val()
+
+    if ( method === 'main' )
+      return true;
+
+    if ( method === 'directory') 
+    {
+      window.location.href = DIRECTORY_URL + $q.val()
+      return false;
+    }
+
+    if ( method === 'site') 
+    {
+      window.location.href = $input.data('site') + '?s=' + $q.val()
+      return false;
+    }
+    return true;
+
+  })
+
+  $q.bind('focus blur', function( e ) {
+
+    $soptions.fadeIn();
+    $q.css('width', '225px' );
+
+    $body.bind( 'click', function( e ) {
+
+      if ( ! $(e.target).closest('#search').length ) 
+      {
+        $body.unbind('click');
+        $soptions.fadeOut();
+        $q.css('width', '' );
+      } 
+
+      return true;
+
+    })
+
+  })
+
+  // Accessibility to close the search options 
+  $soptions
+    .find('input')
+    .bind('focus blur', function( e ) {
+  
+        switch( e.type ) 
+        {
+          case 'focus':
+            $soptions.stop().fadeIn()
+            $q.css('width', '225px' );
+            break;
+          
+          case 'blur':
+            $soptions.stop().fadeOut()
+            $q.css('width', '' );
+            break;
+        }
+
+    })
+
+  // Accssibility to close the search options
+  $('a.wordmark').bind('focus', function() {
+    $body.trigger('click') 
+  })
+
+})
+;$(document).ready(function() {
+
+  if ( $('.gallery').length === 0 )
+    return;
+
+  var $body    = $('body')
+    , $opaque  = $('<div class="opaque"/>')
+    , $overlay = $('#gallery-overlay-image')
+    , $images  = $('div.gallery-image')
+    , $arrows  = $('.slideshow-right, .slideshow-left')
+    , $canvas  = $('.gallery-viewport') 
+    , $groups  = $('.group')
+
+  $('.gallery-menu li:first').addClass('active')
+
+  $opaque.hide()
+  //$arrows.hide()
+  $canvas.data('showing', 1)
+
+  $('div.large').each(function() {
+    var $this = $(this)
+    if ( ! $this.children().length ) $this.remove()
+  })
+
+  $body.first().append($opaque)
+    
+  $body.on('click', 'div.gallery-image', function() {
+    var $this = $(this)
+      , $gallery = $this.closest('.gallery')
+      , wp_url = $this.data('wp-url')
+      , perm_url = $this.data('permalink-url')
+      , pos   = $gallery.position()
+      , mobile = $(window).width() < 767
+
+      $overlay.find('.share a')
+        .each(function() {
+          var $this = $(this)
+            , href  = $this.data('href')
+
+          switch($this.attr('class')) {
+            case 'gallery-facebook':
+              $this.attr('href', href + perm_url + '&t='+ (new Date().getTime()) )
+              break;
+
+            case 'gallery-twitter':
+              $this.attr('href', href + perm_url )
+              break;
+            
+            case 'gallery-original':
+              $this.attr('href', wp_url)
+              break;
+          }
+          
+        })
+
+      $canvas.closest('.gallery').addClass('image-showing')
+
+      $overlay
+        .hide()
+        .css({
+                position:'absolute',
+                zIndex:1
+              })
+        .find('.image-description').html($this.children('span').html())
+          .end()
+        .find('img')
+          .attr({
+            src: $this.data('url')
+          })
+        
+        
+        $overlay
+          .imagesLoaded(function(  $images, $proper, $broken ) {
+
+            // ie fix
+            var img = new Image()
+            img.src = $images.get(0).src
+
+            var height = img.height // $images.get(0).height
+              , width  = img.width  // $images.get(0).width
+              , buffer = !mobile ? 27 : 0
+
+//            if ($.support.opacity)
+              $opaque.show()
+
+            $overlay
+              .hide().fadeIn()
+              .css({
+                'top'  : (height === 0 || mobile ) ? $gallery.position().top : $gallery.position().top + ( $gallery.height() - height )/ 2 ,
+                'left' : (width === 0 || mobile ) ? buffer : (($gallery.width() - width) / 2) + buffer
+              })
+
+          })
+          
+        var index = $images.index(this)
+        $overlay.data({
+          'prev' : index-1,
+          'selected': index,
+          'next': index+1 === $images.length ? 0 : index+1
+        })
+
+  }).on('click', '.opaque, .gallery-close', function() {
+    $canvas.closest('.gallery').removeClass('image-showing')
+    $opaque.fadeOut() 
+    $overlay.hide()
+  }).on('click', '.slideshow-right, .slideshow-left', function(e) {
+    var dir;
+    if ( $overlay.is(':visible') ) 
+    {
+      dir  = $(e.target).hasClass('slideshow-right') ? 'next' : 'prev';
+      $images.eq( $overlay.data(dir) ).trigger('click')
+    } else {
+
+      var dis = $canvas.children().first().outerWidth();
+      dir  = $(e.target).hasClass('slideshow-right') ? '-=' : '+=';
+
+      if ( $canvas.data('showing') == 1 && dir == '+=' ||
+            $canvas.data('showing') == $canvas.data('slides') && dir == '-=')
+        return false;
+
+      if ( $canvas.parent().width() >= 2 * dis ) dis *= 2
+
+      $canvas.animate({'marginLeft': dir+dis }, 400 )
+        .data('showing', dir === '-=' ? $canvas.data('showing') + 1 : $canvas.data('showing') - 1)
+    }
+
+    $(this).siblings('.gallery-table').find('li').removeClass('active')
+      .eq($canvas.data('showing')-1).addClass('active');
+    
+    return false;
+  }).on('click', '.gallery-menu li', function(){
+
+    var $this = $(this)
+      , dis =  $canvas.children().first().outerWidth()
+
+    if ( $canvas.parent().width() >= 2 * dis ) dis *= 2
+
+    $this.addClass('active').siblings().removeClass('active')
+    $canvas.animate({'marginLeft': -1*$this.index() * dis}, 400 )
+      .data('showing', $this.index() + 1)
+  
+  } )
+
+  // menu
+
+  $(window).resize(function() {
+  
+  var num = Math.ceil(( $canvas.children().length * $canvas.children().first().width() ) / $canvas.closest('.gallery').width())
+    , $menu = $('.gallery-menu').first()
+
+    $canvas.data('slides', num)
+
+    if (num == $menu.children().length)
+      return false;
+
+    $menu.html('')
+    while (num--) {
+      $menu.append($('<li/>').text(num))
+    }
+    $menu.children('li').first().trigger('click')
+
+
+  }).trigger('resize')
+  
+
+})
+;$(document).ready(function() {
+
+  $('.communityphotos').each(function() {
+    $(this)
+      .find('img')
+      .each(function() {
+        var $this = $(this);
+        $this.attr('src', $this.data('src'));
+      })
+  })
+
+});
+;$(document).ready( function() {
+
+/**
+ * Regular
+ */
+  var $slideshows  = $('.slideshow-widget')
+    , $window      = $(window)
+    , ACTIVE_SLIDE = 'active-slide'
+    , DURATION     = 100
+
+  $slideshows.on('click', 'li > a', function() {
+
+    var $this       = $(this)
+      , $slideshow  = $this.closest('.widget')
+      , $slides     = $slideshow.find('.slide')
+      , $navs       = $slideshow.find('li a')
+
+    if ( $this.hasClass( ACTIVE_SLIDE ) )
+      return false;
+
+    $navs.removeClass( ACTIVE_SLIDE )
+    $this.addClass( ACTIVE_SLIDE )
+
+    // animation is done with css
+    $slides
+      .filter( '.' + ACTIVE_SLIDE )
+      .removeClass( ACTIVE_SLIDE )
+        .end()
+      .eq( $this.parent().index() )
+        .addClass( ACTIVE_SLIDE )
+
+      $slideshow.data('currentSlide', $this.parent().index() )
+  
+    return false;
+
+  } )
+
+
+/**
+ * Mobile
+ */
+  $slideshows
+    .data('currentSlide', 0 )
+    .on('touchstart touchmove touchend', '.slide', function(e) {
+
+    if ( $.uw.screensize !== 'mobile' ) return false;
+
+    var $this   = $(this)
+      , $canvas = $this.closest('.widget')
+      , $slides = $this.siblings('.slide').andSelf()
+      , $navs   = $canvas.find('li a')
+      , width   = $this.width()
+      , target  = 'IMG' //e.target.nodeName 
+      , del, anim, $nextSlide, move
+
+    switch(e.type) 
+    {
+
+      case 'touchstart':
+
+        // resize/reset the slideshow
+        $window.trigger('resize.slideshow')
+
+        $canvas.data({ 
+          'touchStartPosition': e.originalEvent.touches[0].pageX,
+          'originalLeft'  : $this.position().left
+        })
+
+        break;
+
+      case 'touchmove':
+
+        del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition') + $canvas.data('originalLeft');
+        anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index());
+        $nextSlide  = del < 0 ? $this : $this.prev();
+          
+
+        anim.transition({
+          x : del + width * $canvas.data('currentSlide'),
+        } , { 
+            queue: false 
+        })
+
+        $nextSlide.transition({
+          opacity : del < 0 ? 1 -  Math.abs(del/width) : Math.abs(del/width)
+        }, {
+          queue: false
+        })
+
+        break;
+      
+      case 'touchend':
+
+        del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition');
+        move        = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width
+        anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index())
+        $nextSlide  = del < 0 ? $this : $this.prev()
+
+        var opacity     = del > 0                  ? 1 : 
+                          ! move                   ? 1 : 
+                          $this.is($slides.last()) ? 1 : 0;
+
+        var current     = ( move === 0 ||
+                            move > 0 && ! $this.prev('.slide').length || 
+                            move < 0 && ! $this.next('.slide').length ) ? $canvas.data('currentSlide') :
+                         move > 0.3 ? current += 1 : current -= 1;
+
+        $canvas.data( 'currentSlide', current )
+
+        anim.transition( { 
+          x : width * current
+        })
+
+        $nextSlide.transition({
+          opacity : opacity
+        })
+
+        $navs.removeClass( ACTIVE_SLIDE )
+          .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
+
+
+        break;
+
+      case 'default':
+
+        return true;
+
+    }
+
+    return e.target.className === 'slideshow-more';
+    
+  })
+
+
+  $window.bind( 'scroll', function() {
+
+    if ( $.uw.screensize != 'desktop' )
+      return;
+
+    var $this = $(this)
+      , diff  = Math.max( -40 * $this.scrollTop() / $this.height() , -15 )
+
+    $slideshows
+      .find('img').css('margin-top', diff + '%' )
+
+  }).bind( 'resize.slideshow', function() {
+
+    if ( $.uw.screensize === 'mobile' ) 
+    {
+      $('.slide').width( $window.width() ) 
+    } else {
+
+      $slideshows.removeAttr('style')
+        .find('.slide').removeAttr('style')
+    }
+
+  }).trigger('resize.slideshow')
+
+});
 ;$(document).ready(function() {
   
     var $cals      = $('.calendar-widget')
@@ -8384,6 +8389,7 @@ fc.gcalFeed = function(url, sourceOptions) {
               video_id  =  video.media$group.yt$videoid.$t,
               title = video.title.$t,
               dur = video.media$group.yt$duration.seconds,
+
               minutes = Math.floor(dur/60),
               seconds = String(dur % 60).length === 1 ? '0'+dur%60 : dur % 60;
             
@@ -8397,7 +8403,7 @@ fc.gcalFeed = function(url, sourceOptions) {
           $vidContent.children('ul').append(html).imagesLoaded(function() {
             $vidSmall.tinyscrollbar_update();
           })
-          if (--count==0) {
+          if ( --count===0 ) {
             $vidSmall.find('.scrollbar').show();
             $vidContent.height('+=100')
           }
@@ -8421,4 +8427,4 @@ function onYouTubePlayerReady(playerid){
 }
 function play(id){
   uwplayer.loadVideoById(id);
-};
+}

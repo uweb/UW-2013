@@ -51,6 +51,7 @@ $(document).ready(function() {
               video_id  =  video.media$group.yt$videoid.$t,
               title = video.title.$t,
               dur = video.media$group.yt$duration.seconds,
+
               minutes = Math.floor(dur/60),
               seconds = String(dur % 60).length === 1 ? '0'+dur%60 : dur % 60;
             
@@ -64,7 +65,7 @@ $(document).ready(function() {
           $vidContent.children('ul').append(html).imagesLoaded(function() {
             $vidSmall.tinyscrollbar_update();
           })
-          if (--count==0) {
+          if ( --count===0 ) {
             $vidSmall.find('.scrollbar').show();
             $vidContent.height('+=100')
           }
@@ -88,4 +89,4 @@ function onYouTubePlayerReady(playerid){
 }
 function play(id){
   uwplayer.loadVideoById(id);
-};
+}

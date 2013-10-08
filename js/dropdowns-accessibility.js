@@ -20,7 +20,7 @@ $(document).ready(function() {
     , clearMenus = function() {
       $submenus.removeClass('open').attr('aria-expanded','false')
       $caret.hide();
-    }
+    }, index;
 
   $(document).on( KEYDOWN_EVENT , DROPDOWN_AS , function(e)  
   {
@@ -31,7 +31,8 @@ $(document).ready(function() {
         var $this    = $(this)
           , $anchors = $this.closest('ul.open').find('a')
 
-        switch(e.keyCode) {
+        switch( e.keyCode ) 
+        {
 
           case keys.spacebar:
             document.location.href = $this.attr('href');
@@ -47,14 +48,14 @@ $(document).ready(function() {
             return true;
 
           case keys.down:
-            var index = $anchors.index($this)
+            index = $anchors.index($this)
             //fix last anchor to circle focus back to first anchor
             index = index === $anchors.length-1 ? -1 : index; 
             $anchors.eq(index+1).focus();
             return false;
 
           case keys.up:
-            var index = $anchors.index($this)
+            index = $anchors.index($this)
             $anchors.eq(index-1).focus();
             return false;
 
@@ -131,12 +132,12 @@ $(document).ready(function() {
             return true;
           
           case keys.left:
-            var index = $anchors.index($this)
+            index = $anchors.index($this)
             $anchors.eq(index-1).focus()
             return false;
 
           case keys.right:
-            var index = $anchors.index($this)
+            index = $anchors.index($this)
             //fix last anchor to circle focus back to first anchor
             index = index === $anchors.length-1 ? -1 : index; 
             $anchors.eq(index+1).focus()

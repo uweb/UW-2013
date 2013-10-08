@@ -64,7 +64,7 @@ $(document).ready(function() {
           .addClass('open')
           .attr('aria-expanded','true')
 
-        if ( $ul.length != 0 )
+        if ( $ul.length !== 0 )
           $caret
             .css('left', $a.position().left + CARET_ADJUST )
             .fadeIn( CARET_FADE );
