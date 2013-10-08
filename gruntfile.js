@@ -7,15 +7,16 @@ module.exports = function(grunt) {
         separator: ';',
       },
       dist: {
-        src: [
-          //libraries
+        libraries: [
           "js/jquery.tinynav.js",
           "js/jquery.tinyscrollbar.js",
           "js/imagesloaded.pkgd.js",
           "js/jquery.transit.js",
-
-          //scripts
-          "js/globals.js",
+          "js/widgets/jquery.fullcalendar.js",
+          "js/widgets/jquery.fullcalendar.gcal.js"
+        ],
+        custom: [
+          "js/globals.js", 
           "js/alert.js",
           "js/weather.js",
           "js/thin-strip.js",
@@ -25,21 +26,18 @@ module.exports = function(grunt) {
           "js/mobile-menu.js",
           "js/search-expanded.js",
           "js/gallery.js",
-
-          //widgets
           "js/widgets/community-photos.js",
           "js/widgets/slideshow.js",
-          "js/widgets/jquery.fullcalendar.js",
-          "js/widgets/jquery.fullcalendar.gcal.js",
           "js/widgets/uw-calendar.js",
           "js/widgets/youtube-playlist.js"
         ],
+        src: [ '<%= concat.dist.libraries %>', '<%= concat.dist.custom %>' ],
         dest: 'js/site.dev.js'
       }
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today() %> */\n'
       },
       dist: {
         files: {
@@ -48,8 +46,12 @@ module.exports = function(grunt) {
       }
     },
     jshint: {
-      files: [ 'Gruntfile.js', '<%= concat.dist.src %>' ],
+      files: [ 'Gruntfile.js', '<%= concat.dist.custom %>' ],
       options: {
+        asi: true,
+        smarttabs: true,
+        laxcomma: true,
+        lastsemic: true,
         // options here to override JSHint defaults
         globals: {
           jQuery: true,
@@ -70,6 +72,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify' ]);
 
 };
