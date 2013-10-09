@@ -73,8 +73,8 @@ $(document).ready(function() {
           .imagesLoaded(function(  $images, $proper, $broken ) {
 
             // ie fix
-            var img = new Image()
-            img.src = $images.get(0).src
+            var img = new Image();
+            img.src = $images.images[0].img.src;
 
             var height = img.height // $images.get(0).height
               , width  = img.width  // $images.get(0).width

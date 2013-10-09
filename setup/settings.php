@@ -8,9 +8,4 @@ if ( ! isset( $content_width ) )
 /**
  * Disable new user notification emails
  */
-if ( !function_exists('wp_new_user_notification') ) :
-
-  function wp_new_user_notification() { return; };
-
-endif;
-
+add_filter( 'wpmu_signup_user_notification', '__return_false' );
