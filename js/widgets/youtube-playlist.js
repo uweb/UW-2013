@@ -64,7 +64,7 @@ function fetch_and_prep_playlist() {
 		var video = data.feed.entry[0].media$group.yt$videoid.$t;
 		var count = data.feed.entry.length;
 		$vidContent.append('<ul/>');
-		$vidContent.width(count * 140.2 + 'px');
+		$vidContent.width(count * 135 + 'px');
 		$.each(data.feed.entry, function(index,video) {
 			var img = video.media$group.media$thumbnail[0],
 				video_id  =  video.media$group.yt$videoid.$t,
