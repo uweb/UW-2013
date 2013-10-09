@@ -100,7 +100,7 @@
 		content: " +";
 		color: #FFF;
 		padding: 0 5px;
-		background-color: #39275B;
+		background-color: @color;
 		font-size: 15px;
 		position: absolute;
 		left: 0;
@@ -111,6 +111,21 @@
 		text-decoration: underline;
 	}
 }
+
+// Creates the little grey bar 
+
+.bar() {
+	position: absolute;
+	bottom: -17px;
+	left: 0;
+	content: "";
+	width: 70px;
+	height: 2px;
+	background-color: #E2E2E2;
+}
+
+//Puts in the gold triangle background
+
 .widgetTitleBackground() {
 	background: url('img/widgets/headline-background.png') no-repeat -16px -148px transparent;
 	padding: 32px 0 5px;

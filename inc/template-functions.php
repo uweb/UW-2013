@@ -223,14 +223,17 @@ if ( ! function_exists( 'uw_footer_menu') ) :
     }
 
     $locations = get_nav_menu_locations();
-    $menu = wp_get_nav_menu_object($locations['footer']);
+    $menu = wp_get_nav_menu_object( $locations['footer'] );
 
-    echo "<h2>{$menu->name}</h2>";
-    wp_nav_menu( array( 
-      'theme_location'  => 'footer',
-      'menu_class'      => 'footer-navigation',
-      'fallback_cb'     => '',
-    ) );
+    if ( $menu ) {
+      echo "<h2>{$menu->name}</h2>";
+      wp_nav_menu( array( 
+        'theme_location'  => 'footer',
+        'menu_class'      => 'footer-navigation',
+        'fallback_cb'     => '',
+      ) );
+    }
+
     if ( ( !$nav ) && ( is_multisite() ) )
     {
       restore_current_blog();
@@ -302,11 +305,16 @@ add_filter('body_class','uw_custom_body_classes');
 if ( ! function_exists( 'uw_custom_body_classes' ) ):
   function uw_custom_body_classes($classes) 
   {
+
     if ( is_multisite() )
         $classes[] = 'site-'. sanitize_html_class( str_replace( 'cms', '', get_blog_details( get_current_blog_id() )->path ) );
+
+    $classes[] = get_theme_mod( 'color_scheme', 'purple' );
     $classes[] = is_home() && get_option('blogroll-banner') ? 'featured-image' : '';
     $classes[] = uw_breadcrumbs_on() ? 'breadcrumbs' : '';
+
     return $classes;
+
   }
 endif;
 

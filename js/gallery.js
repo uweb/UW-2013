@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  if ( $('.gallery').length == 0 )
+  if ( $('.gallery').length === 0 )
     return;
 
   var $body    = $('body')
@@ -104,14 +104,15 @@ $(document).ready(function() {
     $opaque.fadeOut() 
     $overlay.hide()
   }).on('click', '.slideshow-right, .slideshow-left', function(e) {
-    if ( $overlay.is(':visible') ) {
-      var dir  = $(e.target).hasClass('slideshow-right') ? 'next' : 'prev'
-          , next = $overlay.data(dir)
-
-      $images.eq(next).trigger('click')
+    var dir;
+    if ( $overlay.is(':visible') ) 
+    {
+      dir  = $(e.target).hasClass('slideshow-right') ? 'next' : 'prev';
+      $images.eq( $overlay.data(dir) ).trigger('click')
     } else {
-      var dir  = $(e.target).hasClass('slideshow-right') ? '-=' : '+='
-          , dis = $canvas.children().first().outerWidth()
+
+      var dis = $canvas.children().first().outerWidth();
+      dir  = $(e.target).hasClass('slideshow-right') ? '-=' : '+=';
 
       if ( $canvas.data('showing') == 1 && dir == '+=' ||
             $canvas.data('showing') == $canvas.data('slides') && dir == '-=')

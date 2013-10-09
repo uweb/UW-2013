@@ -31,7 +31,7 @@ $(document).ready(function() {
         strip.show().animate({top:strip.data('otop')+pos},{duration:300, easing:'swing'}).data('showing',true)
       }
 
-      if ( $mini.length != 0 && !bod.data('scrolling') )
+      if ( $mini.length !== 0 && !bod.data('scrolling') )
       {
         if ( top < 300 + adjust)
           $mini.slideUp()

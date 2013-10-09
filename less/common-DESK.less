@@ -98,7 +98,7 @@
 
 h1.entry-title {	
 	position: relative;	
-	margin-bottom: 25px;
+	margin-bottom: 35px;
 	&:before {
 		position: absolute;
 		left: -49px;
@@ -109,6 +109,13 @@ h1.entry-title {
 		content: " ";
     }
 }
+//.page {
+//	.entry-title {	
+//		&:after {
+//		    .bar();
+//    	}
+//    }
+//}
 .single {
 	.entry-title {	
 		margin-bottom: 15px;
@@ -261,16 +268,6 @@ body.error404 {background: none }
     padding: 0 0 50px;
 }
 
-// Columns Shortcode
-
-.columns-2 {
-	float: left;
-	width: 50%;
-}
-.columns-3 {
-	float: left;
-	width: 33%;
-}
 
 // Archive/Blogroll Page 
 
@@ -281,6 +278,10 @@ body.error404 {background: none }
 	}	
 	article {
 		margin-bottom: 20px;
+		img {
+			float: right;
+			margin: 5px 0 20px 50px;
+		}
 	}
 	.post-info p {
 		margin-bottom: 5px;
@@ -288,7 +289,18 @@ body.error404 {background: none }
 	p.author-info {
 		margin-bottom: 25px;	
 	}	
+
 }
+
+.blog {
+	article {
+   		 img {
+   		 	float: right;
+   		 	margin: 5px 0 20px 50px;
+   		 }
+    }	
+}
+
 
 // Bootstrap override - for some bizarre reason this was in an update from Bootstrap. Will probably be removed from the next one
 

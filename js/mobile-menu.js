@@ -60,8 +60,8 @@ $(document).ready(function() {
 
   // Responsive bug fix
   $(window).resize( function() {
-    if ( $('#slide').length == 1 
-            && $.uw.screensize != 'mobile' )
+    if ( $('#slide').length == 1 &&
+            $.uw.screensize != 'mobile' )
       $('#listicon-wrapper').trigger('click') 
   })
 

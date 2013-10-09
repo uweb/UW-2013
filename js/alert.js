@@ -35,11 +35,13 @@ $(document).ready(function() {
             slugs += '|'+val.slug
           })
 
-          for (var i = 0; i < colors.length; i += 1) {
-            if(slugs.indexOf(colors[i]) != -1 ) {
+          for ( var i = 0; i < colors.length; i += 1 ) 
+          {
+            if ( slugs.indexOf(colors[i]) != -1 ) 
+            {
               css = 'uwalert-'+colors[i].toLowerCase();
             }
-          };
+          }
 
           if ( window.location.hash.indexOf('alert') != -1 )
             css = window.location.hash.replace('#','')

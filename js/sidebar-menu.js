@@ -29,18 +29,17 @@ $(document).ready(function() {
         for ( var i = 0; i < $lis.length; i += LI_INTERVAL ) 
         {
           $lis.slice( i, i+LI_INTERVAL ).wrapAll( LI_WRAP_ELEMENT )
-        };
+        }
 
       }
 
     })
-  
   
     $sidebar.find('.menu').each( function() {
       var $menu = $(this)
       $menu.tinyNav({
         header: SIDEBAR_HEADER + $menu.closest('.widget').find('h2.widgettitle a').prop('title')
       });
-    });   	  
+    })
 
 });
