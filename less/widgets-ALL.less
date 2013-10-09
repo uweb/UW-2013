@@ -28,16 +28,30 @@
 	}
 	h3 {
 		font-weight: @heavyWeight;
+		margin: 0 0 5px;
 		a {
 			color: @white;
+		}
+	}
+	.slideshow-more {
+		.widget-more(@gold);
+		display: inline;
+		margin-left: 0;
+		white-space: nowrap;
+		&:before {
+			line-height: 15px;
+			padding: 0 3px;
+			top: 0px;
+			left: 4px;
 		}
 	}
 	p {
 		opacity: .95;
 		line-height: @lineSm;
+		display: inline;
+		margin: 0 5px 5px 0;
 	}
 	h3, p {
-		margin: 0 0 5px;
 		color: @white;
 	}
 	ul {
@@ -110,6 +124,15 @@
 
 #main .archives-widget ul {
 	.widget-margin();
+}
+
+// Pagelets Widget
+
+#main .pagelets_widget-widget {
+	padding: 0 25px 20px 25px;
+	.widget-title {
+		margin-left: -25px
+	}
 }
 
 // Recent Posts/Entries Widget
@@ -556,6 +579,63 @@ a.fc-event,
 			padding: 0 20px;
 			position: relative;
 		}
+	}
+}
+
+
+// Pride Points Widget
+
+	// Removes default margin
+	#sidebar .widget.widget_uw-pride-points img {
+		margin-bottom: 0;
+	}
+
+.widget_uw-pride-points {
+	.box-shadow(1px 1px 5px #ddd);
+	padding: 5px;
+	margin: 20px 0px 25px 3px;
+	position: relative;
+	text-align: center;
+	span {
+		z-index:1;
+		background: url("img/widgets/pride-points.png") 0 0 no-repeat transparent;
+		display: block;
+		width: 123px;
+		height: 65px;
+		position: absolute;
+		top: 30px;
+		left: -15px;
+		overflow: hidden;
+		text-indent: -99999px;
+	}
+	p {
+		padding: 5px;
+		margin: 0;
+	}
+}
+
+.pride-point p {
+	color: #39275B;
+	font-family: @serifFontFamily;
+	font-weight: normal;
+	font-size: 1.15em;
+	text-align: center;
+	font-style: italic;
+	padding: 6px 10px 14px 10px;
+	line-height: 24px;
+	&:nth-child(1) {
+		margin: 0 10px;
+	}
+	&.pride-src {
+		border-top: 1px solid rgb(221, 221, 221);
+		display: inline-block;
+		font-style: normal;
+		font-family: @sansFontFamily;
+		font-size: 13px;
+		font-weight: normal;
+		line-height: 17px;
+		padding: 10px;
+		color: rgb(163, 163, 163);
 	}
 }
 
