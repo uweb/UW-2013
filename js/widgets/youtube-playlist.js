@@ -2,7 +2,9 @@
 var uwplayer, playerready = false, jsonloaded = false, videos = [];
 
 $(window).load(function() {
-	fetch_and_prep_playlist();
+	if ($('#nc-video-player').length) {
+		fetch_and_prep_playlist();
+	}
 });
 
 /* runs as soon as the YouTube iFrame API is loaded */
@@ -11,8 +13,8 @@ function onYouTubeIframeAPIReady() {
 	  videoId: '',
 	  wmode: 'transparent',
 	  events: {
-		  'onReady': onPlayerReady,
-	  	  'onStateChange': onPlayerChangeState
+			'onReady': onPlayerReady,
+			'onStateChange': onPlayerChangeState
 	  }
   });
   
@@ -28,7 +30,7 @@ function onPlayerReady(){
 
 /* when a video stops playing, we queue up the next video */
 function onPlayerChangeState(event) {
- 	if (event["data"] == 0) {
+	if (event.data === 0) {
 		var video = $('#vidContent .vid-active').attr('id');
 		var index = videos.indexOf(video);
 		if (index < videos.length - 1) {
@@ -84,7 +86,7 @@ function fetch_and_prep_playlist() {
 			$vidContent.children('ul').append(html).imagesLoaded(function() {
 				$vidSmall.tinyscrollbar_update();
 			});
-			if (--count==0) {
+			if (--count===0) {
 				$vidSmall.find('.scrollbar').show();
 			}
 		});
@@ -111,7 +113,7 @@ function fetch_and_prep_playlist() {
 }
 
 /* cues the video whose id is passed and moves to/highlights the playlist item  *
- * can also start playing the video if requested 								*/
+ * can also start playing the video if requested                                */
 function play(id, playnow){
 	playnow = playnow || false;
 	$this = $('#' + id);
@@ -129,4 +131,4 @@ function play(id, playnow){
 	$('#vidContent').animate({left: -leftpos}, 500);
 	$('#vidSmall').tinyscrollbar_update(leftpos);
 	$this.addClass('vid-active');
-};
+}
