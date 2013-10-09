@@ -8,12 +8,11 @@ class UW_YouTube_Playlist_Widget extends WP_Widget {
             array( 'classname' => 'widget_youtube_playlist', 'description' => __( "Put your YouTube playlist into your page"), )
         );
 
-   		//if ( is_active_widget(false, false, $this->id_base, true) ){
-      		add_action( 'wp_head', array(&$this, 'youtube_playlist_js') );
-		//}
     }
 
     public function widget( $args, $instance ) {
+		wp_register_script('youtube-iframe', 'http://www.youtube.com/player_api');
+		wp_enqueue_script('youtube-iframe');
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
 
@@ -65,18 +64,6 @@ class UW_YouTube_Playlist_Widget extends WP_Widget {
 
         <?php
     }
-
-  public function youtube_playlist_js() {
-    wp_register_script('youtube-iframe', 'http://www.youtube.com/player_api');
-	wp_register_script('jquery.tinyscrollbar', get_template_directory_uri() . '/js/jquery.tinyscrollbar.js');
-    wp_register_script(
-      'youtube-playlist-widget',
-      get_template_directory_uri() . '/js/widgets/youtube-playlist.js',
-	  array('youtube-iframe', /*'jquery.imagesloaded',*/ 'jquery.tinyscrollbar'),
-      '1.0'
- 	);
-	wp_enqueue_script('youtube-playlist-widget');
-  }
 
 }
 ?>
