@@ -1,63 +1,57 @@
 <?php
-class UW_Pride_Points extends WP_Widget 
-{
+class UW_Pride_Points extends WP_Widget {
 
-  function UW_Pride_Points() 
-  {
-    parent::WP_Widget( 'uw-pride-points', __('UW Pride Points'), array( 
-      'description' => __('Show a UW pride point on your site!') 
-    ) );
+	function UW_Pride_Points() {
+		$widget_ops = array( 'description' => __('Show a UW pride point on your site!') );
+		parent::__construct( 'uw-pride-points', __('UW Pride Points'), $widget_ops );
 	}
 
-  function widget($args, $instance) 
-  {
-    extract( $args );
-	// outputs the content of the widget
-	$content .= '<span>Pride Points</span>
-	  <div style="min-height:100px;">
-	  <div class="pride-point" style="display:none;z-index:0;" data-category="'.$instance['category'].'"></div>
-	  </div>
-	  <script type="text/javascript">
-		jQuery(document).ready(function($){
-		  
-		  var $widget = $("#'.$widget_id.'").find(".pride-point");
-		  var data = {
-			json : "pride_points.get_pride_point",
-			cat  : $widget.data("category")
-		  }
-		  $.ajax({
-			type: "GET",
-			url : "/cms/marketing/",
-			data: data, 
-			success : function(json) {
-			  if ( json.status == "ok" && json.count === 1) 
-				$widget.fadeIn().html(json.posts.content)
+	function widget($args, $instance) {
+		extract( $args );
+		// outputs the content of the widget
+		$url = network_site_url();
 
-			  $widget.find("p").filter(function(i,el) {
-				if ( /source/i.test(el.innerHTML ) )
-				  $(el).addClass("pride-src")
-			  })
+		$content .= '<div class="pride-point" style="display:none" data-category="'.$instance['category'].'"><span class="trophy"></span></div>
+		  <script type="text/javascript">
+			jQuery(document).ready(function($){
+			  
+			  var $widget = $("#'.$widget_id.'").find(".pride-point");
+			  var data = {
+				json : "pride_points.get_pride_point",
+				cat  : $widget.data("category")
+			  }
+			  $.ajax({
+				type: "GET",
+				url : "'. $url . 'marketing/",
+				data: data, 
+				success : function(json) {
 
-			},
-			cache:false
-		  })
-		});
-	  </script> 
-	';
+				  if ( json.status == "ok" && json.count === 1) 
+					$widget.fadeIn().append(json.posts.content)
 
-	echo $before_widget . $content . $after_widget;
-  }
+				  $widget.find("p").filter(function(i,el) {
+					if ( /source/i.test(el.innerHTML ) )
+					  $(el).addClass("pride-src")
+				  })
 
-  function update($new_instance, $old_instance) 
-  {
+				},
+				cache:false
+	  })
+			});
+		  </script> 
+		  ';
+
+		echo $before_widget . $content . $after_widget;
+	}
+
+	function update($new_instance, $old_instance) {
 		$instance = array();
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['category'] = strip_tags( $new_instance['category'] );
 		return $instance;
 	}
 
-  function form($instance) 
-  {
+	function form($instance) {
 
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
 		$category = isset($instance['category']) ? esc_attr($instance['category']) : '';
@@ -71,5 +65,4 @@ class UW_Pride_Points extends WP_Widget
 <?php
 	}
 }
-
 
