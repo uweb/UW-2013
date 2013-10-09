@@ -62,6 +62,7 @@ function uw_register_widgets() {
   register_widget('UW_Headline_Separator_Widget');
   register_widget('UW_Headline_Widget');
   register_widget('UW_Intro_Widget');
+  register_widget('UW_YouTube_Playlist_Widget');
 
   if ( is_multisite() && get_blog_details('marketing') )
     register_widget('UW_Pride_Points');
@@ -88,6 +89,7 @@ require( get_template_directory() . '/inc/widgets/intro.php' );
 require( get_template_directory() . '/inc/widgets/uw-link.php' );
 require( get_template_directory() . '/inc/widgets/uw-categories.php' );
 require( get_template_directory() . '/inc/widgets/uw-nav-menu.php' );
+require( get_template_directory() . '/inc/widgets/youtube-playlist.php' );
 
 add_action( 'widgets_init', 'uw_widgets_init' );
 add_action( 'widgets_init', 'uw_register_widgets', 1);
