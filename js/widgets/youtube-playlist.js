@@ -11,10 +11,9 @@ $(window).load(function() {
 
 /* runs as soon as the YouTube iFrame API is loaded */
 function onYouTubeIframeAPIReady() {
-  uwplayer = new YT.Player('customplayer', {
-	  videoId: '',
-	  wmode: 'transparent',
-	  events: {
+	uwplayer = new YT.Player('customplayer', {
+		videoId: '',
+		events: {
 			'onReady': onPlayerReady,
 			'onStateChange': onPlayerChangeState
 	  }
