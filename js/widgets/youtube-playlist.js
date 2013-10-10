@@ -75,7 +75,7 @@ function fetch_and_prep_playlist() {
 				seconds = String(dur % 60).length === 1 ? '0'+dur%60 : dur % 60;
 
 			var html = '<li><a id="'+ video_id +'" class="video" href="#">'+
-				'<img class="playBtn" src="http://www.washington.edu/wp-content/themes/uw-2013/img/misc/play.png" />'+
+				'<img class="playBtn" src="//www.washington.edu/wp-content/themes/uw-2013/img/misc/play.png" />'+
 					  '<img src="'+img.url.replace(/http?:\/\//, '//')+'" width="'+img.width+'" height="'+img.height+'" />'+
 					  '<div class="text">'+
 					  '<p class="title">'+title+'</p>'+
