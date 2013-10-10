@@ -76,7 +76,7 @@ $(document).ready( function() {
           
 
         anim.transition({
-          x : del + width * $canvas.data('currentSlide'),
+          x : del + width * $canvas.data('currentSlide')
         } , { 
             queue: false 
         })
