@@ -8336,7 +8336,9 @@ $(document).ready(function() {
     });
   });
 });
-;/* Globals */
+;/* START YOUTUBE-PLAYLIST.JS */
+
+/* Globals */
 var uwplayer, playerready = false, jsonloaded = false, videos = [];
 
 $(window).load(function() {
@@ -8421,9 +8423,8 @@ function fetch_and_prep_playlist() {
 					 '</a></li>';
 			videos.push(video_id);
 
-			$vidContent.children('ul').append(html).imagesLoaded(function() {
-				$vidSmall.tinyscrollbar_update();
-			});
+			$vidContent.children('ul').append(html);
+
 			if (--count===0) {
 				$vidSmall.find('.scrollbar').show();
 			}
@@ -8470,3 +8471,5 @@ function play(id, playnow){
 	$('#vidSmall').tinyscrollbar_update(leftpos);
 	$this.addClass('vid-active');
 }
+
+/* END YOUTUBE-PLAYLIST.JS */
