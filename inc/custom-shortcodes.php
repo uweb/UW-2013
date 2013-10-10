@@ -170,7 +170,7 @@ add_shortcode( 'blogroll', 'uw_blogroll_shortcode' );
 if ( ! function_exists( 'uw_youtube_playlist_shortcode' ) ) :
   function uw_youtube_playlist_shortcode( $atts ) 
   {
-	wp_register_script('youtube-iframe', 'http://www.youtube.com/player_api');
+	wp_register_script('youtube-iframe', '//www.youtube.com/player_api');
 	wp_enqueue_script('youtube-iframe');
     $content = '
       <div id="nc-video-player">
