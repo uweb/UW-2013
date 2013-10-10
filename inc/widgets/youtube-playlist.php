@@ -11,7 +11,7 @@ class UW_YouTube_Playlist_Widget extends WP_Widget {
     }
 
     public function widget( $args, $instance ) {
-		wp_register_script('youtube-iframe', 'http://www.youtube.com/player_api');
+		wp_register_script('youtube-iframe', '//www.youtube.com/player_api');
 		wp_enqueue_script('youtube-iframe');
         extract( $args );
         $title = apply_filters( 'widget_title', $instance['title'] );
