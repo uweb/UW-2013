@@ -41,7 +41,7 @@ function uw_documentation_html()
     </p>
 
     <p>
-      <?php  echo do_shortcode('[rss url="http://www.washington.edu/marketing/web/" number=3 title="Latest Tutorials" heading="h2"]'); ?>
+      <?php  echo do_shortcode('[rss url="http://www.washington.edu/marketing/topic/wp-documentation/feed/" number=3 title="Latest Tutorials" heading="h2"]'); ?>
     </p>
 
     <p>
