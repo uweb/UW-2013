@@ -99,13 +99,15 @@ class UW_Widget_Single_Image extends WP_Widget
 
     <?php  echo $before_widget; ?>
       <img alt="<?php echo $title; ?>" src="<?php echo wp_get_attachment_url( $image ); ?>" />  
-      <h3><?php echo $title; ?></h3>
+      <span><h3><?php echo $title; ?></h3>
       <?php echo wpautop($text); ?>
       <?php if ( ! empty( $link) ) : ?>
         <a href="<?php echo $link; ?>" class="pic-text-more">More</a>
+       
       <?php else: ?>
         <br/>
       <?php endif; ?>
+      </span> 
     <?php echo $after_widget; 
 
   }
