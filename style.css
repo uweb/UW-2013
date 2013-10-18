@@ -3897,7 +3897,6 @@ input[type="submit"]:hover {
   left: 4px;
 }
 .slideshow-widget p {
-  opacity: .95;
   line-height: 18px;
   display: inline;
   margin: 0 5px 5px 0;
@@ -4083,12 +4082,12 @@ input[type="submit"]:hover {
   color: #39275b;
   text-decoration: underline;
 }
-.uw-rss-widget .featured {
-  padding: 0 25px 10px;
-}
 #main .uw-rss-widget ul {
   padding: 0 25px 20px 22px;
   padding-bottom: 10px;
+}
+#main .uw-rss-widget .featured {
+  padding: 0 25px 10px;
 }
 .twitter-feed-widget h3 {
   background: url('img/widgets/twitter.gif') 150px 1px no-repeat;
@@ -5077,7 +5076,12 @@ ul.gallery-menu li.active {
   background: none;
 }
 #vidSmall .duration {
-  color: #b6b6b6;
+  color: #B6B6B6 ;
+  background: url('img/misc/play-sm.png') right 2px no-repeat transparent;
+  color: #B6B6B6;
+  padding-right: 16px;
+  float: left;
+  margin-top: 3px;
 }
 #vidSmall .viewport {
   height: 95px;
@@ -5905,7 +5909,7 @@ ul.gallery-menu li.active {
   .wp-caption-dd {
     margin: 0 10px 0 0;
     font-size: 12px;
-    line-height: 16px;
+    line-height: 18px;
     padding: 15px 0 0 5px;
   }
   .image-magnifier {
