@@ -18,8 +18,6 @@ class UW_YouTube_Playlist_Widget extends WP_Widget {
 
     echo str_replace('span4','span8',$before_widget);?>
 
-    <?php if ( ! empty( $title ) ) echo $before_title . $title . $after_title; ?>
-
       <div id="nc-video-player">
         <div id="tube-wrapper">
           <div id="customplayer" data-pid="<?php echo $instance['playlist_id']; ?>"></div>
