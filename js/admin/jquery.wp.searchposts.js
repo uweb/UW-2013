@@ -1,7 +1,8 @@
 ;(function( $ ) {
 
   var INITIAL_INPUTS = 'input.wp-get-posts'
-    , URL            = '?action=search-posts'
+    , ACTION         = 'search-posts' 
+    , URL            = '?action='+ACTION
     , DELAY          = 500
     , MINLENGTH      = 2
 
@@ -29,31 +30,35 @@
               'minLength' : MINLENGTH
             };
 
-            var settings = $.extend( {}, this.options, options);
+            var settings = $.extend( this.options, options);
 
             return this.each( function() {
 
-                var $this = $(this);
+                var $this = $(this)
+                $.extend(settings, $this.data());
 
                 $this.catcomplete({
-                  //source : settings.url, //+ this.value,
                   source: function( request, response ) {
                     $.ajax( {
-                      url: ajaxurl+'?action=search-posts', 
+                      url: ajaxurl + URL,
                       data : {
-                        action : 'search-posts',
-                        s      : $this.val()
+                        action   : 'search-posts',
+                        posttype : settings.posttype || null,
+                        s        : $this.val()
                       },
-                      success: function( res ) {
-                        var posts = $.parseJSON( res )
-                        response( $.map( posts, function( post ) {
-                          console.log( post );
+                      success: function( posts ) {
+
+                       if ( !posts.success || !posts.data ) 
+                        response([{ label:'No results found', value:'', category:''}] )
+
+                        response( $.map( posts.data, function( post ) {
                           return {
-                            label    : post.title,
+                            label    : post.title.length > 75 ? post.title.substring(0,75)+'...' : post.title,
                             value    : post.url,
                             category : post.category
                           }
                         }));
+
                       }
                     });
                   },
@@ -65,6 +70,12 @@
         }
     });
 
-  $( INITIAL_INPUTS ).getPosts()
+  $(document).ready(function() {
+    $('body').on( 'keyup', INITIAL_INPUTS, function() {
+      var $this = $(this)
+      $this.getPosts( $this.data() ) 
+    })
+  })
 
 })(jQuery)
+

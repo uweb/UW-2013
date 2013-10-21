@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Returns a list of posts in json form filtered by a search parameter
+ * Returns a search list of all post types in json form filtered by a search parameter
  */
 class UW_Search_Posts
 {
@@ -17,7 +17,7 @@ class UW_Search_Posts
   function search_posts()
   {
     $query = $_GET['s'];
-    $post_types = get_post_types( array('public'=>true ) );
+    $post_types = empty($_GET['posttype']) ? get_post_types( array('public'=>true ) ) : array($_GET['posttype']);
     $index = 0;
     foreach ( $post_types as $post_type ) 
     {
@@ -25,15 +25,14 @@ class UW_Search_Posts
 
       foreach ( $posts as $post ) 
       {
-        $res[ $index ][ 'title' ]       = $post->post_title;
+        $res[ $index ][ 'title' ]     = $post->post_title;
         $res[ $index ][ 'url' ]       = get_permalink( $post->ID );
         $res[ $index ][ 'category' ]  = ucfirst( $post->post_type ) . 's';
         $index++;
       }
 
     }
-    echo json_encode( $res ); 
-    wp_die();
+    wp_send_json_success( $res ); 
   }
 
   

@@ -45,7 +45,6 @@ jQuery(document).ready(function( $ ) {
       frame.open();
   });
 
-
 })
 
 /** Panels fix: preview of the image doesn't show otherwise **/

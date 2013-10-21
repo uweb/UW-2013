@@ -58,18 +58,8 @@ class UW_Widget_Single_Image extends WP_Widget
 		</p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?></label>
-    <input id="single-image-link-<?php echo $this->id ?>" class="widefat wp-get-posts" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
-
-    <script type="text/javascript">
-
-        (function( $ ) {
-
-            var $input = $('#single-image-link-<?php echo $this->id; ?>').length
-
-        })(jQuery);
-    
-    </script>
+    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?> <small>(Search by typing a title)</small></label>
+    <input id="single-image-link-<?php echo $this->id ?>" class="widefat wp-get-posts" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" data-posttype="post"/>
     </p>
 
   <?php
