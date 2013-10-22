@@ -94,11 +94,11 @@ class UW_Widget_Single_Image extends WP_Widget
     $image = $instance['image'];
     $link  = $instance['link'];
     $linktext  = isset($instance['link-text']) ? $instance['link-text'] : self::DEFAULT_LINK_TEXT;
-
+    $imageinfo = wp_get_attachment_image_src( $image, 'single-image-widget' );
     ?>
 
     <?php  echo $before_widget; ?>
-      <img alt="<?php echo $title; ?>" src="<?php echo wp_get_attachment_url( $image ); ?>" />  
+      <img alt="<?php echo $title; ?>" src="<?php echo $imageinfo[0]; ?>" />  
       <span><h3><?php echo $title; ?></h3>
       <?php echo wpautop($text); ?>
       <?php if ( ! empty( $link) ) : ?>
