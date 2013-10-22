@@ -61,6 +61,14 @@ module.exports = function(grunt) {
         }
       }
     },
+    notify: {
+      watch: {
+        options: {
+          title: 'Task Complete',
+          message: 'JS uglified successfully'
+        }
+      }
+    },
     watch: {
       files: ['<%= concat.dist.src %>'],
       tasks: ['default']
@@ -71,6 +79,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-notify');
+  
 
   grunt.registerTask('default', ['jshint', 'concat', 'uglify' ]);
 
