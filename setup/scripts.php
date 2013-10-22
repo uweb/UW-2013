@@ -30,13 +30,13 @@ class UW_Install_Scripts
         'version' => '1.0.2'
       ),
 
-//      'jquery.searchposts' => array ( 
-//        'id'      => 'jquery.searchposts',
-//        'url'     => get_bloginfo('template_directory') . '/js/admin/jquery.wp.searchposts.js',
-//        'deps'    => array( 'jquery' ),
-//        'version' => '1.0',
-//        'admin'   => true
-//      )
+      'jquery.searchposts' => array ( 
+        'id'      => 'jquery.searchposts',
+        'url'     => get_bloginfo('template_directory') . '/js/admin/jquery.wp.searchposts.js',
+        'deps'    => array( 'jquery', 'jquery-ui-autocomplete' ),
+        'version' => '1.0',
+        'admin'   => true
+      )
 
     );
 

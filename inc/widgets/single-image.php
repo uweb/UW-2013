@@ -9,6 +9,8 @@
 
 class UW_Widget_Single_Image extends WP_Widget
 {
+  const DEFAULT_LINK_TEXT = 'More';
+
   function UW_Widget_Single_Image()
   {
 		parent::WP_Widget( $id = 'pic-text', $name = 'Single Image', $options = array( 'description' => 'Display an image with some featured text.', 'classname' => 'pic-text-widget' ) );
@@ -32,6 +34,7 @@ class UW_Widget_Single_Image extends WP_Widget
     $image = isset($instance['image']) ? esc_attr($instance['image']) : '';
     $src   = isset($instance['src']) ? esc_attr($instance['src']) : '';
     $link  = isset($instance['link']) ? esc_attr($instance['link']) : '';
+    $linktext  = isset($instance['link-text']) ? esc_attr($instance['link-text']) : 'More';
 
     ?>
 
@@ -58,18 +61,13 @@ class UW_Widget_Single_Image extends WP_Widget
 		</p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?></label>
-    <input id="single-image-link-<?php echo $this->id ?>" class="widefat wp-get-posts" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
+    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?> <small>(Search by typing a title)</small></label>
+    <input id="single-image-link-<?php echo $this->id ?>" class="widefat wp-get-posts" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" data-posttype="post"/>
+    </p>
 
-    <script type="text/javascript">
-
-        (function( $ ) {
-
-            var $input = $('#single-image-link-<?php echo $this->id; ?>').length
-
-        })(jQuery);
-    
-    </script>
+    <p>
+    <label for="<?php echo $this->get_field_id('link-text'); ?>"><?php _e('Link text:'); ?></label>
+    <input id="single-image-link-text-<?php echo $this->id ?>" class="widefat" id="<?php echo $this->get_field_id('link-text'); ?>" name="<?php echo $this->get_field_name('link-text'); ?>" type="text" value="<?php echo $linktext; ?>" data-posttype="post"/>
     </p>
 
   <?php
@@ -83,6 +81,7 @@ class UW_Widget_Single_Image extends WP_Widget
 		$instance['image'] = (Int) $new_instance['image'];
 		$instance['src']   = strip_tags( $new_instance['src'] );
 		$instance['link']  = strip_tags( $new_instance['link'] );
+		$instance['link-text']  = strip_tags( $new_instance['link-text'] );
     return $instance;
   }
 
@@ -94,18 +93,21 @@ class UW_Widget_Single_Image extends WP_Widget
     $text  = $instance['text'];
     $image = $instance['image'];
     $link  = $instance['link'];
+    $linktext  = isset($instance['link-text']) ? $instance['link-text'] : self::DEFAULT_LINK_TEXT;
 
     ?>
 
     <?php  echo $before_widget; ?>
       <img alt="<?php echo $title; ?>" src="<?php echo wp_get_attachment_url( $image ); ?>" />  
-      <h3><?php echo $title; ?></h3>
+      <span><h3><?php echo $title; ?></h3>
       <?php echo wpautop($text); ?>
       <?php if ( ! empty( $link) ) : ?>
-        <a href="<?php echo $link; ?>" class="pic-text-more">More</a>
+        <a href="<?php echo $link; ?>" class="pic-text-more"><?php echo $linktext; ?></a>
+       
       <?php else: ?>
         <br/>
       <?php endif; ?>
+      </span> 
     <?php echo $after_widget; 
 
   }
