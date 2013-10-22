@@ -18,6 +18,22 @@ class UW_Images
       'show'    => 'false'
     ),
 
+	'mug-shot' => array(
+		'name' 	=> 'Mug Shot',
+		'width'	=> 100,
+		'height'=> 150,
+		'crop'	=> 'true',
+		'show'	=> 'true'
+	),
+
+	'single-image-widget' => array(
+		'name' 	=> 'Single Image Widget',
+		'width'	=> 620,
+		'height'=> 375,
+		'crop'	=> 'true',
+		'show'	=> 'false'
+	),
+
     'sidebar' => array(
       'name'    => 'Sidebar',
       'width'   => 250,
