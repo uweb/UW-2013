@@ -46,7 +46,7 @@ class UW_CMS_Shivs
         $content = str_replace( 'src="http://', 'src="https://', $content );
 
       if ( is_local() )
-        $content = preg_replace( '/https?:\/\//', '//', $content );
+        $content = preg_replace( '/https?:\/\//', 'http://', $content );
 
       return $content;
   }
