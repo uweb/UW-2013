@@ -28,7 +28,6 @@
 
 	wp.customize( 'band_color', function( value ) {
 		value.bind( function( newval , oldval ) {
-    console.log(value);
       $('#branding').removeClass( oldval ).addClass( newval )
 		} );
 	} );

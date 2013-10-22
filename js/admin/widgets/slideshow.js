@@ -110,7 +110,8 @@ jQuery(document).ready(function($){
   /** Save widget ajax hook **/
   $(this).ajaxSuccess(function(e, xhr, settings) {
 
-    if(settings.data.indexOf('action=save-widget') != -1 
+    if( !!settings.data 
+        && settings.data.indexOf('action=save-widget') != -1 
         && settings.data.indexOf('id_base=' + WIDGET_ID ) != -1) 
     {
       setup_initial_images();
