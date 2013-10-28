@@ -4039,6 +4039,9 @@ input[type="submit"]:hover {
 .text-widget .textwidget {
   padding: 0 25px 10px 22px;
 }
+.text-widget img {
+  margin-bottom: 15px;
+}
 .pages-widget ul {
   padding: 0 25px 20px 22px;
 }
@@ -4081,6 +4084,9 @@ input[type="submit"]:hover {
 .uw-rss-widget .rss-more:hover {
   color: #39275b;
   text-decoration: underline;
+}
+.uw-rss-widget img {
+  margin: 10px 0;
 }
 #main .uw-rss-widget ul {
   padding: 0 25px 20px 22px;
