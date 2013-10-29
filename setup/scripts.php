@@ -20,14 +20,16 @@ class UW_Install_Scripts
         'id'      => 'jquery',
         'url'     => 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
         'deps'    => array(),
-        'version' => '1.9.1'
+        'version' => '1.9.1',
+        'admin'   => false
       ),
 
       'site'   => array ( 
         'id'      => 'site',
         'url'     => get_bloginfo('template_directory') . '/js/site' . $this->dev_script() . '.js',
         'deps'    => array( 'jquery', 'swfobject' ),
-        'version' => '1.0.2'
+        'version' => '1.0.2',
+        'admin'   => false
       ),
 
       'jquery.searchposts' => array ( 
@@ -71,7 +73,8 @@ class UW_Install_Scripts
       {
         $script = (object) $script;
 
-        wp_enqueue_script( $script->id );
+        if ( ! $script->admin ) 
+          wp_enqueue_script( $script->id );
       }
   }
 
@@ -84,8 +87,7 @@ class UW_Install_Scripts
       {
         $script = (object) $script;
 
-        if ( array_key_exists( 'admin', $script ) 
-              && $script->admin ) 
+        if ( $script->admin ) 
         {
 
           wp_register_script( 

@@ -88,7 +88,7 @@
           UW Directory
         </label>
               <label class="radio">
-          <input type="radio" name="search-toggle" value="site" data-site="http://www.washington.edu/discover/" data-placeholder="Discover the UW"/>
+          <input type="radio" name="search-toggle" value="site" data-site="<?php echo home_url('/') ?>" data-placeholder="<?php bloginfo(); ?>"/>
           This site
         </label>
         
