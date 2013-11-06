@@ -156,7 +156,7 @@ h1.entry-title {
 	float: right;
 	padding: 0px 0 0px 30px;
 	margin: 15px 0 15px 40px;
-	z-index: 1;
+	z-index: 0;
 	position: relative;
 }
 .info-box-large {
@@ -299,6 +299,51 @@ body.error404 {background: none }
    		 	margin: -30px 0 20px 50px;
    		 }
     }	
+}
+
+// Single image page (image.php)
+
+/* ----  Image Page ---- */
+
+.attachment-jpeg #primary {
+	background-color: transparent;
+	.box-shadow(none);
+}
+.image-page .attachment {
+	text-align: center;
+	p {
+		width: 55%;
+		margin: 0 auto;
+		color: #666;
+		font-size: 13px;
+	}
+	.image-attachment {
+	padding: 50px 0;
+	}
+	img {
+		display: block;
+		margin: 0 auto;
+		border: 5px solid #fff;
+		.box-shadow(0 1px 3px rgba(34, 25, 25, 0.4));
+	}
+	.sharing {
+		margin: 10px auto;
+		padding-top: 10px;
+		display: table;
+	}
+	h1.entry-title:before {
+		display: none;
+	}
+}
+
+body .image-page  h1, 
+body.single .image-page  h1 {
+	clear: both;
+	border: none;
+	font-size: 21px;
+	display: inline-block;
+	padding: 0 15px 10px 10px;
+	margin: 40px 0 10px 0;
 }
 
 

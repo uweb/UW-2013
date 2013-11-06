@@ -173,41 +173,41 @@ div.gallery {
 
 #gallery-overlay-image {
 	padding: 2px 5px 5px 2px;
-	.description {
-		position: absolute;
-		right: 10px;
-		left: 7px;
-		bottom: 10px;
-		background-color: #39275b;
-		background-color: rgba(57, 39, 91, 0.85);
-		padding: 20px;
-		visibility: hidden;
-		opacity: 0;
-		color: #fff;
-		.transition(opacity 0.3s ease-in-out);
-		a {
-			color: #fff;
-			font-size: 11px;
-			text-transform: uppercase;
-			font-weight: bold;
-			background: url('img/gallery/larger.png') no-repeat 0 3px transparent;
-			padding-left: 15px;
-			white-space: nowrap;
-			margin-bottom: 5px;
-			display: inline-block;
-		}
-	}
-	p {
-		margin: 0 0 10px;
-		font-size: 12px;
-	}
 	&:hover .description {
 		visibility: visible;
 		opacity: 1;
 	}
-	.text-shadow {display: none;}
+}
+.description {
+    position: absolute;
+    right: 10px;
+    left: 7px;
+    bottom: 10px;
+    background-color: #39275b;
+    background-color: rgba(57, 39, 91, 0.85);
+    padding: 20px;
+    visibility: hidden;
+    opacity: 0;
+    color: #fff;
+    .transition(opacity 0.3s ease-in-out);
+    a {
+    	color: #fff;
+    	font-size: 11px;
+    	text-transform: uppercase;
+    	font-weight: bold;
+    	background: url('img/gallery/larger.png') no-repeat 0 3px transparent;
+    	padding-left: 15px;
+    	white-space: nowrap;
+    	margin-bottom: 5px;
+    	display: inline-block;
+    }
+    p {
+  	  margin: 0 0 10px;
+  	  font-size: 12px;
+    }
 }
 
+.text-shadow {display: none;}
 
 #ie7 .opaque { display: none !important }
 .opaque {
@@ -246,13 +246,15 @@ ul.gallery-menu li {
 		background-position: 0 4px;
 	}
 }
-.description a.gallery-facebook, 
-.description a.gallery-twitter {
-	padding: 5px 10px 5px 25px;
-	background: url('img/gallery/dots.png') no-repeat 0 -82px transparent;
-}
-.description a.gallery-twitter {
-	background-position: 0 -109px;
+#gallery-overlay-image {
+	.description a.gallery-facebook, 
+	.description a.gallery-twitter {
+		padding: 5px 10px 5px 25px;
+		background: url('img/gallery/dots.png') no-repeat 0 -78px transparent;
+	}
+	.description a.gallery-twitter {
+		background-position: 0 -105px;
+	}
 }
 .gallery-close {
 	display: block;
