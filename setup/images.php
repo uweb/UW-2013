@@ -14,48 +14,56 @@ class UW_Images
       'name'    => 'Thimble',
       'width'   => 50,
       'height'  => 50,
-      'crop'    => 'true',
-      'show'    => 'false'
+      'crop'    => true,
+      'show'    => false
     ),
 
-	'mug-shot' => array(
-		'name' 	=> 'Mug Shot',
-		'width'	=> 100,
-		'height'=> 150,
-		'crop'	=> 'true',
-		'show'	=> 'true'
-	),
-
-	'single-image-widget' => array(
-		'name' 	=> 'Single Image Widget',
-		'width'	=> 620,
-		'height'=> 375,
-		'crop'	=> 'true',
-		'show'	=> 'false'
-	),
+    'mug-shot' => array(
+      'name' 	=> 'Mug Shot',
+      'width'	=> 100,
+      'height'=> 150,
+      'crop'	=> true,
+      'show'	=> true
+    ),
 
     'sidebar' => array(
       'name'    => 'Sidebar',
       'width'   => 250,
       'height'  => 9999,
-      'crop'    => 'false',
-      'show'    => 'true'
+      'crop'    => false,
+      'show'    => true
+    ),
+
+    'thumbnail-large' => array(
+      'name' 	=> 'Thumbnail large',
+      'width'	=> 300,
+      'height'=> 300,
+      'crop'	=> true,
+      'show'	=> false
+    ),
+
+    'single-image-widget' => array(
+      'name' 	=> 'Single Image Widget',
+      'width'	=> 620,
+      'height'=> 375,
+      'crop'	=> true,
+      'show'	=> false
     ),
 
     'half' => array(
       'name'    => 'Half width',
       'width'   => 300,
       'height'  => 9999,
-      'crop'    => 'false',
-      'show'    => 'true'
+      'crop'    => false,
+      'show'    => true
     ),
 
     'full' => array(
       'name'    => 'Full width',
       'width'   => 620,
       'height'  => 9999,
-      'crop'    => 'false',
-      'show'    => 'true'
+      'crop'    => false,
+      'show'    => true
     )
   
   );
