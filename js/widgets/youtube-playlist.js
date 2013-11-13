@@ -90,7 +90,7 @@ function fetch_and_prep_playlist() {
 					$vidSmall.find('.scrollbar').show();
 				}
 			}
-			else {
+			else if (($('#ie7').length === 0) && ($('#ie8').length === 0)) {
 				console.log('Tried add a a bad video to the player.  Error="' + video.app$control.yt$state.name + '", Reason="' + video.app$control.yt$state.reasonCode + '", Video=' + video.link[0].href);
 			}
 		});
