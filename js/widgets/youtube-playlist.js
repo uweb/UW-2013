@@ -90,8 +90,8 @@ function fetch_and_prep_playlist() {
 					$vidSmall.find('.scrollbar').show();
 				}
 			}
-			else {
-				console.log('Tried add a a bad video to the player.  Error="' + video.app$control.yt$state.name + '", Reason="' + video.app$control.yt$state.reasonCode + '", Video=' + video.link[0].href);
+			else if (($('#ie7').length === 0) && ($('#ie8').length === 0)) {
+				console.log('Tried add a bad video to the player.  Error="' + video.app$control.yt$state.name + '", Reason="' + video.app$control.yt$state.reasonCode + '", Video=' + video.link[0].href);
 			}
 		});
 		if (playerready) {  //if this code hasn't run by the time the player is ready, we should queue up the first video now
