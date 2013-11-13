@@ -61,7 +61,9 @@ class UW_Gallery
 
         $url = wp_get_attachment_image_src($image->ID);
         $url_large = wp_get_attachment_image_src($image->ID, 'thumbnail-large');
-        $med_url = wp_get_attachment_image_src($image->ID, array(620, 620));
+        $med_url = wp_get_attachment_image_src($image->ID, 'full' );
+        if ( ! $med_url[3] )
+          $med_url = wp_get_attachment_image_src($image->ID, 'Full Width' ); //legacy name 'Full Width'
         $permalink = get_permalink($image->ID);
         $credit = get_post_meta($image->ID, "_media_credit", true);
         
