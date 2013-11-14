@@ -25,7 +25,11 @@ class UW_Search_Posts
 
       foreach ( $posts as $post ) 
       {
+        $res[ $index ][ 'id' ]        = $post->ID;
         $res[ $index ][ 'title' ]     = $post->post_title;
+        $res[ $index ][ 'image' ]     = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+        $res[ $index ][ 'imageID' ]   = get_post_thumbnail_id( $post->ID );
+        $res[ $index ][ 'excerpt' ]   = $post->post_excerpt;
         $res[ $index ][ 'url' ]       = get_permalink( $post->ID );
         $res[ $index ][ 'category' ]  = ucfirst( $post->post_type ) . 's';
         $index++;
