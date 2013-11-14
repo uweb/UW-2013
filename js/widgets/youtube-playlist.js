@@ -62,32 +62,36 @@ function fetch_and_prep_playlist() {
 	$vidSmall.tinyscrollbar({ axis: 'x'});
 
 	$.getJSON('//gdata.youtube.com/feeds/api/playlists/'+playlist+'/?callback=?',{'alt':'json','v':'2'}, function (data){
-		var video = data.feed.entry[0].media$group.yt$videoid.$t;
 		var count = data.feed.entry.length;
 		$vidContent.append('<ul/>');
 		$vidContent.width(count * 135 + 'px');
 		$.each(data.feed.entry, function(index,video) {
-			var img = video.media$group.media$thumbnail[0],
-				video_id  =  video.media$group.yt$videoid.$t,
-				title = video.title.$t,
-				dur = video.media$group.yt$duration.seconds,
-				minutes = Math.floor(dur/60),
-				seconds = String(dur % 60).length === 1 ? '0'+dur%60 : dur % 60;
+			if (typeof video.app$control === 'undefined'){
+				var img = video.media$group.media$thumbnail[0],
+					video_id  =  video.media$group.yt$videoid.$t,
+					title = video.title.$t,
+					dur = video.media$group.yt$duration.seconds,
+					minutes = Math.floor(dur/60),
+					seconds = String(dur % 60).length === 1 ? '0'+dur%60 : dur % 60;
 
-			var html = '<li><a id="'+ video_id +'" class="video" href="#">'+
-				'<img class="playBtn" src="//www.washington.edu/wp-content/themes/uw-2013/img/misc/play.png" />'+
-					  '<img src="'+img.url.replace(/http?:\/\//, '//')+'" width="'+img.width+'" height="'+img.height+'" />'+
-					  '<div class="text">'+
-					  '<p class="title">'+title+'</p>'+
-					  '<p class="duration">'+minutes+':'+seconds+'</p>'+
-					  '</div>' +
-					 '</a></li>';
-			videos.push(video_id);
+				var html = '<li><a id="'+ video_id +'" class="video" href="#">'+
+					'<img class="playBtn" src="//www.washington.edu/wp-content/themes/uw-2013/img/misc/play.png" />'+
+						  '<img src="'+img.url.replace(/http?:\/\//, '//')+'" width="'+img.width+'" height="'+img.height+'" />'+
+						  '<div class="text">'+
+						  '<p class="title">'+title+'</p>'+
+						  '<p class="duration">'+minutes+':'+seconds+'</p>'+
+						  '</div>' +
+						'</a></li>';
+				videos.push(video_id);
 
-			$vidContent.children('ul').append(html);
+				$vidContent.children('ul').append(html);
 
-			if (--count===0) {
-				$vidSmall.find('.scrollbar').show();
+				if (--count===0) {
+					$vidSmall.find('.scrollbar').show();
+				}
+			}
+			else if (($('#ie7').length === 0) && ($('#ie8').length === 0)) {
+				console.log('Tried add a bad video to the player.  Error="' + video.app$control.yt$state.name + '", Reason="' + video.app$control.yt$state.reasonCode + '", Video=' + video.link[0].href);
 			}
 		});
 		if (playerready) {  //if this code hasn't run by the time the player is ready, we should queue up the first video now
