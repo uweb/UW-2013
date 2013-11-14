@@ -3588,7 +3588,6 @@ blockquote.align-left {
 }
 blockquote.align-right {
   float: right;
-  margin-left: 50px;
 }
 .type-page ul,
 .type-post ul {
@@ -3605,7 +3604,7 @@ input[type="submit"] {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   padding: 10px 18px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-weight: bold;
   border: none;
   font-size: 13px;
@@ -3633,14 +3632,14 @@ input[type="submit"]:hover {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   padding: 10px 18px;
-  margin-bottom: 50px;
   font-weight: bold;
   border: none;
   font-size: 13px;
   text-indent: 0;
   overflow: hidden;
   display: block;
-  display: inline;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 .button:hover {
   -webkit-transition: background-color 0.2s linear;
@@ -3791,7 +3790,7 @@ input[type="submit"]:hover {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   padding: 10px 18px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-weight: bold;
   border: none;
   font-size: 13px;
@@ -3827,6 +3826,35 @@ input[type="submit"]:hover {
   margin-left: 0;
   background: none;
   padding-left: 0;
+}
+.search-results h1 {
+  font-size: 1.8em;
+  line-height: 1.1em;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ECECEC;
+}
+.search-results h1 span {
+  padding: 7px 3px;
+  margin-left: 10px;
+  color: #969696;
+  border-radius: 50px;
+}
+.search-results h2 {
+  font-size: 1.2em;
+  line-height: 22px;
+  margin-bottom: 5px;
+}
+.search-results article {
+  position: relative;
+  margin-bottom: 40px;
+}
+.search-results article:after {
+  content: " ";
+  height: 2px;
+  width: 50px;
+  background: #E6E6E6;
+  position: absolute;
+  bottom: -20px;
 }
 .widgettitle {
   text-transform: uppercase;

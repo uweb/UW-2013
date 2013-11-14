@@ -149,3 +149,37 @@
 		.no-bullets()
 	}
 }
+
+// Search Page
+
+.search-results {
+	h1 {
+		font-size: 1.8em;
+		line-height: 1.1em;
+		padding-bottom: 30px;
+		border-bottom: 1px solid #ECECEC;
+		span {
+			padding: 7px 3px;
+			margin-left: 10px;
+			color: #969696;
+			border-radius: 50px;
+		}
+	}
+	h2 {
+		font-size: 1.2em;
+		line-height: 22px;
+		margin-bottom: 5px;
+	}
+	article {
+		position: relative;
+		margin-bottom: 40px;
+		&:after {
+			content: " ";
+			height: 2px;
+			width: 50px;
+			background: #E6E6E6;
+			position: absolute;
+			bottom: -20px;
+		}
+	}
+}
