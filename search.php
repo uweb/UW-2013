@@ -7,7 +7,7 @@
 			<div class="row show-grid">
 				<div class="span8">
 					
-            <h1>Search results: <?php the_search_query(); ?></h1>
+            <h1>Search results for: <span><?php the_search_query(); ?></span></h1>
 					
             <?php if (have_posts() ): while ( have_posts() ) : the_post(); ?>
 
