@@ -51,16 +51,34 @@
                        if ( !posts.success || !posts.data ) 
                         response([{ label:'No results found', value:'', category:''}] )
 
+                          console.log(posts)
                         response( $.map( posts.data, function( post ) {
                           return {
                             label    : post.title.length > 75 ? post.title.substring(0,75)+'...' : post.title,
-                            value    : post.url,
-                            category : post.category
+                            value    : post.title,
+                            category : post.category,
+                            image    : _.first(post.image),
+                            imageID  : post.imageID,
+                            url      : post.url,
+                            excerpt  : post.excerpt
                           }
                         }));
 
                       }
                     });
+                  },
+                  select : function( event, ui ) {
+                    _.each( ui.item, function(value, key) {
+                      var field = $this.closest('div').find('.wp-get-posts-'+key)  
+                      if ( key === 'image' ) {
+                        field.filter('img').attr( 'src', value ) 
+                        // siteorigin panels bug
+                        $this.closest('div').find('.wp-get-posts-'+key+'-preview')
+                            .children('img').attr('src', value)
+                      }
+
+                      field.val( value )
+                    })
                   },
                   delay  : settings.delay,
                   minlength : settings.minLength
