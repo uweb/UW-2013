@@ -1,10 +1,6 @@
-<?php
-/*
-Template Name: Teaching Calendar
-*/
-?>
-
 <?php get_header(); ?>
+
+<script type="text/javascript" src="https://www.trumba.com/scripts/spuds.js"></script>
 
 		<div id="primary">
 			<div id="content" role="main" class="container">
