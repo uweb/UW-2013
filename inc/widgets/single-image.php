@@ -34,40 +34,38 @@ class UW_Widget_Single_Image extends WP_Widget
     $image = isset($instance['image']) ? esc_attr($instance['image']) : '';
     $src   = isset($instance['src']) ? esc_attr($instance['src']) : '';
     $link  = isset($instance['link']) ? esc_attr($instance['link']) : '';
-    $linktext  = isset($instance['link-text']) ? esc_attr($instance['link-text']) : 'More';
+    $linktext  = isset($instance['link-text']) ? esc_attr($instance['link-text']) : 'Read more';
 
     ?>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
-		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?>  <small><b>(Search and autofill by typing a title)</b></small></label> 
+		<input data-posttype="post" class="widefat wp-get-posts" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 
     <p>
-      <span class="image-preview" data-src="<?php echo esc_attr($src); ?>" style="width:33%; display:block;">
-        <?php if ( wp_get_attachment_url( $image ) ) : ?>
-              <img width="100%" src="<?php echo wp_get_attachment_url( $image ); ?>" />
-        <?php endif; ?>
-      </span>
+      <div class="image-preview wp-get-posts-image-preview" data-src="<?php echo esc_attr($src); ?>" style="width:33%; display:block;">
+        <img src="<?php echo wp_get_attachment_url( $image ); ?>" width="100%" class="wp-get-posts-image" />
+      </div>
 
       <a class="select-an-image button" href="#">Select an Image</a>
-      <input id="<?php echo $this->get_field_id( 'image' ); ?>" name="<?php echo $this->get_field_name( 'image' ); ?>" type="hidden" value="<?php echo esc_attr( $image ); ?>"/>
-      <input id="<?php echo $this->get_field_id( 'src' ); ?>" class="site-panels-image-fix" name="<?php echo $this->get_field_name( 'src' ); ?>" type="hidden" value="<?php echo esc_attr( $src ); ?>"/>
+      <input id="<?php echo $this->get_field_id( 'image' ); ?>" class="wp-get-posts-imageID" name="<?php echo $this->get_field_name( 'image' ); ?>" type="hidden" value="<?php echo esc_attr( $image ); ?>"/>
+      <input id="<?php echo $this->get_field_id( 'src' ); ?>" class="wp-get-posts-image site-panels-image-fix" name="<?php echo $this->get_field_name( 'src' ); ?>" type="hidden" value="<?php echo esc_attr( $src ); ?>"/>
     </p>
 
 		<p>
 		<label for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Featured text:' ); ?></label> 
-		<textarea class="widefat" style="resize:vertical" rows="5" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( empty($instance['text']) ? '' : $instance['text'] ); ?></textarea>
+		<textarea class="widefat wp-get-posts-excerpt" style="resize:vertical" rows="5" cols="20" id="<?php echo $this->get_field_id('text'); ?>" name="<?php echo $this->get_field_name('text'); ?>"><?php echo esc_textarea( empty($instance['text']) ? '' : $instance['text'] ); ?></textarea>
 		</p>
 
     <p>
-    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?> <small>(Search by typing a title)</small></label>
-    <input id="single-image-link-<?php echo $this->id ?>" class="widefat wp-get-posts" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" data-posttype="post"/>
+    <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link:'); ?></label>
+    <input id="single-image-link-<?php echo $this->id ?>" class="widefat  wp-get-posts-url" id="<?php echo $this->get_field_id('link'); ?>" name="<?php echo $this->get_field_name('link'); ?>" type="text" value="<?php echo $link; ?>" />
     </p>
 
     <p>
     <label for="<?php echo $this->get_field_id('link-text'); ?>"><?php _e('Link text:'); ?></label>
-    <input id="single-image-link-text-<?php echo $this->id ?>" class="widefat" id="<?php echo $this->get_field_id('link-text'); ?>" name="<?php echo $this->get_field_name('link-text'); ?>" type="text" value="<?php echo $linktext; ?>" data-posttype="post"/>
+    <input id="single-image-link-text-<?php echo $this->id ?>" class="widefat" id="<?php echo $this->get_field_id('link-text'); ?>" name="<?php echo $this->get_field_name('link-text'); ?>" type="text" value="<?php echo $linktext; ?>" />
     </p>
 
   <?php
