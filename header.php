@@ -66,7 +66,7 @@
 		
 		<a class="wordmark" <?php if ( get_theme_mod('wordmark')) : ?> style="background:url(<?php echo get_theme_mod('wordmark') ?>)" <?php endif; ?> href="<?php echo home_url('/'); ?>">University of Washington</a>
 
-		<?php include('uw-search.php'); ?>
+		<?php get_template_part('uw-search'); ?>
 
 		<a title="Show menu" role="button" href="#listicon-wrapper" id="listicon-wrapper" class="visible-phone" aria-controls="thin-strip">Menu</a>
 
