@@ -69,6 +69,21 @@ module.exports = function(grunt) {
         }
       }
     },
+  	less: {
+		development: {
+			options: {
+				cleancss: true
+			},
+			files: {
+				'style.css': 'less/style.less'
+			}
+		},
+		production: {
+			files: {
+				'style.dev.css': 'less/style.less'
+			}
+		}	
+	},
     watch: {
       files: ['<%= concat.dist.src %>'],
       tasks: ['default']
@@ -76,13 +91,13 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-notify');
-
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   
 
-  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'notify']);
+  grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'notify', 'less']);
 
 };
