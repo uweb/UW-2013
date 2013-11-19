@@ -4,7 +4,7 @@ Theme URI: washington.edu
 Description: A 2013 theme
 Author: UW Web Team
 Author URI: http://uw.edu/
-Version: 0.1
+Version: 0.1.1
  */
 /*!
  * Bootstrap v2.3.2
@@ -66,12 +66,16 @@ sub {
 }
 img {
   /* Responsive images (ensure images don't scale beyond their parents) */
+
   max-width: 100%;
   /* Part 1: Set a maxium relative to the parent */
+
   width: auto\9;
   /* IE7-8 need help adjusting responsive images */
+
   height: auto;
   /* Part 2: Scale the height according to the width, otherwise you get stretching */
+
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -160,7 +164,7 @@ textarea {
   img {
     max-width: 100% !important;
   }
-  @page {
+  @page  {
     margin: 0.5cm;
   }
   p,
@@ -692,6 +696,7 @@ ol.inline > li {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
   padding-left: 5px;
   padding-right: 5px;
@@ -970,6 +975,7 @@ input[type="color"]:focus,
   outline: 0;
   outline: thin dotted \9;
   /* IE6-9 */
+
   -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
@@ -979,8 +985,10 @@ input[type="checkbox"] {
   margin: 4px 0 0;
   *margin-top: 0;
   /* IE7 */
+
   margin-top: 1px \9;
   /* IE8-9 */
+
   line-height: normal;
 }
 input[type="file"],
@@ -996,8 +1004,10 @@ select,
 input[type="file"] {
   height: 31px;
   /* In IE7, the height of the select element cannot be changed by height, only font-size */
+
   *margin-top: 4px;
   /* For IE7, add top margin to align select with labels */
+
   line-height: 31px;
 }
 select {
@@ -1395,6 +1405,7 @@ select:focus:invalid:focus {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
   vertical-align: middle;
   padding-left: 5px;
@@ -1545,6 +1556,7 @@ input.search-query {
   padding-left: 14px;
   padding-left: 4px \9;
   /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
   margin-bottom: 0;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -1601,6 +1613,7 @@ input.search-query {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
   margin-bottom: 0;
   vertical-align: middle;
@@ -2004,6 +2017,7 @@ button.close {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
   font-size: 0;
   vertical-align: middle;
@@ -2179,6 +2193,7 @@ button.close {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
 }
 .btn-group-vertical > .btn {
@@ -2281,6 +2296,7 @@ button.close {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
+
   *zoom: 1;
   margin-left: 0;
   margin-bottom: 0;
@@ -3811,6 +3827,9 @@ input[type="submit"]:hover {
   background: none;
   padding-left: 0;
 }
+#searchform label.screen-reader-text {
+  z-index: -1;
+}
 .search-results h1 {
   font-size: 1.8em;
   line-height: 1.1em;
@@ -4712,8 +4731,10 @@ div.gallery {
   -moz-box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
   /* For IE 8 */
+
   -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#999999')";
   /* For IE 5.5 - 7 */
+
   filter: progid:DXImageTransform.Microsoft.Shadow(Strength=1, Direction=135, Color='#999999');
   border: 5px solid #fff;
   margin: 0;
@@ -4855,6 +4876,7 @@ div.gallery {
   position: fixed;
   top: 0px;
   /*top: 211px;*/
+
   right: 0px;
   bottom: 0px;
   left: 0px;
@@ -5001,20 +5023,28 @@ ul.gallery-menu li.active {
   width: 100%;
   background: #c4c4c4;
   /* Old browsers */
+
   background: -moz-linear-gradient(top, #c4c4c4 0%, #ffffff 6%, #ffffff 100%);
   /* FF3.6+ */
+
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #c4c4c4), color-stop(6%, #ffffff), color-stop(100%, #ffffff));
   /* Chrome,Safari4+ */
+
   background: -webkit-linear-gradient(top, #c4c4c4 0%, #ffffff 6%, #ffffff 100%);
   /* Chrome10+,Safari5.1+ */
+
   background: -o-linear-gradient(top, #c4c4c4 0%, #ffffff 6%, #ffffff 100%);
   /* Opera 11.10+ */
+
   background: -ms-linear-gradient(top, #c4c4c4 0%, #ffffff 6%, #ffffff 100%);
   /* IE10+ */
+
   background: linear-gradient(to bottom, #c4c4c4 0%, #ffffff 6%, #ffffff 100%);
   /* W3C */
+
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c4c4c4', endColorstr='#ffffff', GradientType=0);
   /* IE6-9 */
+
 }
 #vidSmall p {
   display: inline-block;
@@ -5310,12 +5340,14 @@ ul.gallery-menu li.active {
   #header {
     z-index: 4;
     /* z-index: 2; */
+  
     position: relative;
     width: 960px;
     left: 50%;
     margin-left: -480px;
     height: 115px;
     /* added with super-search */
+  
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -5607,16 +5639,22 @@ ul.gallery-menu li.active {
     padding: 20px 0 20px 20px;
     background: -moz-linear-gradient(left, rgba(255, 255, 255, 0.01) 96%, #ededed 100%);
     /* FF3.6+ */
+  
     background: -webkit-gradient(linear, left top, right top, color-stop(96%, rgba(255, 255, 255, 0.01)), color-stop(100%, #ededed));
     /* Chrome,Safari4+ */
+  
     background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.01) 96%, #ededed 100%);
     /* Chrome10+,Safari5.1+ */
+  
     background: -o-linear-gradient(left, rgba(255, 255, 255, 0.01) 96%, #ededed 100%);
     /* Opera 11.10+ */
+  
     background: -ms-linear-gradient(left, rgba(255, 255, 255, 0.01) 96%, #ededed 100%);
     /* IE10+ */
+  
     background: linear-gradient(to right, rgba(255, 255, 255, 0.01) 96%, #ededed 100%);
     /* W3C */
+  
     float: left;
   }
   .menu-block a {
@@ -6443,18 +6481,25 @@ ul.gallery-menu li.active {
     position: relative;
     background: #f4f4f4;
     /* Old browsers */
+  
     background: -moz-linear-gradient(left, #dddddd 0%, #ffffff 3%);
     /* FF3.6+ */
+  
     background: -webkit-gradient(linear, left top, right top, color-stop(0%, #dddddd), color-stop(3%, #ffffff));
     /* Chrome,Safari4+ */
+  
     background: -webkit-linear-gradient(left, #dddddd 0%, #ffffff 3%);
     /* Chrome10+,Safari5.1+ */
+  
     background: -o-linear-gradient(left, #dddddd 0%, #ffffff 3%);
     /* Opera 11.10+ */
+  
     background: -ms-linear-gradient(left, #f4f4f4 0%, #ffffff 3%);
     /* IE10+ */
+  
     background: linear-gradient(to right, #dddddd 0%, #ffffff 3%);
     /* W3C */
+  
   }
   #youtube-playlist-player {
     margin: 20px 0 40px;
@@ -7380,20 +7425,28 @@ ul.gallery-menu li.active {
   #footer-main {
     background: #bfbfbf;
     /* Old browsers */
+  
     background: -moz-linear-gradient(top, #bfbfbf 0%, #ededed 7%, #ededed 100%);
     /* FF3.6+ */
+  
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #bfbfbf), color-stop(17%, #ededed), color-stop(100%, #ededed));
     /* Chrome,Safari4+ */
+  
     background: -webkit-linear-gradient(top, #bfbfbf 0%, #ededed 7%, #ededed 100%);
     /* Chrome10+,Safari5.1+ */
+  
     background: -o-linear-gradient(top, #bfbfbf 0%, #ededed 7%, #ededed 100%);
     /* Opera 11.10+ */
+  
     background: -ms-linear-gradient(top, #bfbfbf 0%, #ededed 7%, #ededed 100%);
     /* IE10+ */
+  
     background: linear-gradient(top, #bfbfbf 0%, #ededed 7%, #ededed 100%);
     /* W3C */
+  
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfbfbf', endColorstr='#ededed', GradientType=0);
     /* IE6-9 */
+  
     padding: 20px 0 0 0;
   }
   #footer-main a {
