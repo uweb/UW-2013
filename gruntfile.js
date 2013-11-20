@@ -85,8 +85,14 @@ module.exports = function(grunt) {
 		}	
 	},
     watch: {
-      files: ['<%= concat.dist.src %>'],
-      tasks: ['default']
+		js: {
+			files: ['<%= concat.dist.src %>'],
+ 			tasks: ['default']
+		},
+		css: {
+			files: ['less/*.less'],
+			tasks: ['less']
+		}
     }
   });
 
