@@ -69,10 +69,10 @@ module.exports = function(grunt) {
         }
       }
     },
-  	less: {
-		development: {
-			options: {
-				cleancss: true
+    less: {
+        development: {
+	    options: {
+		cleancss: true
 			},
 			files: {
 				'style.css': 'less/style.less'
