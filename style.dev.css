@@ -4913,7 +4913,7 @@ ul.gallery-menu li.active {
 .info-box ul.shortcode-blogroll li {
   margin-bottom: 10px;
   border-bottom: 1px dotted #E6E6E6;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 .info-box ul.shortcode-blogroll li:last-child {
   border-bottom: 1px dotted transparent;
@@ -4932,20 +4932,17 @@ ul.gallery-menu li.active {
 .shortcode-blogroll p {
   overflow: hidden;
   margin-top: 5px;
-  padding-bottom: 25px;
-  border-bottom: 1px dotted #E6E6E6;
-}
-.shortcode-blogroll img {
-  width: 60px;
-  margin: 0 20px 0 0;
 }
 .shortcode-blogroll li {
+  background: none;
   width: 100%;
   margin-left: 0;
-  background: none;
+  background: 0 0;
   padding-left: 0;
+  border-bottom: 1px dotted #E6E6E6;
+  padding: 15px 0 0 0;
 }
-.shortcode-blogroll li:last-child p {
+.shortcode-blogroll li:last-child {
   border-bottom: 1px dotted transparent;
   padding-bottom: 5px;
 }
