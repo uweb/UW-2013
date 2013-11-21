@@ -110,7 +110,8 @@ class UW_Widget_Recent_Posts extends WP_Widget
 		<?php endwhile; ?>
       <?php if ( array_key_exists('show-more-link', $instance ) && $instance['show-more-link'] ): ?>
         <li>
-        <a class="more" href="<?php echo get_permalink(get_option('page_for_posts')) ?>" title="Go to blog page">More</a>
+        <?php $page = ( get_option('page_for_posts') ) ? get_option('page_for_posts') : 1; ?>
+        <a class="more" href="<?php echo get_permalink( $page ) ?>" title="Go to blog page">More</a>
         </li>
       <?php endif; ?>
 		</ul>
