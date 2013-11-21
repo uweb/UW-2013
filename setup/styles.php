@@ -33,7 +33,7 @@ class UW_Install_Styles
 
       'uw-master' => array ( 
         'id'      => 'uw-master',
-        'url'     => get_bloginfo( 'template_url' ) . '/style.css',
+        'url'     => get_bloginfo( 'template_url' ) . '/style' . $this->dev_stylesheet() . '.css',
         'deps'    => array(),
         'version' => '3.6'
       ),
@@ -118,6 +118,11 @@ class UW_Install_Styles
   function is_child_theme() 
   {
     return get_bloginfo( 'template_directory' ) != get_bloginfo( 'stylesheet_directory' );
+  }
+
+  private function dev_stylesheet()
+  {
+    return is_user_logged_in() ? '.dev' : '';
   }
 
 }
