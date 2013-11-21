@@ -155,7 +155,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
 					$class = 'class="pull-left"';
 				}
 			}
-			$author = the_author_meta('user_nicename', $post->post_author);
+			$author = get_the_author_meta('display_name', $post->post_author);
 			$postDate = get_the_time(get_option('date_format'), $postID);
 			$html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2><p class=\"author-info\">{$author}</p>{$excerpt}</span></li>";
 		}
