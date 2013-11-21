@@ -4929,34 +4929,29 @@ ul.gallery-menu li.active {
 .info-box ul.shortcode-blogroll img {
   width: auto;
   float: none;
-  margin: 0;
+  margin: 5px 0 0;
 }
 .shortcode-blogroll {
   margin: 30px 0 0;
 }
+.shortcode-blogroll span {
+  display: block;
+  overflow: hidden;
+}
 .shortcode-blogroll p {
   margin-top: 5px;
 }
-.shortcode-blogroll img {
-  margin: 30px 0 20px 40px;
-  float: right;
-  width: 160px;
-}
 .shortcode-blogroll li {
-  background: none;
   width: 100%;
   margin-left: 0;
-  background: 0 0;
+  background: none;
   padding-left: 0;
   border-bottom: 1px dotted #E6E6E6;
   padding: 15px 0 0 0;
 }
 .shortcode-blogroll li.pull-left img {
-  margin: 5px 20px 0 0;
+  margin: 10px 20px 0 0;
   width: 60px;
-}
-.shortcode-blogroll li.pull-left p {
-  overflow: hidden;
 }
 .shortcode-blogroll li:last-child {
   border-bottom: 1px dotted transparent;
@@ -4964,6 +4959,9 @@ ul.gallery-menu li.active {
 }
 .shortcode-blogroll li > a {
   font-size: 1.15em;
+}
+.shortcode-blogroll h2 {
+  margin: 10px 0;
 }
 #tube-wrapper {
   position: relative;

@@ -155,7 +155,9 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
           $class = 'class="pull-left"';
         }
       }
-      $html .= "<li $class>$image<a href=\"$link\">{$post->post_title}</a>{$excerpt}</li>";
+      $author = get_the_author();
+      $postDate = get_the_date();
+      $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2><p class=\"author-info\">{$author}</p>{$excerpt}</span></li>";
     }
 
     return "<ul class=\"shortcode-blogroll\">$html</ul>";
