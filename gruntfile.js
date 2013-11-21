@@ -70,29 +70,29 @@ module.exports = function(grunt) {
       }
     },
     less: {
-        development: {
-	    options: {
-		cleancss: true
-			},
-			files: {
-				'style.css': 'less/style.less'
-			}
-		},
-		production: {
-			files: {
-				'style.dev.css': 'less/style.less'
-			}
-		}	
-	},
+      development: {
+        options: {
+          cleancss: true,
+          files: {
+            'style.css': 'less/style.less'
+          }
+        }
+      },
+      production: {
+        files: {
+          'style.dev.css': 'less/style.less'
+        }
+      }
+    },
     watch: {
-		js: {
-			files: ['<%= concat.dist.src %>'],
- 			tasks: ['default']
-		},
-		css: {
-			files: ['less/*.less'],
-			tasks: ['less']
-		}
+      js: {
+        files: ['<%= concat.dist.src %>'],
+        tasks: ['default']
+      },
+      css: {
+        files: ['less/*.less'],
+        tasks: ['less']
+      }
     }
   });
 
