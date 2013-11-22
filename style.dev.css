@@ -4049,7 +4049,6 @@ input[type="submit"]:hover {
 }
 #main .recent-posts-widget ul {
   padding: 0 25px 20px 22px;
-  padding-bottom: 0;
 }
 .text-widget .textwidget {
   padding: 0 25px 10px 22px;
@@ -4962,6 +4961,9 @@ ul.gallery-menu li.active {
 }
 .shortcode-blogroll h2 {
   margin: 10px 0;
+}
+.text-widget .shortcode-blogroll {
+  margin: 0;
 }
 #tube-wrapper {
   position: relative;

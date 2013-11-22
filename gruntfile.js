@@ -72,11 +72,11 @@ module.exports = function(grunt) {
     less: {
       development: {
         options: {
-          cleancss: true,
-          files: {
+          cleancss: true
+        },
+        files: {
             'style.css': 'less/style.less'
           }
-        }
       },
       production: {
         files: {
