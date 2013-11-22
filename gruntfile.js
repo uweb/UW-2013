@@ -85,14 +85,14 @@ module.exports = function(grunt) {
 		}	
 	},
     watch: {
-		js: {
-			files: ['<%= concat.dist.src %>'],
- 			tasks: ['default']
-		},
-		css: {
-			files: ['less/*.less'],
-			tasks: ['less']
-		}
+      js: {
+        files: ['<%= concat.dist.src %>'],
+        tasks: ['default']
+      },
+      css: {
+        files: ['less/*.less'],
+        tasks: ['less']
+      }
     }
   });
 
