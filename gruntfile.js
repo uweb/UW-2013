@@ -70,15 +70,15 @@ module.exports = function(grunt) {
       }
     },
     less: {
-        development: {
-	    options: {
-		cleancss: true
+        production: {
+	        options: {
+		        cleancss: true
 			},
 			files: {
 				'style.css': 'less/style.less'
 			}
 		},
-		production: {
+		development: {
 			files: {
 				'style.dev.css': 'less/style.less'
 			}
