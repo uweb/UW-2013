@@ -7436,15 +7436,17 @@ ul.gallery-menu li.active {
   #youtube-playlist-player {
     display: none;
   }
+  .site-licenseplates {
+    background-position: center -180px;
+  }
   .site-licenseplates h1 {
     border: none;
   }
-  .site-licenseplates .columns-2 {
-    width: 100%;
-    padding-right: 7%;
-  }
   .site-licenseplates .plate-center .button {
     width: 89%;
+  }
+  .site-licenseplates .entry-content {
+    margin-top: 30px;
   }
   #footer {
     display: none;
