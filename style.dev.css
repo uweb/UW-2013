@@ -5162,6 +5162,37 @@ ul.gallery-menu li.active {
 .site-accessibility .span8 a {
   border-bottom: 1px solid #9FBFD3;
 }
+.site-licenseplates {
+  background: url('img/misc/template-huskyplates/purple-bg.jpg') repeat-x center -70px #ffffff;
+}
+.site-licenseplates #branding {
+  background: none !important;
+}
+.site-licenseplates h1 {
+  margin: 40px 0;
+  font-weight: 800;
+}
+.site-licenseplates .columns-2 {
+  width: 41%;
+  padding-right: 7%;
+}
+.site-licenseplates .plate-center {
+  text-align: center;
+}
+.site-licenseplates .plate-center .button {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+  background-color: #d7a900;
+  display: inline-block;
+  text-shadow: 0 0 2px #333;
+  margin-right: 20px;
+  font-weight: 800;
+  width: 12%;
+}
+.site-licenseplates .plate-center .button:hover {
+  background-color: #b18b00;
+}
 @media (min-width: 768px) {
   #thin-strip {
     height: 30px;
@@ -6601,38 +6632,6 @@ ul.gallery-menu li.active {
   body.site-graduation .wordmark {
     background-position: -1000px 0 !important;
   }
-  .site-licenseplates {
-    background: url('img/misc/template-huskyplates/purple-bg.jpg') repeat-x center -70px #ffffff;
-  }
-  .site-licenseplates #branding {
-    background: none !important;
-  }
-  .site-licenseplates h1 {
-    margin: 40px 0;
-    font-weight: 800;
-  }
-  .site-licenseplates .columns-2 {
-    padding-right: 20px;
-    width: 41%;
-    padding-right: 7%;
-  }
-  .site-licenseplates .plate-center {
-    text-align: center;
-  }
-  .site-licenseplates .plate-center .button {
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    background-color: #d7a900;
-    display: inline-block;
-    text-shadow: 0 0 2px #333;
-    margin-right: 20px;
-    font-weight: 800;
-    width: 12%;
-  }
-  .site-licenseplates .plate-center .button:hover {
-    background-color: #b18b00;
-  }
   .footer-navigation > li {
     float: left;
     width: 140px;
@@ -7425,6 +7424,16 @@ ul.gallery-menu li.active {
   }
   #youtube-playlist-player {
     display: none;
+  }
+  .site-licenseplates h1 {
+    border: none;
+  }
+  .site-licenseplates .columns-2 {
+    width: 100%;
+    padding-right: 7%;
+  }
+  .site-licenseplates .plate-center .button {
+    width: 89%;
   }
   #footer {
     display: none;
