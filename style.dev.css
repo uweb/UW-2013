@@ -5180,6 +5180,7 @@ ul.gallery-menu li.active {
   text-align: center;
 }
 .site-licenseplates .plate-center .button {
+  background: url('img/misc/template-huskyplates/sprite.png') no-repeat 22px 11px #ffffff;
   -webkit-border-radius: 50px;
   -moz-border-radius: 50px;
   border-radius: 50px;
@@ -5188,10 +5189,20 @@ ul.gallery-menu li.active {
   text-shadow: 0 0 2px #333;
   margin-right: 20px;
   font-weight: 800;
+  padding-left: 30px;
   width: 12%;
 }
 .site-licenseplates .plate-center .button:hover {
   background-color: #b18b00;
+}
+.site-licenseplates .plate-center .b2 {
+  background-position: 19px -23px;
+}
+.site-licenseplates .plate-center .b3 {
+  background-position: 45px -69px;
+}
+.site-licenseplates .plate-center .b4 {
+  background-position: 26px -105px;
 }
 @media (min-width: 768px) {
   #thin-strip {
