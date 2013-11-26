@@ -14,7 +14,7 @@ class UW_Install_Scripts
   function UW_Install_Scripts() 
   {
 
-    $this->SCRIPTS = array( 
+    $this->SCRIPTS = array_merge( array( 
 
       'jquery' => array ( 
         'id'      => 'jquery',
@@ -40,7 +40,7 @@ class UW_Install_Scripts
         'admin'   => true
       )
 
-    );
+    ), $this->get_child_theme_scripts() );
 
     add_action( 'wp_enqueue_scripts', array( $this, 'uw_register_default_scripts' ) );
     add_action( 'wp_enqueue_scripts', array( $this, 'uw_enqueue_default_scripts' ) );
@@ -104,7 +104,12 @@ class UW_Install_Scripts
   
   }
 
-  private function dev_script()
+  private function get_child_theme_scripts()
+  {
+    return is_array( $this->SCRIPTS) ? $this->SCRIPTS : array();
+  }
+
+  public function dev_script()
   {
     return is_user_logged_in() ? '.dev' : '';
   }
