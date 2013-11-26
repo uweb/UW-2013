@@ -121,11 +121,13 @@ add_shortcode( 'archives', 'uw_archive_shortcode' );
 if ( ! function_exists('uw_blogroll_shortcode') ):
 	function uw_blogroll_shortcode( $atts ){
 
-    	if ( ! is_array($atts) )
-      		$atts = array();
+    	if ( ! is_array($atts) ){
+            $atts = array();
+        }
 
-    	if ( get_post_type() == 'post' )
-			return '';
+    	if ((get_post_type() == 'post') && (!is_home())){   //allow pagebuilder widgets to run the shortcode, block all other posts to prevent infinite loops
+            return '';
+        }
 
 		$params = array_merge( array(
 			'excerpt'      => 'true',
@@ -134,30 +136,33 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
 			'number'       =>  5
 			), $atts );
 
-		if ( !array_key_exists('numberposts', $params ) )
+        if ( !array_key_exists('numberposts', $params ) ){
 			$params['numberposts'] = $params['number'];
+        }
 
 		$posts = get_posts($params);
 
 		foreach ($posts as $post) {
 
-			$postID = $post->ID;
-			$link = get_permalink($postID);
+            if (!stripos($post->post_content, '[blogroll')) {   //to prevent infinite loops in pagebuilder widgets
+                $postID = $post->ID;
+                $link = get_permalink($postID);
 
-			if (in_array($params['excerpt'], array('show', 'true'))) {
-				$excerpt = strlen($post->post_excerpt) > 0 ? $post->post_excerpt : apply_filters('widget_text', $post->post_content);
-				if ( in_array($params['trim'], array('show', 'true') ) )
-					$excerpt = wp_trim_words($excerpt);
-				
-				$excerpt = wpautop($excerpt); //using apply_filters('the_content', $excerpt) causes an infinite loop
-				if ( in_array($params['image'], array('show', 'true') ) ) {
-					$image = get_the_post_thumbnail($postID, 'thumbnail', array('style'=>'float:left;padding-right:10px;'));
-					$class = 'class="pull-left"';
-				}
-			}
-			$author = get_the_author_meta('display_name', $post->post_author);
-			$postDate = get_the_time(get_option('date_format'), $postID);
-			$html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2><p class=\"author-info\">{$author}</p>{$excerpt}</span></li>";
+                if (in_array($params['excerpt'], array('show', 'true'))) {
+                    $excerpt = strlen($post->post_excerpt) > 0 ? $post->post_excerpt : apply_filters('widget_text', $post->post_content);
+                    if ( in_array($params['trim'], array('show', 'true') ) )
+                        $excerpt = wp_trim_words($excerpt);
+                    
+                    $excerpt = wpautop($excerpt); //using apply_filters('the_content', $excerpt) causes an infinite loop
+                    if ( in_array($params['image'], array('show', 'true') ) ) {
+                        $image = get_the_post_thumbnail($postID, 'thumbnail', array('style'=>'float:left;padding-right:10px;'));
+                        $class = 'class="pull-left"';
+                    }
+                }
+                $author = get_the_author_meta('display_name', $post->post_author);
+                $postDate = get_the_time(get_option('date_format'), $postID);
+                $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2><p class=\"author-info\">{$author}</p>{$excerpt}</span></li>";
+            }
 		}
 
     	return "<ul class=\"shortcode-blogroll\">$html</ul>";

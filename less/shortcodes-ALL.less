@@ -43,7 +43,7 @@
     	&.pull-left {
 	    	img {
 	    		margin: 10px 20px 0 0;
-	    		width: 60px;
+	    		width: 120px;
 	    	}
     	}
 		&:last-child {
@@ -57,8 +57,17 @@
 	h2 {
 		margin: 10px 0;
 	}
+	// Overrides margin of normal blog page
+	p.date, 
+	p.author-info {
+		margin-left: 0;
+	}
 }
-
+.text-widget {
+	.shortcode-blogroll  {
+		margin: 0;
+	}
+}
 
 // Youtube playlist
 
