@@ -11,6 +11,7 @@ require( get_template_directory() . '/setup/styles.php' );
 require( get_template_directory() . '/setup/images.php' );
 require( get_template_directory() . '/setup/filters.php' );
 require( get_template_directory() . '/setup/mimes.php' );
+require( get_template_directory() . '/setup/users.php' );
 
 // Custom shivs to help Wordpress and some plugins with our server architecture
 require( get_template_directory() . '/shivs/remove-http-cms.php' );
