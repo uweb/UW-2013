@@ -10,11 +10,6 @@ jQuery(document).ready(function( $ ) {
         , $preview = $this.siblings('.image-preview')
         , $inputs  = $this.siblings('input')
 
-      if ( frame ) {
-          frame.open();
-          return;
-      }
-
       frame = wp.media.frames.frame = wp.media({
 
           className: 'media-frame single-image-media-frame',
@@ -37,34 +32,23 @@ jQuery(document).ready(function( $ ) {
 
           $preview.width('33%').html( $img )
 
-          $inputs.first().val( media.id ).end()
-            .last().val( media.url )
+          $inputs.filter('.wp-get-posts-imageID').val( media.id )
+          $inputs.filter('.wp-get-posts-image').val( media.url )
 
       });
 
       frame.open();
   });
 
-})
-
 /** Panels fix: preview of the image doesn't show otherwise **/
-jQuery.noConflict()(window).load( function() {
+   $('body').on('mouseenter', '.widget-dialog-uw_widget_single_image', function() {
 
-  if ( typeof panelsData == "undefined" ) 
-    return;
+    var $this = $(this)
+      , $img  = $this.find('img')
+      , src   = $this.find('input.site-panels-image-fix').val()
 
-  var $widgets = jQuery('.site-panels-image-fix')
+    $img.attr( 'src', src )
 
-  $widgets.each( function() {
-    var $this = jQuery(this)
-
-    var $img   = jQuery('<img/>').attr({
-        'src'   : $this.val(),
-        'width' : '100%'
-    })
-
-    $this.siblings('.image-preview').html( $img )
-  
   })
 
 })

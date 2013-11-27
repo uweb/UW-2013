@@ -44,7 +44,7 @@ class UW_Widget_Single_Image extends WP_Widget
 		</p>
 
     <p>
-      <div class="image-preview wp-get-posts-image-preview" data-src="<?php echo esc_attr($src); ?>" style="width:33%; display:block;">
+      <div class="image-preview wp-get-posts-image-preview" style="width:33%; display:block;">
         <img src="<?php echo wp_get_attachment_url( $image ); ?>" width="100%" class="wp-get-posts-image" />
       </div>
 

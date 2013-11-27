@@ -11,9 +11,13 @@ class UW_Plugin_Hooks extends UW_CMS_Shivs
 
     // Contact Form 7 
     add_filter('wpcf7_form_class_attr', array( $this, 'uw_add_wpcf7_bootstrap_class' ) );
-
     add_filter('wpcf7_ajax_loader', array( $this, 'remove_cms_from_admin_url') );
     add_filter('wpcf7_form_action_url', array( $this, 'remove_cms_from_admin_url') );
+
+    // Co-Authors Plus
+    add_filter( 'coauthors_guest_author_fields', array( $this, 'uw_filter_guest_author_fields'), 10, 2 );
+
+
 
   }
 
@@ -43,6 +47,23 @@ class UW_Plugin_Hooks extends UW_CMS_Shivs
   {
     return is_front_page() ? false : $show;
   }
+
+  /**
+   * Adds an Affiliation field to the Guest Author fields
+   */
+  function uw_filter_guest_author_fields( $fields_to_return, $groups ) 
+  {
+    if ( in_array( 'all', $groups ) || in_array( 'name', $groups ) ) {
+      $fields_to_return[] = array(
+            'key'      => 'affiliation',
+            'label'    => 'Affiliation',
+            'group'    => 'name',
+          );
+    } 
+   
+    return $fields_to_return;
+  }
+
 
 }
 
