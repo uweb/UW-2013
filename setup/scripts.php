@@ -32,6 +32,14 @@ class UW_Install_Scripts
         'admin'   => false
       ),
 
+      'admin' => array ( 
+        'id'      => 'wp.admin',
+        'url'     => get_bloginfo('template_directory') . '/js/admin/admin.js',
+        'deps'    => array( 'jquery' ),
+        'version' => '1.0',
+        'admin'   => true
+      ),
+
       'jquery.searchposts' => array ( 
         'id'      => 'jquery.searchposts',
         'url'     => get_bloginfo('template_directory') . '/js/admin/jquery.wp.searchposts.js',
