@@ -6220,6 +6220,14 @@ ul.gallery-menu li.active {
   #main .text-widget h3 {
     text-transform: none;
     margin-top: 0;
+    display: inline;
+    padding-left: 0;
+  }
+  #main .text-widget h3 span {
+    padding-left: 20px;
+  }
+  #main .text-widget h3 span:empty {
+    display: none;
   }
   #main .text-widget h3:after {
     display: none;
