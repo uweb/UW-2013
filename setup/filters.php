@@ -9,6 +9,9 @@ class UW_Filters
     add_filter( 'italics', array( $this, 'italicize') );
     add_filter( 'abbreviation', array( $this, 'abbreviate') );
 
+    // allow shortcodes in text widgets
+    add_filter( 'widget_text', 'do_shortcode' );
+
   }
 
   /**
