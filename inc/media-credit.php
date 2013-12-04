@@ -8,38 +8,60 @@ class UW_Media_Credit
 
   function UW_Media_Credit()
   {
-    add_filter( 'img_caption_shortcode', array( $this, 'add_media_credit_to_caption_shortcode_filter'), 10, 3 );
+    
+		add_filter( 'mce_external_plugins', array( $this, 'add_media_credit_shortcode_to_tinymce' ) );
+    
+    add_filter( 'image_send_to_editor', array( $this, 'mediacredit_tinymce_html'), 10, 7 );
+    add_shortcode( 'mediacredit', array( $this, 'mediacredit_html' ) );
 
-    add_filter("attachment_fields_to_edit", array( $this, "image_attachment_fields_to_edit"), 100, 2);
-    add_filter("attachment_fields_to_save", array( $this, "custom_image_attachment_fields_to_save" ), null, 2);
-  
+    add_filter( "attachment_fields_to_edit", array( $this, "image_attachment_fields_to_edit"), 100, 2);
+    add_filter( "attachment_fields_to_save", array( $this, "custom_image_attachment_fields_to_save" ), null, 2);
+  }
+
+  function add_media_credit_shortcode_to_tinymce( $plugins ) 
+  {
+     $plugin_array[ 'mediacredit' ] = get_template_directory_uri() . '/js/admin/media-credit.js';
+     return $plugin_array;
   }
 
   /**
-   * Override the caption html - original in wp-includes/media.php
+   * Override the editor html to include media credit even if the photo caption is empty
    */
-  function add_media_credit_to_caption_shortcode_filter($val, $attr, $content = null)
+
+  function mediacredit_tinymce_html( $html, $id, $caption, $title, $align, $url, $size ) 
+  {
+    if ( $caption )
+      return $html;
+
+    $credit = get_post_meta( $id, '_media_credit', true);
+    $img    = wp_get_attachment_image_src( $id, $size );
+
+    return $credit ? 
+      "<dl class='mediacredit align$align' data-credit='$credit' data-align='align$align' data-size='$size' style='width:{$img[1]}px'>
+        <dt>$html</dt>
+        <dd class='wp-caption-dd'>$credit</dd>
+      </dl>" : $html;
+  }
+
+  /**
+   *
+   */
+  function mediacredit_html( $attrs, $content ) 
   {
     extract(shortcode_atts(array(
       'id'	=> '',
       'align'	=> '',
-      'width'	=> '',
-      'caption' => ''
-    ), $attr));
-    
-    if ( 1 > (int) $width || empty($caption) )
-      return $content;
+      'size'	=> '',
+      'credit'	=> '',
+    ), $attrs));
 
-    if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+    $img    = wp_get_attachment_image_src( $id, $size );
+    $width  = $img[1];
 
-    preg_match('/([\d]+)/', $id, $match);
-
-    if ( $match[0] ) $credit = get_post_meta($match[0], '_media_credit', true);
-
-    if ( $credit ) $credit = '<p class="wp-media-credit">'. $credit . '</p>';
-
-    return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
-    . do_shortcode( $content ) . $credit . '<p class="wp-caption-text">' . $caption . '</p></div>';
+    if ( 1 > (int) $id )
+      return '';
+    return '<div class="wp-caption ' . esc_attr($align) . '" style="width:'. ( 10  + (int) $width ) .'px">' .
+      do_shortcode( $content ) . '<p class="wp-media-credit">'.$credit.'</p>' . '</div>';
   }
 
   /**
@@ -75,8 +97,6 @@ class UW_Media_Credit
     }
     return $post;
   }
-
-
 
 }
 

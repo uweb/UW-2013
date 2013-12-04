@@ -28,6 +28,7 @@ require( get_template_directory() . '/inc/template-heirarchy.php' );
 
 // Adds a media credit to the media library items
 require( get_template_directory() . '/inc/media-credit.php' ); // [TODO] could be plugin
+require( get_template_directory() . '/inc/media-caption.php' );
 require( get_template_directory() . '/inc/replace-media.php' ); // [TODO] could be plugin
 
 // All of the UW Widgets
