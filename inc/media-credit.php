@@ -38,7 +38,7 @@ class UW_Media_Credit
 
     return $credit ? 
       "<dl class='mediacredit align$align' data-credit='$credit' data-align='align$align' data-size='$size' style='width:{$img[1]}px'>
-        <dt>$html</dt>
+        <dt class='mediacredit-dt'>$html</dt>
         <dd class='wp-caption-dd'>$credit</dd>
       </dl>" : $html;
   }
