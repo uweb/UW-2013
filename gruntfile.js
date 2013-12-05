@@ -8,6 +8,7 @@ module.exports = function(grunt) {
       },
       dist: {
         libraries: [
+          "js/jquery.easing.js",
           "js/jquery.tinynav.js",
           "js/jquery.tinyscrollbar.js",
           "js/imagesloaded.pkgd.js",
