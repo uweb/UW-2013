@@ -34,26 +34,45 @@ body {
     font-style: italic;
 }
 .pull-quote-right {
-float: right;
-font-size: 1.5em;
-width: 40%;
-font-style: italic;
-line-height: 37px;
-margin: 20px -60px 40px 30px;
-padding-left: 30px;
-border-left: 2px solid #DDD;
+    float: right;
+    font-size: 1.5em;
+    width: 40%;
+    font-style: italic;
+    line-height: 37px;
+    margin: 20px -60px 40px 30px;
+    padding-left: 30px;
+    border-left: 2px solid #DDD;
 }
 
 .pull-quote-left {
-float: left;
-font-size: 1.5em;
-width: 40%;
-font-style: italic;
-line-height: 37px;
-margin: 20px 40px 30px -60px;
-padding-right: 30px;
-border-right: 2px solid #DDD;
+    float: left;
+    font-size: 1.5em;
+    width: 40%;
+    font-style: italic;
+    line-height: 37px;
+    margin: 20px 40px 30px -60px;
+    padding-right: 30px;
+    border-right: 2px solid #DDD;
 }
+
+@media (max-width: 767px) {
+    body {
+        background-position: center 50px;
+    }
+    #content.annual-address {
+        padding-top: 230px;
+    }
+    .annual-address-pad {
+        padding: 0 40px;
+    }
+    .pull-quote-left {
+        margin: 20px 40px 30px -30px;
+    }
+    .pull-quote-right {
+        margin: 20px -30px 40px 30px;
+    }
+}
+
 
 </style>
 
