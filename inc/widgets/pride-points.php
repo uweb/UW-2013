@@ -18,8 +18,9 @@ class UW_Pride_Points extends WP_Widget {
 			  var $widget = $("#'.$widget_id.'").find(".pride-point");
 			  var data = {
 				json : "pride_points.get_pride_point",
-        count: 1,
-				cat  : $widget.data("category")
+        count: 10,
+				cat  : $widget.data("category"),
+        random: true
 			  }
 			  $.ajax({
 				type: "GET",
@@ -28,7 +29,7 @@ class UW_Pride_Points extends WP_Widget {
 				success : function(json) {
 
 				  if ( json.status == "ok" && json.count === 1) 
-					  $widget.fadeIn().append(json.posts[0].content)
+					  $widget.fadeIn().append(json.posts.content)
 
 				  $widget.find("p").filter(function(i,el) {
 					if ( /source/i.test(el.innerHTML ) )
