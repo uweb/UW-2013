@@ -12,7 +12,6 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge"> 
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <title> <?php uw_title() ?> </title>
