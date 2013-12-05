@@ -173,7 +173,7 @@ body, html {
 }
 body {
     font-size: 14px !important; /* Overwrites  */
-    background: url('/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/gerb.jpg') no-repeat center center fixed;
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/quad.jpg') no-repeat center center fixed;
     -webkit-background-size: cover !important;
     -moz-background-size: cover !important;
     -o-background-size: cover !important;
@@ -195,37 +195,78 @@ body {
     z-index: 70;
 }
 .scroll {
-    background: url('/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/scroll-1.png') 0 0 no-repeat;
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/scroll-1.png') 0 0 no-repeat;
     bottom: 110px;
 }
 .scroll-1 {
-    background: url('/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/scroll-2.png') top center no-repeat;    
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/scroll-2.png') top center no-repeat;    
     bottom: 50px;
 }
-.holiday-logo {
+.holiday-logo-1,
+.holiday-logo-2,
+.holiday-logo-3,
+.holiday-message-1,
+.holiday-message-2,
+.holiday-message-3,
+.holiday-message-4,
+.holiday-message-5 {
     position: absolute;
-    top: 270px;
     left: 50%;
-    margin-left: -316px;
-    z-index: 999;
 }
-.holiday-message {
-    background: url('/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/message-bg.png') 0 0 no-repeat;
+ {
     position: absolute;
-    top: 270px;
-    width: 747px;
-    height: 488px;
     left: 50%;
-    margin-left: -374px;
+}
+.holiday-logo-1 {
+    top: 270px;    
+    margin-left: -109px;    
+}
+.holiday-logo-2 {
+    top: 450px;    
+    margin-left: -360px;    
+}
+.holiday-logo-3 {
+    top: 640px;    
+    margin-left: -251px;    
+}
+
+.holiday-message-1 {
+    top: 250px;    
+    margin-left: -265px;   
+}
+.holiday-message-2 {
+    top: 325px;    
+    margin-left: -215px;    
+}
+.holiday-message-3 {
+    top: 425px;    
+    margin-left: -262px;    
+}
+.holiday-message-4 {
+    top: 505px;    
+    margin-left: -261px;   
+}
+.holiday-message-5 {
+    top: 650px;    
+    margin-left: -246px;   
+}
+
+
+.holiday-message {
+    position: absolute;
+    top: 740px;
+    width: 900px;
+    height: 150px;
+    left: 50%;
+    margin-left: -450px;
 }
 .holiday-message p {
     font-family: 'Droid Serif', serif;;
     text-align: center;
     font-style: italic;
-    padding: 170px 80px 0;
-    font-size: 20px;
-    color: #39275b;
-    line-height: 32px
+    font-size: 18px;
+    color: #fff;
+    line-height: 25px
 }
 #snowy {
     position: fixed;
@@ -246,7 +287,7 @@ body {
     margin: 10px;
     color: #000;
     font-weight: 700;
-    background: url('/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/nav-dots.png') 0 4px no-repeat;
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/nav-dots.png') 0 4px no-repeat;
     padding: 0 0 0 26px;
     margin: 0 0 7px 0;
 }

@@ -1,7 +1,7 @@
 jQuery(function() {
 
-	$('#snowy').snowfall({image :"/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/snowflake-1.png",
-	 minSize: 10, maxSize:60, minSpeed : 1, maxSpeed : 4, flakeCount : 50  
+	$('#snowy').snowfall({
+	 minSize: 1, maxSize:2, minSpeed : 1, maxSpeed : 4, flakeCount : 100  
 	});
 
 	$.fn.fullpage({

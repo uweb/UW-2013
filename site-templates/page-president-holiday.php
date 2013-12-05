@@ -15,15 +15,24 @@
 </ul>
 
 <div class="section " id="section0">
-	<img class="holiday-logo" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/logo.png" />
+	<img class="holiday-logo-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
+	<img class="holiday-logo-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
+	<img class="holiday-logo-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
   <a href="http://128.208.132.220/cms/president/holiday/#secondPage" class="scroll">Scroll</a>  
 </div>
 
 <div class="section" id="section1">
-    <div class="holiday-message">
+
+	<img class="holiday-message-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-thankyou.png" />
+	<img class="holiday-message-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-forsharing.png" />
+	<img class="holiday-message-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-yourbest.png" />
+	<img class="holiday-message-4" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-husky.png" />
+	<img class="holiday-message-5" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-moments.png" />
+
+    <div class="holiday-message">    
             <p>The Husky family achieved great things in 2013, and we want to hear straight from the source what made the year memorable to you. Was it joining hoards of enthusiastic Huskies to show purple pride during ESPN's GameDay on Red Square Studying abroad? Going back to school? </p>
     </div>
-    <a href="#" class="scroll-1">Scroll</a>      
+  <a href="http://128.208.132.220/cms/president/holiday/#3rdPage" class="scroll-1">Scroll</a>
 </div>
 
 <div class="section" id="section2">
