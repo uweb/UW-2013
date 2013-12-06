@@ -16,7 +16,7 @@
 	<img class="holiday-logo-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
 	<img class="holiday-logo-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
 	<img class="holiday-logo-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
-  <a href="#secondPage" class="scroll">Scroll</a>  
+    <a href="#secondPage" class="scroll">Scroll</a>  
 </div>
 
 <div class="section" id="section1">
@@ -34,6 +34,7 @@
 </div>
 
 <div class="section" id="section2">
+    <div id="border"></div>
      <iframe width="853" height="480" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>    
 </div>
 
@@ -47,8 +48,8 @@
 <script type="text/template" id="video-grid">
 
 <% _.each( videos, function(video, index) {  %>
-
-    <img class="grid" src="<%= video.thumbnail.hqDefault %>" />
+    
+    <a class="grid" href="#" style="background:url(<%= video.thumbnail.hqDefault %>) center center"></a>
 
 <% }) %>
 </script>
