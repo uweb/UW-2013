@@ -1,21 +1,35 @@
 jQuery(function() {
 
 	$('#snowy').snowfall({
-	 minSize: 1,
-   maxSize:2,
-   minSpeed : 1,
-   maxSpeed : 4,
-   flakeCount : 100,
-   //collection : '.collection'
+     minSize: 1,
+     maxSize:2,
+     minSpeed : 1,
+     maxSpeed : 4,
+     flakeCount : 100,
 	});
+
+  $.fn.staggerLoad = function( options ) {
+    return this.each( function( index ) {
+      $(this).delay( index * 100 )
+        .transit({
+          opacity   : 1, 
+          marginTop : 0,
+          duration  : 700
+        })
+    });
+  }
 
 	$.fn.fullpage({
     fixedElements: '#branding',
     anchors: ['intro', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
 		menu: '#menu-dots',
+    afterLoad: function(anchorLink, index){
+      if ( index === 4 ) $('.slide.active img').staggerLoad()
+    },
+    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
+      if ( slideIndex > 0 ) $('.slide.active img').staggerLoad()
+    },
 	});
-
-
 
   var Video = Backbone.Model.extend({})
 
@@ -62,13 +76,12 @@ jQuery(function() {
     events : {},
 
     initialize: function() {
-      this.currentSlide = this.getCurrentSlide()
       this.collection.on( 'sync', this.render, this ) 
     },
 
     render: function() {
       var index = this.collection.settings['start-index'] - 1;
-      this.getCurrentSlide().append( this.template({ videos: this.collection.toJSON().slice(index) }) )
+      this.getCurrentSlide().append( this.template({ videos: this.collection.toJSON().slice(index) }) )//.find('img').hide()
       this.addItems()
     },
 
@@ -82,11 +95,13 @@ jQuery(function() {
 
     getCurrentSlide: function() {
       return this.$el.find('div.tableCell').eq( this.slideIndex )
-    }
+    },
+
 
   })
 
   var videos = new Videos({})
     , grid   = new Grid({collection:videos})
+
 
 });

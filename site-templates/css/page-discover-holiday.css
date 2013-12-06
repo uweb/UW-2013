@@ -312,4 +312,10 @@ iframe {
 .grid {
   float:left;
   width:25%;
+  height: 240px;
+  overflow:hidden;
+}
+.grid img {
+  opacity:0;
+  margin-top:240px;
 }

@@ -38,7 +38,7 @@
 </div>
 
 <div class="section" id="section3">
-    <div class="slide-1 slide active"></div>
+    <div class="slide-1 slide"></div>
     <div class="slide-2 slide"></div>
     <div class="slide-3 slide"></div>
     <div class="slide-4 slide"></div>
@@ -48,7 +48,9 @@
 
 <% _.each( videos, function(video, index) {  %>
 
-    <img class="grid" src="<%= video.thumbnail.hqDefault %>" />
+  <div class="grid">
+    <img src="<%= video.thumbnail.hqDefault %>" />
+  </div>
 
 <% }) %>
 </script>
