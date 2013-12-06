@@ -274,6 +274,7 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
+    z-index:-10;
 }
 #menu-dots {
     position: fixed;
@@ -308,3 +309,7 @@ iframe {
 }
 
 
+.grid {
+  float:left;
+  width:25%;
+}

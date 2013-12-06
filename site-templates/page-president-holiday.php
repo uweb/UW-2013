@@ -5,8 +5,6 @@
 <?php wp_enqueue_script( 'discover-holiday-2013', get_bloginfo('stylesheet_directory') . '/site-templates/js/page-discover-holiday.js' ); ?>
 <?php get_header(); ?>
 
-
-
 <ul id="menu-dots">
 	<li data-menuanchor="intro"><a href="#intro">Intro</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Holiday Message</a></li>
@@ -18,7 +16,7 @@
 	<img class="holiday-logo-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
 	<img class="holiday-logo-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
 	<img class="holiday-logo-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
-  <a href="http://128.208.132.220/cms/president/holiday/#secondPage" class="scroll">Scroll</a>  
+  <a href="#secondPage" class="scroll">Scroll</a>  
 </div>
 
 <div class="section" id="section1">
@@ -32,7 +30,7 @@
     <div class="holiday-message">    
             <p>The Husky family achieved great things in 2013, and we want to hear straight from the source what made the year memorable to you. Was it joining hoards of enthusiastic Huskies to show purple pride during ESPN's GameDay on Red Square Studying abroad? Going back to school? </p>
     </div>
-  <a href="http://128.208.132.220/cms/president/holiday/#3rdPage" class="scroll-1">Scroll</a>
+    <a href="#3rdPage" class="scroll-1">Scroll</a>
 </div>
 
 <div class="section" id="section2">
@@ -40,16 +38,19 @@
 </div>
 
 <div class="section" id="section3">
-    <div class="slide-1 slide active">Slide 1</div>
-    <div class="slide-2 slide"><h1>This is an awesome plugin</h1></div>
-    <div class="slide-3 slide"><h1>Which enables you to create awesome websites</h1></div>
-    <div class="slide-4 slide"><h1>In the most simple way ever</h1></div>
+    <div class="slide-1 slide active"></div>
+    <div class="slide-2 slide"></div>
+    <div class="slide-3 slide"></div>
+    <div class="slide-4 slide"></div>
 </div>
 
 <script type="text/template" id="video-grid">
-  <div class="grid">
-    <img src="<%= video.src =>" />
-  </div>
+
+<% _.each( videos, function(video, index) {  %>
+
+    <img class="grid" src="<%= video.thumbnail.hqDefault %>" />
+
+<% }) %>
 </script>
 
 <div id="snowy"></div>
