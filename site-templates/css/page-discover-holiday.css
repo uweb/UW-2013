@@ -52,24 +52,24 @@ body, html {
 }
 .controlArrow{
     position:absolute;
-    top:50%;
+    top:51%;
     cursor:pointer;
 	width: 0px;
 	height: 0px;
-	border-style: solid;
-	margin-top: -38px;
+	margin-top: -45px;
 }
 
 .controlArrow.prev{
-	left:285px;
-	width: 0px;
-	border-width: 38.5px 34px 38.5px 0;
-	border-color: transparent #fff transparent transparent;
+	left:245px;
+	background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/arrow-left.png') 0 0;
+	width: 73px;
+	height: 73px;
 }
 .controlArrow.next{  
-	right:335px;
-	border-width: 38.5px 0 38.5px 34px;
-	border-color: transparent transparent transparent #fff;
+	right:350px;
+	background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/arrow-right.png') 0 0;
+	width: 73px;
+	height: 73px;
 }
 .scrollable{
 	overflow:scroll;
@@ -274,11 +274,11 @@ body {
     right: 0;
     top: 0;
     bottom: 0;
-    z-index:-1;
+    z-index:-10;
 }
 #menu-dots {
     position: fixed;
-    top: 450px;
+    top: 48%;
     right: 30px;
     z-index: 70;
     width: 200px;
@@ -301,40 +301,42 @@ body {
 #menu-dots li a, #menu li.active a {
     display: block;
 }
+#border {
+    width: 877px;
+    height: 501px;
+    margin-left: -431px;
+    left: 50%;
+    top:50%;
+    margin-top: -254px;
+    position: absolute;
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
+}
 iframe {
     margin-left: -426px;
     left: 50%;
     position: absolute;
-    top: 250px;
+    top: 50%;
+    margin-top: -250px;
 }
-#border {
-    width: 876px;
-    height: 499px;
-    position: absolute; 
-    top: 250px;
-    margin-left: -438px;
-    left: 50%;
-    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
-
+.tableCell {
+    padding: 0 400px;
 }
-
-/* User submitted page */
 
 .grid {
-    float: left;
-    margin: 0 20px 20px 0;
-    width: 100px;
+  float:left;
+  overflow:hidden;
+  margin: 0 20px 20px 0;
+}
+.grid a {    
+    background-position: center center;
+    opacity:0;
+    margin-top:100px;
     height: 100px;
+    width: 100px;
+    background-size: 245%;
     display: block;
-    background-size: 245% !important;
-    border: 6px solid rgba(255, 255, 255, 0.8);
+    border: 6px solid rgba(255, 255, 255, 0.5);
 }
-#section3 .tableCell {
-    padding: 0 390px;
-}
-
-/* Footer hiddden */
-
 
 #footerBG,
 #footer-main {

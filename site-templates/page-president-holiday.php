@@ -16,7 +16,7 @@
 	<img class="holiday-logo-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
 	<img class="holiday-logo-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
 	<img class="holiday-logo-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
-    <a href="#secondPage" class="scroll">Scroll</a>  
+  <a href="#secondPage" class="scroll">Scroll</a>  
 </div>
 
 <div class="section" id="section1">
@@ -34,12 +34,13 @@
 </div>
 
 <div class="section" id="section2">
-    <div id="border"></div>
-     <iframe width="853" height="480" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>    
+     <div id="border"></div>
+     <iframe width="853" height="480" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
+     <a href="#4rdPage" class="scroll-1">Scroll</a> 
 </div>
 
 <div class="section" id="section3">
-    <div class="slide-1 slide active"></div>
+    <div class="slide-1 slide"></div>
     <div class="slide-2 slide"></div>
     <div class="slide-3 slide"></div>
     <div class="slide-4 slide"></div>
@@ -48,8 +49,10 @@
 <script type="text/template" id="video-grid">
 
 <% _.each( videos, function(video, index) {  %>
-    
-    <a class="grid" href="#" style="background:url(<%= video.thumbnail.hqDefault %>) center center"></a>
+
+  <div class="grid">
+    <a style="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
+  </div>
 
 <% }) %>
 </script>
