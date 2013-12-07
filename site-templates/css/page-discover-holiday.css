@@ -212,13 +212,15 @@ body {
 .holiday-message-5 {
     position: absolute;
     left: 50%;
+    opacity:0;
+    margin-top:50px;
 }
  {
     position: absolute;
     left: 50%;
 }
 .holiday-logo-1 {
-    top: 270px;    
+    top: 240px;    
     margin-left: -109px;    
 }
 .holiday-logo-2 {
@@ -226,7 +228,7 @@ body {
     margin-left: -360px;    
 }
 .holiday-logo-3 {
-    top: 640px;    
+    top: 670px;    
     margin-left: -251px;    
 }
 
@@ -327,7 +329,7 @@ background-size: 4px 4px;
     display: block;
 }
 #border {
-    width: 877px;
+    width: 0;
     height: 501px;
     margin-left: -431px;
     left: 50%;
@@ -337,6 +339,7 @@ background-size: 4px 4px;
     background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
 }
 iframe {
+  opacity:0;
     margin-left: -426px;
     left: 50%;
     position: absolute;
@@ -351,8 +354,6 @@ iframe {
   float:left;
   overflow:hidden;
   margin: 0 20px 20px 0;
-}
-.grid a {    
     background-position: center center;
     opacity:0;
     margin-top:100px;
