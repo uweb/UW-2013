@@ -10,7 +10,7 @@ jQuery(function() {
 
   $.fn.staggerLoad = function( options ) {
     return this.each( function( index ) {
-      $(this).delay( index * 100 )
+      $(this).addClass('animated').delay( index * 100 )
         .transit({
           opacity   : 1, 
           marginTop : 0,
@@ -22,7 +22,8 @@ jQuery(function() {
   $.fn.animateData = function( options ) {
     return this.each(function(index) {
       var $this = $(this)
-      $this.transit( $this.data() )
+        , props = $this.data()
+      $this.addClass('animated').transit( props )
     })
   }
 
@@ -32,16 +33,29 @@ jQuery(function() {
     fixedElements: '#branding',
     anchors: ['intro', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
 		menu: '#menu-dots',
+    afterRender: function() {
+      if ( ! window.location.hash )
+        $('#section0 img').animateData()
+    },
     afterLoad: function(anchorLink, index){
+      
+      //if ( lastSection < 3 )
+        //$('#section'+lastSection).find('[style]').removeAttr('style')
+        $('#section'+lastSection).find('.animated').removeAttr('style')
+
       if ( index === 1 ) $('#section0 img').animateData()
       if ( index === 2 ) $('#section1 img').staggerLoad()
       if ( index === 3 ) {
         $('#border').animateData()
         $('#holiday-video').animateData()
       }
-      if ( index === 4 ) $('.slide.active a').staggerLoad()
+      if ( index === 4 ) {
+        $('.slide.active a').each(function() {
+          var $this = $(this)
+          $this.attr( 'style',  $this.data().css )
+        }).staggerLoad()
+      }
 
-      $('#section'+lastSection).find('[style]').removeAttr('style')
     },
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
       if ( slideIndex > 0 ) $('.slide.active a').staggerLoad()

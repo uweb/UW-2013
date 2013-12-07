@@ -15,7 +15,7 @@
 <div class="section " id="section0">
 	<img class="holiday-logo-1" data-top="270" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
 	<img class="holiday-logo-2" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
-	<img class="holiday-logo-3" data-top="640" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
+	<img class="holiday-logo-3" data-top="640" data-duration="4000" data-opacity="1"  src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
   <a href="#secondPage" class="scroll">Scroll</a>  
 </div>
 
@@ -35,7 +35,7 @@
 
 <div class="section" id="section2">
      <div id="border" data-width="877" data-duration="1200"></div>
-     <iframe id="holiday-video" width="853" height="480" data-opacity="1" data-duration="2000" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
+     <iframe id="holiday-video" width="853" height="480" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
      <a href="#4rdPage" class="scroll-1">Scroll</a> 
 </div>
 
@@ -50,9 +50,7 @@
 
 <% _.each( videos, function(video, index) {  %>
 
-  <div class="grid">
-    <a style="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
-  </div>
+    <a class="grid" style="background-image:url(<%= video.thumbnail.hqDefault %>)" data-css="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
 
 <% }) %>
 </script>
