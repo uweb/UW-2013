@@ -57,6 +57,8 @@
 <% }) %>
 </script>
 
+<div id="pattern"></div>
 <div id="snowy"></div>
+
 
 <?php get_footer(); ?>

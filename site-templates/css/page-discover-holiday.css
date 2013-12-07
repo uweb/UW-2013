@@ -268,7 +268,8 @@ body {
     color: #fff;
     line-height: 25px
 }
-#snowy {
+#snowy,
+#pattern {
     position: fixed;
     left: 0;
     right: 0;
@@ -276,6 +277,30 @@ body {
     bottom: 0;
     z-index:-10;
 }
+
+/* 
+#pattern {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index:-11;
+
+
+background-image: 
+-moz-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+background-image: 
+-ms-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+background-image: 
+-o-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+background-image: 
+linear-gradient(-45deg, rgba(0,0,0, 0.1) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+-moz-background-size: 4px 4px;
+background-size: 4px 4px;
+}
+*/
+
 #menu-dots {
     position: fixed;
     top: 48%;
@@ -333,9 +358,9 @@ iframe {
     margin-top:100px;
     height: 100px;
     width: 100px;
-    background-size: 245%;
+    background-size: 267%;
     display: block;
-    border: 6px solid rgba(255, 255, 255, 0.5);
+    border: 6px solid rgba(255,255,255, 0.2);
 }
 
 #footerBG,
