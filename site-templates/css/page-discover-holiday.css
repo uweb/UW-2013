@@ -263,7 +263,8 @@ body {
     margin-left: -450px;
 }
 .holiday-message p {
-    font-family: 'Droid Serif', serif;;
+    font-family: 'Droid Serif', serif;
+    text-shadow: 0 0 3px #000;
     text-align: center;
     font-style: italic;
     font-size: 18px;
@@ -280,7 +281,6 @@ body {
     z-index:-10;
 }
 
-/* 
 #pattern {
     position: fixed;
     left: 0;
@@ -288,20 +288,17 @@ body {
     top: 0;
     bottom: 0;
     z-index:-11;
-
-
-background-image: 
--moz-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
-background-image: 
--ms-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
-background-image: 
--o-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
-background-image: 
-linear-gradient(-45deg, rgba(0,0,0, 0.1) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
--moz-background-size: 4px 4px;
-background-size: 4px 4px;
+    background-image: 
+    -moz-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+    background-image: 
+    -ms-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+    background-image: 
+    -o-linear-gradient(-45deg, rgba(0,0,0, .1) 25%, transparent 25%, transparent 50%, rgba(0,0,0, .1) 50%, rgba(0,0,0, .1) 75%, transparent 75%, transparent);
+    background-image: 
+    linear-gradient(-45deg, rgba(0,0,0, 0.1) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(0,0,0, 0.1) 50%, rgba(0,0,0, 0.1) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
+    -moz-background-size: 4px 4px;
+    background-size: 4px 4px;
 }
-*/
 
 #menu-dots {
     position: fixed;
