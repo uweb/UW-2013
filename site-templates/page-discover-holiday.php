@@ -1,8 +1,8 @@
-<?php wp_enqueue_style( 'discover-holiday-2013', get_bloginfo( 'stylesheet_directory') . '/site-templates/css/page-discover-holiday.css', array('uw-master') ); ?>
+<?php wp_enqueue_style( 'discover-holiday-2013', get_bloginfo( 'template_directory') . '/site-templates/css/page-discover-holiday.css', array('uw-master') ); ?>
 <?php wp_enqueue_script('backbone'); ?>
-<?php wp_enqueue_script( 'fullPage.js', get_bloginfo('stylesheet_directory') . '/site-templates/js/fullPage.js' ); ?>
-<?php wp_enqueue_script( 'jqueryrain', get_bloginfo('stylesheet_directory') . '/site-templates/js/jquery.rain.js' ); ?>
-<?php wp_enqueue_script( 'discover-holiday-2013', get_bloginfo('stylesheet_directory') . '/site-templates/js/page-discover-holiday.js' ); ?>
+<?php wp_enqueue_script( 'fullPage.js', get_bloginfo('template_directory') . '/site-templates/js/fullPage.js' ); ?>
+<?php wp_enqueue_script( 'jqueryrain', get_bloginfo('template_directory') . '/site-templates/js/jquery.rain.js' ); ?>
+<?php wp_enqueue_script( 'discover-holiday-2013', get_bloginfo('template_directory') . '/site-templates/js/page-discover-holiday.js' ); ?>
 <?php get_header(); ?>
 
 <ul id="menu-dots">
@@ -61,6 +61,5 @@
 
 <div id="pattern"></div>
 <div id="snowy"></div>
-
 
 <?php get_footer(); ?>
