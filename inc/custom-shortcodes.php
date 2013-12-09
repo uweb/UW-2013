@@ -15,7 +15,7 @@ if ( ! function_exists('uw_feed_shortcode') ):
         'span'   => 4
       ), $atts ) );
 
-    if ( $url == null )
+    if ( $url == null || is_feed() )
       return '';
 
     $content = '';
