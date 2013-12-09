@@ -50,13 +50,16 @@
 
 <% _.each( videos, function(video, index) {  %>
 
-    <a class="grid" style="background-image:url(<%= video.thumbnail.hqDefault %>)" data-css="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
+    <a class="grid" data-id="<%= video.id %>" style="background-image:url(<%= video.thumbnail.hqDefault %>)" data-css="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
 
 <% }) %>
 </script>
 
 <div id="pattern"></div>
-<div id="snowy"></div>
+<script type="text/template" id="iframe-grid">
+  <iframe class="iframe-grid" src="//www.youtube.com/embed/<%= id %>" frameborder="0" allowfullscreen></iframe>
+</script>
 
+<div id="snowy"></div>
 
 <?php get_footer(); ?>

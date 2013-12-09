@@ -56,7 +56,7 @@ body, html {
     cursor:pointer;
 	width: 0px;
 	height: 0px;
-	margin-top: -45px;
+	margin-top: -58px;
 }
 
 .controlArrow.prev{
@@ -335,13 +335,18 @@ body {
     position: absolute;
     background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
 }
-iframe {
+iframe#holiday-video {
   opacity:0;
     margin-left: -426px;
     left: 50%;
     position: absolute;
     top: 50%;
     margin-top: -250px;
+}
+iframe.iframe-grid {
+  width: 100%;
+  height: 100%;
+  margin: 0;
 }
 .tableCell {
     padding: 0 400px;
@@ -356,7 +361,10 @@ iframe {
     margin-top:100px;
     height: 100px;
     width: 100px;
-    background-size: 267%;
+    background-size: 217%;
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    border-radius: 70px;    
     display: block;
     border: 6px solid rgba(255,255,255, 0.2);
 }

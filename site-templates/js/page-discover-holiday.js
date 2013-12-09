@@ -107,8 +107,11 @@ jQuery(function() {
     slideIndex:0,
 
     template : _.template( $('#video-grid').html() ),
+    itemplate : _.template( $('#iframe-grid').html() ),
 
-    events : {},
+    events : {
+      'click .grid' : 'video'
+    },
 
     initialize: function() {
       this.collection.on( 'sync', this.render, this ) 
@@ -132,11 +135,44 @@ jQuery(function() {
       return this.$el.find('div.tableCell').eq( this.slideIndex )
     },
 
+    video: function(e ) {
+      var $this = $(e.currentTarget)
+        , width = $this.closest('.tableCell').width()
+        , height = .6 * width
+        , clone = $this.clone()
+        , first = $this.siblings().andSelf().first()
+        , this_ = this
+
+      clone.css({
+        position:'absolute',
+        top: $this.position().top,
+        left: $this.position().left
+      }).insertAfter($this).transit({
+        top: first.position().top,
+        left: first.position().left,
+        width:width,
+        height:height,
+        rotateY: 180,
+        duration: 1200,
+        complete: function() {
+          var iframe = this_.itemplate({id: $(this).data().id })
+
+          $(this).html( iframe ).find('iframe').css({rotateY:180})
+        }
+      })
+
+
+    }
 
   })
 
   var videos = new Videos({})
     , grid   = new Grid({collection:videos})
 
+
+  $('body').on('click', function() {
+    $('iframe.iframe-grid').parent().remove()
+  
+  })
 
 });
