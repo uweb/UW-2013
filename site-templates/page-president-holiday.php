@@ -13,19 +13,23 @@
 </ul>
 
 <div class="section " id="section0">
-	<img class="holiday-logo-1" data-top="270" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best.png" />
+<div id="holiday-logo-image">
+	<img class="holiday-logo-1" data-top="270" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best-full.png" />
 	<img class="holiday-logo-2" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
-	<img class="holiday-logo-3" data-top="640" data-duration="4000" data-opacity="1"  src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments.png" />
+	<img class="holiday-logo-3" data-top="640" data-duration="4000" data-opacity="1"  src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-moments-full.png" />
+</div>
   <a href="#secondPage" class="scroll">Scroll</a>  
 </div>
 
 <div class="section" id="section1">
 
-	<img class="holiday-message-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-thankyou.png" />
-	<img class="holiday-message-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-forsharing.png" />
-	<img class="holiday-message-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-yourbest.png" />
-	<img class="holiday-message-4" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-husky.png" />
-	<img class="holiday-message-5" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-moments.png" />
+<div class="holiday-message-image">
+	<img class="holiday-message-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-thankyou-full.png" />
+	<img class="holiday-message-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-forsharing-full.png" />
+	<img class="holiday-message-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-yourbest-full.png" />
+	<img class="holiday-message-4" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-husky-full.png" />
+	<img class="holiday-message-5" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-moments-full.png" />
+</div>
 
     <div class="holiday-message">    
             <p>The Husky family achieved great things in 2013, and we want to hear straight from the source what made the year memorable to you. Was it joining hoards of enthusiastic Huskies to show purple pride during ESPN's GameDay on Red Square Studying abroad? Going back to school? </p>
