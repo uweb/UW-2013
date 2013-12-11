@@ -10,6 +10,8 @@ jQuery(function() {
 
   $.fn.staggerLoad = function( options ) {
     return this.each( function( index ) {
+      if ( $(this).hasClass('animated') )
+        return false;
       $(this).addClass('animated').delay( index * 100 )
         .transit({
           opacity   : 1, 
@@ -41,7 +43,7 @@ jQuery(function() {
       
       //if ( lastSection < 3 )
         //$('#section'+lastSection).find('[style]').removeAttr('style')
-        $('#section'+lastSection).find('.animated').removeAttr('style')
+        $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
 
       if ( index === 1 ) $('#section0 img').animateData()
       if ( index === 2 ) $('#section1 img').staggerLoad()
@@ -50,7 +52,7 @@ jQuery(function() {
         $('#holiday-video').animateData()
       }
       if ( index === 4 ) {
-        $('.slide.active a').each(function() {
+        $('#youtube-videos a').each(function() {
           var $this = $(this)
           $this.attr( 'style',  $this.data().css )
         }).staggerLoad()
@@ -58,7 +60,7 @@ jQuery(function() {
 
     },
     afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
-      if ( slideIndex > 0 ) $('.slide.active a').staggerLoad()
+      //if ( slideIndex > 0 ) $('.slide.active a').staggerLoad()
     },
     onLeave: function(index, direction){
       lastSection = index-1;
@@ -104,75 +106,110 @@ jQuery(function() {
 
     el : '#section3',
 
-    slideIndex:0,
+    initialized : false,
+
+    slideIndex : 0,
 
     template : _.template( $('#video-grid').html() ),
     itemplate : _.template( $('#iframe-grid').html() ),
 
     events : {
-      'click .grid' : 'video'
+      'click .grid' : 'video',
+      'click #more-videos' : 'refresh'
     },
 
     initialize: function() {
-      this.collection.on( 'sync', this.render, this ) 
+      this.collection.on( 'sync', this.addItems, this ) 
     },
 
     render: function() {
-      var index = this.collection.settings['start-index'] - 1;
-      this.getCurrentSlide().append( this.template({ videos: this.collection.toJSON().slice(index) }) )//.find('img').hide()
-      this.addItems()
+      var index = this.slice()
+      this.$('#youtube-videos').html( this.template({ 
+        videos: this.collection.toJSON().slice(index, index+this.collection.settings['max-results']) 
+      }) )
+
+      if ( this.initialized )
+        this.$('#youtube-videos a').staggerLoad()
+
+      this.initialized = true;
+      //this.addItems()
+    },
+
+    slice: function() {
+      this.slideIndex++;
+      var index = this.collection.settings['max-results'] * this.slideIndex-1
+      if ( this.collection.totalItems - index < this.collection.settings['max-results'])
+        this.slideIndex = 0
+      return index;
     },
 
     addItems: function() {
-      this.slideIndex++;
       this.collection.settings['start-index'] += this.collection.settings['max-results']
 
-      if ( this.collection.totalItems > this.collection.settings['start-index'] )
+      if ( this.collection.totalItems >= this.collection.settings['start-index'] )
         this.collection.fetch({ data: this.collection.settings, remove:false })
+      else 
+        this.render()
     },
 
-    getCurrentSlide: function() {
-      return this.$el.find('div.tableCell').eq( this.slideIndex )
+    refresh: function() {
+      this.addItems()    
     },
 
     video: function(e ) {
+
       var $this = $(e.currentTarget)
-        , width = $this.closest('.tableCell').width()
-        , height = .6 * width
-        , clone = $this.clone()
-        , first = $this.siblings().andSelf().first()
-        , this_ = this
+        , iframe = this.itemplate({ id: $this.data().id })
 
-      clone.css({
-        position:'absolute',
-        top: $this.position().top,
-        left: $this.position().left
-      }).insertAfter($this).transit({
-        top: first.position().top,
-        left: first.position().left,
-        width:width,
-        height:height,
-        rotateY: 180,
-        duration: 1200,
-        complete: function() {
-          var iframe = this_.itemplate({id: $(this).data().id })
-
-          $(this).html( iframe ).find('iframe').css({rotateY:180})
+      $this
+      .clone()
+      .addClass('clone')
+      .data({
+        position: {
+          top: $this.position().top,
+          left: $this.position().left,
+          borderRadius: $this.css('borderRadius'),
+          backgroundSize: $this.css('backgroundSize'),
+          width: $this.width(),
+          height: $this.height(),
+          duration: 700 
         }
       })
-
+      .css({
+        position:'absolute',
+        visibility:'visible',
+        top: $this.position().top,
+        left: $this.position().left
+      })
+      .insertAfter($this)
+      .transit({
+        top  : 0,
+        left : '-20%',
+        width: '140%',
+        height: '80%',
+        duration: 700,
+        borderRadius   : 0,
+        backgroundSize : '100%',
+        easing: 'easeOutQuart',
+        complete: function() { $(this).html(iframe) }
+      })
 
     }
 
   })
 
   var videos = new Videos({})
-    , grid   = new Grid({collection:videos})
+    , grid   = new Grid({ collection: videos })
 
 
   $('body').on('click', function() {
-    $('iframe.iframe-grid').parent().remove()
-  
+    var data = $('iframe.iframe-grid').parent().data()
+    if ( !data) return;
+    $('iframe.iframe-grid').remove()
+    $('a.clone').transit( data.position, function() {
+      $(this).remove()
+    } )
+    
   })
 
 });

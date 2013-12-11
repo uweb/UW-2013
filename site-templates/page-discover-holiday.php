@@ -6,13 +6,13 @@
 <?php get_header(); ?>
 
 <ul id="menu-dots">
-	<li data-menuanchor="intro"><a href="#intro">Intro</a></li>
+	<li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Holiday Message</a></li>
 	<li data-menuanchor="3rdPage"><a href="#3rdPage">Holiday Video</a></li>
 	<li data-menuanchor="4thPage"><a href="#4thPage">Your Videos</a></li>
 </ul>
 
-<div class="section " id="section0">
+<div class="section" id="section0">
     <div id="holiday-logo-image">
     	<img class="holiday-logo-1" data-top="270" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-best-full.png" />
     	<img class="holiday-logo-2" data-opacity="1" data-duration="1200" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide1-husky.png" />
@@ -43,10 +43,8 @@
 </div>
 
 <div class="section" id="section3">
-    <div class="slide-1 slide"></div>
-    <div class="slide-2 slide"></div>
-    <div class="slide-3 slide"></div>
-    <div class="slide-4 slide"></div>
+  <div id="youtube-videos"></div>
+  <a id="more-videos" class="scroll" href="#">More videos</a>
 </div>
 
 <script type="text/template" id="video-grid">
