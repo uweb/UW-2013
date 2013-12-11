@@ -200,59 +200,69 @@ body {
 }
 .scroll-1 {
     background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/scroll-2.png') top center no-repeat;    
-    bottom: 50px;
+    bottom: 0;
 }
 .holiday-logo-1,
 .holiday-logo-2,
-.holiday-logo-3,
+.holiday-logo-3 {
+    position: absolute;
+    opacity:0;
+}
 .holiday-message-1,
 .holiday-message-2,
 .holiday-message-3,
 .holiday-message-4,
 .holiday-message-5 {
     position: absolute;
-    left: 50%;
     opacity:0;
     margin-top:50px;
 }
- {
-    position: absolute;
-    left: 50%;
-}
+
 .holiday-logo-1 {
     top: 240px;    
-    margin-left: -109px;    
 }
 .holiday-logo-2 {
     top: 450px;    
-    margin-left: -360px;    
 }
 .holiday-logo-3 {
     top: 670px;    
-    margin-left: -251px;    
+}
+#holiday-logo-image {
+    width: 719px;
+    position: absolute;
+    left: 50%;
+    top:0;
+    margin-left: -360px;
+}
+#holiday-logo-image img {
+    width: 100%
 }
 
 .holiday-message-1 {
     top: 250px;    
-    margin-left: -265px;   
 }
 .holiday-message-2 {
     top: 325px;    
-    margin-left: -215px;    
 }
 .holiday-message-3 {
     top: 425px;    
-    margin-left: -262px;    
 }
 .holiday-message-4 {
     top: 505px;    
-    margin-left: -261px;   
 }
 .holiday-message-5 {
     top: 650px;    
-    margin-left: -246px;   
 }
-
+.holiday-message-image {
+    width: 531px;
+    position: absolute;
+    left: 50%;
+    margin-left: -265px;
+    top:0;
+}
+.holiday-message-image img {
+    width: 100% !important;
+}
 
 .holiday-message {
     position: absolute;
@@ -368,8 +378,31 @@ iframe.iframe-grid {
     display: block;
     border: 6px solid rgba(255,255,255, 0.2);
 }
+.grid.animated {
+    border-radius: 70px;
+}
 
 #footerBG,
 #footer-main {
     display: none;
+}
+@media (max-width: 1023px) {
+     #menu-dots {
+         display: none;
+     }   
+}
+@media screen and (max-height: 768px) {
+    #holiday-logo-image {
+        top: -80px;
+    }
+    .scroll,
+    .scroll-1 {
+        display: none;
+    }
+}
+@media screen and (max-height: 980px) {  
+    .scroll,
+    .scroll-1  {
+        display: none;
+    }
 }
