@@ -91,6 +91,8 @@ body, html {
 	z-index: 100;
 	margin-top: -32px;
 	top: 50%;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=10);
 	opacity: 1;
 }
 #fullPage-nav.right{
@@ -103,6 +105,8 @@ body, html {
 	position: absolute;
 	z-index: 4;
 	left: 50%;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
 	opacity: 1;
 }
 .fullPage-slidesNav.bottom{
@@ -213,6 +217,8 @@ body {
 .holiday-logo-3 {
   float:left;
   margin-top:15px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=100);
     opacity:0;
 }
 .holiday-message-1,
@@ -256,6 +262,8 @@ body {
   margin-left: -265px;
 }
 .holiday-message-image img {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
   opacity:0;
   margin-top: 90px;
 }
@@ -267,6 +275,8 @@ body {
     left: 50%;
     margin-left: -450px;
     margin-top: 20px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
     opacity:0;
 }
 .holiday-message p {
@@ -345,6 +355,8 @@ body {
 #holiday-video {
     width: 853px;
     height: 480px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
     opacity:0;
     margin-left: -426px;
     left: 50%;
@@ -395,6 +407,8 @@ body {
   border-radius: 70px;    
   display: block;
   border: 6px solid rgba(255,255,255, 0.2);
+  filter: alpha(opacity=0);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   opacity:0;
   box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
   -moz-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
@@ -454,6 +468,8 @@ body {
     #holiday-video {
       width: 675px;
       height: 380px;
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
       opacity: 0;
       left: 50%;
       position: absolute;
