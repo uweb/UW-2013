@@ -220,9 +220,6 @@ body {
 .holiday-message-3,
 .holiday-message-4,
 .holiday-message-5 {
-    position: absolute;
-    opacity:0;
-    margin-top:50px;
 }
 
 .holiday-logo-1 {
@@ -242,38 +239,35 @@ body {
 }
 
 .holiday-message-1 {
-    top: 250px;    
 }
 .holiday-message-2 {
-    top: 325px;    
 }
 .holiday-message-3 {
-    top: 425px;    
 }
 .holiday-message-4 {
-    top: 505px;    
 }
 .holiday-message-5 {
-    top: 650px;    
 }
 .holiday-message-image {
-    width: 531px;
-    position: absolute;
-    left: 50%;
-    margin-left: -265px;
-    top:0;
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  width: 531px;
+  margin-left: -265px;
 }
 .holiday-message-image img {
-    width: 100% !important;
+  opacity:0;
+  margin-top: 90px;
 }
 
 .holiday-message {
     position: absolute;
-    top: 740px;
     width: 900px;
     height: 150px;
     left: 50%;
     margin-left: -450px;
+    margin-top: 20px;
+    opacity:0;
 }
 .holiday-message p {
     font-family: 'Droid Serif', serif;
@@ -444,20 +438,18 @@ body {
         top: 220px;
     }
     .holiday-message-image img {
-        margin:10px; 
-        position:static;
     }
     .holiday-message {
         position: absolute;
-        top: 550px;
         width: 700px;
         height: 150px;
         left: 50%;
         margin-left: -360px;
+        margin-top:10px;
     }
     .holiday-message p {
-      font-size:15px;
-      line-height:20px;
+      font-size:14px;
+      line-height:22px;
     }
     #holiday-video {
       width: 675px;
@@ -503,11 +495,8 @@ body {
     margin-left: -245px;
   }
   .holiday-message-image img {
-      margin:10px; 
-      position:static;
   }
-  .holiday-message{
-    top: 650px;
+  .holiday-message {
   }
   #holiday-video, #border {
     top: 60%;
@@ -524,6 +513,15 @@ body {
 }
 
 @media screen and  (max-width: 767px) {
+  #branding {
+    z-index:9999;
+  }
+  #slide {
+    z-index:-9999;
+  }
+  #uw-mobile-panel {
+    background-color:white;
+  }
   #holiday-logo-image {
     top: 30%;
     width: 80%;
@@ -531,23 +529,43 @@ body {
     margin-left:0;
   }
   .holiday-message-image {
-    width: 60%;
-    left: 20%;
+    top: 10%;
+    width: 50%;
+    left: 25%;
     margin-left: 0;
-    top: 80px;
   }
   .holiday-message {
     position: absolute;
-    top: 430px;
     width: 80%;
     height: 150px;
     left: 10%;
     margin-left: 0;
   }
+  .holiday-message p {
+    font-size:1em;
+    line-height:1.1em;
+    width:200%;
+    margin-left:-50%;
+  }
   #holiday-video {
     top: 70px;
     left:10%;
     width: 80%;
+    height:40%;
     margin-left:0;
+  }
+  #youtube-videos {
+      top: 80px;
+      left: 10%;
+      width: 80%;
+      margin-left: 0;
+  }
+  .grid {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  #more-videos {
+    margin-left: 25%;
   }
 }

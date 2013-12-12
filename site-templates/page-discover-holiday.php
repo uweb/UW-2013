@@ -28,11 +28,11 @@
     	<img class="holiday-message-3" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-yourbest-full.png" />
     	<img class="holiday-message-4" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-husky-full.png" />
     	<img class="holiday-message-5" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-moments-full.png" />
+      <div class="holiday-message">    
+              <p>The Husky family achieved great things in 2013, and we want to hear straight from the source what made the year memorable to you. Was it joining hoards of enthusiastic Huskies to show purple pride during ESPN's GameDay on Red Square Studying abroad? Going back to school? </p>
+      </div>
     </div>
 
-    <div class="holiday-message">    
-            <p>The Husky family achieved great things in 2013, and we want to hear straight from the source what made the year memorable to you. Was it joining hoards of enthusiastic Huskies to show purple pride during ESPN's GameDay on Red Square Studying abroad? Going back to school? </p>
-    </div>
     <a href="#3rdPage" class="scroll-1">Scroll</a>
 </div>
 

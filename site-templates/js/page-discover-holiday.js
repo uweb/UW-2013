@@ -36,6 +36,7 @@ jQuery(function() {
     anchors: ['intro', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
 		menu: '#menu-dots',
     afterRender: function() {
+      $('#uw-mobile-panel').appendTo('body');
       if ( ! window.location.hash )
         $('#section0 img').animateData()
     },
@@ -46,7 +47,7 @@ jQuery(function() {
         $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
 
       if ( index === 1 ) $('#section0 img').animateData()
-      if ( index === 2 ) $('#section1 img').staggerLoad({marginTop: 0})
+      if ( index === 2 ) $('#section1 .holiday-message-image').children().staggerLoad({marginTop: 10})
       if ( index === 3 ) {
         var $h = $('#holiday-video')
         $('#border').transit({ width: $h.width() + 24, duration: 1200 })
@@ -218,3 +219,6 @@ jQuery(function() {
   })
 
 });
+
+$(window).load(function() {
+})
