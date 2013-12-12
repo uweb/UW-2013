@@ -121,6 +121,7 @@ jQuery(function() {
 
     events : {
       'click .grid' : 'video',
+      'touchstart .grid': 'mobile',
       'click #more-videos' : 'refresh'
     },
 
@@ -165,11 +166,12 @@ jQuery(function() {
       this.addItems()    
     },
 
-    video: function(e ) {
+    video: function( e ) {
 
       var $this = $(e.currentTarget)
         , iframe = this.itemplate({ id: $this.data().id })
 
+        console.log(this.isMobile)
       $this
       .clone()
       .addClass('clone')
@@ -194,11 +196,11 @@ jQuery(function() {
       .insertAfter($this)
       .transit({
         top  : 0,
-        left : '50%',
-        width : 568,
-        height : 320,
+        left : this.isMobile ? 0 : '50%',
+        width : this.isMobile ? '90%' : 568,
+        height : this.isMobile ? '90%' : 320,
         duration : 700,
-        marginLeft : -290,
+        marginLeft : this.isMobile ? 0 : -290,
         borderRadius   : 0,
         backgroundSize : '100%',
         easing: 'easeOutQuart',
@@ -206,6 +208,10 @@ jQuery(function() {
       })
       .siblings().fadeOut()
 
+    },
+
+    mobile: function(e) {
+      this.isMobile = true;
     }
 
   })
