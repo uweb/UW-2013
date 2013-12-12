@@ -36,7 +36,6 @@ jQuery(function() {
   var lastSection;
 
 	$.fn.fullpage({
-    fixedElements: '#branding',
     anchors: ['intro', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
 		menu: '#menu-dots',
     afterRender: function() {
