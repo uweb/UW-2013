@@ -9,15 +9,15 @@ jQuery(function() {
 	});
 
   $.fn.staggerLoad = function( options ) {
+    var settings = $.extend({
+      opacity   : 1, 
+      duration  : 700
+    }, options )
     return this.each( function( index ) {
       if ( $(this).hasClass('animated') )
         return false;
       $(this).addClass('animated').delay( index * 100 )
-        .transit({
-          opacity   : 1, 
-          marginTop : 0,
-          duration  : 700
-        })
+        .transit( settings )
     });
   }
 
@@ -46,9 +46,10 @@ jQuery(function() {
         $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
 
       if ( index === 1 ) $('#section0 img').animateData()
-      if ( index === 2 ) $('#section1 img').staggerLoad()
+      if ( index === 2 ) $('#section1 img').staggerLoad({marginTop: 0})
       if ( index === 3 ) {
-        $('#border').animateData()
+        var $h = $('#holiday-video')
+        $('#border').transit({ width: $h.width() + 24, duration: 1200 })
         $('#holiday-video').animateData()
       }
       if ( index === 4 ) {
@@ -120,13 +121,16 @@ jQuery(function() {
 
     initialize: function() {
       this.collection.on( 'sync', this.addItems, this ) 
+      this.loadMoreButton = $('#more-videos').get(0)
     },
 
     render: function() {
       var index = this.slice()
+        , slice = this.collection.toJSON().slice(index, index+this.collection.settings['max-results'])
       this.$('#youtube-videos').html( this.template({ 
-        videos: this.collection.toJSON().slice(index, index+this.collection.settings['max-results']) 
-      }) )
+        videos: slice,
+        blank : _.range( 12 - slice.length )
+      }) ).append( this.loadMoreButton )
 
       if ( this.initialized )
         this.$('#youtube-videos a').staggerLoad()
@@ -172,7 +176,8 @@ jQuery(function() {
           backgroundSize: $this.css('backgroundSize'),
           width: $this.width(),
           height: $this.height(),
-          duration: 700 
+          marginLeft : '',
+          duration: 700
         }
       })
       .css({
@@ -184,15 +189,17 @@ jQuery(function() {
       .insertAfter($this)
       .transit({
         top  : 0,
-        left : '-20%',
-        width: '140%',
-        height: '80%',
-        duration: 700,
+        left : '50%',
+        width : 568,
+        height : 320,
+        duration : 700,
+        marginLeft : -290,
         borderRadius   : 0,
         backgroundSize : '100%',
         easing: 'easeOutQuart',
         complete: function() { $(this).html(iframe) }
       })
+      .siblings().fadeOut()
 
     }
 
@@ -201,15 +208,13 @@ jQuery(function() {
   var videos = new Videos({})
     , grid   = new Grid({ collection: videos })
 
-
   $('body').on('click', function() {
     var data = $('iframe.iframe-grid').parent().data()
     if ( !data) return;
     $('iframe.iframe-grid').remove()
     $('a.clone').transit( data.position, function() {
       $(this).remove()
-    } )
-    
+    } ).siblings().fadeIn()
   })
 
 });

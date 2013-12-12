@@ -8,6 +8,12 @@
 body, html {
     margin:0;
     padding:0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #superContainer {
     height:100%;
@@ -205,7 +211,8 @@ body {
 .holiday-logo-1,
 .holiday-logo-2,
 .holiday-logo-3 {
-    position: absolute;
+  float:left;
+  margin-top:15px;
     opacity:0;
 }
 .holiday-message-1,
@@ -219,23 +226,19 @@ body {
 }
 
 .holiday-logo-1 {
-    top: 240px;    
 }
 .holiday-logo-2 {
-    top: 450px;    
 }
 .holiday-logo-3 {
-    top: 670px;    
 }
 #holiday-logo-image {
+    left: 50%;
+    top:25%;
+    margin-left: -360px;
     width: 719px;
     position: absolute;
-    left: 50%;
-    top:0;
-    margin-left: -360px;
 }
 #holiday-logo-image img {
-    width: 100%
 }
 
 .holiday-message-1 {
@@ -345,50 +348,74 @@ body {
     position: absolute;
     background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
 }
-iframe#holiday-video {
-  opacity:0;
+#holiday-video {
+    width: 853px;
+    height: 480px;
+    opacity:0;
     margin-left: -426px;
     left: 50%;
     position: absolute;
     top: 50%;
     margin-top: -250px;
 }
-iframe.iframe-grid {
+.iframe-grid {
   width: 100%;
   height: 100%;
   margin: 0;
 }
-.tableCell {
-    padding: 0 400px;
-}
 
 #youtube-videos {
-  position:absolute;
-  top: 20%;
-  left: 20%;
-  right: 20%;
-  bottom: 20%;
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  bottom: 100px;
+  width: 740px;
+  margin-left: -360px;
 }
 #more-videos {
+  display: block;
+  float: left;
   background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/load-more.png') 0 0 no-repeat;
-  bottom: 0;
+  width: 135px;
+  margin-left: -70px;
+  height: 42px;
+  z-index: 70;
+  overflow: hidden;
+  text-indent: -999px;
+  margin-top: 20px;
+  margin-left: 295px;
+  bottom: 30px;
 }
 
 .grid {
   float:left;
   overflow:hidden;
   margin: 0 20px 20px 0;
-    background-position: center center;
-    margin-top:100px;
-    height: 100px;
-    width: 100px;
-    background-size: 217%;
-    -webkit-border-radius: 70px;
-    -moz-border-radius: 70px;
-    border-radius: 70px;    
-    display: block;
-    border: 6px solid rgba(255,255,255, 0.2);
-    opacity:0;
+  background-position: center center;
+  margin-top:100px;
+  height: 100px;
+  width: 100px;
+  background-size: 217%;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  border-radius: 70px;    
+  display: block;
+  border: 6px solid rgba(255,255,255, 0.2);
+  opacity:0;
+  box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  -moz-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  -webkit-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  margin: 35px;
+  -webkit-transition: box-shadow 350ms linear;
+}
+.grid.animated:hover {
+  box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+  -webkit-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+}
+
+.grid.blank {
+    visibility:hidden;
 }
 .grid.animated {
     border-radius: 70px;
@@ -405,16 +432,122 @@ iframe.iframe-grid {
 }
 @media screen and (max-height: 768px) {
     #holiday-logo-image {
-        top: -80px;
+        top: 30%;
+        width: 719px;
+        left: 50%;
+        margin-left: -360px;
+    }
+    .holiday-message-image {
+        width: 350px;
+        left: 50%;
+        margin-left:-195px;
+        top: 220px;
+    }
+    .holiday-message-image img {
+        margin:10px; 
+        position:static;
+    }
+    .holiday-message {
+        position: absolute;
+        top: 550px;
+        width: 700px;
+        height: 150px;
+        left: 50%;
+        margin-left: -360px;
+    }
+    .holiday-message p {
+      font-size:15px;
+      line-height:20px;
+    }
+    #holiday-video {
+      width: 675px;
+      height: 380px;
+      opacity: 0;
+      left: 50%;
+      position: absolute;
+      top: 220px;
+      border: thin solid white;
+      padding: 5px;
+      margin-left:-345px;
+      margin-top:0px;
+    }
+    #border {
+      display:none;
+    }
+    #youtube-videos {
+      top: 190px;
+      left: 50%;
+      width: 610px;
+      margin-left: -310px;
+    }
+    .grid {
+      margin-bottom: 0px !important; 
+      height: 70px;
+      width: 70px;
+    }
+    #more-videos {
+      margin-left:235px;
     }
     .scroll,
     .scroll-1 {
         display: none;
     }
 }
+
+
+@media screen and (min-height:769px) and (max-height:880px) {
+  .holiday-message-image {
+    width: 450px;
+    left: 50%;
+    top: 28%;
+    margin-left: -245px;
+  }
+  .holiday-message-image img {
+      margin:10px; 
+      position:static;
+  }
+  .holiday-message{
+    top: 650px;
+  }
+  #holiday-video, #border {
+    top: 60%;
+  }
+}
+
+
+
 @media screen and (max-height: 980px) {  
     .scroll,
     .scroll-1  {
         display: none;
     }
+}
+
+@media screen and  (max-width: 767px) {
+  #holiday-logo-image {
+    top: 30%;
+    width: 80%;
+    left: 10%;
+    margin-left:0;
+  }
+  .holiday-message-image {
+    width: 60%;
+    left: 20%;
+    margin-left: 0;
+    top: 80px;
+  }
+  .holiday-message {
+    position: absolute;
+    top: 430px;
+    width: 80%;
+    height: 150px;
+    left: 10%;
+    margin-left: 0;
+  }
+  #holiday-video {
+    top: 70px;
+    left:10%;
+    width: 80%;
+    margin-left:0;
+  }
 }

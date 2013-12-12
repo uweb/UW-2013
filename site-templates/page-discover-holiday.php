@@ -38,13 +38,14 @@
 
 <div class="section" id="section2">
      <div id="border" data-width="877" data-duration="1200"></div>
-     <iframe id="holiday-video" width="853" height="480" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
+     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
      <a href="#4rdPage" class="scroll-1">Scroll</a> 
 </div>
 
 <div class="section" id="section3">
-  <div id="youtube-videos"></div>
-  <a id="more-videos" class="scroll" href="#">More videos</a>
+  <div id="youtube-videos">
+  <span id="more-videos" href="#">More videos</span>
+  </div>
 </div>
 
 <script type="text/template" id="video-grid">
@@ -53,6 +54,10 @@
 
     <a class="grid" data-id="<%= video.id %>" style="background-image:url(<%= video.thumbnail.hqDefault %>)" data-css="background-image:url(<%= video.thumbnail.hqDefault %>)"></a>
 
+<% }) %>
+
+<% _.each( blank, function(blank, index) {  %>
+    <a class="grid blank"></a>
 <% }) %>
 </script>
 
