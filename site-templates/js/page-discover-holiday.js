@@ -1,12 +1,16 @@
 jQuery(function() {
+  console.log()
 
-	$('#snowy').snowfall({
-     minSize: 1,
-     maxSize:2,
-     minSpeed : 1,
-     maxSpeed : 4,
-     flakeCount : 100,
-	});
+  if( navigator.userAgent.indexOf(' AppleWebKit/') !== -1 )
+  {
+    $('#snowy').snowfall({
+       minSize: 1,
+       maxSize:2,
+       minSpeed : 1,
+       maxSpeed : 4,
+       flakeCount : 100,
+    });
+  }
 
   $.fn.staggerLoad = function( options ) {
     var settings = $.extend({
