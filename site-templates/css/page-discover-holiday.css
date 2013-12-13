@@ -5,6 +5,24 @@
  *
  * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
  */
+body {
+    font-size: 14px !important; /* Overwrites  */
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/quad.jpg') no-repeat center center fixed !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;     
+}
+#branding {
+    top: 0 !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: none !important;
+}
+#thin-strip {
+  position:fixed !important;
+}
 body, html {
     margin:0;
     padding:0;
@@ -175,21 +193,6 @@ body, html {
 
 /* UW Custom */
 
-#branding {
-    top: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    background: none !important;
-}
-body {
-    font-size: 14px !important; /* Overwrites  */
-    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/quad.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;     
-}
 .purple .slide {
     background-color: rgba(0, 0, 0, 0);
 }
