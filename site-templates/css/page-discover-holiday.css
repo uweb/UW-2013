@@ -582,8 +582,8 @@ body, html {
 {
   display:none;
 }
-#holiday-video,
-#holiday-video {
+#ie7 #holiday-video,
+#ie8 #holiday-video {
   width: 550px;
   height: 310px;
   margin-left:-273px;
