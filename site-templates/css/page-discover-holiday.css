@@ -562,3 +562,37 @@ body, html {
     margin-left: 25%;
   }
 }
+
+/* ie hacks */
+
+#ie7 .scroll-1,
+#ie8 .scroll-1,
+#ie7 .scroll,
+#ie8 .scroll,
+#ie7 #border, 
+#ie8 #border {
+  display:none;
+}
+
+#ie7 #holiday-logo-image,
+#ie8 #holiday-logo-image
+{
+  width: 500px;
+  margin-left: -250px;
+}
+
+#ie7 #holiday-video,
+#ie8 #holiday-video {
+  width: 550px;
+  height: 310px;
+  margin-left:-273px;
+  border: thin solid white;
+  padding: 5px;
+  top: 520px;
+}
+
+#ie7 .holiday-message-image,
+#ie8 .holiday-message-image {
+  width: 400px;
+  margin-left: -195px;
+}
