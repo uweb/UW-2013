@@ -110,7 +110,7 @@ body, html {
 	margin-top: -32px;
 	top: 50%;
   -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-  filter: alpha(opacity=10);
+  filter: alpha(opacity=100);
 	opacity: 1;
 }
 #fullPage-nav.right{
@@ -570,29 +570,31 @@ body, html {
 #ie7 .scroll,
 #ie8 .scroll,
 #ie7 #border, 
-#ie8 #border {
+#ie8 #border,
+#ie7 #menu-dots,
+#ie7 #section0,
+#ie7 #section2,
+#ie7 #section3,
+#ie8 #menu-dots,
+#ie8 #section0,
+#ie8 #section2,
+#ie8 #section3
+{
   display:none;
 }
-
-#ie7 #holiday-logo-image,
-#ie8 #holiday-logo-image
-{
-  width: 500px;
-  margin-left: -250px;
-}
-
-#ie7 #holiday-video,
-#ie8 #holiday-video {
+#holiday-video,
+#holiday-video {
   width: 550px;
   height: 310px;
   margin-left:-273px;
   border: thin solid white;
   padding: 5px;
   top: 520px;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+	opacity: 1;
 }
-
-#ie7 .holiday-message-image,
-#ie8 .holiday-message-image {
-  width: 400px;
-  margin-left: -195px;
+#ie7 #section1,
+#ie8 #section1 {
+  position:static;
 }

@@ -1,4 +1,6 @@
 jQuery(function() {
+  if ( $('#section0').is(':hidden') )
+    return;
 
   if( navigator.userAgent.indexOf(' AppleWebKit/') !== -1 )
   {
