@@ -135,7 +135,6 @@ jQuery(function() {
         this.$('#youtube-videos a').staggerLoad()
 
       this.initialized = true;
-      //this.addItems()
     },
 
     slice: function() {
@@ -221,6 +220,3 @@ jQuery(function() {
   })
 
 });
-
-$(window).load(function() {
-})
