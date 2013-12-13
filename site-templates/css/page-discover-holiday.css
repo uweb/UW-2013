@@ -257,7 +257,7 @@ body, html {
     filter: alpha(opacity=0);
     opacity:0;
 }
-.holiday-message p {
+.holiday-message p, #ie-only {
     font-family: 'Droid Serif', serif;
     text-shadow: 0 0 3px #000;
     text-align: center;
@@ -344,6 +344,19 @@ body, html {
     position: absolute;
     top: 50%;
     margin-top: -250px;
+}
+#ie-only {
+  display:none;
+  position: absolute;
+  width: 900px;
+  height: 150px;
+  left: 50%;
+  margin-left: -450px;
+  margin-top: 20px;
+  top:610px;
+}
+#ie-only a {
+  color:#fff;
 }
 .iframe-grid {
   width: 100%;
@@ -581,6 +594,10 @@ body, html {
 #ie8 #section3
 {
   display:none;
+}
+#ie7 #ie-only,
+#ie8 #ie-only {
+  display:block;
 }
 #ie7 #holiday-video,
 #ie8 #holiday-video {
