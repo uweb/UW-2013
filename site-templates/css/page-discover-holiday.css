@@ -225,38 +225,12 @@ body, html {
     filter: alpha(opacity=100);
     opacity:0;
 }
-.holiday-message-1,
-.holiday-message-2,
-.holiday-message-3,
-.holiday-message-4,
-.holiday-message-5 {
-}
-
-.holiday-logo-1 {
-}
-.holiday-logo-2 {
-}
-.holiday-logo-3 {
-}
 #holiday-logo-image {
     left: 50%;
     top:25%;
     margin-left: -360px;
     width: 719px;
     position: absolute;
-}
-#holiday-logo-image img {
-}
-
-.holiday-message-1 {
-}
-.holiday-message-2 {
-}
-.holiday-message-3 {
-}
-.holiday-message-4 {
-}
-.holiday-message-5 {
 }
 .holiday-message-image {
   position: absolute;
@@ -516,10 +490,6 @@ body, html {
     left: 50%;
     top: 28%;
     margin-left: -245px;
-  }
-  .holiday-message-image img {
-  }
-  .holiday-message {
   }
   #holiday-video, #border {
     top: 60%;
