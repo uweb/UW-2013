@@ -1,5 +1,4 @@
 jQuery(function() {
-  console.log()
 
   if( navigator.userAgent.indexOf(' AppleWebKit/') !== -1 )
   {
@@ -8,7 +7,7 @@ jQuery(function() {
        maxSize:2,
        minSpeed : 1,
        maxSpeed : 4,
-       flakeCount : 100,
+       flakeCount : 100
     });
   }
 
@@ -45,9 +44,7 @@ jQuery(function() {
     },
     afterLoad: function(anchorLink, index){
       
-      //if ( lastSection < 3 )
-        //$('#section'+lastSection).find('[style]').removeAttr('style')
-        $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
+      $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
 
       if ( index === 1 ) $('#section0 img').animateData()
       if ( index === 3 ) $('#section2 .holiday-message-image').children().staggerLoad({marginTop: 10})
@@ -167,7 +164,6 @@ jQuery(function() {
       var $this = $(e.currentTarget)
         , iframe = this.itemplate({ id: $this.data().id })
 
-        console.log(this.isMobile)
       $this
       .clone()
       .addClass('clone')

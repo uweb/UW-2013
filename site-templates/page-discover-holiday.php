@@ -23,7 +23,7 @@
 
 <div class="section" id="section1">
      <div id="border" data-width="877" data-duration="1200"></div>
-     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/uqXOFVczwXo" frameborder="0" allowfullscreen></iframe>   
+     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/Ex2Ip5Bas40" frameborder="0" allowfullscreen></iframe>   
      <a href="#4rdPage" class="scroll-1">Scroll</a> 
 </div>
 
