@@ -7,8 +7,8 @@
 
 <ul id="menu-dots">
 	<li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
-	<li data-menuanchor="secondPage"><a href="#secondPage">Holiday Message</a></li>
-	<li data-menuanchor="3rdPage"><a href="#3rdPage">Holiday Video</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Holiday Video</a></li>
+	<li data-menuanchor="3rdpage"><a href="#3rdpage">Holiday Message</a></li>
 	<li data-menuanchor="4thPage"><a href="#4thPage">Your Videos</a></li>
 </ul>
 
@@ -22,6 +22,12 @@
 </div>
 
 <div class="section" id="section1">
+     <div id="border" data-width="877" data-duration="1200"></div>
+     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
+     <a href="#4rdPage" class="scroll-1">Scroll</a> 
+</div>
+
+<div class="section" id="section2">
     <div class="holiday-message-image">
     	<img class="holiday-message-1" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-thankyou-full.png" />
     	<img class="holiday-message-2" src="/cms/president/wp-content/themes/uw-2013/img/misc/template-holiday/slide2-forsharing-full.png" />
@@ -34,12 +40,6 @@
     </div>
 
     <a href="#3rdPage" class="scroll-1">Scroll</a>
-</div>
-
-<div class="section" id="section2">
-     <div id="border" data-width="877" data-duration="1200"></div>
-     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/KsDQPY_3lZ0" frameborder="0" allowfullscreen></iframe>   
-     <a href="#4rdPage" class="scroll-1">Scroll</a> 
 </div>
 
 <div class="section" id="section3">

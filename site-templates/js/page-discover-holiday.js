@@ -50,8 +50,8 @@ jQuery(function() {
         $('#section'+lastSection).find('.animated').removeAttr('style').removeClass('animated')
 
       if ( index === 1 ) $('#section0 img').animateData()
-      if ( index === 2 ) $('#section1 .holiday-message-image').children().staggerLoad({marginTop: 10})
-      if ( index === 3 ) {
+      if ( index === 3 ) $('#section2 .holiday-message-image').children().staggerLoad({marginTop: 10})
+      if ( index === 2 ) {
         var $h = $('#holiday-video')
         $('#border').transit({ width: $h.width() + 24, duration: 1200 })
         $('#holiday-video').animateData()
@@ -63,9 +63,6 @@ jQuery(function() {
         }).staggerLoad()
       }
 
-    },
-    afterSlideLoad: function(anchorLink, index, slideAnchor, slideIndex) {
-      //if ( slideIndex > 0 ) $('.slide.active a').staggerLoad()
     },
     onLeave: function(index, direction){
       lastSection = index-1;
