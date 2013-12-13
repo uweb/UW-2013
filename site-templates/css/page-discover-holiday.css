@@ -289,6 +289,9 @@ body {
     color: #fff;
     line-height: 25px
 }
+.holiday-message a {
+  color: #fff;
+}
 #snowy,
 #pattern {
     position: fixed;
