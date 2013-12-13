@@ -8,8 +8,8 @@
 <ul id="menu-dots">
 	<li data-menuanchor="intro" class="active"><a href="#intro">Intro</a></li>
 	<li data-menuanchor="secondPage"><a href="#secondPage">Holiday Video</a></li>
-	<li data-menuanchor="3rdpage"><a href="#3rdpage">Holiday Message</a></li>
-	<li data-menuanchor="4thPage"><a href="#4thPage">Your Videos</a></li>
+	<li data-menuanchor="thirdPage"><a href="#thirdPage">Holiday Message</a></li>
+	<li data-menuanchor="fourthPage"><a href="#fourthPage">Your Videos</a></li>
 </ul>
 
 <div class="section" id="section0">
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    <a href="#3rdPage" class="scroll-1">Scroll</a>
+    <a href="#3rdpage" class="scroll-1">Scroll</a>
 </div>
 
 <div class="section" id="section3">

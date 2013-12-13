@@ -36,7 +36,7 @@ jQuery(function() {
   var lastSection;
 
 	$.fn.fullpage({
-    anchors: ['intro', 'secondPage', '3rdPage', '4thPage', 'lastPage'],
+    anchors: ['intro', 'secondPage', 'thirdPage', 'fourthPage'],
 		menu: '#menu-dots',
     afterRender: function() {
       $('#uw-mobile-panel').appendTo('body');
