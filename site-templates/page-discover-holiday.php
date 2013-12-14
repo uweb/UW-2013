@@ -104,7 +104,7 @@
 
 <div class="section" id="section1">
      <div id="border" data-width="877" data-duration="1200"></div>
-     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/xIIQOsGYuG8" frameborder="0" allowfullscreen></iframe>   
+     <iframe id="holiday-video" data-opacity="1" data-duration="1200" src="//www.youtube.com/embed/xIIQOsGYuG8?vq=hd720" frameborder="0" allowfullscreen></iframe>   
      <p id="ie-only">
         <a href="http://www.youtube.com/playlist?list=PLgNkGpnjFWo91-ltPkhAYOkMGhVzhRLJH" title="Husky Moments">See more great Husky moments</a> and send us your best moment to <a href="mailto:bestof13@uw.edu" title="Submit a video">bestof13@uw.edu</a>!
     </p>
