@@ -80,26 +80,24 @@ add_shortcode( 'archives', 'uw_archive_shortcode' );
  * Blogroll Shortcode
  */
 if ( ! function_exists('uw_blogroll_shortcode') ):
-	function uw_blogroll_shortcode( $atts ){
+	function uw_blogroll_shortcode( $atts = array() ){
 
-    	if ( ! is_array($atts) ){
-            $atts = array();
-        }
-
-    	if ((get_post_type() == 'post') && (!is_home())){   //allow pagebuilder widgets to run the shortcode, block all other posts to prevent infinite loops
-            return '';
-        }
+    //allow pagebuilder widgets to run the shortcode, block all other posts to prevent infinite loops
+    if ( (get_post_type() == 'post') && (!is_home()) ) {   
+          return '';
+    }
 
 		$params = array_merge( array(
 			'excerpt'      => 'true',
 			'trim'         => 'false',
 			'image'        => 'hide',
+			'author'       => 'show',
 			'number'       =>  5
 			), $atts );
 
-        if ( !array_key_exists('numberposts', $params ) ){
-			$params['numberposts'] = $params['number'];
-        }
+    if ( !array_key_exists('numberposts', $params ) ) {
+      $params['numberposts'] = $params['number'];
+    }
 
 		$posts = get_posts($params);
 
@@ -120,9 +118,9 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
                         $class = 'class="pull-left"';
                     }
                 }
-                $author = get_the_author_meta('display_name', $post->post_author);
+                $author = $params['author'] === 'show' ? '<p class="author-info">' . get_the_author_meta('display_name', $post->post_author) . '</p>' : ''; 
                 $postDate = get_the_time(get_option('date_format'), $postID);
-                $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2><p class=\"author-info\">{$author}</p>{$excerpt}</span></li>";
+                $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2>{$author}{$excerpt}</span></li>";
             }
 		}
 
