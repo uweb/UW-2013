@@ -53,8 +53,8 @@ $(document).ready(function() {
       mouseenter: function( e ) 
       {
 
-        if ( $.uw.screensize != 'desktop' ) 
-          return false;
+//        if ( $.uw.screensize != 'desktop' ) 
+//          return false;
 
         var $this = $(this)
           , $a    = $this.children( MENU_ANCHOR )
@@ -73,8 +73,8 @@ $(document).ready(function() {
       mouseleave: function( e ) 
       {
 
-        if ( $.uw.screensize != 'desktop' ) 
-          return false;
+//        if ( $.uw.screensize != 'desktop' ) 
+//          return false;
 
         var $this = $(this)
           , $ul   = $this.children( SUB_MENU )

@@ -3486,6 +3486,12 @@ ul li {
   padding-left: 12px;
   list-style: none;
 }
+ol ol li {
+  list-style-type: upper-roman;
+}
+ol ol li ol li {
+  list-style-type: disc;
+}
 #branding ul li {
   margin-left: 0;
   background: none;
@@ -5613,9 +5619,10 @@ ul.gallery-menu li.active {
     float: left;
     color: #FFF;
     padding: 9px 9px 17px;
-    font-size: 1.15em;
+    font-size: 1.05em;
     background: url('img/header/header-sprite.png') no-repeat 0 -265px transparent;
     text-shadow: 0px 0px 3px #272727;
+    font-weight: 800;
   }
   .dropdown-toggle:focus {
     color: #d7a900;
@@ -6825,7 +6832,7 @@ ul.gallery-menu li.active {
     top: 65px;
   }
   .navbar-caret {
-    display: none !important;
+    opacity: 0 !important;
   }
   .caret {
     position: absolute;

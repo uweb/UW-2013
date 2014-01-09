@@ -358,7 +358,7 @@ iframe.iframe-grid {
   height: 100%;
   margin: 0;
 }
-.tableCell {
+#section3 .tableCell {
     padding: 0 400px;
 }
 
@@ -386,6 +386,48 @@ iframe.iframe-grid {
 #footer-main {
     display: none;
 }
+
+@media (max-width: 768px) {
+     #holiday-logo-image {
+         width: 340px;
+         margin-left: -170px;
+         margin-top: 100px;
+    }
+     #holiday-logo-image img { 
+         top: auto !important;
+         margin-bottom: 10px;
+         position: static;
+     }
+     .holiday-message-image,
+     .holiday-message {
+         width: 368px;
+         margin-left: -184px;
+     }
+      .holiday-message-image {
+         top: 90px;
+      }
+      .holiday-message-image img { 
+         top: auto !important;
+         margin-bottom: 10px;
+         position: static;
+     }
+     .holiday-message {
+        top: 470px;
+    }
+    iframe#holiday-video {
+        opacity: 0;
+        margin-left: -150px;
+        width: 300px !important;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        margin-top: -250px;
+    }
+    #border {
+        display: none;
+    }
+}
+
 @media (max-width: 1023px) {
      #menu-dots {
          display: none;
