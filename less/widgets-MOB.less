@@ -120,23 +120,43 @@
   overflow:hidden;
   width:100%;
 
+  h3 {
+    color:@purple; 
+  }
+
+  p {
+   color:@grayDark; 
+  }
+
   .canvas {
     float:left; 
-    width:10000px;
   }
 
   .slide {
     float:left;
     position:relative;
+    background-color:@white;
 
-    .image-wrapper {
-      overflow: hidden; 
-    }
-    
     img {
-      width:100%; 
+      float:left;
+      padding: 20px;
+      width:30%; 
     }
 
+    &.active-slide {
+      img {
+        width:100%; 
+        padding: 0 0 20px 0;
+      }
+    }
+
+  }
+
+	.slideshow-more {
+    color:@purple;
+    &:before {
+      background-color:@purple;
+    }
   }
 }
 
@@ -144,7 +164,7 @@
 	// Colors 
 .purple {
 	.slide-info {
-		background: @purple;
+		background: @white;
 	}
 }
 .blue {

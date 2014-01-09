@@ -7515,6 +7515,8 @@ $(document).ready(function() {
 
   $('table').addClass('table')
 
+  $('li.disabled').children('a').removeAttr('href')
+
 })
 ;/*
 * UW Alert Banner
@@ -8333,103 +8335,6 @@ $(document).ready(function() {
     return false;
 
   } )
-
-
-/**
- * Mobile
- */
-  $slideshows
-    .data('currentSlide', 0 )
-    .on('touchstart touchmove touchend', '.slide', function(e) {
-
-    if ( $.uw.screensize !== 'mobile' ) return false;
-
-    var $this   = $(this)
-      , $canvas = $this.closest('.widget')
-      , $slides = $this.siblings('.slide').andSelf()
-      , $navs   = $canvas.find('li a')
-      , width   = $this.width()
-      , target  = 'IMG' //e.target.nodeName 
-      , del, anim, $nextSlide, move
-
-    switch(e.type) 
-    {
-
-      case 'touchstart':
-
-        // resize/reset the slideshow
-        $window.trigger('resize.slideshow')
-
-        $canvas.data({ 
-          'touchStartPosition': e.originalEvent.touches[0].pageX,
-          'originalLeft'  : $this.position().left
-        })
-
-        break;
-
-      case 'touchmove':
-
-        del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition') + $canvas.data('originalLeft');
-        anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index());
-        $nextSlide  = del < 0 ? $this : $this.prev();
-          
-
-        anim.transition({
-          x : del + width * $canvas.data('currentSlide')
-        } , { 
-            queue: false 
-        })
-
-        $nextSlide.transition({
-          opacity : del < 0 ? 1 -  Math.abs(del/width) : Math.abs(del/width)
-        }, {
-          queue: false
-        })
-
-        break;
-      
-      case 'touchend':
-
-        del         = e.originalEvent.changedTouches[0].pageX - $canvas.data('touchStartPosition');
-        move        = Math.max( Math.abs(del/width), 0.3 ) == 0.3 ? 0 : del/width
-        anim        = del < 0 ? $slides.slice($this.index()+1) : $slides.slice($this.index())
-        $nextSlide  = del < 0 ? $this : $this.prev()
-
-        var opacity     = del > 0                  ? 1 : 
-                          ! move                   ? 1 : 
-                          $this.is($slides.last()) ? 1 : 0;
-
-        var current     = ( move === 0 ||
-                            move > 0 && ! $this.prev('.slide').length || 
-                            move < 0 && ! $this.next('.slide').length ) ? $canvas.data('currentSlide') :
-                         move > 0.3 ? current += 1 : current -= 1;
-
-        $canvas.data( 'currentSlide', current )
-
-        anim.transition( { 
-          x : width * current
-        })
-
-        $nextSlide.transition({
-          opacity : opacity
-        })
-
-        $navs.removeClass( ACTIVE_SLIDE )
-          .eq( Math.abs(current) ).addClass( ACTIVE_SLIDE )
-
-
-        break;
-
-      case 'default':
-
-        return true;
-
-    }
-
-    return e.target.className === 'slideshow-more';
-    
-  })
-
 
   $window.bind( 'scroll', function() {
 

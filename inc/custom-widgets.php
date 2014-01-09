@@ -21,6 +21,16 @@ if ( ! function_exists( 'uw_widgets_init' ) ):
     register_sidebar($args);    
 
     $args = array(
+      'name'          => 'Post Sidebar',
+      'id'            => 'post-sidebar',
+      'description'   => 'Widgets for the right column of the all '. get_bloginfo('name') . ' posts',
+      'before_widget' => '<div id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</div>'
+    );
+
+    register_sidebar($args);    
+
+    $args = array(
       'name'          => 'Homepage Sidebar',
       'id'            => 'homepage-sidebar',
       'description'   => 'Widgets for the right column of the '. get_bloginfo('name') . ' homepage',

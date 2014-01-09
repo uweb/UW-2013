@@ -41,7 +41,7 @@
 				<div id="secondary" class="span4 right-bar" role="complementary">
 					<div class="stripe-top"></div><div class="stripe-bottom"></div>				
           <div id="sidebar">
-					  <?php dynamic_sidebar('sidebar'); ?>
+            <?php dynamic_sidebar('post-sidebar'); ?>
           </div>
         </div><!-- .span4 -->
 

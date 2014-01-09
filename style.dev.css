@@ -7341,22 +7341,37 @@ ul.gallery-menu li.active {
     overflow: hidden;
     width: 100%;
   }
+  .slideshow-widget h3 {
+    color: #39275b;
+  }
+  .slideshow-widget p {
+    color: #3c3c3c;
+  }
   .slideshow-widget .canvas {
     float: left;
-    width: 10000px;
   }
   .slideshow-widget .slide {
     float: left;
     position: relative;
-  }
-  .slideshow-widget .slide .image-wrapper {
-    overflow: hidden;
+    background-color: #ffffff;
   }
   .slideshow-widget .slide img {
+    float: left;
+    padding: 20px;
+    width: 30%;
+  }
+  .slideshow-widget .slide.active-slide img {
     width: 100%;
+    padding: 0 0 20px 0;
+  }
+  .slideshow-widget .slideshow-more {
+    color: #39275b;
+  }
+  .slideshow-widget .slideshow-more:before {
+    background-color: #39275b;
   }
   .purple .slide-info {
-    background: #39275b;
+    background: #ffffff;
   }
   .blue .slide-info {
     background: #258eba;

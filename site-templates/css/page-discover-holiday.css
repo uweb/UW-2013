@@ -5,9 +5,33 @@
  *
  * Copyright (C) 2013 alvarotrigo.com - A project by Alvaro Trigo
  */
+body {
+    font-size: 14px !important; /* Overwrites  */
+    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/quad.jpg') no-repeat center center fixed !important;
+    -webkit-background-size: cover !important;
+    -moz-background-size: cover !important;
+    -o-background-size: cover !important;
+    background-size: cover !important;     
+}
+#branding {
+    top: 0 !important;
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: none !important;
+}
+#thin-strip {
+  position:fixed !important;
+}
 body, html {
     margin:0;
     padding:0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 #superContainer {
     height:100%;
@@ -85,6 +109,8 @@ body, html {
 	z-index: 100;
 	margin-top: -32px;
 	top: 50%;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
 	opacity: 1;
 }
 #fullPage-nav.right{
@@ -97,6 +123,8 @@ body, html {
 	position: absolute;
 	z-index: 4;
 	left: 50%;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
 	opacity: 1;
 }
 .fullPage-slidesNav.bottom{
@@ -165,20 +193,6 @@ body, html {
 
 /* UW Custom */
 
-#branding {
-    position: fixed;
-    left: 0;
-    right: 0;
-    background: none !important;
-}
-body {
-    font-size: 14px !important; /* Overwrites  */
-    background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/quad.jpg') no-repeat center center fixed;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;     
-}
 .purple .slide {
     background-color: rgba(0, 0, 0, 0);
 }
@@ -205,74 +219,45 @@ body {
 .holiday-logo-1,
 .holiday-logo-2,
 .holiday-logo-3 {
-    position: absolute;
+  float:left;
+  margin-top:15px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=100);
     opacity:0;
-}
-.holiday-message-1,
-.holiday-message-2,
-.holiday-message-3,
-.holiday-message-4,
-.holiday-message-5 {
-    position: absolute;
-    opacity:0;
-    margin-top:50px;
-}
-
-.holiday-logo-1 {
-    top: 240px;    
-}
-.holiday-logo-2 {
-    top: 450px;    
-}
-.holiday-logo-3 {
-    top: 670px;    
 }
 #holiday-logo-image {
+    left: 50%;
+    top:25%;
+    margin-left: -360px;
     width: 719px;
     position: absolute;
-    left: 50%;
-    top:0;
-    margin-left: -360px;
-}
-#holiday-logo-image img {
-    width: 100%
-}
-
-.holiday-message-1 {
-    top: 250px;    
-}
-.holiday-message-2 {
-    top: 325px;    
-}
-.holiday-message-3 {
-    top: 425px;    
-}
-.holiday-message-4 {
-    top: 505px;    
-}
-.holiday-message-5 {
-    top: 650px;    
 }
 .holiday-message-image {
-    width: 531px;
-    position: absolute;
-    left: 50%;
-    margin-left: -265px;
-    top:0;
+  position: absolute;
+  top: 220px;
+  left: 50%;
+  width: 531px;
+  margin-left: -265px;
 }
 .holiday-message-image img {
-    width: 100% !important;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity:0;
+  margin-top: 90px;
 }
 
 .holiday-message {
     position: absolute;
-    top: 740px;
     width: 900px;
     height: 150px;
     left: 50%;
     margin-left: -450px;
+    margin-top: 20px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity:0;
 }
-.holiday-message p {
+.holiday-message p, #ie-only {
     font-family: 'Droid Serif', serif;
     text-shadow: 0 0 3px #000;
     text-align: center;
@@ -280,6 +265,9 @@ body {
     font-size: 18px;
     color: #fff;
     line-height: 25px
+}
+.holiday-message a {
+  color: #fff;
 }
 #snowy,
 #pattern {
@@ -314,8 +302,8 @@ body {
     position: fixed;
     top: 48%;
     right: 30px;
-    z-index: 70;
-    width: 200px;
+    z-index: 1;
+    width: 160px;
 }
 #menu-dots li {
     display: inline-block;
@@ -345,38 +333,96 @@ body {
     position: absolute;
     background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/border.png') 0 0 no-repeat;
 }
-iframe#holiday-video {
-  opacity:0;
+#holiday-video {
+    width: 853px;
+    height: 480px;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity:0;
     margin-left: -426px;
     left: 50%;
     position: absolute;
     top: 50%;
     margin-top: -250px;
 }
-iframe.iframe-grid {
+#ie-only {
+  display:none;
+  position: absolute;
+  width: 900px;
+  height: 150px;
+  left: 50%;
+  margin-left: -450px;
+  margin-top: 20px;
+  top:610px;
+}
+#ie-only a {
+  color:#fff;
+}
+.iframe-grid {
   width: 100%;
   height: 100%;
   margin: 0;
 }
+<<<<<<< HEAD
 #section3 .tableCell {
     padding: 0 400px;
+=======
+
+#youtube-videos {
+  position: absolute;
+  top: 230px;
+  left: 50%;
+  bottom: 100px;
+  width: 740px;
+  margin-left: -360px;
+}
+#more-videos {
+  display: block;
+  float: left;
+  background: url('/wp-content/themes/uw-2013/img/misc/template-holiday/load-more.png') 0 0 no-repeat;
+  width: 135px;
+  margin-left: -70px;
+  height: 42px;
+  z-index: 70;
+  overflow: hidden;
+  text-indent: -999px;
+  margin-top: 20px;
+  margin-left: 295px;
+  bottom: 30px;
+>>>>>>> dbd50d1ce72ee0515993e6990a8fda2b7fb23b43
 }
 
 .grid {
   float:left;
   overflow:hidden;
   margin: 0 20px 20px 0;
-    background-position: center center;
-    opacity:0;
-    margin-top:100px;
-    height: 100px;
-    width: 100px;
-    background-size: 217%;
-    -webkit-border-radius: 70px;
-    -moz-border-radius: 70px;
-    border-radius: 70px;    
-    display: block;
-    border: 6px solid rgba(255,255,255, 0.2);
+  background-position: center center;
+  margin-top:100px;
+  height: 100px;
+  width: 100px;
+  background-size: 217%;
+  -webkit-border-radius: 70px;
+  -moz-border-radius: 70px;
+  border-radius: 70px;    
+  display: block;
+  border: 6px solid rgba(255,255,255, 0.2);
+  filter: alpha(opacity=0);
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  opacity:0;
+  box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  -moz-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  -webkit-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.3);
+  margin: 35px;
+  -webkit-transition: box-shadow 350ms linear;
+}
+.grid.animated:hover {
+  box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+  -moz-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+  -webkit-box-shadow: 0px 0px 15px 8px rgba(255,255,255,0.8);
+}
+
+.grid.blank {
+    visibility:hidden;
 }
 .grid.animated {
     border-radius: 70px;
@@ -435,16 +481,184 @@ iframe.iframe-grid {
 }
 @media screen and (max-height: 768px) {
     #holiday-logo-image {
-        top: -80px;
+        top: 30%;
+        width: 719px;
+        left: 50%;
+        margin-left: -360px;
+    }
+    .holiday-message-image {
+        width: 350px;
+        left: 50%;
+        margin-left:-195px;
+        top: 220px;
+    }
+    .holiday-message-image img {
+    }
+    .holiday-message {
+        position: absolute;
+        width: 700px;
+        height: 150px;
+        left: 50%;
+        margin-left: -360px;
+        margin-top:10px;
+    }
+    .holiday-message p {
+      font-size:14px;
+      line-height:22px;
+    }
+    #holiday-video {
+      width: 675px;
+      height: 380px;
+      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+      filter: alpha(opacity=0);
+      opacity: 0;
+      left: 50%;
+      position: absolute;
+      top: 220px;
+      border: thin solid white;
+      padding: 5px;
+      margin-left:-345px;
+      margin-top:0px;
+    }
+    #border {
+      display:none;
+    }
+    #youtube-videos {
+      top: 190px;
+      left: 50%;
+      width: 610px;
+      margin-left: -310px;
+    }
+    .grid {
+      margin-bottom: 0px !important; 
+      height: 70px;
+      width: 70px;
+    }
+    #more-videos {
+      margin-left:235px;
     }
     .scroll,
     .scroll-1 {
         display: none;
     }
 }
+
+
+@media screen and (min-height:769px) and (max-height:880px) {
+  .holiday-message-image {
+    width: 450px;
+    left: 50%;
+    top: 28%;
+    margin-left: -245px;
+  }
+  #holiday-video, #border {
+    top: 60%;
+  }
+}
+
+
+
 @media screen and (max-height: 980px) {  
     .scroll,
     .scroll-1  {
         display: none;
     }
+}
+
+@media screen and  (max-width: 767px) {
+  #branding {
+    z-index:9999;
+  }
+  #slide {
+    z-index:-9999;
+  }
+  #uw-mobile-panel {
+    background-color:white;
+  }
+  #holiday-logo-image {
+    top: 30%;
+    width: 80%;
+    left: 10%;
+    margin-left:0;
+  }
+  .holiday-message-image {
+    top: 10%;
+    width: 50%;
+    left: 25%;
+    margin-left: 0;
+  }
+  .holiday-message {
+    position: absolute;
+    width: 80%;
+    height: 150px;
+    left: 10%;
+    margin-left: 0;
+  }
+  .holiday-message p {
+    font-size:1em;
+    line-height:1.1em;
+    width:200%;
+    margin-left:-50%;
+  }
+  #holiday-video {
+    top: 70px;
+    left:10%;
+    width: 80%;
+    height:40%;
+    margin-left:0;
+  }
+  #youtube-videos {
+      top: 80px;
+      left: 10%;
+      width: 80%;
+      margin-left: 0;
+  }
+  .grid {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+  }
+  #more-videos {
+    margin-left: 25%;
+  }
+}
+
+/* ie hacks */
+
+#ie7 .scroll-1,
+#ie8 .scroll-1,
+#ie7 .scroll,
+#ie8 .scroll,
+#ie7 #border, 
+#ie8 #border,
+#ie7 #menu-dots,
+#ie7 #section0,
+#ie7 #section2,
+#ie7 #section3,
+#ie8 #menu-dots,
+#ie8 #section0,
+#ie8 #section2,
+#ie8 #section3
+{
+  display:none;
+}
+#ie7 #ie-only,
+#ie8 #ie-only {
+  display:block;
+}
+#ie7 #holiday-video,
+#ie8 #holiday-video {
+  width: 550px;
+  height: 310px;
+  margin-left:-273px;
+  border: thin solid white;
+  padding: 5px;
+  top: 520px;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+	opacity: 1;
+}
+#ie7 #section1,
+#ie8 #section1 {
+  position:static;
 }

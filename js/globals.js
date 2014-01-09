@@ -21,4 +21,6 @@ $(document).ready(function() {
 
   $('table').addClass('table')
 
+  $('li.disabled').children('a').removeAttr('href')
+
 })
