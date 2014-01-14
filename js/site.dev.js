@@ -7509,7 +7509,7 @@ $(document).ready(function() {
     var width = $(window).width()
     
     $.uw.screensize = width > 979 ? 'desktop' :
-                      width > 768 ? 'tablet'  : 'mobile';
+                      width > 767 ? 'tablet'  : 'mobile';
 
   }).trigger('resize')
 
