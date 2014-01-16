@@ -6,6 +6,7 @@
 $(document).ready(function() {
 
   var $nav           = $('#dawgdrops')
+    , $win           = $(window)
     , $submenus      = $('ul.dawgdrops-menu')
     , $caret         = $('<span/>').addClass('navbar-caret')
     , HOVER_ELEMENTS = 'li.dawgdrops-item'
@@ -53,9 +54,6 @@ $(document).ready(function() {
       mouseenter: function( e ) 
       {
 
-//        if ( $.uw.screensize != 'desktop' ) 
-//          return false;
-
         var $this = $(this)
           , $a    = $this.children( MENU_ANCHOR )
           , $ul   = $this.children( SUB_MENU )
@@ -73,9 +71,6 @@ $(document).ready(function() {
       mouseleave: function( e ) 
       {
 
-//        if ( $.uw.screensize != 'desktop' ) 
-//          return false;
-
         var $this = $(this)
           , $ul   = $this.children( SUB_MENU )
 
@@ -87,10 +82,43 @@ $(document).ready(function() {
                   
       },
 
-      click: function( e ) 
+      touchstart : function( e ) 
       {
-         return ( $.uw.screensize == 'desktop' )
-      }
+
+        $win.off('touchstart.dropdowns')
+
+        var $this = $(this)
+          , $a    = $this.children( MENU_ANCHOR )
+          , $ul   = $this.children( SUB_MENU )
+
+
+        if ( $ul.hasClass( 'open' ) )
+          return true; 
+
+        e.stopPropagation();
+        e.preventDefault();
+
+        $submenus
+          .filter('.open')
+          .removeClass('open')
+          .attr('aria-expaned', 'false')
+
+        $ul
+          .addClass('open')
+          .attr('aria-expanded','true')
+
+        if ( $ul.length !== 0 )
+          $caret
+            .css('left', $a.position().left + CARET_ADJUST )
+            .fadeIn( CARET_FADE );
+
+        $win.one('touchstart.dropdowns', function() {
+          $this.trigger('mouseleave')
+        })
+
+        return false;
+      },
+
     })
 
 })
