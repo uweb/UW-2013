@@ -5652,10 +5652,10 @@ ul.gallery-menu li.active {
     margin: -1px 0 0;
     background: #ffffff;
     overflow: hidden;
-    -webkit-transition: all;
-    -moz-transition: all;
-    -o-transition: all;
-    transition: all;
+    -webkit-transition: opacity;
+    -moz-transition: opacity;
+    -o-transition: opacity;
+    transition: opacity;
     -webkit-transition-duration: 0.3s;
     -moz-transition-duration: 0.3s;
     -o-transition-duration: 0.3s;
@@ -6803,6 +6803,10 @@ ul.gallery-menu li.active {
   .dawgdrops-menu {
     left: 0 !important;
     width: 100% !important;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -o-transition: none;
+    transition: none;
   }
   .menu-block {
     max-width: 30%;
