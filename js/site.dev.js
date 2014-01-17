@@ -7788,12 +7788,8 @@ $(document).ready(function() {
         })
 
         return false;
-      },
+      }
 
-//      click: function( e ) 
-//      {
-//         //return ( $.uw.screensize == 'desktop' )
-//      }
     })
 
 })
