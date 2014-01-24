@@ -3,7 +3,7 @@
 	background-color: #4B4B4B;
 	border-top: 1px solid #FFF;
 	border-bottom: 1px solid #FFF;
-	.box-shadow(0 1px 4px #9C9C9C);
+	.box-shadow(0 1px 4px rgba(0, 0, 0, 0.25));
 	a {
 		.transition(all);
 		.transition-duration(0.2s);
@@ -118,6 +118,9 @@
     overflow: hidden;
     width: 135px;
     background: url('img/header/header-sprite.png') no-repeat 10px -108px transparent;
+    a {
+	    width: 135px;
+    }
     &:hover {
         background-position: 10px -142px;
     }

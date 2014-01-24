@@ -72,29 +72,31 @@
 /* ----  Thin Strip Footer ---- */
 
 #footer-main {
-    background: url(img/footer/bg.gif) repeat-x 0 0 #62584b;
+    background: url('img/footer/bg.gif') repeat-x 0 0 #62584b;
     height: 25px;
     position: relative;
     padding: 4px 0 0;
-}
-#footer-main a {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 10px;
-    color: #fff;
-}
-#footer-main ul {
-    text-align: center;
-    margin: 0;
-}
-#footer-main li {
-    padding: 0 9px 0 0;
-    display: inline;
-    margin: 0 0 0 3px;
-    border-right: 2px solid #A1A1A1;
-}
-#footer-main li:last-child {
-    border-right: none;
+    a {
+    	font-weight: bold;
+    	text-transform: uppercase;
+    	font-size: 10px;
+    	color: #fff;
+	}
+	ul {
+	    text-align: center;
+	    margin: 0;
+	}
+	li {
+	    padding: 0 9px 0 0;
+	    display: inline;
+	    margin: 0 0 0 3px;
+	    border-right: 2px solid #A1A1A1;
+	    .no-bullets();
+	    padding-left: 5px;
+	    &:last-child {
+			border-right: none;
+		}
+	}
 }
 #footer-left, #footer-right {
     position: absolute;
