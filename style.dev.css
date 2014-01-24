@@ -5720,7 +5720,7 @@ ul.gallery-menu li.active {
     background: url('img/header/header-sprite.png') no-repeat 10px -108px transparent;
   }
   #branding ul li.uw-medicine a {
-    float: none;
+    width: 135px;
   }
   #branding ul li.uw-medicine:hover {
     background-position: 10px -142px;
