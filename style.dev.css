@@ -3492,6 +3492,11 @@ ol ol li {
 ol ol li ol li {
   list-style-type: disc;
 }
+ul ol li {
+  list-style: inherit;
+  background: none;
+  padding-left: 0;
+}
 #branding ul li {
   margin-left: 0;
   background: none;
@@ -5440,9 +5445,9 @@ ul.gallery-menu li.active {
     padding: 9px 0 9px 38px;
     width: 175px;
     color: #999;
-    box-shadow: 0 0 8px #8F8F8F;
-    -webkit-box-shadow: 0 0 8px #8F8F8F;
-    -moz-box-shadow: 0 0 8px #8F8F8F;
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);
     border: none;
     -webkit-transition-duration: 400ms;
     -webkit-transition-property: width, background;
@@ -5584,9 +5589,9 @@ ul.gallery-menu li.active {
     background-color: #4B4B4B;
     border-top: 1px solid #FFF;
     border-bottom: 1px solid #FFF;
-    -webkit-box-shadow: 0 1px 4px #9c9c9c;
-    -moz-box-shadow: 0 1px 4px #9c9c9c;
-    box-shadow: 0 1px 4px #9c9c9c;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
   }
   #dawgdrops a {
     -webkit-transition: all;
@@ -6746,7 +6751,7 @@ ul.gallery-menu li.active {
   }
   /* ----  Thin Strip Footer ---- */
   #footer-main {
-    background: url(img/footer/bg.gif) repeat-x 0 0 #62584b;
+    background: url('img/footer/bg.gif') repeat-x 0 0 #62584b;
     height: 25px;
     position: relative;
     padding: 4px 0 0;
@@ -6766,6 +6771,10 @@ ul.gallery-menu li.active {
     display: inline;
     margin: 0 0 0 3px;
     border-right: 2px solid #A1A1A1;
+    margin-left: 0;
+    background: none;
+    padding-left: 0;
+    padding-left: 5px;
   }
   #footer-main li:last-child {
     border-right: none;
@@ -6811,13 +6820,12 @@ ul.gallery-menu li.active {
     height: 65px;
   }
   .dawgdrops-item {
-    max-width: 115px;
     height: 50px;
     display: table;
     float: left;
   }
   .dropdown-toggle {
-    font-size: 13.5px;
+    font-size: 13px;
     line-height: 15px;
     display: table-cell;
     vertical-align: middle;
@@ -6826,7 +6834,7 @@ ul.gallery-menu li.active {
     padding: 0 10px;
     background-position: 0 -257px;
     position: relative;
-    font-weight: 600;
+    font-weight: 800;
   }
   .dawgdrops-menu {
     top: 65px;
@@ -7212,6 +7220,9 @@ ul.gallery-menu li.active {
     font-style: italic;
     margin-bottom: 0;
   }
+  .breadcrumbs-container {
+    display: none;
+  }
   .alert-steel div,
   .alert-orange div,
   .alert-red div,
@@ -7534,5 +7545,9 @@ ul.gallery-menu li.active {
   .wordmark {
     background: url("img/mobile-header/logo2x.png") no-repeat 0 0 transparent !important;
     background-size: 230px 35px !important;
+  }
+  #listicon-wrapper {
+    background: url("../uw-2013/img/mobile-header/dropdowns2x.png") no-repeat -29px 0px transparent;
+    background-size: 66px 32px;
   }
 }
