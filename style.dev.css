@@ -6046,6 +6046,7 @@ ul.gallery-menu li.active {
   .archive h2.entry-title {
     font-size: 1.4em;
     margin-bottom: 5px;
+    padding-right: 60px;
   }
   .archive article {
     margin-bottom: 20px;
@@ -6063,6 +6064,55 @@ ul.gallery-menu li.active {
   .blog article img {
     float: right;
     margin: -30px 0 20px 50px;
+  }
+  .navigation .alignleft,
+  .navigation alignright {
+    display: none;
+  }
+  .comment {
+    list-style: none;
+  }
+  .commentlist {
+    margin: 0;
+  }
+  .commentlist .children {
+    margin: 0 0 0 20px;
+  }
+  .comment-body {
+    border-left: 3px solid #EFEFEF;
+    font-size: 14px;
+    line-height: 18px;
+    margin: 20px 0;
+    padding: 0 20px;
+  }
+  .depth-1 {
+    border-bottom: 1px dotted #DDD;
+  }
+  .reply {
+    text-align: right;
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .comment-author img {
+    float: left;
+    margin: 0 15px 0 0;
+  }
+  .comment-body p {
+    padding: 10px 0;
+  }
+  #comments,
+  #respond h3 {
+    font-size: 16px;
+    padding: 40px 15px 0 48px;
+    margin-bottom: 30px;
+    display: block;
+    clear: both;
+    line-height: 20px;
+    background: url('img/comment-bubble.png') no-repeat 0 37px transparent;
+  }
+  .nocomments {
+    display: none;
   }
   /* ----  Image Page ---- */
   .attachment-jpeg #primary {
