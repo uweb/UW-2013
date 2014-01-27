@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <!--[if IE 6]>
 <html id="ie6" <?php language_attributes(); ?>>
 <![endif]-->
@@ -12,6 +12,7 @@
 <html <?php language_attributes(); ?>>
 <!--<![endif]-->
 <head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <title> <?php uw_title() ?> </title>
