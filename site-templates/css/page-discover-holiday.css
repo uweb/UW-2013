@@ -363,11 +363,9 @@ body, html {
   height: 100%;
   margin: 0;
 }
-<<<<<<< HEAD
 #section3 .tableCell {
     padding: 0 400px;
-=======
-
+}
 #youtube-videos {
   position: absolute;
   top: 230px;
@@ -389,7 +387,6 @@ body, html {
   margin-top: 20px;
   margin-left: 295px;
   bottom: 30px;
->>>>>>> dbd50d1ce72ee0515993e6990a8fda2b7fb23b43
 }
 
 .grid {
