@@ -114,45 +114,47 @@ class UW_Slideshow extends WP_Widget
     $ids   = explode(',', $instance['slideshow']);
     ?>
 
-    <?php  echo $before_widget; ?>
+    <?php
+    if (!empty($instance['slideshow'])){
+        echo $before_widget;
+        ?>
+        <div class="canvas">
 
-    <div class="canvas">
+          <?php foreach ( $ids as $index=>$id ) : $attachment = get_post( $id ); $link = get_post_meta( $attachment->ID, '_external_link', true ); ?>
 
-      <?php foreach ( $ids as $index=>$id ) : $attachment = get_post( $id ); $link = get_post_meta( $attachment->ID, '_external_link', true ); ?>
+            <div class="slide<?php echo ( $index == 0 ) ? ' active-slide' : ''; ?>">
 
-        <div class="slide<?php echo ( $index == 0 ) ? ' active-slide' : ''; ?>">
+              <div class="image-wrapper">
+                <?php echo wp_get_attachment_image( $id, 'original' ); ?>
+              </div>
 
-          <div class="image-wrapper">
-            <?php echo wp_get_attachment_image( $id, 'original' ); ?>
-          </div>
+              <div class="slide-info">
+                <h3><?php echo $attachment->post_title; ?></h3>
+                <?php echo wpautop( $attachment->post_excerpt ); ?>
 
-          <div class="slide-info">
-            <h3><?php echo $attachment->post_title; ?></h3>
-            <?php echo wpautop( $attachment->post_excerpt ); ?>
+                <?php if ( $link ) : ?>
+                  <a class="slideshow-more" href="<?php echo $link ?>" title="<?php echo esc_attr($attachment->post_title) ?>">More</a>
+                <?php endif; ?>
+              
+              </div>
 
-            <?php if ( $link ) : ?>
-              <a class="slideshow-more" href="<?php echo $link ?>" title="<?php echo esc_attr($attachment->post_title) ?>">More</a>
-            <?php endif; ?>
-          
-          </div>
+            </div>
+
+          <?php endforeach; ?>
+
+        <?php if ( count($ids) - 1 ) : ?>
+
+          <ul>
+            <li><a class="active-slide" href="#"></a></li>
+            <?php echo str_repeat('<li><a href="#"></a></li>', count($ids) - 1); ?>
+          </ul>
+
+        <?php endif; ?>
 
         </div>
 
-      <?php endforeach; ?>
-
-    <?php if ( count($ids) - 1 ) : ?>
-
-      <ul>
-        <li><a class="active-slide" href="#"></a></li>
-        <?php echo str_repeat('<li><a href="#"></a></li>', count($ids) - 1); ?>
-      </ul>
-
-    <?php endif; ?>
-
-    </div>
-
-    <?php echo $after_widget; 
-
+        <?php echo $after_widget; 
+    }
   }
 
   function external_link_to_field_edit( $form_fields, $post ) 
