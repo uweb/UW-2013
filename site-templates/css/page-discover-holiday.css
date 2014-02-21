@@ -363,11 +363,6 @@ body, html {
   height: 100%;
   margin: 0;
 }
-<<<<<<< HEAD
-#section3 .tableCell {
-    padding: 0 400px;
-=======
-
 #youtube-videos {
   position: absolute;
   top: 230px;
@@ -389,7 +384,6 @@ body, html {
   margin-top: 20px;
   margin-left: 295px;
   bottom: 30px;
->>>>>>> dbd50d1ce72ee0515993e6990a8fda2b7fb23b43
 }
 
 .grid {
@@ -434,43 +428,8 @@ body, html {
 }
 
 @media (max-width: 768px) {
-     #holiday-logo-image {
-         width: 340px;
-         margin-left: -170px;
-         margin-top: 100px;
-    }
-     #holiday-logo-image img { 
-         top: auto !important;
-         margin-bottom: 10px;
-         position: static;
-     }
-     .holiday-message-image,
-     .holiday-message {
-         width: 368px;
-         margin-left: -184px;
-     }
-      .holiday-message-image {
-         top: 90px;
-      }
-      .holiday-message-image img { 
-         top: auto !important;
-         margin-bottom: 10px;
-         position: static;
-     }
-     .holiday-message {
-        top: 470px;
-    }
-    iframe#holiday-video {
-        opacity: 0;
-        margin-left: -150px;
-        width: 300px !important;
-        left: 50%;
-        position: absolute;
-        top: 50%;
-        margin-top: -250px;
-    }
-    #border {
-        display: none;
+    #dawgdrops {
+      display:none; 
     }
 }
 
