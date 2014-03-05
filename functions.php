@@ -1,4 +1,4 @@
-<?  
+<?php  
 // Basic helper and template functions
 require( get_template_directory() . '/inc/helper-functions.php' );
 require( get_template_directory() . '/inc/template-functions.php' );
@@ -52,3 +52,4 @@ require( get_template_directory() . '/inc/custom-ajax-actions.php' );
 
 // Adds functioning enclosure to rss2
 require( get_template_directory() . '/inc/uw-rss2-enclosure.php' );
+?>
