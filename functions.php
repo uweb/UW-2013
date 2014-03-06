@@ -49,3 +49,6 @@ require( get_template_directory() . '/inc/dropdown-walker.php' );
 
 // Custom Ajax actions
 require( get_template_directory() . '/inc/custom-ajax-actions.php' );
+
+// Adds functioning enclosure to rss2
+require( get_template_directory() . '/inc/uw-rss2-enclosure.php' );

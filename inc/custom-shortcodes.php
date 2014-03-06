@@ -92,6 +92,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
 			'trim'         => 'false',
 			'image'        => 'hide',
 			'author'       => 'show',
+      'titletag'     => 'h2',
 			'number'       =>  5
 			), $atts );
 
@@ -120,7 +121,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
                 }
                 $author = $params['author'] === 'show' ? '<p class="author-info">' . get_the_author_meta('display_name', $post->post_author) . '</p>' : ''; 
                 $postDate = get_the_time(get_option('date_format'), $postID);
-                $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><h2><a href=\"$link\">{$post->post_title}</a></h2>{$author}{$excerpt}</span></li>";
+                $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><".$params['titletag']."><a href=\"$link\">{$post->post_title}</a></".$params['titletag'].">{$author}{$excerpt}</span></li>";
             }
 		}
 
