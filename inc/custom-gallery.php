@@ -107,7 +107,7 @@ class UW_Gallery
                   </div>
                   <a class="gallery-close">Close</a><a class="gallery-caption visible-phone" href="#">Show caption</a></div>';
     
-    return $html . $overlay;
+    return $overlay;
 
   }
 
