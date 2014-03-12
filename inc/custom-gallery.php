@@ -92,7 +92,7 @@ class UW_Gallery
       }
     }
 
-    $html .= '</div></div><div class="gallery-table"><ul class="gallery-menu">'.$menu.'</ul></div></div><!-- .gallery -->';
+    $html .= '</div></div><div class="gallery-table"><ul class="gallery-menu">'.$menu.'</ul></div></div>';
 
     $overlay = '<div id="gallery-overlay-image" style="display:none">
                   <img />
