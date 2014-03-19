@@ -9,6 +9,10 @@ class UW_Gallery
 
   function UW_Gallery()
   {
+    //TODO: no idea why this is necessary as of 3.8.1 but post_content is NULL without changing the do_shortcode filter's priority
+    remove_filter( 'the_content', 'do_shortcode', 11 );
+    add_filter( 'the_content', 'do_shortcode', 100 );
+
     add_filter( 'post_gallery', array( $this, 'uw_gallery_template' ), 10, 2 );
   }
 
@@ -92,7 +96,7 @@ class UW_Gallery
       }
     }
 
-    $html .= '</div></div><div class="gallery-table"><ul class="gallery-menu">'.$menu.'</ul></div></div><!-- .gallery -->';
+    $html .= '</div></div><div class="gallery-table"><ul class="gallery-menu">'.$menu.'</ul></div></div>';
 
     $overlay = '<div id="gallery-overlay-image" style="display:none">
                   <img />
