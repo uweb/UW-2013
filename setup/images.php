@@ -64,6 +64,14 @@ class UW_Images
       'height'  => 9999,
       'crop'    => false,
       'show'    => true
+    ),
+
+    'rss' => array(
+        'name' => 'Mailchimp RSS',
+        'width' => 108,
+        'height' => 9999,
+        'crop' => false,
+        'show' => false,
     )
   
   );

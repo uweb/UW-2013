@@ -5,9 +5,10 @@ function add_uw_feed_enclosure_image() {
     global $post;
     $thumbnailID = get_post_thumbnail_id($post->ID);
     if(!empty($thumbnailID)){
-        $url = wp_get_attachment_url($thumbnailID);
+        $url = wp_get_attachment_image_src($thumbnailID, 'rss')[0];
         //$mime = get_post_mime_type($thumbnailID);  unneeded DB call to get mime type
         $img_headers = get_headers($url);
+        print_r($img_headers);
         foreach ($img_headers as $img_header) {
             $info = explode(" ", $img_header);
             if ($info[0] == 'Content-Length:') {
