@@ -9,7 +9,6 @@ function add_uw_feed_enclosure_image() {
         $url = $url[0];
         //$mime = get_post_mime_type($thumbnailID);  unneeded DB call to get mime type
         $img_headers = get_headers($url);
-        print_r($img_headers);
         foreach ($img_headers as $img_header) {
             $info = explode(" ", $img_header);
             if ($info[0] == 'Content-Length:') {
