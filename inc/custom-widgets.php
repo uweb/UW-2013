@@ -67,7 +67,6 @@ function uw_register_widgets() {
   register_widget('UW_Nav_Menu_Widget');
   register_widget('UW_Calendar');
   register_widget('UW_Campus_Map');
-  register_widget('UW_Slideshow');
   // Specific to Page Builder only
   register_widget('UW_Headline_Separator_Widget');
   register_widget('UW_Headline_Widget');
@@ -79,7 +78,6 @@ function uw_register_widgets() {
 }
 
 require( get_template_directory() . '/inc/widgets/widget-settings.php' );
-require( get_template_directory() . '/inc/widgets/slideshow.php' );
 require( get_template_directory() . '/inc/widgets/single-image.php' );
 require( get_template_directory() . '/inc/widgets/uw-recent-posts.php' );
 require( get_template_directory() . '/inc/widgets/uw-rss.php' );
