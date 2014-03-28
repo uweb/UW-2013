@@ -1,5 +1,17 @@
 <?php
-add_action('rss2_item', 'add_uw_feed_enclosure_image');
+remove_all_actions('do_feed_rss2');
+add_action('do_feed_rss2', 'prep_uw_rss2', 10, 1);
+add_action('pre_rss2_enclosure', 'add_uw_feed_enclosure_image');
+
+function prep_uw_rss2( $for_comments ){
+    $uw_rss_template = get_template_directory() . '/inc/uw-feed-rss2.php';
+    if ((file_exists($uw_rss_template)) || (!$for_comments)) {
+        load_template($uw_rss_template);
+    }
+    else {
+        do_feed_rss2($for_comments);
+    }
+}
 
 function add_uw_feed_enclosure_image() {
     global $post;
@@ -23,4 +35,3 @@ function add_uw_feed_enclosure_image() {
         <?php
     }
 }
-?>
