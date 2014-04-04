@@ -11,12 +11,12 @@ class UW_Install_Scripts
   public $SCRIPTS;
 
 
-  function UW_Install_Scripts() 
+  function UW_Install_Scripts()
   {
 
-    $this->SCRIPTS = array_merge( array( 
+    $this->SCRIPTS = array_merge( array(
 
-      'jquery' => array ( 
+      'jquery' => array (
         'id'      => 'jquery',
         'url'     => 'https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js',
         'deps'    => array(),
@@ -24,15 +24,15 @@ class UW_Install_Scripts
         'admin'   => false
       ),
 
-      'site'   => array ( 
+      'site'   => array (
         'id'      => 'site',
         'url'     => get_bloginfo('template_directory') . '/js/site' . $this->dev_script() . '.js',
         'deps'    => array( 'jquery', 'swfobject' ),
-        'version' => '1.0.2',
+        'version' => '1.0.3',
         'admin'   => false
       ),
 
-      'admin' => array ( 
+      'admin' => array (
         'id'      => 'wp.admin',
         'url'     => get_bloginfo('template_directory') . '/js/admin/admin.js',
         'deps'    => array( 'jquery' ),
@@ -40,7 +40,7 @@ class UW_Install_Scripts
         'admin'   => true
       ),
 
-      'jquery.searchposts' => array ( 
+      'jquery.searchposts' => array (
         'id'      => 'jquery.searchposts',
         'url'     => get_bloginfo('template_directory') . '/js/admin/jquery.wp.searchposts.js',
         'deps'    => array( 'jquery', 'jquery-ui-autocomplete' ),
@@ -56,15 +56,15 @@ class UW_Install_Scripts
 
   }
 
-  function uw_register_default_scripts() 
+  function uw_register_default_scripts()
   {
-      wp_deregister_script( 'jquery' ); 
+      wp_deregister_script( 'jquery' );
 
-      foreach ( $this->SCRIPTS as $script ) 
+      foreach ( $this->SCRIPTS as $script )
       {
         $script = (object) $script;
 
-        wp_register_script( 
+        wp_register_script(
           $script->id,
           $script->url,
           $script->deps,
@@ -75,13 +75,13 @@ class UW_Install_Scripts
 
   }
 
-  function uw_enqueue_default_scripts() 
+  function uw_enqueue_default_scripts()
   {
-      foreach ( $this->SCRIPTS as $script ) 
+      foreach ( $this->SCRIPTS as $script )
       {
         $script = (object) $script;
 
-        if ( ! $script->admin ) 
+        if ( ! $script->admin )
           wp_enqueue_script( $script->id );
       }
   }
@@ -91,14 +91,14 @@ class UW_Install_Scripts
       if ( ! is_admin() )
         return;
 
-      foreach ( $this->SCRIPTS as $script ) 
+      foreach ( $this->SCRIPTS as $script )
       {
         $script = (object) $script;
 
-        if ( $script->admin ) 
+        if ( $script->admin )
         {
 
-          wp_register_script( 
+          wp_register_script(
             $script->id,
             $script->url,
             $script->deps,
@@ -109,7 +109,7 @@ class UW_Install_Scripts
 
         }
       }
-  
+
   }
 
   private function get_child_theme_scripts()
