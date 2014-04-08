@@ -16,6 +16,11 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <title> <?php uw_title() ?> </title>
+  <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" type="text/javascript"></script>
+  <![endif]-->
+
   <script type='text/javascript' id='directory-vars'>
     var MAIN_THEME_URL = '<?= get_template_directory_uri() ?>';
     var CHILD_THEME_URL = '<?= get_stylesheet_directory_uri() ?>';
@@ -23,11 +28,6 @@
   <?php wp_head(); ?>
 
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" type="text/css" media="print" />
-
-  <!--[if lt IE 9]>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js" type="text/javascript"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" type="text/javascript"></script>
-  <![endif]-->
 
 </head>
 
