@@ -25,9 +25,8 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" type="text/css" media="print" />
 
   <!--[if lt IE 9]>
-    <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
-    <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/ie8-and-down.css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js" type="text/javascript"></script>
   <![endif]-->
 
 </head>
