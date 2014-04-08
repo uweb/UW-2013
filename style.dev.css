@@ -6707,7 +6707,7 @@ ul.gallery-menu li.active {
     width: 33%;
   }
   body.site-graduation {
-    background-image: url("img/misc/commencement-bg.jpg");
+    background-image: url("img/misc/commencement-bg-2014.jpg");
     background-position: center top !important;
   }
   body.site-graduation #branding {
@@ -6715,6 +6715,13 @@ ul.gallery-menu li.active {
   }
   body.site-graduation .wordmark {
     background-position: -1000px 0 !important;
+  }
+  body.site-graduation .patch {
+    background: url("img/misc/seal.png") 0 50px no-repeat transparent;
+    height: 150px;
+  }
+  body.site-graduation .patch div {
+    display: none;
   }
   .footer-navigation > li {
     float: left;
