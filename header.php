@@ -25,9 +25,9 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" type="text/css" media="print" />
 
   <!--[if lt IE 9]>
-    <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
-    <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/ie8-and-down.css" />
+    <script src="/wp-content/themes/uw-2013/js/html5shiv.js" type="text/javascript"></script>
+    <script src="/wp-content/themes/uw-2013/js/respond.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="/wp-content/themes/uw-2013/css/ie8-and-down.css" />
   <![endif]-->
 
 </head>
@@ -53,21 +53,21 @@
         <li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
         <li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
       </ul>
-    </div>	
+    </div>
   </div>
 
 <div id="header"<?php echo get_theme_mod( 'patch_visible', 1 ) === false ? ' class="hide-patch"' : ''; ?>>
 		<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
 		<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to sidebar content">Skip to sidebar content</a></div>
 
-		
+
 		<a class="patch" href="http://www.uw.edu" title="University of Washington"><div class="w1"></div><div class="w2"></div><div class="w3"></div><div class="w4"></div><div class="w5"></div><div class="w6"></div><div class="w7"></div><div class="w8
 "></div></a>
 
 		<!--[if IE 8]>
 			<a class="patch" href="http://www.uw.edu" title="University of Washington">University of Washington</a>
-		<![endif]-->	
-		
+		<![endif]-->
+
 		<a class="wordmark" <?php if ( get_theme_mod('wordmark')) : ?> style="background:url(<?php echo get_theme_mod('wordmark') ?>)" <?php endif; ?> href="<?php echo home_url('/'); ?>">University of Washington</a>
 
 		<?php get_template_part('uw-search'); ?>
