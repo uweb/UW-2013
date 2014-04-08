@@ -56,6 +56,7 @@
       <li class="visible-desktop"><a href="http://www.tacoma.uw.edu/">UW Tacoma</a></li>
       <li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
       <li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
+      <li><a href="http://www.washington.edu/giving/make-a-gift/">Make a gift</a></li>
     </ul>
   </div>	
 </div>
