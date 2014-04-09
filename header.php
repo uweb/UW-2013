@@ -26,9 +26,9 @@
   <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/print.css" type="text/css" media="print" />
 
   <!--[if lt IE 9]>
-    <script src="/wp-content/themes/uw-2013/js/html5shiv.js" type="text/javascript"></script>
-    <script src="/wp-content/themes/uw-2013/js/respond.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" type="text/css" href="/wp-content/themes/uw-2013/css/ie8-and-down.css" />
+    <script src="<?php bloginfo("template_directory"); ?>/js/html5shiv.js" type="text/javascript"></script>
+    <script src="<?php bloginfo("template_directory"); ?>/js/respond.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="<?php bloginfo("template_directory"); ?>/css/ie8-and-down.css" />
   <![endif]-->
 
 </head>
