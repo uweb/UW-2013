@@ -5011,7 +5011,7 @@ ul.gallery-menu li.active {
   right: 2%;
   width: 5px;
   height: 105px;
-  background: url("https://dl.dropboxusercontent.com/u/953442/video-overflow.png") 0 0 no-repeat;
+  background: url("img/widgets/video-overflow.png") 0 0 no-repeat;
 }
 #nc-video-player iframe {
   max-width: none !important;
