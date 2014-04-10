@@ -86,18 +86,17 @@ class UW_Widget_Single_Image extends WP_Widget
   function widget($args, $instance) 
   {
 
-		extract( $args );
-		$title = $instance['title'];
+	extract( $args );
+	$title = $instance['title'];
     $text  = $instance['text'];
     $image = $instance['image'];
     $link  = $instance['link'];
     $linktext  = isset($instance['link-text']) ? $instance['link-text'] : self::DEFAULT_LINK_TEXT;
-    $imageinfo = wp_get_attachment_image_src( $image, 'single-image-widget' );
     ?>
 
     <?php  echo $before_widget; ?>
 
-      <img alt="<?php echo $title; ?>" src="<?php echo $imageinfo[0]; ?>" />  
+      <?php echo wp_get_attachment_image( $image, 'single-image-widget', false, array('alt' => $title)); ?>  
 
       <span>
 

@@ -16,6 +16,7 @@
   <meta charset="<?php bloginfo( 'charset' ); ?>" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
   <title> <?php uw_title() ?> </title>
+
   <script type='text/javascript' id='directory-vars'>
     var MAIN_THEME_URL = '<?= get_template_directory_uri() ?>';
     var CHILD_THEME_URL = '<?= get_stylesheet_directory_uri() ?>';
@@ -53,21 +54,21 @@
         <li class="visible-phone"><a href="http://www.uw.edu/news">News</a></li>
         <li class="visible-phone"><a href="http://www.gohuskies.com/">UW Athletics</a></li>
       </ul>
-    </div>	
+    </div>
   </div>
 
 <div id="header"<?php echo get_theme_mod( 'patch_visible', 1 ) === false ? ' class="hide-patch"' : ''; ?>>
 		<div class="skip-link"><a class="assistive-text" href="#content" title="Skip to primary content">Skip to primary content</a></div>
 		<div class="skip-link"><a class="assistive-text" href="#secondary" title="Skip to sidebar content">Skip to sidebar content</a></div>
 
-		
+
 		<a class="patch" href="http://www.uw.edu" title="University of Washington"><div class="w1"></div><div class="w2"></div><div class="w3"></div><div class="w4"></div><div class="w5"></div><div class="w6"></div><div class="w7"></div><div class="w8
 "></div></a>
 
 		<!--[if IE 8]>
 			<a class="patch" href="http://www.uw.edu" title="University of Washington">University of Washington</a>
-		<![endif]-->	
-		
+		<![endif]-->
+
 		<a class="wordmark" <?php if ( get_theme_mod('wordmark')) : ?> style="background:url(<?php echo get_theme_mod('wordmark') ?>)" <?php endif; ?> href="<?php echo home_url('/'); ?>">University of Washington</a>
 
 		<?php get_template_part('uw-search'); ?>
