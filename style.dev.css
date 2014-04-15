@@ -3770,6 +3770,21 @@ input[type="submit"]:hover {
 .uw-alert .patch {
   top: -30px;
 }
+#alert-mini {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0;
+  left: 0;
+  text-align: center;
+  z-index: 1;
+  color: #fff;
+  padding: 40px 0 10px 0;
+  z-index: 0;
+}
+.logged-in #alert-mini {
+  top: 28px;
+}
 .edit-link.pull-right {
   float: none;
 }
