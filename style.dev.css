@@ -6724,28 +6724,6 @@ ul.gallery-menu li.active {
     float: left;
     width: 33%;
   }
-  body.site-graduation,
-  body.site-previewgraduation {
-    background-image: url("img/misc/commencement-bg-2014.jpg");
-    background-position: center top !important;
-  }
-  body.site-graduation #branding,
-  body.site-previewgraduation #branding {
-    background-image: none !important;
-  }
-  body.site-graduation .wordmark,
-  body.site-previewgraduation .wordmark {
-    background-position: -1000px 0 !important;
-  }
-  body.site-graduation .patch,
-  body.site-previewgraduation .patch {
-    background: url("img/misc/seal.png") 0 50px no-repeat transparent;
-    height: 150px;
-  }
-  body.site-graduation .patch div,
-  body.site-previewgraduation .patch div {
-    display: none;
-  }
   .footer-navigation > li {
     float: left;
     width: 140px;
@@ -7025,10 +7003,6 @@ ul.gallery-menu li.active {
   }
   .youtube-large {
     width: 68%;
-  }
-  body.site-graduation .patch,
-  body.site-previewgraduation .patch {
-    display: none;
   }
 }
 @media (max-width: 767px) {
