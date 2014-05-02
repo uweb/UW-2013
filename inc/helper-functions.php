@@ -6,16 +6,16 @@
 
 if (!function_exists('get_the_post_thumbnail_caption')) :
 
-  function get_the_post_thumbnail_caption() 
+  function get_the_post_thumbnail_caption()
   {
-    return get_post(get_post_thumbnail_id())->post_excerpt; 
+    return get_post(get_post_thumbnail_id())->post_excerpt;
   }
 
 endif;
 
 if (!function_exists('the_post_thumbnail_caption')) :
 
-  function the_post_thumbnail_caption() 
+  function the_post_thumbnail_caption()
   {
     echo apply_filters('the_content', get_the_post_thumbnail_caption());
   }
@@ -24,7 +24,7 @@ endif;
 
 if ( ! function_exists( 'is_pdf' ) ):
 
-  function is_pdf() 
+  function is_pdf()
   {
     return get_post_mime_type() == 'application/pdf';
   }
@@ -33,7 +33,7 @@ endif;
 
 if ( ! function_exists( 'is_local' ) ):
 
-  function is_local() 
+  function is_local()
   {
     return defined('WP_LOCAL');
   }
@@ -41,7 +41,7 @@ if ( ! function_exists( 'is_local' ) ):
 endif;
 
 if ( ! function_exists( 'get_iframe_domains' )):
-  function get_iframe_domains() 
+  function get_iframe_domains()
   {
     return array(
       'uw.edu',
@@ -51,6 +51,7 @@ if ( ! function_exists( 'get_iframe_domains' )):
       'google.com',
       'youtube.com',
       'excition.com',
+      'uwregents.wufoo.com',
       'www.uw.edu',
       'www.washington.edu',
       'www.google.com',
@@ -61,7 +62,7 @@ if ( ! function_exists( 'get_iframe_domains' )):
 endif;
 
 if ( ! function_exists('gravatar_exists') ) :
-  function gravatar_exists($email) 
+  function gravatar_exists($email)
   {
     $uri = 'http://www.gravatar.com/avatar/' . md5(strtolower(trim($email))) . '?d=404';
     $headers = @get_headers($uri);
@@ -70,7 +71,7 @@ if ( ! function_exists('gravatar_exists') ) :
 endif;
 
 if ( ! function_exists('uw_the_author_meta') ) :
-  function uw_the_author_meta($meta, $before = "", $after = "") 
+  function uw_the_author_meta($meta, $before = "", $after = "")
   {
     $data = get_the_author_meta($meta);
     echo !!$data ? $before . $data . $after : '';
@@ -90,9 +91,9 @@ if ( ! function_exists('uw_check_author') ) :
 
 endif;
 
-if ( ! function_exists( 'uw_title' ) ) : 
+if ( ! function_exists( 'uw_title' ) ) :
 
-  function uw_title() 
+  function uw_title()
   {
 
     /*

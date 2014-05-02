@@ -5,7 +5,7 @@
  */
 
 if ( ! function_exists('uw_feed_shortcode') ):
-  function uw_feed_shortcode( $atts ) 
+  function uw_feed_shortcode( $atts )
   {
     extract( shortcode_atts( array(
         'url'    => null,
@@ -22,11 +22,11 @@ if ( ! function_exists('uw_feed_shortcode') ):
 
     $feed = fetch_feed($url);
 
-    if (!is_wp_error( $feed ) ) 
-    { 
+    if (!is_wp_error( $feed ) )
+    {
       $url = $feed->get_permalink();
-      $feed_items = $feed->get_items(0, $number); 
-      $feed_items = $feed->get_items(0, $number); 
+      $feed_items = $feed->get_items(0, $number);
+      $feed_items = $feed->get_items(0, $number);
       $pullleft = $span === 4 ? 'pull-left' : '';
 
       $title = ($title == null ) ? $feed->get_title() : $title;
@@ -36,7 +36,7 @@ if ( ! function_exists('uw_feed_shortcode') ):
       $content .= "<div class=\"feed-in-body\"><a href=\"$url\" title=\"$title\"><$heading>$title</$heading></a></div>";
       $content .= "<ul>";
 
-      foreach ($feed_items as $index=>$item) 
+      foreach ($feed_items as $index=>$item)
       {
           $title = $item->get_title();
           $link  = $item->get_link();
@@ -59,7 +59,7 @@ add_shortcode( 'rss', 'uw_feed_shortcode' );
  */
 
 if ( ! function_exists('uw_archive_shortcode') ):
-  function uw_archive_shortcode( $atts ) 
+  function uw_archive_shortcode( $atts )
   {
     $params = shortcode_atts( array(
         'type'      => 'postbypost',
@@ -83,7 +83,7 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
 	function uw_blogroll_shortcode( $atts = array() ){
 
     //allow pagebuilder widgets to run the shortcode, block all other posts to prevent infinite loops
-    if ( (get_post_type() == 'post') && (!is_home()) ) {   
+    if ( (get_post_type() == 'post') && (!is_home()) ) {
           return '';
     }
 
@@ -112,14 +112,14 @@ if ( ! function_exists('uw_blogroll_shortcode') ):
                     $excerpt = strlen($post->post_excerpt) > 0 ? $post->post_excerpt : apply_filters('widget_text', $post->post_content);
                     if ( in_array($params['trim'], array('show', 'true') ) )
                         $excerpt = wp_trim_words($excerpt);
-                    
+
                     $excerpt = wpautop($excerpt); //using apply_filters('the_content', $excerpt) causes an infinite loop
                     if ( in_array($params['image'], array('show', 'true') ) ) {
                         $image = get_the_post_thumbnail($postID, 'thumbnail', array('style'=>'float:left;padding-right:10px;'));
                         $class = 'class="pull-left"';
                     }
                 }
-                $author = $params['author'] === 'show' ? '<p class="author-info">' . get_the_author_meta('display_name', $post->post_author) . '</p>' : ''; 
+                $author = $params['author'] === 'show' ? '<p class="author-info">' . get_the_author_meta('display_name', $post->post_author) . '</p>' : '';
                 $postDate = get_the_time(get_option('date_format'), $postID);
                 $html .= "<li $class>$image<span><p class=\"date\">{$postDate}</p><".$params['titletag']."><a href=\"$link\">{$post->post_title}</a></".$params['titletag'].">{$author}{$excerpt}</span></li>";
             }
@@ -135,7 +135,7 @@ add_shortcode( 'blogroll', 'uw_blogroll_shortcode' );
  * Youtube playlist shortcode
  */
 if ( ! function_exists( 'uw_youtube_playlist_shortcode' ) ) :
-  function uw_youtube_playlist_shortcode( $atts ) 
+  function uw_youtube_playlist_shortcode( $atts )
   {
 	wp_register_script('youtube-iframe', '//www.youtube.com/player_api');
 	wp_enqueue_script('youtube-iframe');
@@ -156,8 +156,8 @@ if ( ! function_exists( 'uw_youtube_playlist_shortcode' ) ) :
           </div>
       </div>
     ';
-    
-    return $content; 
+
+    return $content;
   }
 endif;
 add_shortcode('youtube', 'uw_youtube_playlist_shortcode');
@@ -166,8 +166,8 @@ add_shortcode('youtube', 'uw_youtube_playlist_shortcode');
  * Intro block shortcode
  */
 if ( ! function_exists( 'uw_intro_block_shortcode' ) ) :
-  function uw_intro_block_shortcode( $atts, $content ) 
-  {	  
+  function uw_intro_block_shortcode( $atts, $content )
+  {
     return '<p class="intro">' . $content . '</p>';
   }
 endif;
@@ -177,20 +177,20 @@ add_shortcode('intro', 'uw_intro_block_shortcode');
  * Blockquote shortcode
  */
 if ( ! function_exists( 'uw_blockquote_shortcode' ) ) :
-  function uw_blockquote_shortcode( $atts, $content ) 
-  {	  
+  function uw_blockquote_shortcode( $atts, $content )
+  {
 	  $params = shortcode_atts( array(
       'align'   => '',
     ), $atts );
 
     extract( $params );
-    
-    if ( empty($params[align]) ) 
+
+    if ( empty($params[align]) )
     {
 	    $align = "none";
     }
-     
-    return '<blockquote class="align-' . $align . '">' . $content . '</blockquote>';    
+
+    return '<blockquote class="align-' . $align . '">' . $content . '</blockquote>';
   }
 endif;
 add_shortcode('block', 'uw_blockquote_shortcode');
@@ -199,12 +199,12 @@ add_shortcode('block', 'uw_blockquote_shortcode');
  * Columns shortcode
  */
 if ( ! function_exists( 'uw_columns_shortcode' ) ) :
-  function uw_columns_shortcode( $atts, $content ) 
-  {	  
+  function uw_columns_shortcode( $atts, $content )
+  {
  	$params = shortcode_atts( array(
       'number'   => '',
     ), $atts );
-    
+
     return '<div class="columns-' . $params[number] .'">' . $content . '</div>';
   }
 endif;
@@ -216,11 +216,11 @@ add_shortcode('columns', 'uw_columns_shortcode');
 // turns an iframe into a shortcode
 add_filter( 'pre_kses', 'uw_google_calendar_embed_to_shortcode' );
 if ( ! function_exists('uw_google_calendar_embed_to_shortcode') ) :
-  function uw_google_calendar_embed_to_shortcode( $content ) 
+  function uw_google_calendar_embed_to_shortcode( $content )
   {
     if ( false === strpos( $content, '<iframe ' ) && false === strpos( $content, 'google.com/calendar' ) )
       return $content;
-    
+
 	  $content = preg_replace_callback( '#&lt;iframe\s[^&]*?(?:&(?!gt;)[^&]*?)*?src="https?://.*?\.google\.(.*?)/(.*?)\?(.+?)"[^&]*?(?:&(?!gt;)[^&]*?)*?&gt;\s*&lt;/iframe&gt;\s*(?:&lt;br\s*/?&gt;)?\s*#i', 'uw_google_calendar_embed_to_shortcode_callback', $content );
 
 	  $content = preg_replace_callback( '!\<iframe\s[^>]*?src="https?://.*?\.google\.(.*?)/(.*?)\?(.+?)"[^>]*?\>\s*\</iframe\>\s*!i', 'uw_google_calendar_embed_to_shortcode_callback', $content );
@@ -260,7 +260,7 @@ function uw_google_calendar_shortcode( $atts ) {
     ), $atts );
     extract($params);
 
-    if ( $dir == 'calendar/embed' ) 
+    if ( $dir == 'calendar/embed' )
 	    return '<div class="googleapps-'. $app .'"><iframe width="' . $width . '" height="' . $height . '" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/calendar/embed?' . $query . '"></iframe></div>';
 
     return '';
@@ -275,11 +275,11 @@ add_shortcode( 'googleapps', 'uw_google_calendar_shortcode' );
  */
 add_filter( 'pre_kses', 'uwtv_embed_to_shortcode' );
 if ( ! function_exists('uwtv_embed_to_shortcode') ) :
-  function uwtv_embed_to_shortcode( $content ) 
+  function uwtv_embed_to_shortcode( $content )
   {
     if ( false === strpos( $content, '<iframe ' ) && false === strpos( $content, 'uwtv.org/video/iframe' ) )
       return $content;
-    
+
 	  $content = preg_replace_callback( '#&lt;iframe\s[^&]*?(?:&(?!gt;)[^&]*?)*?src="http?://.*?\.uwtv\.(.*?)/(.*?)\?(.+?)"[^&]*?(?:&(?!gt;)[^&]*?)*?&gt;\s*&lt;/iframe&gt;\s*(?:&lt;br\s*/?&gt;)?\s*#i', 'uwtv_embed_to_shortcode_callback', $content );
 
 	  $content = preg_replace_callback( '!\<iframe\s[^>]*?src="http?://.*?\.uwtv\.(.*?)/(.*?)\?(.+?)"[^>]*?\>\s*\</iframe\>\s*!i', 'uwtv_embed_to_shortcode_callback', $content );
@@ -330,7 +330,7 @@ add_shortcode( 'uwtv', 'uwtv_shortcode' );
  */
 add_filter( 'pre_kses', 'tvw_embed_to_shortcode' );
 if ( ! function_exists('tvw_embed_to_shortcode') ) :
-  function tvw_embed_to_shortcode( $content ) 
+  function tvw_embed_to_shortcode( $content )
   {
     if ( false === strpos( $content, '<iframe ' ) && false === strpos( $content, 'tvw.org/scripts/iframe' ) )
       return $content;
@@ -349,10 +349,10 @@ function tvw_embed_to_shortcode_callback( $match ) {
   //parse_str(htmlspecialchars_decode($match[3]), $query);
 
 	$width = ( preg_match( '/\bwidth=[\'"](\d+)/', $match[0], $width ) ) ?
-    min( array( (int) $width[1] , 630 ) ) : 
+    min( array( (int) $width[1] , 630 ) ) :
     $width = 630;
 
-	$height = ( preg_match( '/\bheight=[\'"](\d+)/', $match[0], $height ) ) ? 
+	$height = ( preg_match( '/\bheight=[\'"](\d+)/', $match[0], $height ) ) ?
 		$height = (int) $height[1] : $height = 500;
 
   //  $video = $query['eventID'];
