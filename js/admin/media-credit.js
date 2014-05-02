@@ -1,5 +1,5 @@
 /**
- * Adds [mediacredit] shortcode to tinymce 
+ * Adds [mediacredit] shortcode to tinymce
  */
 
 (function() {
@@ -21,26 +21,26 @@
             });
 
             // delete mediacredit html when its corresponding image is deleted
-            tinymce.dom.Event.add( document, 'mousedown', function(e) { 
+            tinymce.dom.Event.add( document, 'mousedown', function(e) {
               var ed = tinymce.activeEditor, el = ed.selection.getNode(), parent;
-              
+
               if ( el.nodeName == 'DT' && ed.dom.getAttrib(el, 'class') === 'mediacredit-dt' ) {
-                el = this_.$(el).closest('dl.mediacredit').get(0) 
+                el = this_.$(el).closest('dl.mediacredit').get(0)
                 ed.dom.remove(el)
               }
-                
+
             });
 
-            ed.onInit.add(function(ed, evt) {
+            // ed.onInit.add(function(ed, evt) {
 
-              tinymce.dom.Event.add( ed.getDoc(), 'mousedown', function(e) { 
-                console.log(e.target, 'here')
-              });
-            
-            })
+            //   tinymce.dom.Event.add( ed.getDoc(), 'mousedown', function(e) {
+            //     console.log(e.target, 'here')
+            //   });
+
+            // })
 
         },
-            
+
         _do_shcode : function(co) {
           return wp.shortcode.replace( 'mediacredit', co, function(a) {
             return '<dl class="mediacredit '+a.attrs.named.align
@@ -50,7 +50,7 @@
                   + '" style="width:'+a.attrs.named.width+'px">'
                   + '<dt class="mediacredit-dt">' + a.content +'<dt>'
                   + '<dd class="wp-caption-dd">' + a.attrs.named.credit +'<dd>'
-                  + '</dl>'; 
+                  + '</dl>';
           })
         },
 
@@ -67,7 +67,7 @@
                 $content.find('.'+data.align).removeClass(data.align)
 
 
-                return wp.shortcode.string({ 
+                return wp.shortcode.string({
                   tag: 'mediacredit',
                   content: $content.find('dt').filter(':not(:empty)').html(),
                   attrs: {
@@ -76,7 +76,7 @@
                     //width: data.width,
                     align: data.align,
                     credit: data.credit
-                  } 
+                  }
                 })
             });
 
