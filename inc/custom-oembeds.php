@@ -18,3 +18,5 @@ class UW_OEmbed
   }
 
 }
+
+new UW_OEmbed;
