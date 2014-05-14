@@ -1,4 +1,4 @@
-<?php  
+<?php
 // Basic helper and template functions
 require( get_template_directory() . '/inc/helper-functions.php' );
 require( get_template_directory() . '/inc/template-functions.php' );
@@ -17,7 +17,7 @@ require( get_template_directory() . '/setup/users.php' );
 require( get_template_directory() . '/shivs/remove-http-cms.php' );
 require( get_template_directory() . '/shivs/plugin-hooks.php' );
 
-// Documentation widget for the admin dashboard 
+// Documentation widget for the admin dashboard
 require( get_template_directory() . '/inc/documentation.php' );
 
 // UW Theme Customizer
@@ -35,6 +35,9 @@ require( get_template_directory() . '/inc/tinymce.php' ); // [TODO] could be plu
 // All of the UW Widgets
 require( get_template_directory() . '/inc/custom-widgets.php' );
 
+// UW oEmbed providers
+require( get_template_directory() . '/inc/custom-oembeds.php' );
+
 require( get_template_directory() . '/inc/custom-gallery.php' );
 require( get_template_directory() . '/inc/custom-settings.php' ); // [TODO] rename/move?
 
@@ -42,7 +45,7 @@ require( get_template_directory() . '/inc/custom-settings.php' ); // [TODO] rena
 require( get_template_directory() . '/inc/custom-shortcodes.php' );
 
 // [TODO] check to see if this is still necessary
-//require( get_template_directory() . '/inc/custom-embeds.php' ); 
+//require( get_template_directory() . '/inc/custom-embeds.php' );
 
 // Main dropdown menu walker
 require( get_template_directory() . '/inc/dropdown-walker.php' );

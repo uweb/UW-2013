@@ -4817,11 +4817,20 @@ div.gallery {
   background-position: 0 0;
   left: -17px;
 }
+.sm-gal .slideshow-left,
+.sm-gal .slideshow-right,
+.sm-gal .gallery-table {
+  display: none;
+}
+.sm-gal.image-showing .slideshow-left,
+.sm-gal.image-showing .slideshow-right {
+  display: block;
+}
 .slideshow-right {
   right: -15px;
   background-position: -104px 0;
 }
-.slideshow-right :hover {
+.slideshow-right:hover {
   right: -17px;
   background-position: -154px 0;
 }
