@@ -31,13 +31,14 @@
 
             });
 
+            //TODO: figure out if we can remove this
             // ed.onInit.add(function(ed, evt) {
-
-              tinymce.dom.Event.bind( ed.getDoc(), 'mousedown', function(e) { 
-                console.log(e.target, 'here')
-              });
-            
-            })
+            //
+            //  tinymce.dom.Event.bind( ed.getDoc(), 'mousedown', function(e) { 
+            //    console.log(e.target, 'here')
+            //  });
+            //
+            //})
 
         },
 
