@@ -153,13 +153,26 @@ div.gallery {
 		left: -17px;
 	}
 }
+.sm-gal {
+	.slideshow-left,
+	.slideshow-right,
+	.gallery-table {
+		display: none;
+	}
+	&.image-showing {
+		.slideshow-left,
+		.slideshow-right {
+			display: block;
+		}
+	}
+}
 .slideshow-right { 
 	right: -15px; 
 	background-position: -104px 0;
-&	:hover { 
- 		right: -17px; 
- 		background-position: -154px 0;
-}	
+	&:hover { 
+	 		right: -17px; 
+	 		background-position: -154px 0;
+	}	
 }
 
 .image-showing .slideshow-left { left: -39px; 
