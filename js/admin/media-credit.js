@@ -21,7 +21,7 @@
             });
 
             // delete mediacredit html when its corresponding image is deleted
-            tinymce.dom.Event.add( document, 'mousedown', function(e) {
+            tinymce.dom.Event.bind( document, 'mousedown', function(e) { 
               var ed = tinymce.activeEditor, el = ed.selection.getNode(), parent;
 
               if ( el.nodeName == 'DT' && ed.dom.getAttrib(el, 'class') === 'mediacredit-dt' ) {
@@ -31,13 +31,14 @@
 
             });
 
+            //TODO: figure out if we can remove this
             // ed.onInit.add(function(ed, evt) {
-
-            //   tinymce.dom.Event.add( ed.getDoc(), 'mousedown', function(e) {
-            //     console.log(e.target, 'here')
-            //   });
-
-            // })
+            //
+            //  tinymce.dom.Event.bind( ed.getDoc(), 'mousedown', function(e) { 
+            //    console.log(e.target, 'here')
+            //  });
+            //
+            //})
 
         },
 
