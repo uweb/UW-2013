@@ -1,7 +1,7 @@
 // General
 
 	// Gold Border
-	
+
 .widgettitle,
 .widget-title {
 	.widgetTitle();
@@ -10,7 +10,7 @@
 
 
 	// Space out widgets
-	
+
 .widget {
 	margin-bottom: 40px;
 }
@@ -19,6 +19,7 @@
 // Widgets to pad on an individual basis (and also make the headline flush left)
 
 .widget_recent_entries,
+.uw-widget-top-posts,
 .widget_recent_comments,
 .widget_archive,
 .widget_categories,
@@ -27,7 +28,7 @@
 #sidebar .uw-rss-widget,
 #sidebar .widget_text,
 .pagelet_widget {
-	padding: 0 25px 10px;	
+	padding: 0 25px 10px;
 	.widgettitle {
 		margin-left: -25px;
 	}
@@ -51,7 +52,7 @@
 	}
 }
 	// Positions the select box
-	
+
 .tinynav {
 	width: 93%;
 	margin: 0 auto;
@@ -84,18 +85,18 @@
 		.widgetTitleBorder();
 		&:after {
 			display: none;
-		}		
+		}
 	}
 }
 
 // RSS widget
 
-#sidebar .uw-rss-widget {	
-	.rss-more {	
+#sidebar .uw-rss-widget {
+	.rss-more {
 		margin-left: 0;
-	}	
+	}
 }
-// Pic widget 
+// Pic widget
 
 .pic-text-widget {
 	text-align: center;
@@ -107,7 +108,7 @@
 	}
 }
 .pic-text-more {
-	padding-bottom: 0;	
+	padding-bottom: 0;
 	display: inline-block
 }
 
@@ -121,15 +122,15 @@
   width:100%;
 
   h3 {
-    color:@purple; 
+    color:@purple;
   }
 
   p {
-   color:@grayDark; 
+   color:@grayDark;
   }
 
   .canvas {
-    float:left; 
+    float:left;
   }
 
   .slide {
@@ -140,12 +141,12 @@
     img {
       float:left;
       padding: 20px;
-      width:30%; 
+      width:30%;
     }
 
     &.active-slide {
       img {
-        width:100%; 
+        width:100%;
         padding: 0 0 20px 0;
       }
     }
@@ -161,7 +162,7 @@
 }
 
 
-	// Colors 
+	// Colors
 .purple {
 	.slide-info {
 		background: @white;
@@ -189,7 +190,3 @@
 		background: desaturate(@gold, 20%);
 	}
 }
-
-
-
-
