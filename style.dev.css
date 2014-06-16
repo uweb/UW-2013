@@ -4017,6 +4017,7 @@ body.uw-alert {
 }
 .widget_recent_entries li,
 .uw-widget-top-posts li,
+.uw-widget-related-posts li,
 .recent-posts-widget li {
   margin-left: 0;
   background: none;
@@ -4030,16 +4031,19 @@ body.uw-alert {
 }
 .widget_recent_entries li:last-child,
 .uw-widget-top-posts li:last-child,
+.uw-widget-related-posts li:last-child,
 .recent-posts-widget li:last-child {
   border-bottom: none;
 }
 .widget_recent_entries p,
 .uw-widget-top-posts p,
+.uw-widget-related-posts p,
 .recent-posts-widget p {
   margin: 0;
 }
 .widget_recent_entries img,
 .uw-widget-top-posts img,
+.uw-widget-related-posts img,
 .recent-posts-widget img {
   float: left;
   margin: 5px 20px 15px 0px;
@@ -4047,6 +4051,7 @@ body.uw-alert {
 }
 .widget_recent_entries .more,
 .uw-widget-top-posts .more,
+.uw-widget-related-posts .more,
 .recent-posts-widget .more {
   padding: 0 8px 20px 25px;
   color: #39275b;
@@ -4060,6 +4065,7 @@ body.uw-alert {
 }
 .widget_recent_entries .more:before,
 .uw-widget-top-posts .more:before,
+.uw-widget-related-posts .more:before,
 .recent-posts-widget .more:before {
   content: " +";
   color: #FFF;
@@ -4074,12 +4080,14 @@ body.uw-alert {
 }
 .widget_recent_entries .more:hover,
 .uw-widget-top-posts .more:hover,
+.uw-widget-related-posts .more:hover,
 .recent-posts-widget .more:hover {
   color: #39275b;
   text-decoration: underline;
 }
 .widget_recent_entries span,
 .uw-widget-top-posts span,
+.uw-widget-related-posts span,
 .recent-posts-widget span {
   display: block;
   overflow: hidden;
@@ -7352,6 +7360,7 @@ ul.gallery-menu li.active {
   }
   .widget_recent_entries,
   .uw-widget-top-posts,
+  .widget_recent_entries,
   .widget_recent_comments,
   .widget_archive,
   .widget_categories,
@@ -7364,6 +7373,7 @@ ul.gallery-menu li.active {
   }
   .widget_recent_entries .widgettitle,
   .uw-widget-top-posts .widgettitle,
+  .widget_recent_entries .widgettitle,
   .widget_recent_comments .widgettitle,
   .widget_archive .widgettitle,
   .widget_categories .widgettitle,
