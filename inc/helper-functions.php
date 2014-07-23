@@ -49,6 +49,7 @@ if ( ! function_exists( 'get_iframe_domains' )):
       'uwtv.org',
       'www.uwtv.org',
       'google.com',
+      'docs.google.com',
       'youtube.com',
       'excition.com',
       'uwregents.wufoo.com',
