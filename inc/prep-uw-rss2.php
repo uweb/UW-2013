@@ -1,7 +1,7 @@
 <?php
-remove_all_actions('do_feed_rss2');
-add_action('do_feed_rss2', 'prep_uw_rss2', 10, 1);
-add_action('pre_rss2_enclosure', 'add_uw_feed_enclosure_image');
+// remove_all_actions('do_feed_rss2');
+// add_action('do_feed_rss2', 'prep_uw_rss2', 10, 1);
+// add_action('pre_rss2_enclosure', 'add_uw_feed_enclosure_image');
 
 function prep_uw_rss2( $for_comments ){
     $uw_rss_template = get_template_directory() . '/inc/uw-feed-rss2.php';
@@ -34,4 +34,38 @@ function add_uw_feed_enclosure_image() {
         <enclosure url="<?= $url ?>" type="<?= $mime ?>" size="<?= $size ?>" />
         <?php
     }
+}
+
+function feedFilter($query) {
+	if ( $query->is_feed ) {
+		add_filter( 'rss2_item', 'feedContentFilter' );
+	}
+	return $query;
+}
+add_filter('pre_get_posts','feedFilter');
+
+function feedContentFilter($item) {
+
+	global $post;
+
+	$args = array(
+		'order'          => 'ASC',
+		'post_type'      => 'attachment',
+		'post_parent'    => $post->ID,
+		'post_mime_type' => 'image',
+		'post_status'    => null,
+		'numberposts'    => 1,
+	);
+	$attachments = get_posts($args);
+	if ($attachments) {
+		foreach ($attachments as $attachment) {
+			$image = wp_get_attachment_image_src($attachment->ID, 'large');
+			$mime = get_post_mime_type($attachment->ID);
+		}
+	}
+
+	if ($image) {
+		echo '<enclosure url="'.$image[0].'" length="" type="'.$mime.'"/>';
+	}
+	return $item;
 }
