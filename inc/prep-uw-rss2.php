@@ -59,7 +59,7 @@ function feedContentFilter($item) {
 	$attachments = get_posts($args);
 	if ($attachments) {
 		foreach ($attachments as $attachment) {
-			$image = wp_get_attachment_image_src($attachment->ID, 'large');
+			$image = wp_get_attachment_image_src($attachment->ID, 'rss');
 			$mime = get_post_mime_type($attachment->ID);
 		}
 	}
