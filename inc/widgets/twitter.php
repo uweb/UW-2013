@@ -3,20 +3,20 @@
  *
  * Twitter widget
  *
- * Uses the Twitter 1.1 API requiring oAuth authentication just 
- * to read tweets. Because of the new Twitter request limit this 
+ * Uses the Twitter 1.1 API requiring oAuth authentication just
+ * to read tweets. Because of the new Twitter request limit this
  * widget caches a user's latest tweets for a minute.
  *
  */
 
-class UW_Widget_Twitter extends WP_Widget 
+class UW_Widget_Twitter extends WP_Widget
 {
 
   const URL             = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
   const AUTHOR_URL      = 'https://api.twitter.com/1.1/users/show.json';
   const REQUESTMETHOD   = 'GET';
   const GETFIELD        = '?include_entities=true&include_rts=true&screen_name=%s&count=%u';
-  const RETWEET_TEXT    = '<small>Retweeted by <a href="//twitter.com/%s"> @%s</a></small>'; 
+  const RETWEET_TEXT    = '<small>Retweeted by <a href="//twitter.com/%s"> @%s</a></small>';
 
   static $EXPIRES  = 60;
 
@@ -27,38 +27,38 @@ class UW_Widget_Twitter extends WP_Widget
       'consumer_secret' => "OFeAmUwNBe05w23uQPFIkVNQ1abwhZFuU4iktDckGWk"
   );
 
-  
-  function UW_Widget_Twitter() 
+
+  function UW_Widget_Twitter()
   {
 
 		parent::WP_Widget( $id = 'twitter-feed', $name = 'Twitter Feed', $options = array( 'description' => 'Display your latest tweets', 'classname' => 'twitter-feed-widget' ) );
 
 	}
 
-  function form($instance) 
+  function form($instance)
   {
     $title = isset($instance['title']) ? esc_attr($instance['title']) : 'Twitter Feed';
     $name  = isset($instance['name']) ? esc_attr($instance['name']) : 'twitter';
-    $count = isset($instance['count']) ? esc_attr($instance['count']) : 5; 
+    $count = isset($instance['count']) ? esc_attr($instance['count']) : 5;
 ?>
 		<p>
-		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 		</p>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Twitter screen name:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Twitter screen name:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'name' ); ?>" name="<?php echo $this->get_field_name( 'name' ); ?>" type="text" value="<?php echo esc_attr( $name ); ?>" />
 		</p>
 
 		<p>
-		<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of tweets to show:' ); ?></label> 
+		<label for="<?php echo $this->get_field_id( 'count' ); ?>"><?php _e( 'Number of tweets to show:' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'count' ); ?>" name="<?php echo $this->get_field_name( 'count' ); ?>" type="text" value="<?php echo esc_attr( $count ); ?>" />
 		</p>
 <?php
 	}
 
-  function update( $new_instance, $old_instance ) 
+  function update( $new_instance, $old_instance )
   {
 		$instance = array();
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -67,7 +67,7 @@ class UW_Widget_Twitter extends WP_Widget
 		return $instance;
 	}
 
-  function widget($args, $instance) 
+  function widget($args, $instance)
   {
 		extract( $args );
 
@@ -77,6 +77,8 @@ class UW_Widget_Twitter extends WP_Widget
     $count = $instance['count'];
 
     $tweets = $this->getLatestTweets( $name, $count );
+
+    if ( ! is_array( $tweets ) ) return;
 
 ?>
 
@@ -94,7 +96,7 @@ class UW_Widget_Twitter extends WP_Widget
               <img src="<?php echo $tweet->img; ?>" alt="<?php echo $tweet->author; ?>" />
             </a>
             <p>
-              <a href="//twitter.com/<?php echo $tweet->author; ?>"> 
+              <a href="//twitter.com/<?php echo $tweet->author; ?>">
                 <?php echo $tweet->author; ?> <small>@<?php echo $tweet->author; ?></small>
               </a>
               <?php echo $tweet->text; ?>
@@ -109,7 +111,7 @@ class UW_Widget_Twitter extends WP_Widget
       </div>
     <?php echo $after_widget;?>
 
-<?php  
+<?php
 	}
 
   private function getLatestTweets( $name = 'uw', $count = 5 )
@@ -128,25 +130,25 @@ class UW_Widget_Twitter extends WP_Widget
 
       $tweets = json_decode( $twitter->performRequest() );
 
-      foreach ($tweets as $index => $tweet) 
+      foreach ($tweets as $index => $tweet)
       {
         $hasAuthor = ( count($tweet->entities->user_mentions) > 0 );
         $retweet   = ( strpos( $tweet->text , 'RT' ) > 0 );
 
         $latest[$index]['author'] = $hasAuthor ? $tweet->entities->user_mentions[0]->screen_name :
-                                                 $tweet->user->screen_name; 
+                                                 $tweet->user->screen_name;
 
-        if ( $hasAuthor ) 
+        if ( $hasAuthor )
         {
 
-          $twitter->setGetfield( '?screen_name=' . $latest[$index]['author'] )           
+          $twitter->setGetfield( '?screen_name=' . $latest[$index]['author'] )
                   ->buildOauth( self::AUTHOR_URL, self::REQUESTMETHOD );
 
           $user = json_decode( $twitter->performRequest() );
 
         }
 
-        $latest[$index]['img']    = $hasAuthor ? $user->profile_image_url_https : 
+        $latest[$index]['img']    = $hasAuthor ? $user->profile_image_url_https :
                                                  $tweet->user->profile_image_url_https;
 
         $latest[$index]['text']   = $this->formatText( $tweet->text );
@@ -165,10 +167,10 @@ class UW_Widget_Twitter extends WP_Widget
 
   }
 
-  private function formatText( $text ) 
+  private function formatText( $text )
   {
-  
-    $text = preg_replace( '/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&~\?\/.=]+/', 
+
+    $text = preg_replace( '/[A-Za-z]+:\/\/[A-Za-z0-9-_]+\.[A-Za-z0-9-_:%&~\?\/.=]+/',
                           '<a href="\\0">\\0</a>', $text );
 
     $text = preg_replace_callback(  '/[#]+[A-Za-z0-9-_]+/',
@@ -181,12 +183,12 @@ class UW_Widget_Twitter extends WP_Widget
     return $text;
   }
 
-  private function encodeHashTag( $hashTag ) 
+  private function encodeHashTag( $hashTag )
   {
     return '<a href="//twitter.com/search?q=' . urlencode($hashTag[0]) . '"> ' . $hashTag[0] . ' </a>';
   }
 
-  private function normalizeScreenName( $screenname ) 
+  private function normalizeScreenName( $screenname )
   {
     return '<a href="//twitter.com/' . str_replace( '@', '', $screenname[0] ) . '">' . $screenname[0] . '</a>';
   }
