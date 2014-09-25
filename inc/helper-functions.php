@@ -55,6 +55,7 @@ if ( ! function_exists( 'get_iframe_domains' )):
       'uwregents.wufoo.com',
       'www.uw.edu',
       'www.washington.edu',
+      'depts.washington.edu',
       'www.google.com',
       'www.excition.com',
       'www.youtube.com'
