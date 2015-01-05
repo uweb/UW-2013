@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           "js/widgets/jquery.fullcalendar.gcal.js"
         ],
         custom: [
-          "js/globals.js", 
+          "js/globals.js",
           "js/alert.js",
           "js/weather.js",
           "js/thin-strip.js",
@@ -83,7 +83,7 @@ module.exports = function(grunt) {
 			files: {
 				'style.dev.css': 'less/style.less'
 			}
-		}	
+		}
 	},
     watch: {
       js: {
@@ -103,7 +103,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  
+
 
   grunt.registerTask('default', ['jshint', 'concat', 'uglify', 'notify', 'less']);
 

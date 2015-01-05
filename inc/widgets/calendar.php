@@ -3,20 +3,22 @@
  * UW Calendar
  */
 
-class UW_Calendar extends WP_Widget 
+if ( defined( 'UW_CALENDAR_API_KEY' ) ) :
+
+class UW_Calendar extends WP_Widget
 {
 
   const CALENDAR = "https://www.google.com/calendar/feeds/%s/public/basic";
 
-  function UW_Calendar() 
+  function UW_Calendar()
   {
-		parent::WP_Widget( 'uw-calendar', __('UW Calendar'), array( 
+		parent::WP_Widget( 'uw-calendar', __('UW Calendar'), array(
       'description' => __('Show a Google calendar on your site.'),
       'classname'   => 'widget-uw-calendar'
     ) );
 	}
 
-  function widget($args, $instance) 
+  function widget($args, $instance)
   {
     extract( $args );
 
@@ -25,10 +27,10 @@ class UW_Calendar extends WP_Widget
     echo $before_widget;
     ?>
           <div class="widget calendar-widget-wrapper">
-            <div class="calendar-widget" data-events="<?php echo $this->calendarUrl($instance['calendar']); ?>"> </div>
+            <div class="calendar-widget" data-events="<?php echo $this->calendarUrl($instance['calendar']); ?>" data-api-key="<?php echo UW_CALENDAR_API_KEY ?>">  </div>
               <div class="calendar-widget-event-pane">
                 <a href="#" class="calendar-widget-close"> Close </a>
-                <div class="calendar-events"></div> 
+                <div class="calendar-events"></div>
             </div>
           </div>
 
@@ -36,7 +38,7 @@ class UW_Calendar extends WP_Widget
     echo $after_widget;
 	}
 
-  function update($new_instance, $old_instance) 
+  function update($new_instance, $old_instance)
   {
 		$instance = array();
 		$instance['title'] = strip_tags( $new_instance['title'] );
@@ -44,7 +46,7 @@ class UW_Calendar extends WP_Widget
 		return $instance;
 	}
 
-  function form($instance) 
+  function form($instance)
   {
 
 		$title = isset($instance['title']) ? esc_attr($instance['title']) : '';
@@ -59,8 +61,10 @@ class UW_Calendar extends WP_Widget
 <?php
 	}
 
-  private function calendarUrl( $calendar ) 
+  private function calendarUrl( $calendar )
   {
-    return ( is_email($calendar) ) ?  sprintf( self::CALENDAR, $calendar ) : $calendar ; 
+    return ( is_email($calendar) ) ?  sprintf( self::CALENDAR, $calendar ) : $calendar ;
   }
 }
+
+endif;
